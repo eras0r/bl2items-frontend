@@ -4,7 +4,7 @@
  * Defines the basic app which contains several different modules.
  */
 
-angular.module('bl2ItemsApp', [
+angular.module('bl2ItemsFrontendApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
