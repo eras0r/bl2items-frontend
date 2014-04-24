@@ -1,0 +1,47 @@
+<h1>Damage types</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Damage types</div>
+    <div class="panel-body">
+        <p>Here you can manage the available damage types...</p>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>name</th>
+            <th>color</th>
+            <th>sort order</th>
+            <th>damage label</th>
+            <th>chance label</th>
+            <th>additional text</th>
+            <th class="col-xs-1">&nbsp;</th>
+            <th class="col-xs-1">&nbsp;</th>
+        </tr>
+        <tr data-ng-repeat="damageType in damageTypes" style="color: {{damageType.color}}">
+            <td>{{damageType.name}}</td>
+            <td>{{damageType.color}}</td>
+            <td>{{damageType.sortOrder}}</td>
+            <td>{{damageType.damageLabel}}</td>
+            <td>{{damageType.chanceLabel}}</td>
+            <td>{{damageType.additionalText}}</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-default btn-xs" data-ng-click="editDamageType(damageType)">
+                    <span class="glyphicon glyphicon-pencil" title="edit damage type"></span>
+                </button>
+            </td>
+            <td class="text-center">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="deleteDamageType(damageType)">
+                    <span class="glyphicon glyphicon-trash" title="delete damage type"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="panel-footer text-right">
+        <button type="button" class="btn btn-success" data-ng-click="createDamageType()" title="create new damage type">
+            <span class="glyphicon glyphicon-plus-sign"></span> create new damage type
+        </button>
+    </div>
+
+</div>
+

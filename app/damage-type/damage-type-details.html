@@ -1,0 +1,83 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading">Damage type</div>
+    <div class="panel-body">
+
+        <form class="form-horizontal" role="form">
+            <div class="form-group" data-ng-class="{'has-error': errors.name}">
+                <label for="name" class="col-sm-3 control-label">Name</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="name" class="form-control" data-ng-model="damageType.name"
+                           required="required"
+                           maxlength="255"/>
+                    <span class="help-inline" data-ng-show="errors['name']">{{errors['name']}}</span>
+                </div>
+            </div>
+
+            <div class="form-group" data-ng-class="{'has-error': errors.color}">
+                <label for="color" class="col-sm-3 control-label">Color</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="color" class="form-control" data-ng-model="damageType.color"
+                           required="required"
+                           maxlength="7"/>
+
+                    <span data-ng-show="errors['color']">{{errors['color']}}</span>
+                </div>
+            </div>
+
+            <div class="form-group" data-ng-class="{'has-error': errors.sortOrder}">
+                <label for="sortOrder" class="col-sm-3 control-label">Order</label>
+
+                <div class="col-sm-9">
+                    <input type="number" id="sortOrder" class="form-control" data-ng-model="damageType.sortOrder"
+                           required="required" min="1"/>
+                    <span class="help-inline" data-ng-show="errors['sortOrder']">{{errors['sortOrder']}}</span>
+                </div>
+            </div>
+
+            <div class="form-group" data-ng-class="{'has-error': errors.damageLabel}">
+                <label for="damageLabel" class="col-sm-3 control-label">damage label</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="damageLabel" class="form-control" data-ng-model="damageType.damageLabel"
+                           maxlength="255"/>
+                    <span class="help-inline" data-ng-show="errors['damageLabel']">{{errors['damageLabel']}}</span>
+                </div>
+            </div>
+
+            <div class="form-group" data-ng-class="{'has-error': errors.chanceLabel}">
+                <label for="chanceLabel" class="col-sm-3 control-label">chance label</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="chanceLabel" class="form-control" data-ng-model="damageType.chanceLabel"
+                           maxlength="255"/>
+                    <span class="help-inline" data-ng-show="errors['chanceLabel']">{{errors['chanceLabel']}}</span>
+                </div>
+            </div>
+
+            <div class="form-group" data-ng-class="{'has-error': errors.additionalText}">
+                <label for="additionalText" class="col-sm-3 control-label">additionalText</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="additionalText" class="form-control"
+                           data-ng-model="damageType.additionalText"
+                           maxlength="255"/>
+                    <span class="help-inline"
+                          data-ng-show="errors['additionalText']">{{errors['additionalText']}}</span>
+                </div>
+            </div>
+
+            <div class="form-group text-right">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="button" class="btn btn-primary" data-ng-click="save()">save</button>
+
+                    <button type="button" class="btn btn-default" data-ng-click="cancel()">cancel</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+/**********************************************************************************************************
+ * variable definitions                                                                                   *
+/**********************************************************************************************************/
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+/* overwrite container width for large screens */
+$grid-gutter-width: 30px;
+$container-large-desktop: ((1540px + $grid-gutter-width));
+
+/* elemental damage color definitions */
+$corrosiveColor: #09F108;
+$electroColor: #1F4FBD;
+$explosiveColor: #DCC824;
+$fireColor: #E57B0E;
+$slagColor: #7014AF;
+
+/* create text highlight classes */
+$uniqueTextColor: #C9433B;
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+
+/* Space out content a bit */
+body {
+  padding-top: 150px;
+  padding-bottom: 20px;
+}
+
+.itemcontainer .form-group {
+  padding: 10px;
+  //background-color: #336600;
+}
+
+/* elemental damage colors */
+.elem-corrosive {
+  color: $corrosiveColor;
+}
+
+.elem-electro {
+  color: $electroColor;
+}
+
+.elem-explosive {
+  color: $explosiveColor;
+}
+
+.elem-fire {
+  color: $fireColor;
+}
+
+.elem-slag {
+  color: $slagColor;
+}
+
+.unique-text {
+  color: $uniqueTextColor;
+}

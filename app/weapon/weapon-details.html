@@ -1,0 +1,159 @@
+<form class="form-horizontal" role="form">
+    <!--<div class="jumbotron1">-->
+    <div class="itemcontainer">
+
+        <div class="statscontainer">
+
+            <div style="color: {{rarity.color}}">
+                {{name}}
+            </div>
+
+            <div class="form-group">
+                <label for="level" class="col-sm-9 control-label">LEVEL REQUIREMENT</label>
+
+                <div class="col-sm-3">
+                    <input type="number" id="level" ng-model="level" class="form-control" min="1" max="72">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="rarity2" class="col-sm-3 control-label">Rarity</label>
+
+            <div class="col-sm-9">
+                <select id="rarity2" ng-model="rarity" ng-options="r.name for r in rarities"
+                        class="form-control">
+                </select>
+            </div>
+
+        </div>
+
+        <!--<select id="rarity" ng-model="rarity" class="form-control">-->
+        <!--<option ng-selected="{{r.id == rarity.id}}" ng-repeat="r in rarities" value="{{r}}"-->
+        <!--style="color: {{r.color}};">-->
+        <!--{{r.name}}-->
+        <!--</option>-->
+        <!--</select>-->
+
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+
+            <div class="col-sm-9">
+                <input type="text" id="name" ng-model="name" placeholder="Practicable Butcher"
+                       class="form-control item-name">
+            </div>
+        </div>
+
+        <div class="statscontainer">
+
+            <div class="form-group">
+                <label for="damage" class="col-sm-3 control-label">Damage</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="damage" ng-model="damage" placeholder="5463 x3" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="accuracy" class="col-sm-3 control-label">Accuracy</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="accuracy" ng-model="accuracy" placeholder="61.9" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fireRate" class="col-sm-3 control-label">Fire Rate</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="fireRate" ng-model="fireRate" placeholder="7.0" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="reloadSpeed" class="col-sm-3 control-label">Reload Speed</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="reloadSpeed" ng-model="reloadSpeed" placeholder="3.7" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="magazineSize" class="col-sm-3 control-label">Magazine Size</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="magazineSize" ng-model="magazineSize" placeholder="13" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="damageType" class="col-sm-3 control-label">Elemental Damage Type</label>
+
+                <div class="col-sm-9">
+                    <select id="damageType" ng-model="damageType"
+                            ng-options="dmg.name for dmg in damageTypes"
+                            class="form-control" ng-change="changeDamageType()">
+                        <option>-none-</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-hide="damageType.damageLabel == null">
+                <label for="elemDamage" class="col-sm-3 control-label">{{damageType.damageLabel}}</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="elemDamage" ng-model="elemDamage" placeholder="3605.9" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group" ng-hide="damageType.chanceLabel == null">
+                <label for="elemChance" class="col-sm-3 control-label">{{damageType.chanceLabel}}</label>
+
+                <div class="col-sm-9">
+                    <input type="text" id="elemChance" ng-model="elemChance" placeholder="12.0%" class="form-control">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="uniqueText" class="col-sm-3 control-label">Unique text</label>
+
+            <div class="col-sm-9">
+                <input type="text" id="uniqueText" ng-model="uniqueText" placeholder="" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="additionalText" class="col-sm-3 control-label">Additional text</label>
+
+            <div class="col-sm-9">
+                <textarea id="additionalText" ng-model="additionalText" placeholder="" class="form-control" rows="5">
+                </textarea>
+            </div>
+        </div>
+
+        <!-- render text output -->
+
+        <div>
+            <ul>
+                <li class="unique-text" ng-show="uniqueText">{{uniqueText}}</li>
+                <li ng-bind-html="elementalText" ng-show="elementalText" style="color: {{damageType.color}}"></li>
+                <li ng-bind-html="additionalText | highlightText" ng-show="additionalText"></li>
+            </ul>
+
+        </div>
+
+        <div class="form-group">
+            <label for="manufacturer" class="col-sm-3 control-label">Manufacturer</label>
+
+            <div class="col-sm-9">
+                <select id="manufacturer" ng-model="manufacturer" ng-options="man.name for man in manufacturers"
+                        class="form-control">
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+</form>
