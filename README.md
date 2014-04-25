@@ -14,10 +14,11 @@ The app is based on the yeoman [angular-generator] (https://github.com/yeoman/ge
 
 ## Setup
 
-Clone the repository:
+clone the repository:
 ```
 git clone https://github.com/eras0r/bl2items-frontend
 ```
+navigate the the directory where your clone is located
 Install npm depenencies
 ```
 npm install
