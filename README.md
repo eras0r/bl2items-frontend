@@ -14,7 +14,7 @@ The app is based on the yeoman [angular-generator] (https://github.com/yeoman/ge
 
 ## Setup
 
-Clone the code:
+Clone the repository:
 ```
 git clone https://github.com/eras0r/bl2items-frontend
 ```
