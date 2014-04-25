@@ -18,8 +18,7 @@ clone the repository:
 ```
 git clone https://github.com/eras0r/bl2items-frontend
 ```
-navigate the the directory where your clone is located
-Install npm depenencies
+navigate the the directory where your clone is located and install npm depenencies
 ```
 npm install
 ```
