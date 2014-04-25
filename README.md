@@ -1,5 +1,4 @@
-Borderlands 2 item database frontend
-====================================
+# Borderlands 2 item database frontend
 
 This is the frontend web application for the REST API defined by the [borderlands item database backend] (https://github.com/eras0r/bl2items-backend).
 
