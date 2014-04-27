@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('weaponModule').controller('WeaponCreateCtrl', [
-    '$scope', '$q', 'RarityService', 'ManufacturerService', 'DamageTypeService',
-    function ($scope, $q, RarityService, ManufacturerService, DamageTypeService) {
+    '$scope', '$q', 'RarityService', 'ManufacturerService', 'DamageTypeService', 'WeaponService',
+    function ($scope, $q, RarityService, ManufacturerService, DamageTypeService, WeaponService) {
 
         // call services
         $scope.rarities = RarityService.query();
@@ -16,34 +16,46 @@ angular.module('weaponModule').controller('WeaponCreateCtrl', [
             $scope.damageTypes.$promise
         ]).
             then(function () {
-                // TODO introduce weapon object
-                $scope.level = 50;
-                $scope.rarity = $scope.rarities[0];
-                // preselect the first manufacturer
-                $scope.manufacturer = $scope.manufacturers[0];
-                $scope.damage = null;
-                $scope.acuracy = null;
-                $scope.fireRate = null;
-                $scope.reloadSpeed = null;
-                $scope.magazineSize = null;
-                // preselect the first damage type
-                $scope.damageType = $scope.damageTypes[0];
-                $scope.uniqueText = null;
-                $scope.elementalText = null;
-                $scope.additionalText = null;
+                $scope.weapon = {
+                    level: 50,
+                    rarity: $scope.rarities[0],
+                    manufacturer: $scope.manufacturers[0],
+                    damage: null,
+                    accuracy: null,
+                    fireRate: null,
+                    reloadSpeed: null,
+                    magazineSize: null,
+                    damageType: $scope.damageTypes[0],
+                    uniqueText: null,
+                    elementalText: null,
+                    additionalText: null
+                }
             });
 
         $scope.changeDamageType = function () {
-            $scope.elementalText = $scope.damageType.additionalText;
+            $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
 
             // reset no more relevant inputs
-            if ($scope.damageType.damageLabel == null) {
-                $scope.elemDamage = null;
+            if ($scope.weapon.damageType.damageLabel == null) {
+                $scope.weapon.elemDamage = null;
             }
-            if ($scope.damageType.chanceLabel == null) {
-                $scope.elemChance = null;
+            if ($scope.weapon.damageType.chanceLabel == null) {
+                $scope.weapon.elemChance = null;
             }
 
         };
+
+        $scope.save = function () {
+            console.log('todo save()');
+            WeaponService.save(
+                $scope.weapon,
+                function () {
+                    $location.path('/weapons');
+                },
+                function (response) {
+                    $scope.errors = response.data;
+                }
+            );
+        }
 
     }]);
