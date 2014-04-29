@@ -4,8 +4,8 @@
 
         <div class="statscontainer">
 
-            <div style="color: {{rarity.color}}">
-                {{name}}
+            <div style="color: {{weapon.rarity.color}}">
+                {{weapon.name}}
             </div>
 
             <div class="form-group" data-ng-class="{'has-error': errors.level}">
@@ -104,7 +104,7 @@
 
             <div class="form-group" ng-hide="weapon.damageType.damageLabel == null"
                  data-ng-class="{'has-error': errors.elemDamage}">
-                <label for="elemDamage" class="col-sm-3 control-label">{{damageType.damageLabel}}</label>
+                <label for="elemDamage" class="col-sm-3 control-label">{{weapon.damageType.damageLabel}}</label>
 
                 <div class="col-sm-9">
                     <input type="text" id="elemDamage" ng-model="weapon.elemDamage" placeholder="3605.9"
@@ -115,7 +115,7 @@
 
             <div class="form-group" ng-hide="weapon.damageType.chanceLabel == null"
                  data-ng-class="{'has-error': errors.elemChance}">
-                <label for="elemChance" class="col-sm-3 control-label">{{damageType.chanceLabel}}</label>
+                <label for="elemChance" class="col-sm-3 control-label">{{weapon.damageType.chanceLabel}}</label>
 
                 <div class="col-sm-9">
                     <input type="text" id="elemChance" ng-model="weapon.elemChance" placeholder="12.0%"
