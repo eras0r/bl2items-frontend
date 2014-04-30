@@ -1,11 +1,12 @@
 <h1>Items</h1>
 
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" data-ng-repeat="weapon in weapons">
+    color: {{weapon.rarity.color}}
     <article class=" weapon-card">
         <section class="level">
             <h3>LEVEL REQUIREMENT: {{weapon.level}}</h3>
         </section>
-        <section style="color: {{weapon.rarity.color}}">
+        <section color="{{weapon.rarity.color}}">
             <h4>{{weapon.name}}</h4>
         </section>
         <!-- weapon stats -->

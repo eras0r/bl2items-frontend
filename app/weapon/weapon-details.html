@@ -4,7 +4,7 @@
 
         <div class="statscontainer">
 
-            <div style="color: {{weapon.rarity.color}}">
+            <div color="{{weapon.rarity.color}}">
                 {{weapon.name}}
             </div>
 
@@ -152,7 +152,8 @@
             <ul>
                 <li class="unique-text" ng-show="weapon.uniqueText">{{weapon.uniqueText}}</li>
                 <li ng-bind-html="weapon.elementalText" ng-show="weapon.elementalText"
-                    style="color: {{weapon.damageType.color}}"></li>
+                    color="{{weapon.damageType.color}}">
+                </li>
                 <li ng-bind-html="weapon.additionalText | highlightText" ng-show="weapon.additionalText"></li>
             </ul>
 

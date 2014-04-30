@@ -7,8 +7,10 @@ angular.module('highlightTextModule')
             scope: {
                 color: '@'
             },
-            link: function (scope, elem, attrs) {
-                elem.css({"color": scope.color});
+            link: function (scope, elem) {
+                scope.$watch('color', function (color) {
+                    elem.css({"color": color});
+                }, true);
             }
         }
     });
