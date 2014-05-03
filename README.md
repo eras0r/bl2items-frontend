@@ -1,4 +1,4 @@
-# Borderlands 2 item database frontend [![Build Status](https://api.travis-ci.org/eras0r/bl2items-frontend.svg)](https://travis-ci.org/eras0r/bl2items-frontend)
+# Borderlands 2 item database frontend [![Build Status](https://travis-ci.org/eras0r/bl2items-frontend.svg?branch=master)](https://travis-ci.org/eras0r/bl2items-frontend)
 
 This is the frontend web application for the REST API defined by the [borderlands item database backend] (https://github.com/eras0r/bl2items-backend).
 
@@ -6,6 +6,7 @@ The app is based on the yeoman [angular-generator] (https://github.com/yeoman/ge
 
 * [angularJS] (https://angularjs.org/)
 * [boostrap] (http://getbootstrap.com/)
+* [RequireJS] (http://requirejs.org/)
 
 ## Prerequisites
 
