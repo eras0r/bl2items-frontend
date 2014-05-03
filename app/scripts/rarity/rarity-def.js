@@ -23,7 +23,8 @@ define(['angular', 'angular-route', 'angular-resource'], function (angular) {
                     templateUrl: '/scripts/rarity/rarity-details.html',
                     controller: 'RarityEditCtrl'
                 })
-        });
+        })
+        .constant('RARITY_RESOURCE_URL', 'http://localhost/bl2items-backend/rarities/:id');
 
     return rarityModule;
 

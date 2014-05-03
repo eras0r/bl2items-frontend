@@ -2,11 +2,10 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
 
     'use strict';
 
-    damageTypeModule.factory('DamageTypeService', [
+    damageTypeModule.factory('DamageTypeService', ['DAMAGE_TYPE_RESOURCE_URL',
         '$resource',
-        function ($resource) {
-            // TODO store domain prefix in global config
-            return $resource('http://localhost/bl2items-backend/damageTypes/:id',
+        function (DAMAGE_TYPE_RESOURCE_URL, $resource) {
+            return $resource(DAMAGE_TYPE_RESOURCE_URL,
                 { id: '@id' },
                 {
                     list: { method: 'GET', isArray: true }, //same as query

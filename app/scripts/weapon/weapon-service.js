@@ -2,11 +2,10 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
 
     'use strict';
 
-    weaponModule.factory('WeaponService', [
+    weaponModule.factory('WeaponService', ['WEAPON_RESOURCE_URL',
         '$resource',
-        function ($resource) {
-            // TODO store domain prefix in global config
-            return $resource('http://localhost/bl2items-backend/weapons/:id',
+        function (WEAPON_RESOURCE_URL, $resource) {
+            return $resource(WEAPON_RESOURCE_URL,
                 { id: '@id' },
                 {
                     list: { method: 'GET', isArray: true }, //same as query

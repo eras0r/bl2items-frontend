@@ -26,7 +26,8 @@ define(['angular', 'angular-route', 'angular-resource'], function (angular) {
                     templateUrl: '/scripts/damage-type/damage-type-details.html',
                     controller: 'DamageTypeEditCtrl'
                 })
-        });
+        })
+        .constant('DAMAGE_TYPE_RESOURCE_URL', 'http://localhost/bl2items-backend/damageTypes/:id');
 
     return damageTypeModule;
 

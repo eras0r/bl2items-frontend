@@ -2,11 +2,10 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
 
     'use strict';
 
-    manufacturerModule.factory('ManufacturerService', [
+    manufacturerModule.factory('ManufacturerService', ['MANUFACTURER_RESOURCE_URL',
         '$resource',
-        function ($resource) {
-            // TODO store domain prefix in global config
-            return $resource('http://localhost/bl2items-backend/manufacturers/:id',
+        function (MANUFACTURER_RESOURCE_URL, $resource) {
+            return $resource(MANUFACTURER_RESOURCE_URL,
                 { id: '@id' },
                 {
                     list: { method: 'GET', isArray: true }, //same as query

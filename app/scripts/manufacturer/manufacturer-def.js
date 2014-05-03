@@ -23,7 +23,8 @@ define(['angular', 'angular-route', 'angular-resource'], function (angular) {
                     templateUrl: '/scripts/manufacturer/manufacturer-details.html',
                     controller: 'ManufacturerEditCtrl'
                 })
-        });
+        })
+        .constant('MANUFACTURER_RESOURCE_URL', 'http://localhost/bl2items-backend/manufacturers/:id');
 
     return manufacturerModule;
 

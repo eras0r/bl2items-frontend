@@ -20,7 +20,8 @@ define(['angular', 'angular-route', 'angular-resource'], function (angular) {
                     templateUrl: '/scripts/weapon/weapon-details.html',
                     controller: 'WeaponCreateCtrl'
                 })
-        });
+        })
+        .constant('WEAPON_RESOURCE_URL', 'http://localhost/bl2items-backend/weapons/:id');
 
     return weaponModule;
 

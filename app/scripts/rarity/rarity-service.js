@@ -2,11 +2,10 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
 
     'use strict';
 
-    rarityModule.factory('RarityService', [
+    rarityModule.factory('RarityService', ['RARITY_RESOURCE_URL',
         '$resource',
-        function ($resource) {
-            // TODO store domain prefix in global config
-            return $resource('http://localhost/bl2items-backend/rarities/:id',
+        function (RARITY_RESOURCE_URL, $resource) {
+            return $resource(RARITY_RESOURCE_URL,
                 { id: '@id' },
                 {
                     list: { method: 'GET', isArray: true }, //same as query
