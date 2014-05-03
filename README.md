@@ -1,4 +1,4 @@
-# Borderlands 2 item database frontend
+# Borderlands 2 item database frontend [![Build Status](https://api.travis-ci.org/eras0r/bl2items-frontend.svg)](https://travis-ci.org/eras0r/bl2items-frontend)
 
 This is the frontend web application for the REST API defined by the [borderlands item database backend] (https://github.com/eras0r/bl2items-backend).
 
