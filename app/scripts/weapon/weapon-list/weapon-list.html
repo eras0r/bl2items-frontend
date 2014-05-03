@@ -1,44 +1,43 @@
 <h1>Items</h1>
 
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" data-ng-repeat="weapon in weapons">
-    color: {{weapon.rarity.color}}
-    <article class=" weapon-card">
+    <article class="weapon-card">
         <section class="level">
-            <h3>LEVEL REQUIREMENT: {{weapon.level}}</h3>
+            <h4>LEVEL REQUIREMENT: {{weapon.level}}</h4>
         </section>
         <section color="{{weapon.rarity.color}}">
-            <h4>{{weapon.name}}</h4>
+            <h3>{{weapon.name}}</h3>
         </section>
         <!-- weapon stats -->
-        <section class="container-fluid weapon-stats">
+        <section class="weapon-stats">
             <p>
-                <span class="col-sm-7">Damage</span>
-                <span class="col-sm-5">{{weapon.damage}}</span>
+                <span class="stat-name">Damage</span>
+                <span class="stat-value">{{weapon.damage}}</span>
             </p>
             <p>
-                <span class="col-sm-7">Accuracy</span>
-                <span class="col-sm-5">{{weapon.accuracy}}</span>
+                <span class="stat-name">Accuracy</span>
+                <span class="stat-value">{{weapon.accuracy}}</span>
             </p>
             <p>
-                <span class="col-sm-7">Fire Rate</span>
-                <span class="col-sm-5">{{weapon.fireRate}}</span>
+                <span class="stat-name">Fire Rate</span>
+                <span class="stat-value">{{weapon.fireRate}}</span>
             </p>
             <p>
-                <span class="col-sm-7">Reload Speed</span>
-                <span class="col-sm-5">{{weapon.reloadSpeed}}</span>
+                <span class="stat-name">Reload Speed</span>
+                <span class="stat-value">{{weapon.reloadSpeed}}</span>
             </p>
             <p>
-                <span class="col-sm-7">Magazine Size</span>
-                <span class="col-sm-5">{{weapon.magazineSize}}</span>
+                <span class="stat-name">Magazine Size</span>
+                <span class="stat-value">{{weapon.magazineSize}}</span>
             </p>
         </section>
-        <section class="container-fluid">
-            <p>{{weapon.uniqueText}}</p>
+        <section>
+            <p class="unique-text">{{weapon.uniqueText}}</p>
 
-            <p>{{weapon.additionalText}}</p>
+            <p class="additional-text">{{weapon.additionalText}}</p>
         </section>
-        <section class="container-fluid">
-            <p>
+        <section>
+            <p class="row">
                 <span class="col-sm-4" color="{{weapon.rarity.color}}">
                     {{weapon.manufacturer.name}}
                 </span>

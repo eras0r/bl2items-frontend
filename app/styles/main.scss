@@ -16,6 +16,7 @@ $slagColor: #7014AF;
 
 /* create text highlight classes */
 $uniqueTextColor: #C9433B;
+$additionalTextColor: #e0DFDF;
 
 /* overwrite boostrap variables */
 /* overwrite container width for large screens */
@@ -69,12 +70,22 @@ body {
   color: $uniqueTextColor;
 }
 
-/* specific classes */
+.additional-text {
+  color: $additionalTextColor;
+}
+
+/* view specific classes */
+
+/* weapon list view */
 .weapon-card {
   border: 1px solid #000000;
   margin-top: 15px;
   margin-bottom: 15px;
   background-color: #2b2c51;
+
+  section {
+    padding: 5px;
+  }
 
   // .level must be directly inside .weapon-card
   //& > .level {
@@ -89,6 +100,19 @@ body {
     background-color: #395a7d;
     color: #83ced0;
     font-weight: bold;
+
+    p {
+      @extend .row;
+    }
+
+    .stat-name {
+      @extend .col-sm-7;
+    }
+
+    .stat-value {
+      @extend .col-sm-5;
+      @extend .text-right;
+    }
   }
 
 }
