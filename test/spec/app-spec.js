@@ -1,9 +1,9 @@
 
-define(['angular', 'angular-mocks', 'rarity/index'], function (angular, mocks, rarityModule) {
+define(['angular', 'angular-mocks', 'app'], function (angular, mocks, app) {
 
     'use strict';
 
-    describe('Controller: RarityListCtrl', function () {
+    describe('App: bl2ItemsDbApp', function () {
         var RarityListCtrl;
         var $scope;
 
