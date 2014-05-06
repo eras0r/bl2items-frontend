@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'components/navigation/index'], function (angular, mocks, navigationModule) {
+define(['angular', 'angular-mocks', 'components/navigation/index'], function (angular, mocks) {
 
     'use strict';
 
@@ -17,8 +17,8 @@ define(['angular', 'angular-mocks', 'components/navigation/index'], function (an
             });
         }));
 
-        it('should have "home" set as activeView', function () {
-            expect($scope.activeView).toBe('home');
+        it('should have "items" set as activeView', function () {
+            expect($scope.activeView).toBe('items');
         });
     });
 

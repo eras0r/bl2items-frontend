@@ -6,7 +6,7 @@ define([
     'item/item-def',
     'item/item-service',
     'item/item-list/item-list-controller'
-], function (angular) {
+], function (angular, itemModule) {
 
     'use strict';
 

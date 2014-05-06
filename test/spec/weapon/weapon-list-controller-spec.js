@@ -6,7 +6,7 @@ define(['angular', 'angular-mocks', 'weapon/index'], function (angular, mocks, w
         var WeaponListCtrl;
         var $scope;
 
-// load the module
+        // load the module
         beforeEach(module('weaponModule'));
 
 

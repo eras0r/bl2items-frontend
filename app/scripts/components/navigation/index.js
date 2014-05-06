@@ -6,7 +6,7 @@ define([
     'sass-bootstrap',
     'components/navigation/navigation-def',
     'components/navigation/navigation-controller'
-], function (angular, navigationModule, navigationController) {
+], function (angular, boostrap, navigationModule) {
 
     'use strict';
 

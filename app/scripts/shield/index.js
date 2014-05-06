@@ -7,7 +7,7 @@ define([
     'shield/shield-service',
 //    'shield/weapon-create/weapon-create-controller',
     'shield/shield-list/shield-list-controller'
-], function (angular) {
+], function (angular, shieldModule) {
 
     'use strict';
 

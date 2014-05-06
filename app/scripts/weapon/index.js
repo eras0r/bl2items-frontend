@@ -7,7 +7,7 @@ define([
     'weapon/weapon-service',
     'weapon/weapon-create/weapon-create-controller',
     'weapon/weapon-list/weapon-list-controller'
-], function (angular, navigationModule) {
+], function (angular, weaponModule) {
 
     'use strict';
 
