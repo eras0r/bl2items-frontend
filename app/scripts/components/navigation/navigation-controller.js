@@ -4,12 +4,21 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
 
     navigationModule
         .controller('NavCtrl', ['$scope', '$location', function ($scope, $location) {
-            $scope.activeView = 'home';
+            $scope.activeView = 'items';
 
-            $scope.showHome = function () {
-                $scope.activeView = 'home';
+            $scope.showItems = function () {
+                $scope.activeView = 'items';
+                $location.path('/items');
+            };
 
-                $location.path('/home');
+            $scope.showWeapons = function () {
+                $scope.activeView = 'weapons';
+                $location.path('/weapons');
+            };
+
+            $scope.showShields = function () {
+                $scope.activeView = 'shields';
+                $location.path('/shields');
             };
 
             $scope.showBrands = function () {

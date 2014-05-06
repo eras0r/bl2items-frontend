@@ -2,10 +2,12 @@ define([
     'angular',
     'components/navigation/index',
     'components/highlight-text/index',
+    'item/index',
+    'weapon/index',
+    'shield/index',
     'damage-type/index',
     'manufacturer/index',
-    'rarity/index',
-    'weapon/index'
+    'rarity/index'
 ], function (angular) {
 
     'use strict';
@@ -21,11 +23,12 @@ define([
         'navigationModule',
         'highlightTextModule',
         /* business specific modules*/
+        'itemModule',
+        'weaponModule',
+        'shieldModule',
         'damageTypeModule',
         'manufacturerModule',
-        'rarityModule',
-        'weaponModule'
-        /*angJSDeps*/
+        'rarityModule'
     ])
         .config(['$locationProvider', '$routeProvider',
             function ($locationProvider, $routeProvider) {
@@ -33,7 +36,7 @@ define([
 
                 $routeProvider.
                     otherwise({
-                        redirectTo: '/weapons'
+                        redirectTo: '/items'
                     });
             }]);
 });
