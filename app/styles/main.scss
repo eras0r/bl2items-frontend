@@ -76,8 +76,8 @@ body {
 
 /* view specific classes */
 
-/* weapon list view */
-.weapon-card {
+/* display item */
+.item-card {
   border: 1px solid #000000;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -87,8 +87,6 @@ body {
     padding: 5px;
   }
 
-  // .level must be directly inside .weapon-card
-  //& > .level {
   .level {
     background-color: #33627C;
     color: #a0aeb9;
@@ -96,7 +94,7 @@ body {
     @extend .text-center;
   }
 
-  .weapon-stats {
+  .item-stats {
     background-color: #395a7d;
     color: #83ced0;
     font-weight: bold;

@@ -13,7 +13,7 @@ define(['angular', 'angular-route', 'angular-resource'], function (angular) {
         .config(function ($routeProvider) {
             $routeProvider.
                 when('/weapons', {
-                    templateUrl: '/scripts/weapon/weapon-list/weapon-list.html',
+                    templateUrl: '/scripts/item/item-list/item-list.html',
                     controller: 'WeaponListCtrl'
                 })
                 .when('/weapons/create', {

@@ -9,7 +9,6 @@ define(['angular', 'angular-mocks', 'weapon/index'], function (angular, mocks, w
         // load the module
         beforeEach(module('weaponModule'));
 
-
         // Initialize the controller and a mock scope
         beforeEach(inject(function ($controller, $rootScope) {
             $scope = $rootScope.$new();

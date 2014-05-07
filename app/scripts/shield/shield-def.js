@@ -13,7 +13,7 @@ define(['angular', 'angular-route', 'angular-resource'], function (angular) {
         .config(function ($routeProvider) {
             $routeProvider.
                 when('/shields', {
-                    templateUrl: '/scripts/shield/shield-list/shield-list.html',
+                    templateUrl: '/scripts/item/item-list/item-list.html',
                     controller: 'ShieldListCtrl'
                 })
                 .when('/shields/create', {

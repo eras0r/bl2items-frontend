@@ -50,8 +50,9 @@ require([
     'angular-route',
     'angular-cookies',
     'angular-sanitize',
-    'angular-resource'
-], function (angular, app, ngRoutes, ngCookies, ngSanitize, ngResource) {
+    'angular-resource',
+    'jquery'
+], function (angular, app, ngRoutes, ngCookies, ngSanitize, ngResource, jquery) {
     'use strict';
     var $html = angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(function () {

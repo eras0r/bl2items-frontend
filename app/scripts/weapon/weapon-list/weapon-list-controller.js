@@ -7,7 +7,7 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
         function ($scope, $q, WeaponService) {
 
             // load weapons
-            $scope.weapons = WeaponService.query();
+            $scope.items = WeaponService.query();
 
 
         }]);

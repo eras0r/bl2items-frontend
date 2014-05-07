@@ -7,7 +7,7 @@ define(['angular', 'shield/shield-def'], function (angular, shieldModule) {
         function ($scope, $q, ShieldService) {
 
             // load shields
-            $scope.shields = ShieldService.query();
+            $scope.items = ShieldService.query();
 
 
         }]);

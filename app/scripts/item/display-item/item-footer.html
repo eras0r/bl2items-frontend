@@ -1,0 +1,18 @@
+<section>
+    <p class="unique-text">{{item.uniqueText}}</p>
+
+    <p class="additional-text">{{item.additionalText}}</p>
+</section>
+<section>
+    <p class="row">
+        <span class="col-sm-4" color="{{item.rarity.color}}">
+            {{item.manufacturer.name}}
+        </span>
+        <span class="col-sm-4 text-center" color="{{item.damageType.color}}" data-ng-show="item.itemType == 'weapon'">
+            {{item.damageType.name}}
+        </span>
+        <span class="col-sm-4 text-right pull-right" color="{{item.rarity.color}}">
+            {{item.rarity.name}}
+        </span>
+    </p>
+</section>
