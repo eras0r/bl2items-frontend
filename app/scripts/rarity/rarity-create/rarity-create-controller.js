@@ -3,8 +3,8 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
     'use strict';
 
     rarityModule.controller('RarityCreateCtrl', [
-        '$scope', '$location', 'RarityService',
-        function ($scope, $location, RarityService) {
+        '$scope', '$state', 'RarityService',
+        function ($scope, $state, RarityService) {
 
             $scope.rarity = {
                 'color': '#ffffff'
@@ -24,7 +24,7 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
                 RarityService.save(
                     $scope.rarity,
                     function () {
-                        $location.path('/rarities');
+                        $state.go('admin.rarities.list');
                     },
                     function (response) {
                         $scope.errors = response.data;
@@ -33,7 +33,7 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
             };
 
             $scope.cancel = function () {
-                $location.path('/rarities');
+                $state.go('admin.rarities.list');
             };
 
         }]);

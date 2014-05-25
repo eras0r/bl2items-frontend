@@ -3,22 +3,14 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
     'use strict';
 
     rarityModule.controller('RarityListCtrl', [
-        '$scope', '$location', 'RarityService',
-        function ($scope, $location, RarityService) {
+        '$scope', 'RarityService',
+        function ($scope, RarityService) {
 
             $scope.loadRarities = function () {
                 console.log('loading rarities...');
                 $scope.rarities = RarityService.query(function () {
                     console.log('loaded rarities: ' + $scope.rarities);
                 });
-            };
-
-            $scope.createRarity = function () {
-                $location.path('/rarities/create');
-            };
-
-            $scope.editRarity = function (rarity) {
-                $location.path('/rarities/' + rarity.id);
             };
 
             $scope.deleteRarity = function (rarity) {

@@ -1,28 +1,36 @@
 /**
  * module definition for the 'rarity' module.
  */
-define(['angular', 'angular-route', 'angular-resource'], function (angular) {
+define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) {
 
     'use strict';
 
     var rarityModule = angular.module('rarityModule', [
-        'ngResource',
-        'ngRoute'
+        'ui.router',
+        'ngResource'
     ])
-        .config(function ($routeProvider) {
-            $routeProvider
-                .when('/rarities', {
+        .config(function ($stateProvider) {
+            $stateProvider
+                .state('admin.rarities', {
+                    abstract: true,
+                    url: "/rarities",
+                    template: '<ui-view />'
+                })
+                .state('admin.rarities.list', {
+                    url: "/list",
                     templateUrl: '/scripts/rarity/rarity-list/rarity-list.html',
                     controller: 'RarityListCtrl'
                 })
-                .when('/rarities/create', {
+                .state('admin.rarities.create', {
+                    url: "/create",
                     templateUrl: '/scripts/rarity/rarity-details.html',
                     controller: 'RarityCreateCtrl'
                 })
-                .when('/rarities/:id', {
+                .state('admin.rarities.edit', {
+                    url: '/:id',
                     templateUrl: '/scripts/rarity/rarity-details.html',
                     controller: 'RarityEditCtrl'
-                })
+                });
         })
         .constant('RARITY_RESOURCE_URL', 'http://localhost/bl2items-backend/rarities/:id');
 
