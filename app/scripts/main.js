@@ -8,6 +8,7 @@ require.config({
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
+        'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
         angular: '../bower_components/angular/angular'
     },
     shim: {
@@ -32,6 +33,11 @@ require.config({
             ],
             exports: 'angular.mock'
         },
+        'angular-ui-router': {
+            deps: [
+                'angular'
+            ]
+        },
         'sass-bootstrap': [
             'jquery'
         ]
@@ -47,12 +53,13 @@ window.name = 'NG_DEFER_BOOTSTRAP!';
 require([
     'angular',
     'app',
+    'angular-ui-router',
     'angular-route',
     'angular-cookies',
     'angular-sanitize',
     'angular-resource',
     'jquery'
-], function (angular, app, ngRoutes, ngCookies, ngSanitize, ngResource, jquery) {
+], function (angular, app, ngUiRouter, ngRoutes, ngCookies, ngSanitize, ngResource, jquery) {
     'use strict';
     var $html = angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(function () {

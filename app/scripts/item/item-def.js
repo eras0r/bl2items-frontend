@@ -1,18 +1,19 @@
 /**
- * module definition for the 'weapon' module.
+ * module definition for the 'item' module.
  */
-define(['angular', 'angular-route', 'angular-resource'], function (angular) {
+define(['angular', 'angular-resource', 'angular-ui-router'], function (angular) {
 
     /**
-     * Module definition for the rarity module.
+     * Module definition for the item module.
      */
     var itemModule = angular.module('itemModule', [
-        'ngRoute',
-        'ngResource'
+        'ngResource',
+        'ui.router'
     ])
-        .config(function ($routeProvider) {
-            $routeProvider.
-                when('/items', {
+        .config(function ($stateProvider) {
+            $stateProvider
+                .state('items', {
+                    url: "/",
                     templateUrl: '/scripts/item/item-list/item-list.html',
                     controller: 'ItemListCtrl'
                 });

@@ -21,6 +21,7 @@ requirejs.config({
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
+        'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
         angular: '../bower_components/angular/angular'
     },
 
@@ -33,6 +34,11 @@ requirejs.config({
         'angular-mocks': {
             deps: ['angular'],
             'exports': 'angular.mock'
+        },
+        'angular-ui-router': {
+            deps: [
+                'angular'
+            ]
         },
 //        'jquery': {'exports': '$'},
         'sass-bootstrap': [
