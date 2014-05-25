@@ -1,7 +1,8 @@
 <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="NavCtrl">-->
 
 <header>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="NavCtrl">
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="NavCtrl">-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
 
             <div class="navbar-header">
@@ -17,25 +18,71 @@
                         <img class="logo" src="../../images/bl2-logo.png">
                     </a>
                     </li>
-                    <li data-ng-click="showItems()" data-ng-class="getClass('items')"><a href="#">Items</a></li>
-                    <li data-ng-click="showWeapons()" data-ng-class="getClass('weapons')"><a href="#">Weapons</a></li>
-                    <li data-ng-click="showShields()" data-ng-class="getClass('shields')"><a href="#">Shields</a></li>
-                    <li class="dropdown" data-ng-class="getClass('createNewItem')">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create new item <b class="caret"></b></a>
+
+                    <li data-ng-class="{active: $state.includes('items')}"><a data-ui-sref="items">Items</a></li>
+
+                    <li class="dropdown" data-ng-class="{active: $state.includes('weapons')}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Weapons <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" ng-click="createWeapon()">Weapon</a></li>
-                            <li><a href="#">Shield</a></li>
-                            <li><a href="#">Grenade Mod</a></li>
-                            <li><a href="#">Class Mod</a></li>
-                            <li><a href="#">Artifact</a></li>
+                            <li data-ng-class="{active: $state.includes('weapons.list')}"><a
+                                    data-ui-sref="weapons.list">List</a></li>
+                            <li data-ng-class="{active: $state.includes('weapons.create')}"><a
+                                    data-ui-sref="weapons.create">Create</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown" data-ng-class="getClass('admin')">
+
+                    <li class="dropdown" data-ng-class="{active: $state.includes('shields')}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Shields <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li data-ng-class="{active: $state.includes('shields.list')}"><a
+                                    data-ui-sref="shields.list">List</a></li>
+                            <li data-ng-class="{active: $state.includes('shields.create')}"><a
+                                    data-ui-sref="shields.create">Create</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" data-ng-class="{active: $state.includes('grenadeMods')}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Grenade mods <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li data-ng-class="{active: $state.includes('grenadeMods.list')}"><a
+                                    data-ui-sref="grenadeMods.list">List</a></li>
+                            <li data-ng-class="{active: $state.includes('grenadeMods.create')}"><a
+                                    data-ui-sref="grenadeMods.create">Create</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" data-ng-class="{active: $state.includes('classMods')}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Class mods <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li data-ng-class="{active: $state.includes('classMods.list')}"><a
+                                    data-ui-sref="classMods.list">List</a></li>
+                            <li data-ng-class="{active: $state.includes('classMods.create')}"><a
+                                    data-ui-sref="classMods.create">Create</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" data-ng-class="{active: $state.includes('artifacts')}">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Artifacts <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li data-ng-class="{active: $state.includes('artifacts.list')}"><a
+                                    data-ui-sref="artifacts.list">List</a></li>
+                            <li data-ng-class="{active: $state.includes('artifacts.create')}"><a
+                                    data-ui-sref="artifacts.create">Create</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" data-ng-class="{active: $state.includes('admin')}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" ng-click="showRarities()">Rarities</a></li>
-                            <li><a href="#" ng-click="showManufacturers()">Manufacturers</a></li>
-                            <li><a href="#" ng-click="showDamageTypes()">Damage types</a></li>
+                            <li data-ng-class="{active: $state.includes('admin.rarities')}">
+                                <a data-ui-sref="admin.rarities.list">Rarities</a>
+                            </li>
+                            <li data-ng-class="{active: $state.includes('admin.manufacturers')}">
+                                <a data-ui-sref="admin.manufacturers.list">Manufacturers</a>
+                            </li>
+                            <li data-ng-class="{active: $state.includes('admin.damageTypes')}">
+                                <a data-ui-sref="admin.damageTypes.list">Damage types</a>
+                            </li>
                         </ul>
                     </li>
 

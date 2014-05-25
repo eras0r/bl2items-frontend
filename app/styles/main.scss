@@ -114,3 +114,10 @@ body {
   }
 
 }
+
+/* navigation */
+
+/* http://stackoverflow.com/a/8878666/3589555: show navigation menus upon mouse over*/
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;
+}
