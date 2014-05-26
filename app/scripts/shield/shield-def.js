@@ -3,9 +3,8 @@
  */
 define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) {
 
-    /**
-     * Module definition for the shield module.
-     */
+    'use strict';
+
     var shieldModule = angular.module('shieldModule', [
         'ui.router',
         'ngResource'
@@ -19,12 +18,12 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
                 })
                 .state('shields.list', {
                     url: "/list",
-                    templateUrl: '/scripts/item/item-list/item-list.html',
+                    templateUrl: 'scripts/item/item-list/item-list.html',
                     controller: 'ShieldListCtrl'
                 })
                 .state('shields.create', {
                     url: "/create",
-                    templateUrl: '/scripts/shield/shield-details.html',
+                    templateUrl: 'scripts/shield/shield-details.html',
                     controller: 'ShieldCreateCtrl'
                 });
         })

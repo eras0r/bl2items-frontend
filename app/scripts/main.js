@@ -4,7 +4,6 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         'angular-scenario': '../bower_components/angular-scenario/angular-scenario',
         'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
-        'angular-route': '../bower_components/angular-route/angular-route',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
@@ -16,9 +15,6 @@ require.config({
         angular: {
             exports: 'angular'
         },
-        'angular-route': [
-            'angular'
-        ],
         'angular-cookies': [
             'angular'
         ],

@@ -3,9 +3,8 @@
  */
 define(['angular', 'angular-resource', 'angular-ui-router'], function (angular) {
 
-    /**
-     * Module definition for the item module.
-     */
+    'use strict';
+
     var itemModule = angular.module('itemModule', [
         'ngResource',
         'ui.router'
@@ -14,7 +13,7 @@ define(['angular', 'angular-resource', 'angular-ui-router'], function (angular) 
             $stateProvider
                 .state('items', {
                     url: "/",
-                    templateUrl: '/scripts/item/item-list/item-list.html',
+                    templateUrl: 'scripts/item/item-list/item-list.html',
                     controller: 'ItemListCtrl'
                 });
         })

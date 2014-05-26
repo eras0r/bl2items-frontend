@@ -8,7 +8,7 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
 
             var getTemplate = function (contentType) {
                 var templateLoader;
-                var baseUrl = '/scripts/item/display-item/';
+                var baseUrl = 'scripts/item/display-item/';
                 var templateMap = {
                     weapon: 'weapon.html',
                     shield: 'shield.html'

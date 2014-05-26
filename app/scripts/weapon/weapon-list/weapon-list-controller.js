@@ -9,7 +9,6 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
             // load weapons
             $scope.items = WeaponService.query();
 
-
         }]);
 
 });

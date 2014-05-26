@@ -18,17 +18,17 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
                 })
                 .state('admin.manufacturers.list', {
                     url: "/list",
-                    templateUrl: '/scripts/manufacturer/manufacturer-list/manufacturer-list.html',
+                    templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
                     controller: 'ManufacturerListCtrl'
                 })
                 .state('admin.manufacturers.create', {
                     url: "/create",
-                    templateUrl: '/scripts/manufacturer/manufacturer-details.html',
+                    templateUrl: 'scripts/manufacturer/manufacturer-details.html',
                     controller: 'ManufacturerCreateCtrl'
                 })
                 .state('admin.manufacturers.edit', {
                     url: '/:id',
-                    templateUrl: '/scripts/manufacturer/manufacturer-details.html',
+                    templateUrl: 'scripts/manufacturer/manufacturer-details.html',
                     controller: 'ManufacturerEditCtrl'
                 });
         })

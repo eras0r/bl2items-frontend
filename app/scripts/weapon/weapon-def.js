@@ -5,9 +5,6 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
 
     'use strict';
 
-    /**
-     * Module definition for the rarity module.
-     */
     var weaponModule = angular.module('weaponModule', [
         'ui.router',
         'ngResource'
@@ -21,12 +18,12 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
                 })
                 .state('weapons.list', {
                     url: "/list",
-                    templateUrl: '/scripts/item/item-list/item-list.html',
+                    templateUrl: 'scripts/item/item-list/item-list.html',
                     controller: 'WeaponListCtrl'
                 })
                 .state('weapons.create', {
                     url: "/create",
-                    templateUrl: '/scripts/weapon/weapon-details.html',
+                    templateUrl: 'scripts/weapon/weapon-details.html',
                     controller: 'WeaponCreateCtrl'
                 });
         })

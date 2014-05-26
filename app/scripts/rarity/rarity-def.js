@@ -18,17 +18,17 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
                 })
                 .state('admin.rarities.list', {
                     url: "/list",
-                    templateUrl: '/scripts/rarity/rarity-list/rarity-list.html',
+                    templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
                     controller: 'RarityListCtrl'
                 })
                 .state('admin.rarities.create', {
                     url: "/create",
-                    templateUrl: '/scripts/rarity/rarity-details.html',
+                    templateUrl: 'scripts/rarity/rarity-details.html',
                     controller: 'RarityCreateCtrl'
                 })
                 .state('admin.rarities.edit', {
                     url: '/:id',
-                    templateUrl: '/scripts/rarity/rarity-details.html',
+                    templateUrl: 'scripts/rarity/rarity-details.html',
                     controller: 'RarityEditCtrl'
                 });
         })
