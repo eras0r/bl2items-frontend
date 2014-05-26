@@ -16,7 +16,6 @@ define([
         'ngCookies',
         'ngResource',
         'ngSanitize',
-        'ngRoute',
         'ui.router',
         /* external 3rd party modules*/
 //        'bl2ItemsDbApp.navigation',
@@ -31,8 +30,8 @@ define([
         'manufacturerModule',
         'rarityModule'
     ])
-        .config(['$locationProvider', '$routeProvider', '$stateProvider', '$urlRouterProvider',
-            function ($locationProvider, $routeProvider, $stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider',
+            function ($stateProvider, $urlRouterProvider) {
                 // for any unmatched url, redirect to /
                 $urlRouterProvider.otherwise("/");
 

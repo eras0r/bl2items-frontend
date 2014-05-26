@@ -54,12 +54,11 @@ require([
     'angular',
     'app',
     'angular-ui-router',
-    'angular-route',
     'angular-cookies',
     'angular-sanitize',
     'angular-resource',
     'jquery'
-], function (angular, app, ngUiRouter, ngRoutes, ngCookies, ngSanitize, ngResource, jquery) {
+], function (angular, app, ngUiRouter, ngCookies, ngSanitize, ngResource, jquery) {
     'use strict';
     var $html = angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(function () {
