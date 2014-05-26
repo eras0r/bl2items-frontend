@@ -13,7 +13,7 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
         .config(function ($stateProvider) {
             $stateProvider
                 .state('shields', {
-                    abstract: true,
+                    'abstract': true,
                     url: "/shields",
                     template: '<ui-view />'
                 })

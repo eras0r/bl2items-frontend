@@ -12,7 +12,7 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
         .config(function ($stateProvider) {
             $stateProvider
                 .state('admin.rarities', {
-                    abstract: true,
+                    'abstract': true,
                     url: "/rarities",
                     template: '<ui-view />'
                 })

@@ -37,7 +37,7 @@ define([
 
                 $stateProvider
                     .state('admin', {
-                        abstract: true,
+                        'abstract': true,
                         url: "/admin",
                         template: '<ui-view />'
                     })

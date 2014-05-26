@@ -15,7 +15,7 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
         .config(function ($stateProvider) {
             $stateProvider
                 .state('admin.damageTypes', {
-                    abstract: true,
+                    'abstract': true,
                     url: "/damageTypes",
                     template: '<ui-view />'
                 })
