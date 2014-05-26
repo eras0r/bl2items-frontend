@@ -10,14 +10,6 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
                 $scope.manufacturers = ManufacturerService.query();
             };
 
-            $scope.createManufacturer = function () {
-                $location.path('/manufacturers/create');
-            };
-
-            $scope.editManufacturer = function (manufacturer) {
-                $location.path('/manufacturers/' + manufacturer.id);
-            };
-
             $scope.deleteManufacturer = function (manufacturer) {
                 $scope.manufacturer = ManufacturerService.delete(
                     {

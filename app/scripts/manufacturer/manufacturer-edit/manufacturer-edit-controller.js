@@ -3,20 +3,14 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
     'use strict';
 
     angular.module('manufacturerModule').controller('ManufacturerEditCtrl', [
-        '$scope', '$location', '$routeParams', 'ManufacturerService',
-        function ($scope, $location, $routeParams, ManufacturerService) {
-
-            $scope.manufacturer = ManufacturerService.get(
-                {
-                    id: $routeParams.id
-                }
-            );
+        '$scope', '$state', 'ManufacturerService',
+        function ($scope, $state, ManufacturerService) {
 
             $scope.save = function () {
                 ManufacturerService.update(
                     $scope.manufacturer,
                     function () {
-                        $location.path('/manufacturers');
+                        $state.go('admin.manufacturers.list');
                     },
                     function (response) {
                         $scope.errors = response.data;
@@ -25,8 +19,14 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
             };
 
             $scope.cancel = function () {
-                $location.path('/manufacturers');
+                $state.go('admin.manufacturers.list');
             };
+
+            $scope.manufacturer = ManufacturerService.get(
+                {
+                    id: $state.params.id
+                }
+            );
 
         }]);
 

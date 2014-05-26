@@ -3,8 +3,8 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
     'use strict';
 
     angular.module('manufacturerModule').controller('ManufacturerCreateCtrl', [
-        '$scope', '$location', 'ManufacturerService',
-        function ($scope, $location, ManufacturerService) {
+        '$scope', '$state', 'ManufacturerService',
+        function ($scope, $state, ManufacturerService) {
 
             $scope.manufacturer = {};
 
@@ -12,7 +12,7 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
                 ManufacturerService.save(
                     $scope.manufacturer,
                     function () {
-                        $location.path('/manufacturers');
+                        $state.go('admin.manufacturers.list');
                     },
                     function (response) {
                         $scope.errors = response.data;
@@ -21,7 +21,7 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
             };
 
             $scope.cancel = function () {
-                $location.path('/manufacturers');
+                $state.go('admin.manufacturers.list');
             };
 
         }]);

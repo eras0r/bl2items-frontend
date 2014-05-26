@@ -28,6 +28,7 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
 
             // init rarities
             $scope.loadRarities();
+
         }]);
 
 });

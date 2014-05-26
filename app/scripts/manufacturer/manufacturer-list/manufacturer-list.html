@@ -13,7 +13,8 @@
         <tr data-ng-repeat="manufacturer in manufacturers">
             <td>{{manufacturer.name}}</td>
             <td class="text-center">
-                <button type="button" class="btn btn-default btn-xs" data-ng-click="editManufacturer(manufacturer)">
+                <button type="button" class="btn btn-default btn-xs"
+                        data-ui-sref="admin.manufacturers.edit({id: manufacturer.id})">
                     <span class="glyphicon glyphicon-pencil" title="edit manufacturer"></span>
                     <span class="gl"></span>
                 </button>
@@ -27,7 +28,7 @@
     </table>
 
     <div class="panel-footer text-right">
-        <button type="button" class="btn btn-success" data-ng-click="createManufacturer()"
+        <button type="button" class="btn btn-success" data-ui-sref="admin.manufacturers.create"
                 title="create new manufacturer">
             <span class="glyphicon glyphicon-plus-sign"></span> create new manufacturer
         </button>
