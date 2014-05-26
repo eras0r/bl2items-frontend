@@ -3,8 +3,8 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
     'use strict';
 
     angular.module('damageTypeModule').controller('DamageTypeCreateCtrl', [
-        '$scope', '$location', 'DamageTypeService',
-        function ($scope, $location, DamageTypeService) {
+        '$scope', '$state', 'DamageTypeService',
+        function ($scope, $state, DamageTypeService) {
 
             $scope.damageType = {
                 'color': '#ffffff'
@@ -24,7 +24,7 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
                 DamageTypeService.save(
                     $scope.damageType,
                     function () {
-                        $location.path('/damageTypes');
+                        $state.go('admin.damageTypes.list');
                     },
                     function (response) {
                         $scope.errors = response.data;
@@ -33,7 +33,7 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
             };
 
             $scope.cancel = function () {
-                $location.path('/damageTypes');
+                $state.go('admin.damageTypes.list');
             };
 
         }]);

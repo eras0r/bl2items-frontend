@@ -3,19 +3,11 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
     'use strict';
 
     damageTypeModule.controller('DamageTypeListCtrl', [
-        '$scope', '$location', 'DamageTypeService',
-        function ($scope, $location, DamageTypeService) {
+        '$scope', 'DamageTypeService',
+        function ($scope, DamageTypeService) {
 
             $scope.loadDamageTypes = function () {
                 $scope.damageTypes = DamageTypeService.query();
-            };
-
-            $scope.createDamageType = function () {
-                $location.path('/damageTypes/create');
-            };
-
-            $scope.editDamageType = function (damageType) {
-                $location.path('/damageTypes/' + damageType.id);
             };
 
             $scope.deleteDamageType = function (damageType) {

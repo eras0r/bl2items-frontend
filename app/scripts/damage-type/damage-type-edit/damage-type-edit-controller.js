@@ -3,14 +3,14 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
     'use strict';
 
     angular.module('damageTypeModule').controller('DamageTypeEditCtrl', [
-        '$scope', '$location', '$routeParams', 'DamageTypeService',
-        function ($scope, $location, $routeParams, DamageTypeService) {
+        '$scope', '$state', 'DamageTypeService',
+        function ($scope, $state, DamageTypeService) {
 
             $scope.save = function () {
                 DamageTypeService.update(
                     $scope.damageType,
                     function () {
-                        $location.path('/damageTypes');
+                        $state.go('admin.damageTypes.list');
                     },
                     function (response) {
                         $scope.errors = response.data;
@@ -19,12 +19,12 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
             };
 
             $scope.cancel = function () {
-                $location.path('/damageTypes');
+                $state.go('admin.damageTypes.list');
             };
 
             $scope.damageType = DamageTypeService.get(
                 {
-                    id: $routeParams.id
+                    id: $state.params.id
                 }, function () {
 //                    $('#color').minicolors(
 //                        {
