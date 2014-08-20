@@ -9,7 +9,7 @@ require.config({
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
         angular: '../bower_components/angular/angular',
-        jQuery: '../bower_components/jQuery/dist/jquery'
+        jquery: '../bower_components/jquery/dist/jquery'
     },
     shim: {
         angular: {
