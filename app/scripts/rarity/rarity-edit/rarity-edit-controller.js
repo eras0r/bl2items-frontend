@@ -1,4 +1,4 @@
-define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
+define(['angular', 'jquery', 'rarity/rarity-def'], function (angular, $, rarityModule) {
 
     'use strict';
 
@@ -26,15 +26,15 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
                 {
                     id: $state.params.id
                 }, function () {
-//                    $('#color').minicolors(
-//                        {
-//                            defaultValue: $scope.rarity.color,
-//                            theme: 'bootstrap',
+                    $('#color').minicolors(
+                        {
+                            defaultValue: $scope.rarity.color,
+                            theme: 'bootstrap',
 //                            change: function (hex, opacity) {
 //                                $scope.rarity.color = hex;
 //                                $scope.$apply();
 //                            }
-//                        });
+                        });
                 }
             );
 

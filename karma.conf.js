@@ -19,6 +19,7 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/angular-ui-router/release/angular-ui-router.js', included: false },
             {pattern: 'app/bower_components/sass-bootstrap/dist/js/bootstrap.js', included: false },
             {pattern: 'app/bower_components/jquery/dist/jquery.js', included: false },
+            {pattern: 'app/bower_components/jquery-minicolors/jquery.minicolors.js', included: false },
             {pattern: 'app/scripts/*.js', included: false },
             {pattern: 'app/scripts/**/*.js', included: false },
             {pattern: 'test/spec/**/*.js', included: false },

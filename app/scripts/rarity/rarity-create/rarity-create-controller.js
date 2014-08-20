@@ -10,16 +10,6 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
                 'color': '#ffffff'
             };
 
-//            $('#color').minicolors(
-//                {
-//                    defaultValue: $scope.rarity.color,
-//                    theme: 'bootstrap',
-//                    change: function (hex, opacity) {
-//                        $scope.rarity.color = hex;
-//                        $scope.$apply();
-//                    }
-//                });
-
             $scope.save = function () {
                 RarityService.save(
                     $scope.rarity,
