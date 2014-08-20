@@ -8,7 +8,8 @@ require.config({
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
-        angular: '../bower_components/angular/angular'
+        angular: '../bower_components/angular/angular',
+        jQuery: '../bower_components/jQuery/dist/jquery'
     },
     shim: {
         angular: {
@@ -40,6 +41,9 @@ require.config({
     },
     priority: [
         'angular'
+    ],
+    packages: [
+
     ]
 });
 

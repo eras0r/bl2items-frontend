@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= yeoman.app %>/{,*/}*.html',
+                    '<%= yeoman.app %>/**/*.html',
                     '.tmp/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
@@ -144,9 +144,17 @@ module.exports = function (grunt) {
         },
 
         // Automatically inject Bower components into the app
-        'bower-install': {
-            app: {
-                html: '<%= yeoman.app %>/index.html',
+        'wiredep': {
+//            app: {
+//                html: '<%= yeoman.app %>/index.html',
+//                ignorePath: '<%= yeoman.app %>/'
+//            }
+            target: {
+                // Point to the files that should be updated when you run `grunt wiredep`
+                src: [
+                    '<%= yeoman.app %>/index.html'   // .html support...
+//                    'app/styles/main.scss',  // .scss & .sass support...
+                ],
                 ignorePath: '<%= yeoman.app %>/'
             }
         },
@@ -182,16 +190,19 @@ module.exports = function (grunt) {
         },
 
         // Renames files for browser caching purposes
-        rev: {
-            dist: {
-                files: {
-                    src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
-                    ]
-                }
+        filerev: {
+            options: {
+                encoding: 'utf8',
+                algorithm: 'md5',
+                length: 8
+            },
+            images: {
+                src: [
+                    '<%= yeoman.dist %>/scripts/{,*/}*.js',
+                    '<%= yeoman.dist %>/styles/{,*/}*.css',
+                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    '<%= yeoman.dist %>/styles/fonts/*'
+                ]
             }
         },
 
@@ -199,15 +210,17 @@ module.exports = function (grunt) {
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: ['<%= yeoman.app %>/index.html', '<%= yeoman.dist %>/scripts/**/*.html'],
             options: {
-                dest: '<%= yeoman.dist %>'
+                dest: '<%= yeoman.dist %>',
+                basedir: '<%= yeoman.dist %>',
+                dirs: '<%= yeoman.dist %>'
             }
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
         usemin: {
-            html: ['<%= yeoman.dist %>/**/*.html'],
+            html: ['<%= yeoman.dist %>/{,*/}*.html', '<%= yeoman.dist %>/scripts/**/*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
                 assetsDirs: ['<%= yeoman.dist %>']
@@ -251,7 +264,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= yeoman.dist %>',
-                        src: ['*.html', 'views/{,*/}*.html', 'scripts/{,*/}*.html'],
+                        src: ['*.html', 'scripts/**/*.html'],
                         dest: '<%= yeoman.dist %>'
                     }
                 ]
@@ -293,8 +306,7 @@ module.exports = function (grunt) {
                             '*.{ico,png,txt}',
                             '.htaccess',
                             '*.html',
-                            'views/{,*/}*.html',
-                            'scripts/{,*/}*.html',
+                            'scripts/**/*.html',
                             'bower_components/**/*',
                             'images/{,*/}*.{webp}',
                             'fonts/*'
@@ -330,32 +342,6 @@ module.exports = function (grunt) {
                 'svgmin'
             ]
         },
-
-        // By default, your `index.html`'s <!-- Usemin block --> will take care of
-        // minification. These next options are pre-configured if you do not wish
-        // to use the Usemin blocks.
-        // cssmin: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/styles/main.css': [
-        //         '.tmp/styles/{,*/}*.css',
-        //         '<%= yeoman.app %>/styles/{,*/}*.css'
-        //       ]
-        //     }
-        //   }
-        // },
-        // uglify: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/scripts/scripts.js': [
-        //         '<%= yeoman.dist %>/scripts/scripts.js'
-        //       ]
-        //     }
-        //   }
-        // },
-        // concat: {
-        //   dist: {}
-        // },
 
         // Test settings
         karma: {
@@ -421,7 +407,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'bower-install',
+            'wiredep',
             'concurrent:server',
             'autoprefixer',
             'connect:livereload',
@@ -444,7 +430,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'bower-install',
+        'wiredep',
         'bower:app',
         'replace:test',
         'useminPrepare',
@@ -455,11 +441,9 @@ module.exports = function (grunt) {
         'copy:dist',
         'cdnify',
         'cssmin',
-        // Below task commented out as r.js (via grunt-contrib-requirejs) will take care of this
-        // 'uglify',
-        'rev',
-        'usemin',
         'requirejs:dist',
+        'filerev',
+        'usemin',
         'htmlmin'
     ]);
 
@@ -468,4 +452,5 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
+
 };
