@@ -8,9 +8,14 @@ require.config({
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
+        'angular-http-auth': '../bower_components/angular-http-auth/src/http-auth-interceptor',
         angular: '../bower_components/angular/angular',
-        jquery: '../bower_components/jquery/dist/jquery',
-        'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors'
+        jQuery: '../bower_components/jquery/dist/jquery',
+        'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors',
+        'cryptojs.core': '../bower_components/cryptojslib/components/core',
+        'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
+        'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
+        'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac'
     },
     shim: {
         angular: {
@@ -36,9 +41,38 @@ require.config({
                 'angular'
             ]
         },
-        'sass-bootstrap': [
-            'jquery'
-        ]
+        'angular-http-auth': {
+            deps: [
+                'angular'
+            ]
+        },
+        'sass-bootstrap': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'cryptojs.core': {
+            exports: 'CryptoJS'
+        },
+        'cryptojs.x64-core': {
+            deps: [
+                'cryptojs.core'
+            ],
+            exports: 'CryptoJS'
+        },
+        'cryptojs.sha512': {
+            deps: [
+                'cryptojs.core',
+                'cryptojs.x64-core'
+            ],
+            exports: 'CryptoJS'
+        },
+        'cryptojs.hmac': {
+            deps: [
+                'cryptojs.core'
+            ],
+            exports: 'CryptoJS'
+        }
     },
     priority: [
         'angular'
@@ -58,6 +92,7 @@ require([
     'angular-cookies',
     'angular-sanitize',
     'angular-resource',
+    'angular-http-auth',
     'jquery'
 ], function (angular, app, ngUiRouter, ngCookies, ngSanitize, ngResource, jquery) {
     'use strict';

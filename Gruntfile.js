@@ -356,7 +356,10 @@ module.exports = function (grunt) {
             app: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js',
                 options: {
-                    exclude: ['requirejs', 'json3', 'es5-shim']
+                    // exclude cryptojslib, as this causes problems when executing grunt build
+                    // the problem is that a cryptojslib path will be added to the requirejs config which cannot be used
+                    // because of wildcards within the main property of cryptojslib's bower.js file
+                    exclude: ['requirejs', 'json3', 'es5-shim', 'cryptojslib']
                 }
             }
         },

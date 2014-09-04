@@ -21,9 +21,14 @@ requirejs.config({
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
+        'angular-http-auth': '../bower_components/angular-http-auth/src/http-auth-interceptor',
         angular: '../bower_components/angular/angular',
-        jquery: '../bower_components/jquery/dist/jquery',
-        'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors'
+        jQuery: '../bower_components/jquery/dist/jquery',
+        'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors',
+        'cryptojs.core': '../bower_components/cryptojslib/components/core',
+        'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
+        'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
+        'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac'
     },
 
     shim: {
