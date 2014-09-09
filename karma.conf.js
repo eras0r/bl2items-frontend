@@ -20,6 +20,7 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/sass-bootstrap/dist/js/bootstrap.js', included: false },
             {pattern: 'app/bower_components/jquery/dist/jquery.js', included: false },
             {pattern: 'app/bower_components/jquery-minicolors/jquery.minicolors.js', included: false },
+            {pattern: 'app/bower_components/angular-minicolors/angular-minicolors.js', included: false },
             {pattern: 'app/bower_components/cryptojslib/components/core.js', included: false },
             {pattern: 'app/bower_components/cryptojslib/components/x64-core.js', included: false },
             {pattern: 'app/bower_components/cryptojslib/components/sha512.js', included: false },

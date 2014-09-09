@@ -4,6 +4,7 @@ define([
     'cryptojs.x64-core',
     'cryptojs.sha512',
     'cryptojs.hmac',
+    'angular-minicolors',
     'components/security/index',
     'components/navigation/index',
     'components/highlight-text/index',
@@ -23,6 +24,7 @@ define([
         'ngSanitize',
         'ui.router',
         'http-auth-interceptor',
+        'minicolors',
         /* external 3rd party modules*/
 //        'bl2ItemsDbApp.navigation',
         /* generic core modules */

@@ -4,8 +4,7 @@
 define([
     'angular',
     'components/highlight-text/highlight-text-def',
-    'components/highlight-text/highlight-text-filter',
-    'components/highlight-text/color-directive'
+    'components/highlight-text/highlight-text-filter'
 ], function (angular, highlightTextModule) {
 
     'use strict';

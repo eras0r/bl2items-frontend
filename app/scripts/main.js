@@ -9,9 +9,9 @@ require.config({
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
         'angular-http-auth': '../bower_components/angular-http-auth/src/http-auth-interceptor',
-        angular: '../bower_components/angular/angular',
-        jQuery: '../bower_components/jquery/dist/jquery',
+        'angular-minicolors': '../bower_components/angular-minicolors/angular-minicolors',
         'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors',
+        angular: '../bower_components/angular/angular',
         'cryptojs.core': '../bower_components/cryptojslib/components/core',
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
@@ -44,6 +44,17 @@ require.config({
         'angular-http-auth': {
             deps: [
                 'angular'
+            ]
+        },
+        'angular-minicolors': {
+            deps: [
+                'angular',
+                'jquery-minicolors'
+            ]
+        },
+        'jquery-minicolors': {
+            deps: [
+                'jquery'
             ]
         },
         'sass-bootstrap': {
