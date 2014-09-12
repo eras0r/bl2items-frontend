@@ -55,57 +55,33 @@ define([
                 // setup for restangular
                 // TODO make base url somehow configurable
                 RestangularProvider.setBaseUrl('http://localhost/bl2items-backend/');
-                RestangularProvider.setDefaultHeaders({
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                });
 
-                // Add an HTTP interceptor which passes the request URL to the transformer
-                // Allows to include the URL into the signature
-                // Rejects request if no hmacSecret is available
-                $httpProvider.interceptors.push(function ($q) {
-                    return {
-                        'request': function (config) {
-                            // TODO find a solution to pass *.html requests
-//                            if (!localStorage.hmacSecret) {
-//                                return $q.reject('No HMAC secret to sign request!');
-//                            }
-
-                            config.headers['X-URL'] = config.url;
-                            return config || $q.when(config);
-                        }
-                    };
-                });
-
-                // Add a custom request transformer to generate required headers
-                $httpProvider.defaults.transformRequest.push(function (data, headersGetter) {
-                    // Add session token header if available
-                    if (localStorage.sessionToken) {
-                        headersGetter()['X-SESSION-TOKEN'] = localStorage.sessionToken;
-                    }
-
-                    // Add current time to prevent replay attacks
+                RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
                     var microTime = new Date().getTime();
-                    headersGetter()['X-MICRO-TIME'] = microTime;
 
-                    // TODO data might be null in case of pure GET requests
-                    if (!data) {
-                        data = '';
+                    var data = '';
+                    // set data for post and put request
+                    if (operation === 'put' || operation === 'post') {
+                        data = JSON.stringify(element);
                     }
-
-                    // TODO find a better solution (idea: use https://github.com/mgonto/restangular#setdefaultheaders)
 
                     // init hmac secret if not defined
                     if (!localStorage.hmacSecret) {
                         localStorage.hmacSecret = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
                     }
 
-                    headersGetter()['X-HMAC-HASH'] = CryptoJS.HmacSHA512(headersGetter()['X-URL'] + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
+                    var hmacHash = CryptoJS.HmacSHA512(url + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
 
-                    // And remove our temporary header
-                    headersGetter()['X-URL'] = '';
-
-                    return data;
+                    return {
+                        element: element,
+                        params: params,
+                        headers: _.extend(headers, {
+                            'X-SESSION-TOKEN': localStorage.sessionToken,
+                            'X-MICRO-TIME': microTime,
+                            'X-HMAC-HASH': hmacHash
+                        }),
+                        httpConfig: httpConfig
+                    };
                 });
 
             }])
