@@ -1,42 +1,40 @@
-define(['angular', 'jquery', 'rarity/rarity-def'], function (angular, $, rarityModule) {
+define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
 
     'use strict';
 
     rarityModule.controller('RarityEditCtrl', [
-        '$scope', '$state', 'RarityService',
-        function ($scope, $state, RarityService) {
+        '$scope', '$state', '$log', 'Restangular', 'RarityService',
+        function ($scope, $state, $log, Restangular, RarityService) {
+
+            var self = this;
+
+            RarityService.read($state.params.id).then(function (rarity) {
+                self.originalRarity = rarity;
+                $scope.rarity = Restangular.copy(self.originalRarity);
+            });
+
+            $scope.isNotDirty = function () {
+                return angular.equals(self.originalRarity, $scope.rarity);
+            };
 
             $scope.save = function () {
-                RarityService.update(
-                    $scope.rarity,
-                    function () {
-                        $state.go('admin.rarities.list');
-                    },
-                    function (response) {
-                        $scope.errors = response.data;
-                    }
-                );
+                RarityService.update($scope.rarity)
+                    .then(function () {
+                        RarityService.showList();
+                    }, function (response) {
+                        if (response.status === 422) {
+                            $scope.errors = response.data;
+                        }
+                        else {
+                            // TODO show error message
+                            $log.error('error updating rarity');
+                        }
+                    });
             };
 
             $scope.cancel = function () {
-                $state.go('admin.rarities.list');
+                RarityService.showList();
             };
-
-            $scope.rarity = RarityService.get(
-                {
-                    id: $state.params.id
-                }, function () {
-                    $('#color').minicolors(
-                        {
-                            defaultValue: $scope.rarity.color,
-                            theme: 'bootstrap',
-//                            change: function (hex, opacity) {
-//                                $scope.rarity.color = hex;
-//                                $scope.$apply();
-//                            }
-                        });
-                }
-            );
 
         }]);
 

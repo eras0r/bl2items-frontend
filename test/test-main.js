@@ -18,6 +18,7 @@ requirejs.config({
         'angular-scenario': '../bower_components/angular-scenario/angular-scenario',
         'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
+        restangular: '../bower_components/restangular/dist/restangular',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
@@ -28,16 +29,31 @@ requirejs.config({
         'cryptojs.core': '../bower_components/cryptojslib/components/core',
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
-        'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac'
+        'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
+        lodash: '../bower_components/lodash/dist/lodash.compat'
     },
 
     shim: {
-        'angular': {'exports': 'angular'},
-        'angular-cookies': ['angular'],
-        'angular-sanitize': ['angular'],
-        'angular-resource': ['angular'],
+        'angular': {
+            'exports': 'angular'
+        },
+        'angular-cookies': [
+            'angular'
+        ],
+        'angular-sanitize': [
+            'angular'
+        ],
+        'angular-resource': [
+            'angular'
+        ],
+        'restangular': [
+            'angular',
+            'lodash'
+        ],
         'angular-mocks': {
-            deps: ['angular'],
+            deps: [
+                'angular'
+            ],
             'exports': 'angular.mock'
         },
         'angular-ui-router': {

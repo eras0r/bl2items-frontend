@@ -21,6 +21,7 @@ define([
     return angular.module('bl2ItemsDbApp', [
         'ngCookies',
         'ngResource',
+        'restangular',
         'ngSanitize',
         'ui.router',
         'http-auth-interceptor',
@@ -39,17 +40,25 @@ define([
         'manufacturerModule',
         'rarityModule'
     ])
-        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
-            function ($stateProvider, $urlRouterProvider, $httpProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider',
+            function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider) {
                 // for any unmatched url, redirect to /
-                $urlRouterProvider.otherwise("/");
+                $urlRouterProvider.otherwise('/');
 
                 $stateProvider
                     .state('admin', {
                         'abstract': true,
-                        url: "/admin",
+                        url: '/admin',
                         template: '<ui-view />'
                     });
+
+                // setup for restangular
+                // TODO make base url somehow configurable
+                RestangularProvider.setBaseUrl('http://localhost/bl2items-backend/');
+                RestangularProvider.setDefaultHeaders({
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                });
 
                 // Add an HTTP interceptor which passes the request URL to the transformer
                 // Allows to include the URL into the signature
@@ -57,6 +66,7 @@ define([
                 $httpProvider.interceptors.push(function ($q) {
                     return {
                         'request': function (config) {
+                            // TODO find a solution to pass *.html requests
 //                            if (!localStorage.hmacSecret) {
 //                                return $q.reject('No HMAC secret to sign request!');
 //                            }

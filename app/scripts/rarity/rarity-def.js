@@ -13,16 +13,16 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
             $stateProvider
                 .state('admin.rarities', {
                     'abstract': true,
-                    url: "/rarities",
+                    url: '/rarities',
                     template: '<ui-view />'
                 })
                 .state('admin.rarities.list', {
-                    url: "/list",
+                    url: '/list',
                     templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
                     controller: 'RarityListCtrl'
                 })
                 .state('admin.rarities.create', {
-                    url: "/create",
+                    url: '/create',
                     templateUrl: 'scripts/rarity/rarity-details.html',
                     controller: 'RarityCreateCtrl'
                 })
@@ -31,8 +31,7 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
                     templateUrl: 'scripts/rarity/rarity-details.html',
                     controller: 'RarityEditCtrl'
                 });
-        })
-        .constant('RARITY_RESOURCE_URL', 'http://localhost/bl2items-backend/rarities/:id');
+        });
 
     return rarityModule;
 

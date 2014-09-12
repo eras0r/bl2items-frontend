@@ -3,31 +3,23 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
     'use strict';
 
     rarityModule.controller('RarityListCtrl', [
-        '$scope', 'RarityService',
-        function ($scope, RarityService) {
+        '$scope', '$log', '$filter', 'RarityService',
+        function ($scope, $log, $filter, RarityService) {
 
-            $scope.loadRarities = function () {
-                console.log('loading rarities...');
-                $scope.rarities = RarityService.query(function () {
-                    console.log('loaded rarities: ' + $scope.rarities);
-                });
-            };
+            RarityService.list().then(function (rarities) {
+                $scope.rarities = rarities;
+            });
 
             $scope.deleteRarity = function (rarity) {
-                console.log('deleting rarity with id=' + rarity.id);
-                $scope.rarity = RarityService.delete(
-                    {
-                        id: rarity.id
-                    },
-                    // success function
-                    function () {
-                        $scope.loadRarities();
-                    }
-                )
+                RarityService.remove(rarity.id)
+                    .then(function () {
+                        // filter out the deleted object
+                        $scope.rarities = $filter('filter')($scope.rarities, {id: '!' + rarity.id});
+                    }, function (response) {
+                        // TODO show error message
+                        $log.error('error deleting rarity');
+                    });
             };
-
-            // init rarities
-            $scope.loadRarities();
 
         }]);
 

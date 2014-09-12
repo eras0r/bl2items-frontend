@@ -5,6 +5,7 @@ require.config({
         'angular-scenario': '../bower_components/angular-scenario/angular-scenario',
         'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
+        restangular: '../bower_components/restangular/dist/restangular',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
@@ -15,7 +16,8 @@ require.config({
         'cryptojs.core': '../bower_components/cryptojslib/components/core',
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
-        'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac'
+        'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
+        lodash: '../bower_components/lodash/dist/lodash.compat'
     },
     shim: {
         angular: {
@@ -29,6 +31,10 @@ require.config({
         ],
         'angular-resource': [
             'angular'
+        ],
+        restangular: [
+            'angular',
+            'lodash'
         ],
         'angular-mocks': {
             deps: [
@@ -104,6 +110,7 @@ require([
     'angular-sanitize',
     'angular-resource',
     'angular-http-auth',
+    'restangular',
     'jquery'
 ], function (angular, app, ngUiRouter, ngCookies, ngSanitize, ngResource, jquery) {
     'use strict';

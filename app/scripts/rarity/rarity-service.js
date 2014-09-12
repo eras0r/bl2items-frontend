@@ -2,22 +2,35 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
 
     'use strict';
 
-    rarityModule.factory('RarityService', ['RARITY_RESOURCE_URL',
-        '$resource',
-        function (RARITY_RESOURCE_URL, $resource) {
-            return $resource(RARITY_RESOURCE_URL,
-                { id: '@id' },
-                {
-                    list: { method: 'GET', isArray: true }, //same as query
-                    create: { method: 'POST' }, // same as save
-                    update: { method: 'PUT' }
-                    // DEFAULT IMPLEMENTATION OF $RESOURCE
-                    //   'get':    {method:'GET'},
-                    //   'save':   {method:'POST'},
-                    //   'query':  {method:'GET', isArray:true},
-                    //   'remove': {method:'DELETE'},
-                    //   'delete': {method:'DELETE'}
-                });
-        }]);
+    rarityModule.factory('RarityService', ['$state', 'Restangular', function ($state, Restangular) {
+        var resourceUrl = 'rarities';
+
+        return {
+            showList: function () {
+                $state.go('^.list');
+            },
+
+            list: function () {
+                return Restangular.all(resourceUrl).getList();
+            },
+
+            create: function (rarity) {
+                return Restangular.all(resourceUrl).post(rarity);
+            },
+
+            read: function (id) {
+                return Restangular.one(resourceUrl, id).get();
+            },
+
+            update: function (rarity) {
+                return rarity.put();
+            },
+
+            remove: function (id) {
+                return Restangular.one(resourceUrl, id).remove();
+            }
+        };
+
+    }]);
 
 });
