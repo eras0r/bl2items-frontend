@@ -18,7 +18,7 @@ define(['angular', 'angular-mocks', 'rarity/index'], function (angular, mocks, r
                 $scope: $scope
             });
 
-            spyOn($scope, 'loadRarities');
+//            spyOn($scope, 'loadRarities');
         }));
 
         it('should attach a list of awesomeThings to the scope', function () {

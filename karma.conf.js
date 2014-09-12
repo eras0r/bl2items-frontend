@@ -14,6 +14,7 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/angular/angular.js', included: false },
             {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false },
             {pattern: 'app/bower_components/angular-resource/angular-resource.js', included: false },
+            {pattern: 'app/bower_components/restangular/dist/restangular.js', included: false },
             {pattern: 'app/bower_components/angular-cookies/angular-cookies.js', included: false },
             {pattern: 'app/bower_components/angular-sanitize/angular-sanitize.js', included: false },
             {pattern: 'app/bower_components/angular-ui-router/release/angular-ui-router.js', included: false },
@@ -25,9 +26,11 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/cryptojslib/components/x64-core.js', included: false },
             {pattern: 'app/bower_components/cryptojslib/components/sha512.js', included: false },
             {pattern: 'app/bower_components/cryptojslib/components/hmac.js', included: false },
+            {pattern: 'app/bower_components/lodash/dist/lodash.compat.js', included: false },
             {pattern: 'app/scripts/*.js', included: false },
             {pattern: 'app/scripts/**/*.js', included: false },
             {pattern: 'test/spec/**/*.js', included: false },
+
             // http://karma-runner.github.io/0.10/plus/requirejs.html
             'test/test-main.js'
         ],

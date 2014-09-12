@@ -1,13 +1,13 @@
 /**
  * module definition for the 'rarity' module.
  */
-define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) {
+define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
 
     'use strict';
 
     var rarityModule = angular.module('rarityModule', [
         'ui.router',
-        'ngResource'
+        'restangular'
     ])
         .config(function ($stateProvider) {
             $stateProvider
