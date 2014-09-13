@@ -70,8 +70,6 @@ define([
                         localStorage.hmacSecret = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
                     }
 
-                    console.log('calculating hmac for ' + url + ':' + data + ':' + microTime);
-
                     var hmacHash = CryptoJS.HmacSHA512(url + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
 
                     return {
