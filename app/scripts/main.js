@@ -4,7 +4,6 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         'angular-scenario': '../bower_components/angular-scenario/angular-scenario',
         'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
-        'angular-resource': '../bower_components/angular-resource/angular-resource',
         restangular: '../bower_components/restangular/dist/restangular',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
@@ -27,9 +26,6 @@ require.config({
             'angular'
         ],
         'angular-sanitize': [
-            'angular'
-        ],
-        'angular-resource': [
             'angular'
         ],
         restangular: [
@@ -108,11 +104,10 @@ require([
     'angular-ui-router',
     'angular-cookies',
     'angular-sanitize',
-    'angular-resource',
     'angular-http-auth',
     'restangular',
     'jquery'
-], function (angular, app, ngUiRouter, ngCookies, ngSanitize, ngResource, jquery) {
+], function (angular, app, ngUiRouter, ngCookies, ngSanitize, restangular, jquery) {
     'use strict';
     var $html = angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(function () {

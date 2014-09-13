@@ -20,7 +20,6 @@ define([
 
     return angular.module('bl2ItemsDbApp', [
         'ngCookies',
-        'ngResource',
         'restangular',
         'ngSanitize',
         'ui.router',
