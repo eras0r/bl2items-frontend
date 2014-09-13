@@ -3,12 +3,12 @@ define(['angular', 'shield/shield-def'], function (angular, shieldModule) {
     'use strict';
 
     shieldModule.controller('ShieldListCtrl', [
-        '$scope', '$q', 'ShieldService',
-        function ($scope, $q, ShieldService) {
+        '$scope', 'ShieldService',
+        function ($scope, ShieldService) {
 
-            // load shields
-            $scope.items = ShieldService.query();
-
+            ShieldService.list().then(function (shields) {
+                $scope.items = shields;
+            });
 
         }]);
 
