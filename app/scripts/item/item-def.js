@@ -1,23 +1,22 @@
 /**
  * module definition for the 'item' module.
  */
-define(['angular', 'angular-resource', 'angular-ui-router'], function (angular) {
+define(['angular', 'restangular', 'angular-ui-router'], function (angular) {
 
     'use strict';
 
     var itemModule = angular.module('itemModule', [
-        'ngResource',
-        'ui.router'
+        'ui.router',
+        'restangular'
     ])
         .config(function ($stateProvider) {
             $stateProvider
                 .state('items', {
-                    url: "/",
+                    url: '/',
                     templateUrl: 'scripts/item/item-list/item-list.html',
                     controller: 'ItemListCtrl'
                 });
-        })
-        .constant('ITEM_RESOURCE_URL', 'http://localhost/bl2items-backend/items/:id');
+        });
 
     return itemModule;
 

@@ -3,12 +3,12 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
     'use strict';
 
     itemModule.controller('ItemListCtrl', [
-        '$scope', '$q', 'ItemService',
-        function ($scope, $q, ItemService) {
+        '$scope', 'ItemService',
+        function ($scope, ItemService) {
 
-            // load items
-            $scope.items = ItemService.query();
-
+            ItemService.list().then(function (items) {
+                $scope.items = items;
+            });
 
         }]);
 
