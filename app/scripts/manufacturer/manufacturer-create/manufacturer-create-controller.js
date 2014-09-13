@@ -3,25 +3,30 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
     'use strict';
 
     angular.module('manufacturerModule').controller('ManufacturerCreateCtrl', [
-        '$scope', '$state', 'ManufacturerService',
-        function ($scope, $state, ManufacturerService) {
+        '$scope', '$state', '$log', 'ManufacturerService',
+        function ($scope, $state, $log, ManufacturerService) {
 
             $scope.manufacturer = {};
 
             $scope.save = function () {
-                ManufacturerService.save(
-                    $scope.manufacturer,
-                    function () {
-                        $state.go('admin.manufacturers.list');
-                    },
-                    function (response) {
-                        $scope.errors = response.data;
-                    }
-                );
+                $scope.errors = null;
+
+                ManufacturerService.create($scope.manufacturer)
+                    .then(function () {
+                        ManufacturerService.showList();
+                    }, function (response) {
+                        if (response.status === 422) {
+                            $scope.errors = response.data;
+                        }
+                        else {
+                            // TODO show error message
+                            $log.error('error creating manufacturer');
+                        }
+                    });
             };
 
             $scope.cancel = function () {
-                $state.go('admin.manufacturers.list');
+                ManufacturerService.showList();
             };
 
         }]);

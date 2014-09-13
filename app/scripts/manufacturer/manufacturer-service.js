@@ -2,22 +2,35 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
 
     'use strict';
 
-    manufacturerModule.factory('ManufacturerService', ['MANUFACTURER_RESOURCE_URL',
-        '$resource',
-        function (MANUFACTURER_RESOURCE_URL, $resource) {
-            return $resource(MANUFACTURER_RESOURCE_URL,
-                { id: '@id' },
-                {
-                    list: { method: 'GET', isArray: true }, //same as query
-                    create: { method: 'POST' }, // same as save
-                    update: { method: 'PUT' }
-                    // DEFAULT IMPLEMENTATION OF $RESOURCE
-                    //   'get':    {method:'GET'},
-                    //   'save':   {method:'POST'},
-                    //   'query':  {method:'GET', isArray:true},
-                    //   'remove': {method:'DELETE'},
-                    //   'delete': {method:'DELETE'}
-                });
-        }]);
+    manufacturerModule.factory('ManufacturerService', ['$state', 'Restangular', function ($state, Restangular) {
+        var resourceUrl = 'manufacturers';
+
+        return {
+            showList: function () {
+                $state.go('^.list');
+            },
+
+            list: function () {
+                return Restangular.all(resourceUrl).getList();
+            },
+
+            create: function (manufacturer) {
+                return Restangular.all(resourceUrl).post(manufacturer);
+            },
+
+            read: function (id) {
+                return Restangular.one(resourceUrl, id).get();
+            },
+
+            update: function (manufacturer) {
+                return manufacturer.put();
+            },
+
+            remove: function (id) {
+                return Restangular.one(resourceUrl, id).remove();
+            }
+        };
+
+    }]);
 
 });

@@ -3,26 +3,23 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
     'use strict';
 
     angular.module('manufacturerModule').controller('ManufacturerListCtrl', [
-        '$scope', '$location', 'ManufacturerService',
-        function ($scope, $location, ManufacturerService) {
+        '$scope', '$location', '$log', '$filter', 'ManufacturerService',
+        function ($scope, $location, $log, $filter, ManufacturerService) {
 
-            $scope.loadManufacturers = function () {
-                $scope.manufacturers = ManufacturerService.query();
-            };
+            ManufacturerService.list().then(function (manufacturers) {
+                $scope.manufacturers = manufacturers;
+            });
 
             $scope.deleteManufacturer = function (manufacturer) {
-                $scope.manufacturer = ManufacturerService.delete(
-                    {
-                        id: manufacturer.id
-                    },
-                    // success function
-                    function () {
-                        $scope.loadManufacturers();
-                    }
-                )
+                ManufacturerService.remove(manufacturer.id)
+                    .then(function () {
+                        // filter out the deleted object
+                        $scope.manufacturers = $filter('filter')($scope.manufacturers, {id: '!' + manufacturer.id});
+                    }, function (response) {
+                        // TODO show error message
+                        $log.error('error deleting manufacturer');
+                    });
             };
-
-            $scope.loadManufacturers();
 
         }]);
 

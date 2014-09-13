@@ -9,12 +9,12 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
             var self = this;
 
             RarityService.read($state.params.id).then(function (rarity) {
-                self.originalRarity = rarity;
-                $scope.rarity = Restangular.copy(self.originalRarity);
+                self.originalManufacturer = rarity;
+                $scope.rarity = Restangular.copy(self.originalManufacturer);
             });
 
             $scope.isNotDirty = function () {
-                return angular.equals(self.originalRarity, $scope.rarity);
+                return angular.equals(self.originalManufacturer, $scope.rarity);
             };
 
             $scope.save = function () {
