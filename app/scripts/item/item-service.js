@@ -10,16 +10,16 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                 return Restangular.all(resourceUrl).getList();
             },
 
-            create: function (rarity) {
-                return Restangular.all(resourceUrl).post(rarity);
+            create: function (item) {
+                return Restangular.all(resourceUrl).post(item);
             },
 
             read: function (id) {
                 return Restangular.one(resourceUrl, id).get();
             },
 
-            update: function (rarity) {
-                return rarity.put();
+            update: function (item) {
+                return item.put();
             },
 
             remove: function (id) {
