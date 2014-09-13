@@ -3,11 +3,12 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
     'use strict';
 
     weaponModule.controller('WeaponListCtrl', [
-        '$scope', '$q', 'WeaponService',
-        function ($scope, $q, WeaponService) {
+        '$scope', 'WeaponService',
+        function ($scope, WeaponService) {
 
-            // load weapons
-            $scope.items = WeaponService.query();
+            WeaponService.list().then(function (weapons) {
+                $scope.items = weapons;
+            });
 
         }]);
 

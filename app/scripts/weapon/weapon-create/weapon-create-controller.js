@@ -3,62 +3,57 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
     'use strict';
 
     weaponModule.controller('WeaponCreateCtrl', [
-        '$scope', '$q', 'RarityService', 'ManufacturerService', 'DamageTypeService', 'WeaponService',
-        function ($scope, $q, RarityService, ManufacturerService, DamageTypeService, WeaponService) {
+        '$scope', '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService',
+        function ($scope, $log, rarities, manufacturers, damageTypes, WeaponService) {
 
-            // call services
-            $scope.rarities = RarityService.query();
-            $scope.manufacturers = ManufacturerService.query();
-            $scope.damageTypes = DamageTypeService.query();
+            // assign ui router resolves
+            $scope.rarities = rarities;
+            $scope.manufacturers = manufacturers;
+            $scope.damageTypes = damageTypes;
 
-            // wait for all async service calls
-            $q.all([
-                $scope.rarities.$promise,
-                $scope.manufacturers.$promise,
-                $scope.damageTypes.$promise
-            ]).
-                then(function () {
-                    $scope.weapon = {
-                        level: 50,
-                        rarity: $scope.rarities[0],
-                        manufacturer: $scope.manufacturers[0],
-                        damage: null,
-                        accuracy: null,
-                        fireRate: null,
-                        reloadSpeed: null,
-                        magazineSize: null,
-                        damageType: $scope.damageTypes[0],
-                        uniqueText: null,
-                        elementalText: null,
-                        additionalText: null
-                    }
-                });
+            // init default weapon
+            $scope.weapon = {
+                level: 50,
+                rarity: $scope.rarities[0],
+                manufacturer: $scope.manufacturers[0],
+                damage: null,
+                accuracy: null,
+                fireRate: null,
+                reloadSpeed: null,
+                magazineSize: null,
+                damageType: $scope.damageTypes[0],
+                uniqueText: null,
+                elementalText: null,
+                additionalText: null
+            };
 
             $scope.changeDamageType = function () {
                 $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
 
                 // reset no more relevant inputs
-                if ($scope.weapon.damageType.damageLabel == null) {
+                if ($scope.weapon.damageType.damageLabel === null) {
                     $scope.weapon.elemDamage = null;
                 }
-                if ($scope.weapon.damageType.chanceLabel == null) {
+                if ($scope.weapon.damageType.chanceLabel === null) {
                     $scope.weapon.elemChance = null;
                 }
 
             };
 
             $scope.save = function () {
-                console.log('todo save()');
-                WeaponService.save(
-                    $scope.weapon,
-                    function () {
-                        $location.path('/weapons');
-                    },
-                    function (response) {
-                        $scope.errors = response.data;
-                    }
-                );
-            }
+                WeaponService.create($scope.weapon)
+                    .then(function () {
+                        WeaponService.showList();
+                    }, function (response) {
+                        if (response.status === 422) {
+                            $scope.errors = response.data;
+                        }
+                        else {
+                            // TODO show error message
+                            $log.error('error creating weapon');
+                        }
+                    });
+            };
 
         }]);
 
