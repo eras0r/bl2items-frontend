@@ -3,40 +3,38 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
     'use strict';
 
     angular.module('damageTypeModule').controller('DamageTypeEditCtrl', [
-        '$scope', '$state', 'DamageTypeService',
-        function ($scope, $state, DamageTypeService) {
+        '$scope', '$state', '$log', 'Restangular', 'DamageTypeService',
+        function ($scope, $state, $log, Restangular, DamageTypeService) {
+
+            var self = this;
+
+            DamageTypeService.read($state.params.id).then(function (damageType) {
+                self.originalDamageType = damageType;
+                $scope.damageType = Restangular.copy(self.originalDamageType);
+            });
+
+            $scope.isNotDirty = function () {
+                return angular.equals(self.originalDamageType, $scope.damageType);
+            };
 
             $scope.save = function () {
-                DamageTypeService.update(
-                    $scope.damageType,
-                    function () {
-                        $state.go('admin.damageTypes.list');
-                    },
-                    function (response) {
-                        $scope.errors = response.data;
-                    }
-                );
+                DamageTypeService.update($scope.damageType)
+                    .then(function () {
+                        DamageTypeService.showList();
+                    }, function (response) {
+                        if (response.status === 422) {
+                            $scope.errors = response.data;
+                        }
+                        else {
+                            // TODO show error message
+                            $log.error('error updating damage type');
+                        }
+                    });
             };
 
             $scope.cancel = function () {
-                $state.go('admin.damageTypes.list');
+                DamageTypeService.showList();
             };
-
-            $scope.damageType = DamageTypeService.get(
-                {
-                    id: $state.params.id
-                }, function () {
-//                    $('#color').minicolors(
-//                        {
-//                            defaultValue: $scope.damageType.color,
-//                            theme: 'bootstrap',
-//                            change: function (hex, opacity) {
-//                                $scope.damageType.color = hex;
-//                                $scope.$apply();
-//                            }
-//                        });
-                }
-            );
 
         }]);
 

@@ -10,30 +10,25 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
                 'color': '#ffffff'
             };
 
-//            $('#color').minicolors(
-//                {
-//                    defaultValue: $scope.damageType.color,
-//                    theme: 'bootstrap',
-//                    change: function (hex, opacity) {
-//                        $scope.damageType.color = hex;
-//                        $scope.$apply();
-//                    }
-//                });
-
             $scope.save = function () {
-                DamageTypeService.save(
-                    $scope.damageType,
-                    function () {
-                        $state.go('admin.damageTypes.list');
-                    },
-                    function (response) {
-                        $scope.errors = response.data;
-                    }
-                );
+                $scope.errors = null;
+
+                DamageTypeService.create($scope.damageType)
+                    .then(function () {
+                        DamageTypeService.showList();
+                    }, function (response) {
+                        if (response.status === 422) {
+                            $scope.errors = response.data;
+                        }
+                        else {
+                            // TODO show error message
+                            $log.error('error creating damage type');
+                        }
+                    });
             };
 
             $scope.cancel = function () {
-                $state.go('admin.damageTypes.list');
+                DamageTypeService.showList();
             };
 
         }]);

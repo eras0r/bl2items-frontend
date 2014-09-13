@@ -1,28 +1,28 @@
 /**
  * module definition for the 'damageType' module.
  */
-define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) {
+define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
 
     'use strict';
 
     var damageTypeModule = angular.module('damageTypeModule', [
         'ui.router',
-        'ngResource'
+        'restangular'
     ])
         .config(function ($stateProvider) {
             $stateProvider
                 .state('admin.damageTypes', {
                     'abstract': true,
-                    url: "/damageTypes",
+                    url: '/damageTypes',
                     template: '<ui-view />'
                 })
                 .state('admin.damageTypes.list', {
-                    url: "/list",
+                    url: '/list',
                     templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
                     controller: 'DamageTypeListCtrl'
                 })
                 .state('admin.damageTypes.create', {
-                    url: "/create",
+                    url: '/create',
                     templateUrl: 'scripts/damage-type/damage-type-details.html',
                     controller: 'DamageTypeCreateCtrl'
                 })
@@ -31,8 +31,7 @@ define(['angular', 'angular-ui-router', 'angular-resource'], function (angular) 
                     templateUrl: 'scripts/damage-type/damage-type-details.html',
                     controller: 'DamageTypeEditCtrl'
                 });
-        })
-        .constant('DAMAGE_TYPE_RESOURCE_URL', 'http://localhost/bl2items-backend/damageTypes/:id');
+        });
 
     return damageTypeModule;
 

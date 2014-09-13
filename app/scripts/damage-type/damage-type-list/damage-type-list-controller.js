@@ -3,27 +3,24 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
     'use strict';
 
     damageTypeModule.controller('DamageTypeListCtrl', [
-        '$scope', 'DamageTypeService',
-        function ($scope, DamageTypeService) {
+        '$scope', '$log', '$filter', 'DamageTypeService',
+        function ($scope, $log, $filter, DamageTypeService) {
 
-            $scope.loadDamageTypes = function () {
-                $scope.damageTypes = DamageTypeService.query();
-            };
+            DamageTypeService.list().then(function (damageTypes) {
+                $scope.damageTypes = damageTypes;
+            });
 
             $scope.deleteDamageType = function (damageType) {
-                $scope.damageType = DamageTypeService.delete(
-                    {
-                        id: damageType.id
-                    },
-                    // success function
-                    function () {
-                        $scope.loadDamageTypes();
-                    }
-                )
+                DamageTypeService.remove(damageType.id)
+                    .then(function () {
+                        // filter out the deleted object
+                        $scope.damageTypes = $filter('filter')($scope.damageTypes, {id: '!' + damageType.id});
+                    }, function (response) {
+                        // TODO show error message
+                        $log.error('error deleting damage type');
+                    });
             };
 
-            // init damageTypes
-            $scope.loadDamageTypes();
         }]);
 
 });
