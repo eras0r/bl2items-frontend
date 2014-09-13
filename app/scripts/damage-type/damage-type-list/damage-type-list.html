@@ -25,12 +25,13 @@
             <td>{{damageType.chanceLabel}}</td>
             <td>{{damageType.additionalText}}</td>
             <td class="text-center">
-                <button type="button" class="btn btn-default btn-xs" data-ui-sref="admin.damageTypes.edit({id: damageType.id})">
+                <button type="button" class="btn btn-default btn-xs"
+                        data-ui-sref="admin.damageTypes.edit({id: damageType.id})">
                     <span class="glyphicon glyphicon-pencil" title="edit damage type"></span>
                 </button>
             </td>
             <td class="text-center">
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="deleteDamageType(damageType)">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(damageType)">
                     <span class="glyphicon glyphicon-trash" title="delete damage type"></span>
                 </button>
             </td>
@@ -40,7 +41,8 @@
     <div class="panel-footer text-right">
         <button type="button" class="btn btn-success" data-ui-sref="admin.damageTypes.create"
                 title="create new damage type">
-            <span class="glyphicon glyphicon-plus-sign"></span> create new damage type
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            create new damage type
         </button>
     </div>
 

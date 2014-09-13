@@ -10,7 +10,7 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
                 $scope.damageTypes = damageTypes;
             });
 
-            $scope.deleteDamageType = function (damageType) {
+            $scope.remove = function (damageType) {
                 DamageTypeService.remove(damageType.id)
                     .then(function () {
                         // filter out the deleted object
