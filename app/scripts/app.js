@@ -61,7 +61,7 @@ define([
 
                     var data = '';
                     // set data for post and put request
-                    if (operation === 'put' || operation === 'post') {
+                    if (operation === 'put' || operation === 'post' || operation === 'remove') {
                         data = JSON.stringify(element);
                     }
 
@@ -69,6 +69,8 @@ define([
                     if (!localStorage.hmacSecret) {
                         localStorage.hmacSecret = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
                     }
+
+                    console.log('calculating hmac for ' + url + ':' + data + ':' + microTime);
 
                     var hmacHash = CryptoJS.HmacSHA512(url + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
 
