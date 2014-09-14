@@ -10,11 +10,12 @@ define(['angular', 'components/security/security-def'], function (angular, secur
                 return;
             }
 
-            $http.post('http://localhost/bl2items-backend/logout.php', {}).
+//            $http.post('http://localhost/bl2items-backend/logout.php', {}).
+            $http.delete('http://localhost/bl2items-backend/sessions/' + localStorage.sessionToken, {headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}}).
                 success(function (data, status, headers, config) {
                     // Delete session token and secret
-                    delete localStorage.sessionToken;
-                    delete localStorage.hmacSecret;
+//                    delete localStorage.sessionToken;
+//                    delete localStorage.hmacSecret;
 
                     $scope.message = 'Logout Successful';
                 }).
@@ -22,8 +23,8 @@ define(['angular', 'components/security/security-def'], function (angular, secur
                     $scope.message = data.message;
 
                     // Delete session token and secret
-                    delete localStorage.sessionToken;
-                    delete localStorage.hmacSecret;
+//                    delete localStorage.sessionToken;
+//                    delete localStorage.hmacSecret;
                 });
 
         }]);

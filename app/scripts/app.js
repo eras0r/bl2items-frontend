@@ -54,13 +54,18 @@ define([
                 // setup for restangular
                 // TODO make base url somehow configurable
                 RestangularProvider.setBaseUrl('http://localhost/bl2items-backend/');
+                RestangularProvider.setDefaultHeaders({
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                });
 
                 RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
                     var microTime = new Date().getTime();
 
                     var data = '';
-                    // set data for post and put request
-                    if (operation === 'put' || operation === 'post' || operation === 'remove') {
+                    // use data (payload) for post and put requests
+                    if (operation === 'put' || operation === 'post') {
                         data = JSON.stringify(element);
                     }
 

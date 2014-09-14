@@ -17,7 +17,7 @@ define(['angular', 'components/security/security-def'], function (angular, secur
                 $scope.user.password = '';
 
                 // FIXME use configurable url
-                $http.post('http://localhost/bl2items-backend/login.php', postData).
+                $http.post('http://localhost/bl2items-backend/sessions/', postData, {headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}}).
                     success(function (data, status, headers, config) {
                         // Store session token
                         localStorage.sessionToken = data.sessionToken;
