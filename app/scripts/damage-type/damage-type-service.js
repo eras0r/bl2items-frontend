@@ -26,8 +26,8 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
                 return damageType.put();
             },
 
-            remove: function (id) {
-                return Restangular.one(resourceUrl, id).remove();
+            remove: function (damageType) {
+                return damageType.remove();
             }
         };
 

@@ -26,8 +26,8 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
                 return manufacturer.put();
             },
 
-            remove: function (id) {
-                return Restangular.one(resourceUrl, id).remove();
+            remove: function (manufacturer) {
+                return manufacturer.remove();
             }
         };
 

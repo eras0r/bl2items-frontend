@@ -11,7 +11,7 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
             });
 
             $scope.remove = function (rarity) {
-                RarityService.remove(rarity.id)
+                RarityService.remove(rarity)
                     .then(function () {
                         // filter out the deleted object
                         $scope.rarities = $filter('filter')($scope.rarities, {id: '!' + rarity.id});

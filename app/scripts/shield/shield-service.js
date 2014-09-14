@@ -26,8 +26,8 @@ define(['angular', 'shield/shield-def'], function (angular, shieldModule) {
                 return shield.put();
             },
 
-            remove: function (id) {
-                return Restangular.one(resourceUrl, id).remove();
+            remove: function (shield) {
+                return shield.remove();
             }
         };
 

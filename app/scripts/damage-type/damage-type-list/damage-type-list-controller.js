@@ -11,7 +11,7 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
             });
 
             $scope.remove = function (damageType) {
-                DamageTypeService.remove(damageType.id)
+                DamageTypeService.remove(damageType)
                     .then(function () {
                         // filter out the deleted object
                         $scope.damageTypes = $filter('filter')($scope.damageTypes, {id: '!' + damageType.id});

@@ -22,8 +22,8 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                 return item.put();
             },
 
-            remove: function (id) {
-                return Restangular.one(resourceUrl, id).remove();
+            remove: function (item) {
+                return item.remove();
             }
         };
 

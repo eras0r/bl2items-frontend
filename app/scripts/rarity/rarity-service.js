@@ -26,8 +26,8 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
                 return rarity.put();
             },
 
-            remove: function (id) {
-                return Restangular.one(resourceUrl, id).remove();
+            remove: function (rarity) {
+                return rarity.remove();
             }
         };
 

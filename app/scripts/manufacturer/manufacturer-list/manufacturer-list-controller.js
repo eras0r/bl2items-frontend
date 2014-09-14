@@ -11,7 +11,7 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
             });
 
             $scope.remove = function (manufacturer) {
-                ManufacturerService.remove(manufacturer.id)
+                ManufacturerService.remove(manufacturer)
                     .then(function () {
                         // filter out the deleted object
                         $scope.manufacturers = $filter('filter')($scope.manufacturers, {id: '!' + manufacturer.id});

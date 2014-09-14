@@ -26,8 +26,8 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
                 return weapon.put();
             },
 
-            remove: function (id) {
-                return Restangular.one(resourceUrl, id).remove();
+            remove: function (weapon) {
+                return weapon.remove();
             }
         };
 
