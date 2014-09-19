@@ -8,6 +8,7 @@ define([
     'components/security/index',
     'components/navigation/index',
     'components/highlight-text/index',
+    'user/index',
     'item/index',
     'weapon/index',
     'shield/index',
@@ -32,6 +33,7 @@ define([
         'navigationModule',
         'highlightTextModule',
         /* business specific modules*/
+        'userModule',
         'itemModule',
         'weaponModule',
         'shieldModule',

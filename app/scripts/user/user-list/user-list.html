@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Users</div>
+    <div class="panel-body">
+        <p>Here you can manage the available users...</p>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>username</th>
+            <th class="col-xs-1">&nbsp;</th>
+            <th class="col-xs-1">&nbsp;</th>
+        </tr>
+        <tr data-ng-repeat="user in users">
+            <td>{{user.username}}</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-default btn-xs"
+                        data-ui-sref="admin.users.edit({id: user.id})">
+                    <span class="glyphicon glyphicon-pencil" title="edit user"></span>
+                </button>
+            </td>
+            <td class="text-center">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(user)">
+                    <span class="glyphicon glyphicon-trash" title="delete user"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="panel-footer text-right">
+        <button type="button" class="btn btn-success" data-ui-sref="admin.users.create" title="create new user">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            create new user
+        </button>
+    </div>
+
+</div>
+

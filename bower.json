@@ -1,24 +1,25 @@
 {
-  "name": "bl2-items-db",
-  "version": "0.0.0",
-  "dependencies": {
-    "angular": "1.2.22",
-    "requirejs": "~2.1.10",
-    "jquery": "~2.1.1",
-    "sass-bootstrap": "~3.0.2",
-    "angular-cookies": "1.2.22",
-    "angular-sanitize": "1.2.22",
-    "angular-ui-router": "~0.2.10",
-    "angular-minicolors": "~0.0.4",
-    "json3": "3.3.2",
-    "angular-http-auth": "~1.2.1",
-    "cryptojslib": "~3.1.2",
-    "es5-shim": "4.0.3",
-    "restangular": "~1.4.0",
-    "lodash": "~2.4.1"
-  },
-  "devDependencies": {
-    "angular-mocks": "1.2.22",
-    "angular-scenario": "1.2.22"
-  }
+    "name": "bl2-items-db",
+    "version": "0.0.0",
+    "dependencies": {
+        "angular": "1.2.22",
+        "requirejs": "~2.1.10",
+        "jquery": "~2.1.1",
+        "sass-bootstrap": "~3.0.2",
+        "angular-cookies": "1.2.22",
+        "angular-sanitize": "1.2.22",
+        "angular-ui-router": "~0.2.10",
+        "angular-minicolors": "~0.0.4",
+        "jquery-minicolors": "2.1.7",
+        "json3": "3.3.2",
+        "angular-http-auth": "~1.2.1",
+        "cryptojslib": "~3.1.2",
+        "es5-shim": "4.0.3",
+        "restangular": "~1.4.0",
+        "lodash": "~2.4.1"
+    },
+    "devDependencies": {
+        "angular-mocks": "1.2.22",
+        "angular-scenario": "1.2.22"
+    }
 }
