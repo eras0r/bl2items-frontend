@@ -62,6 +62,14 @@ define([
                     'X-Requested-With': 'XMLHttpRequest'
                 });
 
+                // removes the body for remove / delete requests
+                RestangularProvider.addRequestInterceptor(function (elem, operation) {
+                    if (operation === 'remove') {
+                        return undefined;
+                    }
+                    return elem;
+                });
+
                 RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
                     var microTime = new Date().getTime();
 
