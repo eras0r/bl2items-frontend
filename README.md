@@ -15,7 +15,7 @@ In addition to these the following components are used:
 * [ui-router] (https://github.com/angular-ui/ui-router)
 * [restangular] (https://github.com/mgonto/restangular)
 * [angular-http-auth] (https://github.com/witoldsz/angular-http-auth)
-* [cryptojslib] (https://github.com/sytelus/CryptoJS/blob/master/bower.json)
+* [cryptojslib] (https://github.com/sytelus/CryptoJS)
 
 ## Prerequisites
 
