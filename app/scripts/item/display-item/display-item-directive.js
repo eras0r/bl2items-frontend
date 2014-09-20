@@ -22,7 +22,7 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
 
             var linker = function (scope, element, attrs) {
 
-                var loader = getTemplate(scope.item.itemType);
+                var loader = getTemplate(scope.item.itemtype);
 
                 var promise = loader.success(function (html) {
                     element.html(html);
