@@ -3,29 +3,20 @@ define(['angular', 'components/security/security-def'], function (angular, secur
     'use strict';
 
     securityModule
-        .controller('LogoutCtrl', ['$scope', '$http', function ($scope, $http) {
+        .controller('LogoutCtrl', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
 
             if (!localStorage.sessionToken) {
                 $scope.message = 'You are not logged in.';
                 return;
             }
 
-//            $http.post('http://localhost/bl2items-backend/logout.php', {}).
-            $http.delete('http://localhost/bl2items-backend/sessions/' + localStorage.sessionToken, {headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}}).
-                success(function (data, status, headers, config) {
-                    // Delete session token and secret
-//                    delete localStorage.sessionToken;
-//                    delete localStorage.hmacSecret;
-
-                    $scope.message = 'Logout Successful';
-                }).
-                error(function (data, status, headers, config) {
-                    $scope.message = data.message;
-
-                    // Delete session token and secret
-//                    delete localStorage.sessionToken;
-//                    delete localStorage.hmacSecret;
-                });
+            SessionService.logout().then(function (data) {
+                localStorage.removeItem('sessionToken');
+                $scope.message = 'Logout Successful';
+            }, function (response) {
+                // TODO show error message
+                $scope.message = response.message;
+            });
 
         }]);
 
