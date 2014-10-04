@@ -16,7 +16,8 @@ require.config({
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
         'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
-        lodash: '../bower_components/lodash/dist/lodash'
+        lodash: '../bower_components/lodash/dist/lodash.compat',
+        'ng-file-upload': '../bower_components/ng-file-upload/angular-file-upload'
     },
     shim: {
         angular: {
@@ -85,6 +86,11 @@ require.config({
                 'cryptojs.core'
             ],
             exports: 'CryptoJS'
+        },
+        'ng-file-upload': {
+            deps: [
+                'angular'
+            ]
         }
     },
     priority: [

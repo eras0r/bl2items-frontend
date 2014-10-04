@@ -29,7 +29,8 @@ requirejs.config({
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
         'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
-        lodash: '../bower_components/lodash/dist/lodash.compat'
+        lodash: '../bower_components/lodash/dist/lodash.compat',
+        'ng-file-upload': '../bower_components/ng-file-upload/angular-file-upload'
     },
 
     shim: {

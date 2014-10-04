@@ -1,0 +1,145 @@
+<div class="panel panel-default">
+
+    <h1 class="alert-warning">file upload</h1>
+
+    <div class="panel-heading">File</div>
+    <div class="panel-body">
+
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Upload method</label>
+
+                <div class="col-sm-9">
+                    <label>
+                        <input type="radio" name="howToSend" ng-model="howToSend" value="1" ng-init="howToSend = 1"/>
+                        Multipart/form-data upload using $upload.upload() service cross browser
+                    </label>
+                    <br/>
+
+                    <label>
+                        <input type="radio" name="howToSend" ng-model="howToSend" value="2"
+                               ng-disabled="!fileReaderSupported || usingFlash"/>
+                        File binary content with the file type as Content-Type header using $upload.http() service
+                    </label>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">HTTP method</label>
+
+                <div class="col-sm-9">
+                    <label>
+                        <input type="radio" ng-model="httpMethod" ng-init="httpMethod = 'POST'" value="POST">
+                        post
+                    </label>
+
+                    <label>
+                        <input type="radio" ng-model="httpMethod" value='PUT'
+                               ng-disabled="usingFlash || howToSend == 3"/>
+                        put
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-3"></div>
+
+                <div class="col-sm-9">
+                    <label>
+                        <input type="checkbox" ng-model="uploadRightAway">
+                        Upload right away
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">myModel</label>
+
+                <div class="col-sm-9">
+                    <input type="text" ng-model="myModel">
+                    <span class="help-block">model object to be sent with the file.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">single file upload</label>
+
+                <div class="col-sm-9">
+                    <input type="file" ng-file-select="onFileSelect($files)" onclick="this.value=null"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">multiple files upload</label>
+
+                <div class="col-sm-9">
+                    <input type="file" ng-file-select="onFileSelect($files)" multiple onclick="this.value=null">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">multiple images only upload</label>
+
+                <div class="col-sm-9">
+                    <input type="file" ng-file-select="onFileSelect($files)" multiple onclick="this.value=null"
+                           accept="image/*">
+                </div>
+            </div>
+
+            <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
+            <br/>
+            Progress:
+            <br/>
+            <br/>
+
+            <div ng-show="selectedFiles != null">
+                <div class="sel-file" ng-repeat="f in selectedFiles">
+                    {{($index + 1) + '.'}}
+                    <img ng-show="dataUrls[$index]" ng-src="{{dataUrls[$index]}}">
+                    <button class="button" ng-click="start($index)" ng-show="progress[$index] < 0">Start</button>
+				<span class="progress" ng-show="progress[$index] >= 0">
+					<div style="width:{{progress[$index]}}%">{{progress[$index]}}%</div>
+				</span>
+                    <button class="button" ng-click="abort($index)"
+                            ng-show="hasUploader($index) && progress[$index] < 100">Abort
+                    </button>
+                    {{f.name}} - size: {{f.size}}B - type: {{f.type}}
+                </div>
+            </div>
+            <div class="response" ng-show="uploadResult.length > 0">
+                Server Response:
+                <ul>
+                    <li ng-repeat="result in uploadResult">
+                        <div data-ng-show="result.result == null">{{result}}</div>
+                        <ul>
+                            <li ng-repeat="item in result.result">
+                                <div data-ng-show="item.name">file name: {{item.name}}</div>
+                                <div data-ng-show="item.fieldName">name: {{item.fieldName}}</div>
+                                <div data-ng-show="item.size">size on the serve: {{item.size}}</div>
+                                <div data-ng-show="item.value">value: {{item.value}}</div>
+                            </li>
+                        </ul>
+                        <div data-ng-show="result.requestHeaders" class="reqh">request headers:
+                            {{result.requestHeaders}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form-group text-right">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="button" class="btn btn-primary" data-ng-click="save()"
+                            data-ng-disabled="isNotDirty()">save
+                    </button>
+
+                    <button type="button" class="btn btn-default" data-ng-click="cancel()">cancel</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
