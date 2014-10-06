@@ -17,9 +17,7 @@ define(['angular', 'angular-mocks', 'components/navigation/index'], function (an
             });
         }));
 
-        it('should have "items" set as activeView', function () {
-            expect($scope.activeView).toBe('items');
-        });
+        // TODO some useful tests
     });
 
 });
