@@ -13,11 +13,7 @@ define(['angular', 'restangular', 'angular-ui-router', 'ng-file-upload'], functi
         .config(function ($stateProvider) {
             $stateProvider
                 .state('bl2.admin.files', {
-                    'abstract': true,
-                    url: '/files'
-                })
-                .state('bl2.admin.files.list', {
-                    url: '/list',
+                    url: '/files',
                     views: {
                         'main@': {
                             templateUrl: 'scripts/file/file-list/file-list.html',

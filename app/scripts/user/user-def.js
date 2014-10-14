@@ -12,11 +12,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
         .config(function ($stateProvider) {
             $stateProvider
                 .state('bl2.admin.users', {
-                    'abstract': true,
-                    url: '/users'
-                })
-                .state('bl2.admin.users.list', {
-                    url: '/list',
+                    url: '/users',
                     views: {
                         'main@': {
                             templateUrl: 'scripts/user/user-list/user-list.html',

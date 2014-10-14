@@ -12,11 +12,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
         .config(function ($stateProvider) {
             $stateProvider
                 .state('bl2.admin.damageTypes', {
-                    'abstract': true,
-                    url: '/damageTypes'
-                })
-                .state('bl2.admin.damageTypes.list', {
-                    url: '/list',
+                    url: '/damageTypes',
                     views: {
                         'main@': {
                             templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',

@@ -17,88 +17,73 @@
                     </a>
                     </li>
 
-                    <li data-ng-class="{active: $state.includes('bl2.items')}">
-                        <a data-ui-sref="bl2.items">Items</a>
-                    </li>
+                    <navigation-item data-link="bl2.items" data-label="Items"></navigation-item>
+
+                    <!--<li data-ng-class="{active: $state.includes('bl2.items')}">-->
+                    <!--<a data-ui-sref="bl2.items">Items</a>-->
+                    <!--</li>-->
 
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.weapons')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Weapons <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li data-ng-class="{active: $state.includes('bl2.weapons.list')}">
-                                <a data-ui-sref="bl2.weapons.list">List</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.weapons.create')}">
-                                <a data-ui-sref="bl2.weapons.create">Create</a>
-                            </li>
+                            <navigation-item data-link="bl2.weapons.list" data-label="List"></navigation-item>
+
+                            <navigation-item data-link="bl2.weapons.create" data-label="Create"></navigation-item>
                         </ul>
                     </li>
 
                     <li class="dropdown" data-ng-class="{active: $state.includes('shields')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Shields <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li data-ng-class="{active: $state.includes('bl2.shields.list')}">
-                                <a data-ui-sref="bl2.shields.list">List</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.shields.create')}">
-                                <a data-ui-sref="bl2.shields.create">Create</a>
-                            </li>
+                            <navigation-item data-link="bl2.shields.list" data-label="List"></navigation-item>
+
+                            <navigation-item data-link="bl2.shields.create" data-label="Create"></navigation-item>
                         </ul>
                     </li>
 
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.grenadeMods')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Grenade mods <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li data-ng-class="{active: $state.includes('bl2.grenadeMods.list')}">
-                                <a data-ui-sref="bl2.grenadeMods.list">List</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.grenadeMods.create')}">
-                                <a data-ui-sref="bl2.grenadeMods.create">Create</a>
-                            </li>
+                            <navigation-item data-link="bl2.grenadeMods.list" data-label="List"></navigation-item>
+
+                            <navigation-item data-link="bl2.grenadeMods.create" data-label="Create"></navigation-item>
+
                         </ul>
                     </li>
 
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.classMods')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Class mods <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li data-ng-class="{active: $state.includes('bl2.classMods.list')}">
-                                <a data-ui-sref="bl2.classMods.list">List</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.classMods.create')}">
-                                <a data-ui-sref="bl2.classMods.create">Create</a>
-                            </li>
+                            <navigation-item data-link="bl2.classMods.list" data-label="List"></navigation-item>
+
+                            <navigation-item data-link="bl2.classMods.create" data-label="Create"></navigation-item>
                         </ul>
                     </li>
 
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.artifacts')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Artifacts <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li data-ng-class="{active: $state.includes('bl2.artifacts.list')}">
-                                <a data-ui-sref="bl2.artifacts.list">List</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.artifacts.create')}">
-                                <a data-ui-sref="bl2.artifacts.create">Create</a>
-                            </li>
+                            <navigation-item data-link="bl2.artifacts.list" data-label="List"></navigation-item>
+
+                            <navigation-item data-link="bl2.artifacts.create" data-label="Create"></navigation-item>
                         </ul>
                     </li>
 
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li data-ng-class="{active: $state.includes('bl2.admin.rarities')}">
-                                <a data-ui-sref="bl2.admin.rarities.list">Rarities</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.admin.manufacturers')}">
-                                <a data-ui-sref="bl2.admin.manufacturers.list">Manufacturers</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.admin.damageTypes')}">
-                                <a data-ui-sref="bl2.admin.damageTypes.list">Damage types</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.admin.users')}">
-                                <a data-ui-sref="bl2.admin.users.list">Users</a>
-                            </li>
-                            <li data-ng-class="{active: $state.includes('bl2.admin.files')}">
-                                <a data-ui-sref="bl2.admin.files.list">Files</a>
-                            </li>
+                            <navigation-item data-link="bl2.admin.rarities" data-label="Rarities"></navigation-item>
+
+                            <navigation-item data-link="bl2.admin.manufacturers"
+                                             data-label="Manufacturers"></navigation-item>
+
+                            <navigation-item data-link="bl2.admin.damageTypes"
+                                             data-label="Damage Types"></navigation-item>
+
+                            <navigation-item data-link="bl2.admin.users" data-label="Users"></navigation-item>
+
+                            <navigation-item data-link="bl2.admin.files" data-label="Files"></navigation-item>
+
                         </ul>
                     </li>
 
