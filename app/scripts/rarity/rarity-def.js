@@ -20,15 +20,6 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                         }
                     }
                 })
-                //.state('bl2.admin.rarities.list', {
-                //    url: '/list',
-                //    views: {
-                //        'main@': {
-                //            templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
-                //            controller: 'RarityListCtrl'
-                //        }
-                //    }
-                //})
                 .state('bl2.admin.rarities.create', {
                     url: '/create',
                     views: {
@@ -48,8 +39,6 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     }
                 });
 
-            // default state for rarities module
-            //$urlRouterProvider.when('/admin/rarities', '/admin/rarities/list');
         });
 
     return rarityModule;
