@@ -11,25 +11,36 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('admin.damageTypes', {
+                .state('bl2.admin.damageTypes', {
                     'abstract': true,
-                    url: '/damageTypes',
-                    template: '<ui-view />'
+                    url: '/damageTypes'
                 })
-                .state('admin.damageTypes.list', {
+                .state('bl2.admin.damageTypes.list', {
                     url: '/list',
-                    templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
-                    controller: 'DamageTypeListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
+                            controller: 'DamageTypeListCtrl'
+                        }
+                    }
                 })
-                .state('admin.damageTypes.create', {
+                .state('bl2.admin.damageTypes.create', {
                     url: '/create',
-                    templateUrl: 'scripts/damage-type/damage-type-details.html',
-                    controller: 'DamageTypeCreateCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/damage-type/damage-type-details.html',
+                            controller: 'DamageTypeCreateCtrl'
+                        }
+                    }
                 })
-                .state('admin.damageTypes.edit', {
+                .state('bl2.admin.damageTypes.edit', {
                     url: '/:id',
-                    templateUrl: 'scripts/damage-type/damage-type-details.html',
-                    controller: 'DamageTypeEditCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/damage-type/damage-type-details.html',
+                            controller: 'DamageTypeEditCtrl'
+                        }
+                    }
                 });
         });
 

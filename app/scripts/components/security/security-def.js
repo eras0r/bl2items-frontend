@@ -10,13 +10,13 @@ define(['angular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('login', {
-                    url: "/login",
+                .state('bl2.login', {
+                    url: '/login',
                     templateUrl: 'scripts/components/security/login-form.html',
                     controller: 'LoginCtrl'
                 })
-                .state('logout', {
-                    url: "/logout",
+                .state('bl2.logout', {
+                    url: '/logout',
                     controller: 'LogoutCtrl'
                 });
         });

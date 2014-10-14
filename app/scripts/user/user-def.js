@@ -11,30 +11,41 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('admin.users', {
+                .state('bl2.admin.users', {
                     'abstract': true,
-                    url: '/users',
-                    template: '<ui-view />'
+                    url: '/users'
                 })
-                .state('admin.users.list', {
+                .state('bl2.admin.users.list', {
                     url: '/list',
-                    templateUrl: 'scripts/user/user-list/user-list.html',
-                    controller: 'UserListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/user/user-list/user-list.html',
+                            controller: 'UserListCtrl'
+                        }
+                    }
                 })
-                .state('admin.users.create', {
+                .state('bl2.admin.users.create', {
                     url: '/create',
-                    templateUrl: 'scripts/user/user-details.html',
-                    controller: 'UserCreateCtrl',
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/user/user-details.html',
+                            controller: 'UserCreateCtrl'
+                        }
+                    },
                     resolve: {
                         roles: function (RoleService) {
                             return RoleService.list();
                         }
                     }
                 })
-                .state('admin.users.edit', {
+                .state('bl2.admin.users.edit', {
                     url: '/:id',
-                    templateUrl: 'scripts/user/user-details.html',
-                    controller: 'UserEditCtrl',
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/user/user-details.html',
+                            controller: 'UserEditCtrl'
+                        }
+                    },
                     resolve: {
                         roles: function (RoleService) {
                             return RoleService.list();

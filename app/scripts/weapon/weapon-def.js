@@ -11,20 +11,27 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('weapons', {
+                .state('bl2.weapons', {
                     'abstract': true,
-                    url: '/weapons',
-                    template: '<ui-view />'
+                    url: '/weapons'
                 })
-                .state('weapons.list', {
+                .state('bl2.weapons.list', {
                     url: '/list',
-                    templateUrl: 'scripts/item/item-list/item-list.html',
-                    controller: 'WeaponListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/item/item-list/item-list.html',
+                            controller: 'WeaponListCtrl'
+                        }
+                    }
                 })
-                .state('weapons.create', {
+                .state('bl2.weapons.create', {
                     url: '/create',
-                    templateUrl: 'scripts/weapon/weapon-details.html',
-                    controller: 'WeaponCreateCtrl',
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/weapon/weapon-details.html',
+                            controller: 'WeaponCreateCtrl',
+                        }
+                    },
                     resolve: {
                         rarities: function (RarityService) {
                             return RarityService.list();

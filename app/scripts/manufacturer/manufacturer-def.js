@@ -11,25 +11,36 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('admin.manufacturers', {
+                .state('bl2.admin.manufacturers', {
                     'abstract': true,
-                    url: '/manufacturers',
-                    template: '<ui-view />'
+                    url: '/manufacturers'
                 })
-                .state('admin.manufacturers.list', {
+                .state('bl2.admin.manufacturers.list', {
                     url: '/list',
-                    templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
-                    controller: 'ManufacturerListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
+                            controller: 'ManufacturerListCtrl'
+                        }
+                    }
                 })
-                .state('admin.manufacturers.create', {
+                .state('bl2.admin.manufacturers.create', {
                     url: '/create',
-                    templateUrl: 'scripts/manufacturer/manufacturer-details.html',
-                    controller: 'ManufacturerCreateCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/manufacturer/manufacturer-details.html',
+                            controller: 'ManufacturerCreateCtrl'
+                        }
+                    }
                 })
-                .state('admin.manufacturers.edit', {
+                .state('bl2.admin.manufacturers.edit', {
                     url: '/:id',
-                    templateUrl: 'scripts/manufacturer/manufacturer-details.html',
-                    controller: 'ManufacturerEditCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/manufacturer/manufacturer-details.html',
+                            controller: 'ManufacturerEditCtrl'
+                        }
+                    }
                 });
         });
 

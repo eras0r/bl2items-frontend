@@ -11,25 +11,36 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('admin.rarities', {
+                .state('bl2.admin.rarities', {
                     'abstract': true,
-                    url: '/rarities',
-                    template: '<ui-view />'
+                    url: '/rarities'
                 })
-                .state('admin.rarities.list', {
+                .state('bl2.admin.rarities.list', {
                     url: '/list',
-                    templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
-                    controller: 'RarityListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
+                            controller: 'RarityListCtrl'
+                        }
+                    }
                 })
-                .state('admin.rarities.create', {
+                .state('bl2.admin.rarities.create', {
                     url: '/create',
-                    templateUrl: 'scripts/rarity/rarity-details.html',
-                    controller: 'RarityCreateCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/rarity/rarity-details.html',
+                            controller: 'RarityCreateCtrl'
+                        }
+                    }
                 })
-                .state('admin.rarities.edit', {
+                .state('bl2.admin.rarities.edit', {
                     url: '/:id',
-                    templateUrl: 'scripts/rarity/rarity-details.html',
-                    controller: 'RarityEditCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/rarity/rarity-details.html',
+                            controller: 'RarityEditCtrl'
+                        }
+                    }
                 });
         });
 

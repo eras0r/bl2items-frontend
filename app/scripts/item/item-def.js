@@ -11,10 +11,15 @@ define(['angular', 'restangular', 'angular-ui-router'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('items', {
-                    url: '/',
-                    templateUrl: 'scripts/item/item-list/item-list.html',
-                    controller: 'ItemListCtrl'
+                .state('bl2.items', {
+                    url: '/items',
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/item/item-list/item-list.html',
+                            controller: 'ItemListCtrl'
+                        }
+                    }
+
                 });
         });
 

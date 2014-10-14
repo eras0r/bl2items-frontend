@@ -23,15 +23,19 @@
     <!-- endbuild -->
 </head>
 <body data-ng-app="bl2ItemsDbApp">
+
+current state: {{$state}}<br/>
+
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div data-ng-include="'scripts/components/navigation/navigation.html'"></div>
+<!--<div data-ng-include="'scripts/components/navigation/navigation.html'"></div>-->
+<div data-ui-view="navigation"></div>
 
 <!-- Add your site or application content here -->
-<div class="container-fluid" data-ui-view></div>
+<div class="container-fluid" data-ui-view="main"></div>
 
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>

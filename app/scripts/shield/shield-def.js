@@ -11,20 +11,27 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('shields', {
+                .state('bl2.shields', {
                     'abstract': true,
-                    url: '/shields',
-                    template: '<ui-view />'
+                    url: '/shields'
                 })
-                .state('shields.list', {
+                .state('bl2.shields.list', {
                     url: '/list',
-                    templateUrl: 'scripts/item/item-list/item-list.html',
-                    controller: 'ShieldListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/item/item-list/item-list.html',
+                            controller: 'ShieldListCtrl'
+                        }
+                    }
                 })
-                .state('shields.create', {
+                .state('bl2.shields.create', {
                     url: '/create',
-                    templateUrl: 'scripts/shield/shield-details.html',
-                    controller: 'ShieldCreateCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/shield/shield-details.html',
+                            controller: 'ShieldCreateCtrl'
+                        }
+                    }
                 });
         });
 

@@ -12,20 +12,27 @@ define(['angular', 'restangular', 'angular-ui-router', 'ng-file-upload'], functi
     ])
         .config(function ($stateProvider) {
             $stateProvider
-                .state('admin.files', {
+                .state('bl2.admin.files', {
                     'abstract': true,
-                    url: '/files',
-                    template: '<ui-view />'
+                    url: '/files'
                 })
-                .state('admin.files.list', {
+                .state('bl2.admin.files.list', {
                     url: '/list',
-                    templateUrl: 'scripts/file/file-list/file-list.html',
-                    controller: 'FileListCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/file/file-list/file-list.html',
+                            controller: 'FileListCtrl'
+                        }
+                    }
                 })
-                .state('admin.files.upload', {
+                .state('bl2.admin.files.upload', {
                     url: '/upload',
-                    templateUrl: 'scripts/file/file-upload/file-upload.html',
-                    controller: 'FileUploadCtrl'
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/file/file-upload/file-upload.html',
+                            controller: 'FileUploadCtrl'
+                        }
+                    }
                 });
         });
 

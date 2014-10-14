@@ -45,14 +45,28 @@ define([
     ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider) {
-                // for any unmatched url, redirect to /
-                $urlRouterProvider.otherwise('/');
 
                 $stateProvider
-                    .state('admin', {
+                    .state('bl2', {
+                        url: '',
+                        views: {
+                            'navigation': {
+                                templateUrl: 'scripts/components/navigation/navigation.html',
+                                controller: 'NavCtrl'
+                            },
+                            'main': {
+                                template: '<h1>Hello Bl2 Items DB'
+                            }
+                        }
+                    })
+                    .state('bl2.admin', {
                         'abstract': true,
                         url: '/admin',
-                        template: '<ui-view />'
+                        resolve: {
+                            currentUser: function (SessionService) {
+                                return SessionService.getCurrentUser();
+                            }
+                        }
                     });
 
                 // setup for restangular
@@ -113,7 +127,7 @@ define([
                 // angular auth interceptor start
                 $rootScope.$on('event:auth-loginRequired', function () {
                     // go to login state by keeping the current url
-                    $state.go('login', {}, {location: false});
+                    $state.go('bl2.login', {}, {location: false});
                 });
                 $rootScope.$on('event:auth-loginConfirmed', function () {
                     // TODO to previous state
