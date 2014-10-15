@@ -6,8 +6,8 @@ define(['angular', 'file/file-def', 'cryptojs.core', 'cryptojs.x64-core', 'crypt
     window.uploadUrl = window.uploadUrl || 'upload';
 
     itemModule.controller('FileUploadCtrl', [
-        '$scope', '$http', '$timeout', '$upload', 'FileService',
-        function ($scope, $http, $timeout, $upload, FileService) {
+        '$scope', '$http', '$timeout', '$upload', '$state', 'FileService',
+        function ($scope, $http, $timeout, $upload, $state, FileService) {
 
             //$scope.usingFlash = FileAPI && FileAPI.upload != null;
             $scope.usingFlash = false;
@@ -205,7 +205,8 @@ define(['angular', 'file/file-def', 'cryptojs.core', 'cryptojs.x64-core', 'crypt
                         $scope.policy = data.policy;
                         $scope.signature = data.signature;
                     });
-            }
+            };
+
             if (localStorage) {
                 $scope.s3url = localStorage.getItem("s3url");
                 $scope.AWSAccessKeyId = localStorage.getItem("AWSAccessKeyId");
@@ -214,9 +215,14 @@ define(['angular', 'file/file-def', 'cryptojs.core', 'cryptojs.x64-core', 'crypt
                 $scope.policy = localStorage.getItem("policy");
                 $scope.signature = localStorage.getItem("signature");
             }
+
             $scope.success_action_redirect = $scope.success_action_redirect || window.location.protocol + "//" + window.location.host;
             $scope.jsonPolicy = $scope.jsonPolicy || '{\n  "expiration": "2020-01-01T00:00:00Z",\n  "conditions": [\n    {"bucket": "angular-file-upload"},\n    ["starts-with", "$key", ""],\n    {"acl": "private"},\n    ["starts-with", "$Content-Type", ""],\n    ["starts-with", "$filename", ""],\n    ["content-length-range", 0, 524288000]\n  ]\n}';
             $scope.acl = $scope.acl || 'private';
+
+            $scope.cancel = function () {
+                $state.go('^');
+            };
 
         }]);
 

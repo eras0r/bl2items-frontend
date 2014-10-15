@@ -7,7 +7,7 @@ define(['angular', 'damage-type/damage-type-def'], function (angular, damageType
 
         return {
             showList: function () {
-                $state.go('^.list');
+                $state.go('^');
             },
 
             list: function () {

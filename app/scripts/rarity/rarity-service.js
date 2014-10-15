@@ -7,7 +7,7 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
 
         return {
             showList: function () {
-                $state.go('^.list');
+                $state.go('^');
             },
 
             list: function () {

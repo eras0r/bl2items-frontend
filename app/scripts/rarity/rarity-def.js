@@ -9,7 +9,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
         'ui.router',
         'restangular'
     ])
-        .config(function ($stateProvider, $urlRouterProvider) {
+        .config(function ($stateProvider) {
             $stateProvider
                 .state('bl2.admin.rarities', {
                     url: '/rarities',

@@ -7,7 +7,7 @@ define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufact
 
         return {
             showList: function () {
-                $state.go('^.list');
+                $state.go('^');
             },
 
             list: function () {

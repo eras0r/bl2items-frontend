@@ -1,7 +1,7 @@
 <header>
     <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="NavCtrl">-->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,96 +12,153 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="hidden-xs hidden-sm"><a href="#" class="logo-link">
-                        <img class="logo" src="images/bl2-logo.png">
-                    </a>
+                    <li class="hidden-xs hidden-sm">
+                        <a href="#" class="logo-link">
+                            <img class="logo" src="images/bl2-logo.png">
+                        </a>
                     </li>
-
                     <navigation-item data-link="bl2.items" data-label="Items">
+                        Items
                     </navigation-item>
-
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.weapons')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Weapons <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <navigation-item data-link="bl2.weapons.list" data-label="List">
+                                List
                             </navigation-item>
-
                             <navigation-item data-link="bl2.weapons.create" data-label="Create">
+                                Create
                             </navigation-item>
                         </ul>
                     </li>
-
                     <li class="dropdown" data-ng-class="{active: $state.includes('shields')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Shields <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.shields.list" data-label="List">
+                            <navigation-item data-link="bl2.shields.list">
+                                List
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.shields.create" data-label="Create">
+                            <navigation-item data-link="bl2.shields.create">
+                                Create
                             </navigation-item>
                         </ul>
                     </li>
-
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.grenadeMods')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Grenade mods <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.grenadeMods.list" data-label="List">
+                            <navigation-item data-link="bl2.grenadeMods.list">
+                                List
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.grenadeMods.create" data-label="Create">
+                            <navigation-item data-link="bl2.grenadeMods.create">
+                                Create
                             </navigation-item>
-
                         </ul>
                     </li>
-
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.classMods')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Class mods <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.classMods.list" data-label="List">
+                            <navigation-item data-link="bl2.classMods.list">
+                                List
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.classMods.create" data-label="Create">
+                            <navigation-item data-link="bl2.classMods.create">
+                                Create
                             </navigation-item>
                         </ul>
                     </li>
-
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.artifacts')}">
                         <a class="dropdown-toggle" data-toggle="dropdown">Artifacts <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.artifacts.list" data-label="List">
+                            <navigation-item data-link="bl2.artifacts.list">List
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.artifacts.create" data-label="Create">
+                            <navigation-item data-link="bl2.artifacts.create">
+                                Create
                             </navigation-item>
                         </ul>
                     </li>
-
                     <li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.admin.rarities" data-label="Rarities">
+                            <navigation-item data-link="bl2.admin.rarities">
+                                Rarities
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.admin.manufacturers" data-label="Manufacturers">
+                            <navigation-item data-link="bl2.admin.manufacturers">
+                                Manufacturers
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.admin.damageTypes" data-label="Damage Types">
+                            <navigation-item data-link="bl2.admin.damageTypes">
+                                Damage Types
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.admin.users" data-label="Users">
+                            <navigation-item data-link="bl2.admin.users">
+                                Users
                             </navigation-item>
-
-                            <navigation-item data-link="bl2.admin.files" data-label="Files">
+                            <navigation-item data-link="bl2.admin.files">
+                                Files
                             </navigation-item>
-
                         </ul>
                     </li>
-
-                    <navigation-item data-link="bl2.logout" data-label="Logout">
+                    <navigation-item data-link="bl2.logout">
+                        Logout
                     </navigation-item>
-
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.admin.rarities" data-label="Rarities"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.manufacturers" data-label="Manufacturers"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.damageTypes" data-label="Damage Types"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.users" data-label="Users"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.files" data-label="Files"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.admin.rarities" data-label="Rarities"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.manufacturers" data-label="Manufacturers"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.damageTypes" data-label="Damage Types"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.users" data-label="Users"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.files" data-label="Files"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.admin.rarities" data-label="Rarities"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.manufacturers" data-label="Manufacturers"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.damageTypes" data-label="Damage Types"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.users" data-label="Users"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.files" data-label="Files"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.admin.rarities" data-label="Rarities"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.manufacturers" data-label="Manufacturers"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.damageTypes" data-label="Damage Types"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.users" data-label="Users"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.admin.files" data-label="Files"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.weapons')}">-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown">Weapons <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.weapons.list" data-label="List"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.weapons.create" data-label="Create"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.weapons')}">-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown">Weapons <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.weapons.list" data-label="List"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.weapons.create" data-label="Create"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown" data-ng-class="{active: $state.includes('bl2.weapons')}">-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown">Weapons <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<navigation-item data-link="bl2.weapons.list" data-label="List"></navigation-item>-->
+                    <!--<navigation-item data-link="bl2.weapons.create" data-label="Create"></navigation-item>-->
+                    <!--</ul>-->
+                    <!--</li>-->
                 </ul>
-
             </div>
 
         </div>

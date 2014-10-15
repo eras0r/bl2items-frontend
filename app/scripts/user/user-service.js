@@ -7,7 +7,7 @@ define(['angular', 'user/user-def'], function (angular, userModule) {
 
         return {
             showList: function () {
-                $state.go('^.list');
+                $state.go('^');
             },
 
             list: function () {
