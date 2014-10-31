@@ -1,10 +1,10 @@
-[![Stories in Ready](https://badge.waffle.io/eras0r/bl2items-frontend.png?label=ready&title=Ready)](https://waffle.io/eras0r/bl2items-frontend)
 # Borderlands 2 items database frontend
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://travis-ci.org/eras0r/bl2items-frontend.svg?branch=master)](https://travis-ci.org/eras0r/bl2items-frontend)
 [![NPM Dependency Status](https://www.versioneye.com/user/projects/5453bce722b4fb6b930000f3/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5453bce722b4fb6b930000f3)
 [![Bower Dependency Status](https://www.versioneye.com/user/projects/5453bce122b4fb8ffb000004/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5453bce122b4fb8ffb000004)
+[![Stories in Ready](https://badge.waffle.io/eras0r/bl2items-frontend.png?label=ready&title=Ready)](https://waffle.io/eras0r/bl2items-frontend)
 
 This is the frontend web application for the REST API defined by the [borderlands items database backend] (https://github.com/eras0r/bl2items-backend).
 
