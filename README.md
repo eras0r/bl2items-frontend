@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/eras0r/bl2items-frontend.png?label=ready&title=Ready)](https://waffle.io/eras0r/bl2items-frontend)
 # Borderlands 2 items database frontend
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
