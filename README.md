@@ -1,7 +1,7 @@
 # Borderlands 2 items database frontend
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://travis-ci.org/eras0r/bl2items-frontend.svg?branch=master)](https://travis-ci.org/eras0r/bl2items-frontend)
-
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/eras0r/bl2items-frontend.svg?branch=master)](https://travis-ci.org/eras0r/bl2items-frontend)
 [![NPM Dependency Status](https://www.versioneye.com/user/projects/5453bce722b4fb6b930000f3/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5453bce722b4fb6b930000f3)
 [![Bower Dependency Status](https://www.versioneye.com/user/projects/5453bce122b4fb8ffb000004/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5453bce122b4fb8ffb000004)
 
