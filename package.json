@@ -1,6 +1,10 @@
 {
   "name": "bl2itemsdb",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eras0r/bl2items-frontend"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -34,7 +38,7 @@
     "karma-ng-scenario": "^0.1.0",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-requirejs": "^0.2.1",
-    "load-grunt-tasks": "~0.6.0",
+    "load-grunt-tasks": "~1.0.0",
     "requirejs": "^2.1.11",
     "time-grunt": "~1.0.0"
   },
