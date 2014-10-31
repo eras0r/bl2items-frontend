@@ -24,6 +24,7 @@ In addition to these the following components are used:
 ## Prerequisites
 
 * [npm] (https://www.npmjs.org/) installed
+* [compass] (http://compass-style.org/install/) installed
 * [Borderlands 2 items database backend] (https://github.com/eras0r/bl2items-backend) up and running
 
 ## Setup
