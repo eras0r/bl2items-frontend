@@ -36,7 +36,7 @@
     "karma-requirejs": "^0.2.1",
     "load-grunt-tasks": "~0.6.0",
     "requirejs": "^2.1.11",
-    "time-grunt": "~0.4.0"
+    "time-grunt": "~1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
