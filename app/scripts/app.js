@@ -1,9 +1,5 @@
 define([
     'angular',
-    'cryptojs.core',
-    'cryptojs.x64-core',
-    'cryptojs.sha512',
-    'cryptojs.hmac',
     'angular-minicolors',
     'components/security/index',
     'components/navigation/index',
@@ -16,7 +12,7 @@ define([
     'damage-type/index',
     'manufacturer/index',
     'rarity/index'
-], function (angular, CryptoJS) {
+], function (angular) {
 
     'use strict';
 
@@ -25,10 +21,9 @@ define([
         'restangular',
         'ngSanitize',
         'ui.router',
+        /* external 3rd party modules*/
         'http-auth-interceptor',
         'minicolors',
-        /* external 3rd party modules*/
-//        'bl2ItemsDbApp.navigation',
         /* generic core modules */
         'securityModule',
         'navigationModule',
@@ -78,62 +73,15 @@ define([
                     'X-Requested-With': 'XMLHttpRequest'
                 });
 
-                // removes the body for remove / delete requests
-                RestangularProvider.addRequestInterceptor(function (elem, operation) {
-                    if (operation === 'remove') {
-                        return undefined;
-                    }
-                    return elem;
-                });
-
-                RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
-                    var microTime = new Date().getTime();
-
-                    var data = '';
-                    // use data (payload) for post and put requests
-                    if (operation === 'put' || operation === 'post') {
-                        data = JSON.stringify(element);
-                    }
-
-                    // init hmac secret if not defined
-                    if (!localStorage.hmacSecret) {
-                        localStorage.hmacSecret = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
-                    }
-
-                    var hmacHash = CryptoJS.HmacSHA512(url + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
-
-                    return {
-                        element: element,
-                        params: params,
-                        headers: _.extend(headers, {
-                            'X-SESSION-TOKEN': localStorage.sessionToken,
-                            'X-MICRO-TIME': microTime,
-                            'X-HMAC-HASH': hmacHash
-                        }),
-                        httpConfig: httpConfig
-                    };
-                });
-
             }])
         .run(['$rootScope', '$state', '$stateParams',
             function ($rootScope, $state, $stateParams) {
                 // It's very handy to add references to $state and $stateParams to the $rootScope
-                // so that you can access them from any scope within your applications.For example,
+                // so that you can access them from any scope within your applications. For example,
                 // <li ui-sref-active="active }"> will set the <li> // to active whenever
                 // 'contacts.list' or one of its descendants is active.
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
-
-                // angular auth interceptor start
-                $rootScope.$on('event:auth-loginRequired', function () {
-                    // go to login state by keeping the current url
-                    $state.go('bl2.login', {}, {location: false});
-                });
-                $rootScope.$on('event:auth-loginConfirmed', function () {
-                    // TODO to previous state
-                    console.log('TODO login confirmed');
-                });
-                // angular auth interceptor end
             }
         ]
     );

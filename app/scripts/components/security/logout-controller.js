@@ -10,12 +10,12 @@ define(['angular', 'components/security/security-def'], function (angular, secur
                 return;
             }
 
+            console.log('calling SessionService.logout()...');
             SessionService.logout().then(function (data) {
                 localStorage.removeItem('sessionToken');
-                $scope.message = 'Logout Successful';
             }, function (response) {
                 // TODO show error message
-                $scope.message = response.message;
+                console.log('error calling logout: ', response);
             });
 
         }]);
