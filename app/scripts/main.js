@@ -163,9 +163,7 @@ require.config({
     priority: [
         'angular'
     ],
-    packages: [
-
-    ]
+    packages: []
 });
 
 //http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
@@ -177,7 +175,6 @@ require([
     'angular-ui-router',
     'angular-cookies',
     'angular-sanitize',
-    'angular-http-auth',
     'restangular',
     'jquery'
 ], function (angular, app, ngUiRouter, ngCookies, ngSanitize, restangular, jquery) {

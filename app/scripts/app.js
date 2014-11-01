@@ -22,7 +22,6 @@ define([
         'ngSanitize',
         'ui.router',
         /* external 3rd party modules*/
-        'http-auth-interceptor',
         'minicolors',
         /* generic core modules */
         'securityModule',

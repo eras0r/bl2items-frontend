@@ -6,13 +6,14 @@ define([
     'cryptojs.core',
     'cryptojs.x64-core',
     'cryptojs.sha512',
-    'cryptojs.hmac'
+    'cryptojs.hmac',
+    'angular-http-auth'
 ], function (angular, CryptoJS) {
 
     'use strict';
 
     var securityModule = angular.module('securityModule', [
-        'ui.router'
+        'ui.router', 'http-auth-interceptor'
     ])
         .config(['$stateProvider', 'RestangularProvider', function ($stateProvider, RestangularProvider) {
 
