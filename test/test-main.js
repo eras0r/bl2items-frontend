@@ -13,7 +13,7 @@ requirejs.config({
     baseUrl: '/base/app/scripts',
 
     paths: {
-        'sass-bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',
+        'bootstrap-sass-official': '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         jquery: '../bower_components/jquery/dist/jquery',
         'angular-scenario': '../bower_components/angular-scenario/angular-scenario',
         'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize',
@@ -30,7 +30,19 @@ requirejs.config({
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
         'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
         lodash: '../bower_components/lodash/dist/lodash.compat',
-        'ng-file-upload': '../bower_components/ng-file-upload/angular-file-upload'
+        'ng-file-upload': '../bower_components/ng-file-upload/angular-file-upload',
+        affix: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix',
+        alert: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert',
+        button: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button',
+        carousel: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel',
+        collapse: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse',
+        dropdown: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown',
+        tab: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab',
+        transition: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition',
+        scrollspy: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy',
+        modal: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal',
+        tooltip: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
+        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover'
     },
 
     shim: {
@@ -68,6 +80,66 @@ requirejs.config({
                 'jquery'
             ]
         },
+        'affix': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'alert': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'button': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'carousel': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'collapse': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'dropdown': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'tab': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'transition': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'scrollspy': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'modal': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'tooltip': {
+            deps: [
+                'jquery'
+            ]
+        },
+        'popover': {
+            deps: [
+                'jquery'
+            ]
+        },
         'cryptojs.core': {
             exports: 'CryptoJS'
         },
@@ -89,14 +161,11 @@ requirejs.config({
                 'cryptojs.core'
             ],
             exports: 'CryptoJS'
-        },
+        }
 //        'jquery': {'exports': '$'},
 //        'jquery': {
 //            exports: 'jQuery'
-//        },
-        'sass-bootstrap': [
-            'jquery'
-        ]
+//        }
     },
 
     // ask Require.js to load these files (all our tests)

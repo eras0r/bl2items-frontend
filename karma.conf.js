@@ -1,5 +1,6 @@
 // Karma configuration
 // http://karma-runner.github.io/0.10/config/configuration-file.html
+'use strict';
 
 module.exports = function (config) {
     config.set({
@@ -7,28 +8,47 @@ module.exports = function (config) {
         basePath: '',
 
         // testing framework to use (jasmine/mocha/qunit/...)
-        frameworks: ['jasmine', "requirejs"],
+        frameworks: ['jasmine', 'requirejs'],
 
         // list of files / patterns to load in the browser
         files: [
-            {pattern: 'app/bower_components/angular/angular.js', included: false },
-            {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false },
-            {pattern: 'app/bower_components/restangular/dist/restangular.js', included: false },
-            {pattern: 'app/bower_components/angular-cookies/angular-cookies.js', included: false },
-            {pattern: 'app/bower_components/angular-sanitize/angular-sanitize.js', included: false },
-            {pattern: 'app/bower_components/angular-ui-router/release/angular-ui-router.js', included: false },
-            {pattern: 'app/bower_components/sass-bootstrap/dist/js/bootstrap.js', included: false },
-            {pattern: 'app/bower_components/jquery/dist/jquery.js', included: false },
-            {pattern: 'app/bower_components/jquery-minicolors/jquery.minicolors.js', included: false },
-            {pattern: 'app/bower_components/angular-minicolors/angular-minicolors.js', included: false },
-            {pattern: 'app/bower_components/cryptojslib/components/core.js', included: false },
-            {pattern: 'app/bower_components/cryptojslib/components/x64-core.js', included: false },
-            {pattern: 'app/bower_components/cryptojslib/components/sha512.js', included: false },
-            {pattern: 'app/bower_components/cryptojslib/components/hmac.js', included: false },
-            {pattern: 'app/bower_components/lodash/dist/lodash.compat.js', included: false },
-            {pattern: 'app/scripts/*.js', included: false },
-            {pattern: 'app/scripts/**/*.js', included: false },
-            {pattern: 'test/spec/**/*.js', included: false },
+            {pattern: 'app/bower_components/angular/angular.js', included: false},
+            {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false},
+            {pattern: 'app/bower_components/restangular/dist/restangular.js', included: false},
+            {pattern: 'app/bower_components/angular-cookies/angular-cookies.js', included: false},
+            {pattern: 'app/bower_components/angular-sanitize/angular-sanitize.js', included: false},
+            {pattern: 'app/bower_components/angular-ui-router/release/angular-ui-router.js', included: false},
+            {pattern: 'app/bower_components/jquery/dist/jquery.js', included: false},
+
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', included: false},
+
+
+
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js', included: false},
+            {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js', included: false},
+
+
+
+            {pattern: 'app/bower_components/jquery-minicolors/jquery.minicolors.js', included: false},
+            {pattern: 'app/bower_components/angular-minicolors/angular-minicolors.js', included: false},
+            {pattern: 'app/bower_components/cryptojslib/components/core.js', included: false},
+            {pattern: 'app/bower_components/cryptojslib/components/x64-core.js', included: false},
+            {pattern: 'app/bower_components/cryptojslib/components/sha512.js', included: false},
+            {pattern: 'app/bower_components/cryptojslib/components/hmac.js', included: false},
+            {pattern: 'app/bower_components/lodash/dist/lodash.compat.js', included: false},
+            {pattern: 'app/scripts/*.js', included: false},
+            {pattern: 'app/scripts/**/*.js', included: false},
+            {pattern: 'test/spec/**/*.js', included: false},
 
             // http://karma-runner.github.io/0.10/plus/requirejs.html
             'test/test-main.js'

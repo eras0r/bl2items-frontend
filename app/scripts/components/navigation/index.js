@@ -3,11 +3,12 @@
  */
 define([
     'angular',
-    'sass-bootstrap',
     'components/navigation/navigation-def',
+    'collapse',
+    'dropdown',
     'components/navigation/navigation-controller',
     'components/navigation/navigation-item/navigation-item-directive'
-], function (angular, boostrap, navigationModule) {
+], function (angular, navigationModule) {
 
     'use strict';
 
