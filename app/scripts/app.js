@@ -49,7 +49,7 @@ define([
                                 controller: 'NavCtrl'
                             },
                             'main': {
-                                template: '<h1>Hello Bl2 Items DB'
+                                template: '<h1>Hello Bl2 Items DB</h1>'
                             }
                         }
                     })
