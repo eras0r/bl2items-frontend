@@ -31,8 +31,7 @@ require.config({
         scrollspy: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy',
         modal: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal',
         tooltip: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
-        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover',
-        'angular-translate-loader-url': '../bower_components/angular-translate-loader-url/angular-translate-loader-url'
+        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover'
     },
     shim: {
         angular: {
