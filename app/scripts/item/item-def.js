@@ -18,6 +18,9 @@ define(['angular', 'restangular', 'angular-ui-router'], function (angular) {
                             templateUrl: 'scripts/item/item-list/item-list.html',
                             controller: 'ItemListCtrl'
                         }
+                    },
+                    data: {
+                        pageTitle: 'items.list.pageTitle'
                     }
 
                 });

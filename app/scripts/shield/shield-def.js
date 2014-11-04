@@ -22,6 +22,9 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/item/item-list/item-list.html',
                             controller: 'ShieldListCtrl'
                         }
+                    },
+                    data: {
+                        pageTitle: 'shields.list.pageTitle'
                     }
                 })
                 .state('bl2.shields.create', {

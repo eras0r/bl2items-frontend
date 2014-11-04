@@ -16,7 +16,7 @@
       "create": "@:navigation.create"
     },
     "shields": {
-      "title": "Schilde",
+      "title": "Schilder",
       "list": "@:navigation.list",
       "create": "@:navigation.create"
     },
@@ -46,6 +46,18 @@
     "logout" : "Auslaggen"
   },
   "items": {
-    "pageTitle": "Gegenstände"
+    "list": {
+      "pageTitle": "Gegenstände"
+    }
+  },
+  "weapons": {
+    "list": {
+      "pageTitle": "Waffen"
+    }
+  },
+  "shields": {
+    "list": {
+      "pageTitle": "Schilder"
+    }
   }
 }
