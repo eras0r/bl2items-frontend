@@ -53,7 +53,7 @@ define([
                                 controller: 'NavCtrl'
                             },
                             'main': {
-                                template: '<h1>Hello Bl2 Items DB'
+                                template: '<h1>Welcome to the Borderlands 2 items database</h1>'
                             }
                         }
                     })
