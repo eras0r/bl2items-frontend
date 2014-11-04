@@ -22,6 +22,8 @@ requirejs.config({
         'angular-cookies': '../bower_components/angular-cookies/angular-cookies',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
         'angular-http-auth': '../bower_components/angular-http-auth/src/http-auth-interceptor',
+        'angular-translate': '../bower_components/angular-translate/angular-translate',
+        'angular-translate-loader-static-files': '../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files',
         'angular-minicolors': '../bower_components/angular-minicolors/angular-minicolors',
         'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors',
         angular: '../bower_components/angular/angular',
@@ -42,7 +44,8 @@ requirejs.config({
         scrollspy: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy',
         modal: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal',
         tooltip: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
-        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover'
+        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover',
+        'angular-translate-loader-url': '../bower_components/angular-translate-loader-url/angular-translate-loader-url'
     },
 
     shim: {
@@ -68,6 +71,21 @@ requirejs.config({
         'angular-ui-router': {
             deps: [
                 'angular'
+            ]
+        },
+        'angular-http-auth': {
+            deps: [
+                'angular'
+            ]
+        },
+        'angular-translate': {
+            deps: [
+                'angular'
+            ]
+        },
+        'angular-translate-loader-static-files': {
+            deps: [
+                'angular-translate'
             ]
         },
         'angular-minicolors': {

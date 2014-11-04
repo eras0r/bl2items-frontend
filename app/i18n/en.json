@@ -1,0 +1,51 @@
+{
+  "general": {
+    "button": {
+      "save": "save",
+      "add": "add",
+      "cancel": "cancel"
+    }
+  },
+  "navigation": {
+    "list": "List",
+    "create": "Create",
+    "items": "Items",
+    "weapons": {
+      "title": "Weapons",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "shields": {
+      "title": "Shields",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "grenadeMods": {
+      "title": "Grenade mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "classMods": {
+      "title": "Class mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "artifacts": {
+      "title": "Artifacts",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "admin": {
+      "title": "Admin",
+      "rarities": "Rarities",
+      "manufacturers": "Manufacturers",
+      "damageTypes": "Damage Types",
+      "users": "Users",
+      "files": "Files"
+    },
+    "logout" : "Logout"
+  },
+  "items": {
+    "pageTitle": "Items"
+  }
+}

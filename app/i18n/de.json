@@ -1,0 +1,51 @@
+{
+  "general": {
+    "button": {
+      "save": "speichern",
+      "add": "hinzufügen",
+      "cancel": "abbrechen"
+    }
+  },
+  "navigation": {
+    "list": "Anzeigen",
+    "create": "Erstellen",
+    "items": "Gegenstände",
+    "weapons": {
+      "title": "Waffen",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "shields": {
+      "title": "Schilde",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "grenadeMods": {
+      "title": "Granaten Mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "classMods": {
+      "title": "Klassen Mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "artifacts": {
+      "title": "Artefakte",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "admin": {
+      "title": "Admin",
+      "rarities": "Raritäten",
+      "manufacturers": "Hersteller",
+      "damageTypes": "Schadenstypen",
+      "users": "Benutzers",
+      "files": "Dateien"
+    },
+    "logout" : "Auslaggen"
+  },
+  "items": {
+    "pageTitle": "Gegenstände"
+  }
+}
