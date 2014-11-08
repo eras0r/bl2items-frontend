@@ -53,7 +53,7 @@ define([
                                 controller: 'NavCtrl'
                             },
                             'main': {
-                                template: '<h1>Welcome to the Borderlands 2 items database</h1>'
+                                templateUrl: 'scripts/portal/portal.html'
                             }
                         }
                     })

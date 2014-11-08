@@ -45,6 +45,9 @@
     },
     "logout": "Logout"
   },
+  "portal": {
+    "pageTitle": "Welcome to the Borderlands 2 items database"
+  },
   "items": {
     "list": {
       "pageTitle": "Items"

@@ -43,7 +43,10 @@
       "users": "Benutzers",
       "files": "Dateien"
     },
-    "logout" : "Auslaggen"
+    "logout" : "Ausloggen"
+  },
+  "portal": {
+    "pageTitle": "Willlkommen bei der Borderlands 2 Items Datenbank"
   },
   "items": {
     "list": {
