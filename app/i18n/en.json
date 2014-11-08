@@ -79,5 +79,38 @@
       "rechargeRate": "Recharge Rate",
       "rechargeDelay": "Recharge Delay"
     }
+  },
+  "admin": {
+    "rarities": {
+      "list": {
+        "pageTitle": "Rarities",
+        "pageDescription": "Here you can manage the available rarities",
+        "table": {
+          "header": {
+            "name": "name",
+            "color": "color",
+            "sortOrder": "sort order",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit rarity",
+            "delete": "delete rarity"
+          },
+          "footer": {
+            "create": "create new rarity"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Rarity",
+        "name": "Name",
+        "color": "Color",
+        "order": "Order",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    }
   }
 }

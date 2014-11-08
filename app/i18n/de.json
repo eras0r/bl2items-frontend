@@ -79,5 +79,38 @@
       "rechargeRate": "Ladegewsch.",
       "rechargeDelay": "Ladeverzögerung"
     }
+  },
+  "admin": {
+    "rarities": {
+      "list": {
+        "pageTitle": "Raritäten",
+        "pageDescription": "Hier können die Raritäten verwaltet werden",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Farbe",
+            "sortOrder": "Reihenfolge",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Rarität editieren",
+            "delete": "Rarität löschen"
+          },
+          "footer": {
+            "create": "Neue Raraität erstellen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Rarität",
+        "name": "Name",
+        "color": "Farbe",
+        "order": "Reihenfolge",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    }
   }
 }

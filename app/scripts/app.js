@@ -82,6 +82,7 @@ define([
                     suffix: '.json'
                 });
                 $translateProvider.preferredLanguage('en');
+                $translateProvider.fallbackLanguage('en');
 
             }])
         .run(['$rootScope', '$state', '$stateParams',
