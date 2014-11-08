@@ -43,7 +43,7 @@
       "users": "Benutzers",
       "files": "Dateien"
     },
-    "logout" : "Ausloggen"
+    "logout": "Ausloggen"
   },
   "portal": {
     "pageTitle": "Willlkommen bei der Borderlands 2 Items Datenbank"
@@ -61,6 +61,23 @@
   "shields": {
     "list": {
       "pageTitle": "Schilder"
+    }
+  },
+  "item": {
+    "common": {
+      "levelRequirement": "ERFORDERLICHES LEVEL: {{level}}"
+    },
+    "weapon": {
+      "damage": "Schaden",
+      "accuracy": "Genauigkeit",
+      "fireRate": "Feuerrate",
+      "reloadSpeed": "Ladegewschw.",
+      "magazineSize": "Magazingrösse"
+    },
+    "shield": {
+      "capacity": "Kapazität",
+      "rechargeRate": "Ladegewsch.",
+      "rechargeDelay": "Ladeverzögerung"
     }
   }
 }

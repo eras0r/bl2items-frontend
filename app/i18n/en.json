@@ -62,5 +62,22 @@
     "list": {
       "pageTitle": "Shields"
     }
+  },
+  "item": {
+    "common": {
+      "levelRequirement": "LEVEL REQUIREMENT: {{level}}"
+    },
+    "weapon": {
+      "damage": "Damage",
+      "accuracy": "Accuracy",
+      "fireRate": "Fire Rate",
+      "reloadSpeed": "Reload Speed",
+      "magazineSize": "Magazine Size"
+    },
+    "shield": {
+      "capacity": "Capacity",
+      "rechargeRate": "Recharge Rate",
+      "rechargeDelay": "Recharge Delay"
+    }
   }
 }
