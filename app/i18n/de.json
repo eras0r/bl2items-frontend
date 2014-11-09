@@ -204,6 +204,38 @@
           "cancel": "@:general.button.cancel"
         }
       }
+    },
+    "files": {
+      "list": {
+        "pageTitle": "Dateien",
+        "pageDescription": "Hier können hochgeladene Dateien verwaltet werden",
+        "table": {
+          "header": {
+            "id": "ID",
+            "name": "Name",
+            "mediatype": "Medientyp",
+            "size": "Grösse",
+            "width": "Breite",
+            "height": "Höhe",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Datei editieren",
+            "delete": "Datei löschen"
+          },
+          "footer": {
+            "upload": "eine Neue Datei hochladen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Datei",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
     }
+
   }
 }

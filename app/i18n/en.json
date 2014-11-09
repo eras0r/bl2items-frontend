@@ -204,6 +204,37 @@
           "cancel": "@:general.button.cancel"
         }
       }
+    },
+    "files": {
+      "list": {
+        "pageTitle": "Files",
+        "pageDescription": "Here you can manage uploaded files",
+        "table": {
+          "header": {
+            "id": "ID",
+            "name": "Name",
+            "mediatype": "Media type",
+            "size": "Size",
+            "width": "Width",
+            "height": "Height",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit file",
+            "delete": "delete file"
+          },
+          "footer": {
+            "upload": "upload a new file"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "File",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
     }
   }
 }
