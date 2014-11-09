@@ -12,8 +12,6 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
             ];
 
             $scope.changeLanguage = function (language) {
-                console.log('angular-translate current langugae: ', $translate.use());
-                console.log('language has been changed to ', language);
                 $translate.use(language);
             };
 
