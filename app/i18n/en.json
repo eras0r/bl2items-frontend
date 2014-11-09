@@ -87,9 +87,9 @@
         "pageDescription": "Here you can manage the available rarities",
         "table": {
           "header": {
-            "name": "name",
-            "color": "color",
-            "sortOrder": "sort order",
+            "name": "Name",
+            "color": "Color",
+            "sortOrder": "Sort order",
             "menu": ""
           },
           "menu": {
@@ -106,6 +106,33 @@
         "name": "Name",
         "color": "Color",
         "order": "Order",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "manufacturers": {
+      "list": {
+        "pageTitle": "Manufacturers",
+        "pageDescription": "Here you can manage the available manufacturers",
+        "table": {
+          "header": {
+            "name": "Name",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit manufacturer",
+            "delete": "delete manufacturer"
+          },
+          "footer": {
+            "create": "create new manufacturer"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Manufacturer",
+        "name": "Name",
         "button": {
           "save": "@:general.button.save",
           "cancel": "@:general.button.cancel"

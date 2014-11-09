@@ -111,6 +111,33 @@
           "cancel": "@:general.button.cancel"
         }
       }
+    },
+    "manufacturers": {
+      "list": {
+        "pageTitle": "Hersteller",
+        "pageDescription": "Hier können die Hersteller verwaltet werden",
+        "table": {
+          "header": {
+            "name": "Name",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Hersteller editieren",
+            "delete": "Hersteller läschen"
+          },
+          "footer": {
+            "create": "Neuen Hersteller erstellen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Hersteller",
+        "name": "Name",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
     }
   }
 }
