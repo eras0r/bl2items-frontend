@@ -175,6 +175,35 @@
           "cancel": "@:general.button.cancel"
         }
       }
+    },
+    "users": {
+      "list": {
+        "pageTitle": "Benutzer",
+        "pageDescription": "Hier können die Benutzer verwaltet werden",
+        "table": {
+          "header": {
+            "username": "Benutzername",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Benutzer editieren",
+            "delete": "Benutzer löschen"
+          },
+          "footer": {
+            "create": "Neuen Benutzer erstellen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Benutzer",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "roles": "Rollen",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
     }
   }
 }
