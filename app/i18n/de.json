@@ -138,6 +138,43 @@
           "cancel": "@:general.button.cancel"
         }
       }
+    },
+    "damageTypes": {
+      "list": {
+        "pageTitle": "Schadenstypen",
+        "pageDescription": "Hier können die Schadenstypen verwaltet werden.",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Farbe",
+            "sortOrder": "Reihenfolge",
+            "damageLabel": "Schadens Label",
+            "chanceLabel": "Wahrscheinlichkeits Label",
+            "additionalText": "Zusätzlicher Text",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Schadenstyp editieren",
+            "delete": "Schadenstyp  löschen"
+          },
+          "footer": {
+            "create": "Neuen Schadenstyp erstellern"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Schadenstyp",
+        "name": "Name",
+        "color": "Farbe",
+        "sortOrder": "Reihenfolge",
+        "damageLabel": "Schadens Label",
+        "chanceLabel": "Wahrscheinlichkeits Label",
+        "additionalText": "Zusätzlicher Text",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
     }
   }
 }

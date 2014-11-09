@@ -138,6 +138,43 @@
           "cancel": "@:general.button.cancel"
         }
       }
+    },
+    "damageTypes": {
+      "list": {
+        "pageTitle": "Damage types",
+        "pageDescription": "Here you can manage the available damage types",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Color",
+            "sortOrder": "Sort order",
+            "damageLabel": "Damage Label",
+            "chanceLabel": "Chance Label",
+            "additionalText": "Additional text",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit damage type",
+            "delete": "delete damage type"
+          },
+          "footer": {
+            "create": "create new damage type"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Damage type",
+        "name": "Name",
+        "color": "Color",
+        "sortOrder": "Sort order",
+        "damageLabel": "Damage Label",
+        "chanceLabel": "Chance Label",
+        "additionalText": "Additional text",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
     }
   }
 }
