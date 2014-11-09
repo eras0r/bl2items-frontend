@@ -22,6 +22,9 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/item/item-list/item-list.html',
                             controller: 'WeaponListCtrl'
                         }
+                    },
+                    data: {
+                        pageTitle: 'weapons.list.pageTitle'
                     }
                 })
                 .state('bl2.weapons.create', {
@@ -29,7 +32,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     views: {
                         'main@': {
                             templateUrl: 'scripts/weapon/weapon-details.html',
-                            controller: 'WeaponCreateCtrl',
+                            controller: 'WeaponCreateCtrl'
                         }
                     },
                     resolve: {

@@ -1,8 +1,6 @@
 <div class="panel panel-default">
 
-    <h1 class="alert-warning">file upload</h1>
-
-    <div class="panel-heading">File</div>
+    <div class="panel-heading" data-translate="admin.files.details.pageTitle"></div>
     <div class="panel-body">
 
         <form class="form-horizontal" role="form">
@@ -132,10 +130,12 @@
             <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-9">
                     <button type="button" class="btn btn-primary" data-ng-click="save()"
-                            data-ng-disabled="isNotDirty()">save
+                            data-ng-disabled="isNotDirty()" data-translate="admin.files.details.button.save">
                     </button>
 
-                    <button type="button" class="btn btn-default" data-ng-click="cancel()">cancel</button>
+                    <button type="button" class="btn btn-default" data-ng-click="cancel()"
+                            data-translate="admin.files.details.button.cancel">
+                    </button>
                 </div>
             </div>
         </form>

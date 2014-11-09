@@ -1,35 +1,31 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Users</div>
-    <div class="panel-body">
-        <p>Here you can manage the available users...</p>
-    </div>
+    <div class="panel-heading" data-translate="admin.users.list.pageTitle"></div>
+    <div class="panel-body" data-translate="admin.users.list.pageDescription"></div>
 
     <table class="table table-striped table-bordered">
         <tr>
-            <th>username</th>
-            <th class="col-xs-1">&nbsp;</th>
-            <th class="col-xs-1">&nbsp;</th>
+            <th data-translate="admin.users.list.table.header.username"></th>
+            <th data-translate="admin.users.list.table.header.menu" class="col-xs-1">&nbsp;</th>
         </tr>
         <tr data-ng-repeat="user in users">
             <td>{{user.username}}</td>
             <td class="text-center">
                 <button type="button" class="btn btn-default btn-xs"
                         data-ui-sref=".edit({id: user.id})">
-                    <span class="glyphicon glyphicon-pencil" title="edit user"></span>
+                    <span class="glyphicon glyphicon-pencil" title="{{'admin.users.list.table.menu.edit' | translate}}"></span>
                 </button>
-            </td>
-            <td class="text-center">
+
                 <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(user)">
-                    <span class="glyphicon glyphicon-trash" title="delete user"></span>
+                    <span class="glyphicon glyphicon-trash" title="{{'admin.users.list.table.menu.edit' | translate}}"></span>
                 </button>
             </td>
         </tr>
     </table>
 
     <div class="panel-footer text-right">
-        <button type="button" class="btn btn-success" data-ui-sref=".create" title="create new user">
+        <button type="button" class="btn btn-success" data-ui-sref=".create" title="{{'admin.users.list.table.footer.create' | translate}}">
             <span class="glyphicon glyphicon-plus-sign"></span>
-            create new user
+            <span data-translate="admin.users.list.table.footer.create"></span>
         </button>
     </div>
 

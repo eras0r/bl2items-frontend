@@ -7,7 +7,8 @@ define([
     'collapse',
     'dropdown',
     'components/navigation/navigation-controller',
-    'components/navigation/navigation-item/navigation-item-directive'
+    'components/navigation/navigation-item/navigation-item-directive',
+    'components/navigation/language-controller',
 ], function (angular, navigationModule) {
 
     'use strict';

@@ -1,16 +1,13 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Rarities</div>
-    <div class="panel-body">
-        <p>Here you can manage the available rarities...</p>
-    </div>
+    <div class="panel-heading" data-translate="admin.rarities.list.pageTitle"></div>
+    <div class="panel-body" data-translate="admin.rarities.list.pageDescription"></div>
 
     <table class="table table-striped table-bordered">
         <tr>
-            <th>name</th>
-            <th>color</th>
-            <th>sortOrder</th>
-            <th class="col-xs-1">&nbsp;</th>
-            <th class="col-xs-1">&nbsp;</th>
+            <th data-translate="admin.rarities.list.table.header.name"></th>
+            <th data-translate="admin.rarities.list.table.header.color">color</th>
+            <th data-translate="admin.rarities.list.table.header.sortOrder">sortOrder</th>
+            <th data-translate="admin.rarities.list.table.header.menu" class="col-xs-1"></th>
         </tr>
         <tr data-ng-repeat="rarity in rarities" style="color: {{rarity.color}}">
             <td>{{rarity.name}}</td>
@@ -19,21 +16,20 @@
             <td class="text-center">
                 <button type="button" class="btn btn-default btn-xs"
                         data-ui-sref=".edit({id: rarity.id})">
-                    <span class="glyphicon glyphicon-pencil" title="edit rarity"></span>
+                    <span class="glyphicon glyphicon-pencil" title="{{'admin.rarities.list.table.menu.edit' | translate}}"></span>
                 </button>
-            </td>
-            <td class="text-center">
+
                 <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(rarity)">
-                    <span class="glyphicon glyphicon-trash" title="delete rarity"></span>
+                    <span class="glyphicon glyphicon-trash" title="{{'admin.rarities.list.table.menu.delete' | translate}}"></span>
                 </button>
             </td>
         </tr>
     </table>
 
     <div class="panel-footer text-right">
-        <button type="button" class="btn btn-success" data-ui-sref=".create" title="create new rarity">
+        <button type="button" class="btn btn-success" data-ui-sref=".create" title="{{'admin.rarities.list.table.footer.create' | translate}}">
             <span class="glyphicon glyphicon-plus-sign"></span>
-            create new rarity
+            <span data-translate="admin.rarities.list.table.footer.create"></span>
         </button>
     </div>
 

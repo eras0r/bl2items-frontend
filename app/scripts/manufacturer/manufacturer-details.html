@@ -1,11 +1,12 @@
 <div class="panel panel-default">
 
-    <div class="panel-heading">Manufacturer</div>
+    <div class="panel-heading" data-translate="admin.manufacturers.details.pageTitle"></div>
     <div class="panel-body">
 
         <form class="form-horizontal" role="form">
             <div class="form-group" data-ng-class="{'has-error': errors.name}">
-                <label for="name" class="col-sm-3 control-label">Name</label>
+                <label for="name" class="col-sm-3 control-label"
+                       data-translate="admin.manufacturers.details.name"></label>
 
                 <div class="col-sm-9">
                     <input type="text" id="name" class="form-control" data-ng-model="manufacturer.name"
@@ -17,9 +18,13 @@
 
             <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="button" class="btn btn-primary" data-ng-click="save()" data-ng-disabled="isNotDirty()">save</button>
+                    <button type="button" class="btn btn-primary" data-ng-click="save()" data-ng-disabled="isNotDirty()"
+                            data-translate="admin.manufacturers.details.button.save">
+                    </button>
 
-                    <button type="button" class="btn btn-default" data-ng-click="cancel()">cancel</button>
+                    <button type="button" class="btn btn-default" data-ng-click="cancel()"
+                            data-translate="admin.manufacturers.details.button.cancel">
+                    </button>
                 </div>
             </div>
         </form>

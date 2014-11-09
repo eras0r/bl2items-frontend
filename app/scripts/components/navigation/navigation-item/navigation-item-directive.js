@@ -9,7 +9,6 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
                 restrict: 'E',
                 templateUrl: 'scripts/components/navigation/navigation-item/navigation-item.html',
                 replace: true,
-                transclude: true,
                 scope: {
                     link: '@',
                     label: '@'

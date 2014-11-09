@@ -115,14 +115,14 @@ body {
 
 }
 
-/* navigation */
-ul.nav {
-  width: 100%; // fixes broken navigation width in chrome
-}
-
-/* http://stackoverflow.com/a/8878666/3589555: show navigation menus upon mouse over*/
-@media (min-width: $screen-lg-min) {
-  ul.nav li.dropdown:hover > ul.dropdown-menu {
-    display: block;
-  }
-}
+///* navigation */
+//ul.nav {
+//  width: 100%; // fixes broken navigation width in chrome
+//}
+//
+///* http://stackoverflow.com/a/8878666/3589555: show navigation menus upon mouse over*/
+//@media (min-width: $screen-lg-min) {
+//  ul.nav li.dropdown:hover > ul.dropdown-menu {
+//    display: block;
+//  }
+//}

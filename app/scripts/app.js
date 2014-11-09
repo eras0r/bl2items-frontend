@@ -1,5 +1,8 @@
 define([
     'angular',
+    'restangular',
+    'angular-translate',
+    'angular-translate-loader-static-files',
     'angular-minicolors',
     'components/security/index',
     'components/navigation/index',
@@ -21,6 +24,7 @@ define([
         'restangular',
         'ngSanitize',
         'ui.router',
+        'pascalprecht.translate',
         /* external 3rd party modules*/
         'minicolors',
         /* generic core modules */
@@ -37,8 +41,8 @@ define([
         'manufacturerModule',
         'rarityModule'
     ])
-        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider',
-            function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
+            function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
 
                 $stateProvider
                     .state('bl2', {
@@ -49,7 +53,7 @@ define([
                                 controller: 'NavCtrl'
                             },
                             'main': {
-                                template: '<h1>Hello Bl2 Items DB</h1>'
+                                templateUrl: 'scripts/portal/portal.html'
                             }
                         }
                     })
@@ -71,6 +75,14 @@ define([
                     'Accept': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest'
                 });
+
+                // setup angular-translate
+                $translateProvider.useStaticFilesLoader({
+                    prefix: 'i18n/',
+                    suffix: '.json'
+                });
+                $translateProvider.preferredLanguage('en');
+                $translateProvider.fallbackLanguage('en');
 
             }])
         .run(['$rootScope', '$state', '$stateParams',

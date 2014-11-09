@@ -1,0 +1,240 @@
+{
+  "general": {
+    "button": {
+      "save": "save",
+      "add": "add",
+      "cancel": "cancel"
+    }
+  },
+  "navigation": {
+    "list": "List",
+    "create": "Create",
+    "items": "Items",
+    "weapons": {
+      "title": "Weapons",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "shields": {
+      "title": "Shields",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "grenadeMods": {
+      "title": "Grenade mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "classMods": {
+      "title": "Class mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "artifacts": {
+      "title": "Artifacts",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "admin": {
+      "title": "Admin",
+      "rarities": "Rarities",
+      "manufacturers": "Manufacturers",
+      "damageTypes": "Damage Types",
+      "users": "Users",
+      "files": "Files"
+    },
+    "logout": "Logout"
+  },
+  "portal": {
+    "pageTitle": "Welcome to the Borderlands 2 items database"
+  },
+  "items": {
+    "list": {
+      "pageTitle": "Items"
+    }
+  },
+  "weapons": {
+    "list": {
+      "pageTitle": "Weapons"
+    }
+  },
+  "shields": {
+    "list": {
+      "pageTitle": "Shields"
+    }
+  },
+  "item": {
+    "common": {
+      "levelRequirement": "LEVEL REQUIREMENT: {{level}}"
+    },
+    "weapon": {
+      "damage": "Damage",
+      "accuracy": "Accuracy",
+      "fireRate": "Fire Rate",
+      "reloadSpeed": "Reload Speed",
+      "magazineSize": "Magazine Size"
+    },
+    "shield": {
+      "capacity": "Capacity",
+      "rechargeRate": "Recharge Rate",
+      "rechargeDelay": "Recharge Delay"
+    }
+  },
+  "admin": {
+    "rarities": {
+      "list": {
+        "pageTitle": "Rarities",
+        "pageDescription": "Here you can manage the available rarities",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Color",
+            "sortOrder": "Sort order",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit rarity",
+            "delete": "delete rarity"
+          },
+          "footer": {
+            "create": "create new rarity"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Rarity",
+        "name": "Name",
+        "color": "Color",
+        "order": "Order",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "manufacturers": {
+      "list": {
+        "pageTitle": "Manufacturers",
+        "pageDescription": "Here you can manage the available manufacturers",
+        "table": {
+          "header": {
+            "name": "Name",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit manufacturer",
+            "delete": "delete manufacturer"
+          },
+          "footer": {
+            "create": "create new manufacturer"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Manufacturer",
+        "name": "Name",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "damageTypes": {
+      "list": {
+        "pageTitle": "Damage types",
+        "pageDescription": "Here you can manage the available damage types",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Color",
+            "sortOrder": "Sort order",
+            "damageLabel": "Damage Label",
+            "chanceLabel": "Chance Label",
+            "additionalText": "Additional text",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit damage type",
+            "delete": "delete damage type"
+          },
+          "footer": {
+            "create": "create new damage type"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Damage type",
+        "name": "Name",
+        "color": "Color",
+        "sortOrder": "Sort order",
+        "damageLabel": "Damage Label",
+        "chanceLabel": "Chance Label",
+        "additionalText": "Additional text",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "users": {
+      "list": {
+        "pageTitle": "Users",
+        "pageDescription": "Here you can manage the users",
+        "table": {
+          "header": {
+            "username": "Username",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit user",
+            "delete": "delete user"
+          },
+          "footer": {
+            "create": "create new user"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "User",
+        "username": "Username",
+        "password": "Password",
+        "roles": "Roles",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "files": {
+      "list": {
+        "pageTitle": "Files",
+        "pageDescription": "Here you can manage uploaded files",
+        "table": {
+          "header": {
+            "id": "ID",
+            "name": "Name",
+            "mediatype": "Media type",
+            "size": "Size",
+            "width": "Width",
+            "height": "Height",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "edit file",
+            "delete": "delete file"
+          },
+          "footer": {
+            "upload": "upload a new file"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "File",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    }
+  }
+}

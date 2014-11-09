@@ -1,0 +1,241 @@
+{
+  "general": {
+    "button": {
+      "save": "speichern",
+      "add": "hinzufügen",
+      "cancel": "abbrechen"
+    }
+  },
+  "navigation": {
+    "list": "Anzeigen",
+    "create": "Erstellen",
+    "items": "Gegenstände",
+    "weapons": {
+      "title": "Waffen",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "shields": {
+      "title": "Schilder",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "grenadeMods": {
+      "title": "Granaten Mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "classMods": {
+      "title": "Klassen Mods",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "artifacts": {
+      "title": "Artefakte",
+      "list": "@:navigation.list",
+      "create": "@:navigation.create"
+    },
+    "admin": {
+      "title": "Admin",
+      "rarities": "Raritäten",
+      "manufacturers": "Hersteller",
+      "damageTypes": "Schadenstypen",
+      "users": "Benutzers",
+      "files": "Dateien"
+    },
+    "logout": "Ausloggen"
+  },
+  "portal": {
+    "pageTitle": "Willlkommen bei der Borderlands 2 Items Datenbank"
+  },
+  "items": {
+    "list": {
+      "pageTitle": "Gegenstände"
+    }
+  },
+  "weapons": {
+    "list": {
+      "pageTitle": "Waffen"
+    }
+  },
+  "shields": {
+    "list": {
+      "pageTitle": "Schilder"
+    }
+  },
+  "item": {
+    "common": {
+      "levelRequirement": "ERFORDERLICHES LEVEL: {{level}}"
+    },
+    "weapon": {
+      "damage": "Schaden",
+      "accuracy": "Genauigkeit",
+      "fireRate": "Feuerrate",
+      "reloadSpeed": "Ladegewschw.",
+      "magazineSize": "Magazingrösse"
+    },
+    "shield": {
+      "capacity": "Kapazität",
+      "rechargeRate": "Ladegewsch.",
+      "rechargeDelay": "Ladeverzögerung"
+    }
+  },
+  "admin": {
+    "rarities": {
+      "list": {
+        "pageTitle": "Raritäten",
+        "pageDescription": "Hier können die Raritäten verwaltet werden",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Farbe",
+            "sortOrder": "Reihenfolge",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Rarität editieren",
+            "delete": "Rarität löschen"
+          },
+          "footer": {
+            "create": "Neue Raraität erstellen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Rarität",
+        "name": "Name",
+        "color": "Farbe",
+        "order": "Reihenfolge",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "manufacturers": {
+      "list": {
+        "pageTitle": "Hersteller",
+        "pageDescription": "Hier können die Hersteller verwaltet werden",
+        "table": {
+          "header": {
+            "name": "Name",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Hersteller editieren",
+            "delete": "Hersteller läschen"
+          },
+          "footer": {
+            "create": "Neuen Hersteller erstellen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Hersteller",
+        "name": "Name",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "damageTypes": {
+      "list": {
+        "pageTitle": "Schadenstypen",
+        "pageDescription": "Hier können die Schadenstypen verwaltet werden.",
+        "table": {
+          "header": {
+            "name": "Name",
+            "color": "Farbe",
+            "sortOrder": "Reihenfolge",
+            "damageLabel": "Schadens Label",
+            "chanceLabel": "Wahrscheinlichkeits Label",
+            "additionalText": "Zusätzlicher Text",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Schadenstyp editieren",
+            "delete": "Schadenstyp  löschen"
+          },
+          "footer": {
+            "create": "Neuen Schadenstyp erstellern"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Schadenstyp",
+        "name": "Name",
+        "color": "Farbe",
+        "sortOrder": "Reihenfolge",
+        "damageLabel": "Schadens Label",
+        "chanceLabel": "Wahrscheinlichkeits Label",
+        "additionalText": "Zusätzlicher Text",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "users": {
+      "list": {
+        "pageTitle": "Benutzer",
+        "pageDescription": "Hier können die Benutzer verwaltet werden",
+        "table": {
+          "header": {
+            "username": "Benutzername",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Benutzer editieren",
+            "delete": "Benutzer löschen"
+          },
+          "footer": {
+            "create": "Neuen Benutzer erstellen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Benutzer",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "roles": "Rollen",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    },
+    "files": {
+      "list": {
+        "pageTitle": "Dateien",
+        "pageDescription": "Hier können hochgeladene Dateien verwaltet werden",
+        "table": {
+          "header": {
+            "id": "ID",
+            "name": "Name",
+            "mediatype": "Medientyp",
+            "size": "Grösse",
+            "width": "Breite",
+            "height": "Höhe",
+            "menu": ""
+          },
+          "menu": {
+            "edit": "Datei editieren",
+            "delete": "Datei löschen"
+          },
+          "footer": {
+            "upload": "eine Neue Datei hochladen"
+          }
+        }
+      },
+      "details": {
+        "pageTitle": "Datei",
+        "button": {
+          "save": "@:general.button.save",
+          "cancel": "@:general.button.cancel"
+        }
+      }
+    }
+
+  }
+}

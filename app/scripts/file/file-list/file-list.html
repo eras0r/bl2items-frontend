@@ -1,22 +1,17 @@
-<h1>Files</h1>
-
 <div class="panel panel-default">
-    <div class="panel-heading">Files</div>
-    <div class="panel-body">
-        <p>Here you can manage uploaded files</p>
-    </div>
+    <div class="panel-heading" data-translate="admin.files.list.pageTitle">Files</div>
+    <div class="panel-body" data-translate="admin.files.list.pageDescription"></div>
 
     <table class="table table-striped table-bordered">
 
         <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>mediatype</th>
-            <th>size</th>
-            <th>width</th>
-            <th>height</th>
-            <th class="col-xs-1">&nbsp;</th>
-            <th class="col-xs-1">&nbsp;</th>
+            <th data-translate="admin.files.list.table.header.id"></th>
+            <th data-translate="admin.files.list.table.header.name"></th>
+            <th data-translate="admin.files.list.table.header.mediatype"></th>
+            <th data-translate="admin.files.list.table.header.size"></th>
+            <th data-translate="admin.files.list.table.header.width"></th>
+            <th data-translate="admin.files.list.table.header.height"></th>
+            <th data-translate="admin.files.list.table.header.menu" class="col-xs-1"></th>
         </tr>
 
         <tr data-ng-repeat="file in files">
@@ -27,14 +22,15 @@
             <td>{{file.width}}</td>
             <td>{{file.height}}</td>
             <td class="text-center">
-                <button type="button" class="btn btn-default btn-xs"
-                        data-ui-sref=".edit({id: file.id})">
-                    <span class="glyphicon glyphicon-pencil" title="edit user"></span>
+                <button type="button" class="btn btn-default btn-xs" data-ui-sref=".edit({id: file.id})">
+                    <span class="glyphicon glyphicon-pencil" title="{{'admin.files.list.table.menu.edit' | translate}}">
+                    </span>
                 </button>
-            </td>
-            <td class="text-center">
+
                 <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(file)">
-                    <span class="glyphicon glyphicon-trash" title="delete user"></span>
+                    <span class="glyphicon glyphicon-trash"
+                          title="{{'admin.files.list.table.menu.delete' | translate}}">
+                    </span>
                 </button>
             </td>
         </tr>
@@ -42,9 +38,9 @@
 
     <div class="panel-footer text-right">
         <button type="button" class="btn btn-success" data-ui-sref=".upload"
-                title="upload a new file">
+                title="{{'admin.files.list.table.footer.upload' | translate}}">
             <span class="glyphicon glyphicon-plus-sign"></span>
-            upload a new file
+            <span data-translate="admin.files.list.table.footer.upload"></span>
         </button>
     </div>
 
