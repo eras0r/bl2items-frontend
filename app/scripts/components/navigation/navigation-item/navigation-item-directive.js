@@ -10,8 +10,18 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
                 templateUrl: 'scripts/components/navigation/navigation-item/navigation-item.html',
                 replace: true,
                 scope: {
-                    link: '@',
-                    label: '@'
+                    navItem: '='
+                },
+                controller: function ($scope) {
+
+                    $scope.isDropdown = function () {
+                        return $scope.navItem && $scope.navItem.items !== undefined;
+                    };
+
+                    $scope.isActive = function () {
+                        var stateToCheck = $scope.isDropdown() ? $scope.navItem.group : $scope.navItem.link;
+                        return $scope.$parent.$state.includes(stateToCheck);
+                    };
                 }
             };
         }]);

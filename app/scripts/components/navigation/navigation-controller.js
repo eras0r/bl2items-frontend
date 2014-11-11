@@ -3,7 +3,9 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
     'use strict';
 
     navigationModule
-        .controller('NavCtrl', ['$scope', '$state', function ($scope, $state) {
+        .controller('NavCtrl', ['$scope', '$state', 'NavigationTestService', function ($scope, $state, NavigationTestService) {
+
+            $scope.navItems = NavigationTestService.getNavigationItems();
 
         }]);
 

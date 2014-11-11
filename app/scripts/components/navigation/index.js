@@ -6,9 +6,10 @@ define([
     'components/navigation/navigation-def',
     'collapse',
     'dropdown',
+    'components/navigation/navigation-service',
     'components/navigation/navigation-controller',
     'components/navigation/navigation-item/navigation-item-directive',
-    'components/navigation/language-controller',
+    'components/navigation/language-controller'
 ], function (angular, navigationModule) {
 
     'use strict';

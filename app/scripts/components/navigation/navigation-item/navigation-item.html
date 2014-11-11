@@ -1,5 +1,17 @@
-<li data-ng-class="{active: $root.$state.includes(link)}">
-    <a data-ui-sref="{{link}}" data-translate="{{label}}">
+<li data-ng-class="{dropdown: isDropdown(), active: isActive()}">
+    <a data-ng-if="!isDropdown()" data-ui-sref="{{navItem.link}}" data-translate="{{navItem.label}}">
 
     </a>
+
+    <a data-ng-if="isDropdown()" class="dropdown-toggle" data-toggle="dropdown">
+        <span data-translate="{{navItem.label}}"></span> <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+        <li data-nav-item="subNavItem" data-ng-repeat="subNavItem in navItem.items">
+            <a data-ui-sref="{{subNavItem.link}}" data-translate="{{subNavItem.label}}">
+
+            </a>
+        </li>
+    </ul>
+
 </li>

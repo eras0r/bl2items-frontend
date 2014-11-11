@@ -17,83 +17,9 @@
                             <img class="logo" src="images/bl2-logo.png">
                         </a>
                     </li>
-                    <navigation-item data-link="bl2.items" data-label="navigation.items"></navigation-item>
-                    <li class="dropdown" data-ng-class="{active: $state.includes('bl2.weapons')}">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <span data-translate="navigation.weapons.title"></span> <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.weapons.list" data-label="navigation.weapons.list">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.weapons.create" data-label="navigation.weapons.create">
-                            </navigation-item>
-                        </ul>
-                    </li>
-                    <li class="dropdown" data-ng-class="{active: $state.includes('shields')}">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <span data-translate="navigation.shields.title"></span><b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.shields.list" data-label="navigation.shields.list">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.shields.create" data-label="navigation.shields.create">
-                            </navigation-item>
-                        </ul>
-                    </li>
-                    <li class="dropdown" data-ng-class="{active: $state.includes('bl2.grenadeMods')}">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <span data-translate="navigation.grenadeMods.title"></span><b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.grenadeMods.list" data-label="navigation.grenadeMods.list">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.grenadeMods.create"
-                                             data-label="navigation.grenadeMods.create">
-                            </navigation-item>
-                        </ul>
-                    </li>
-                    <li class="dropdown" data-ng-class="{active: $state.includes('bl2.classMods')}">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <span data-translate="navigation.classMods.title"></span> <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.classMods.list" data-label="navigation.classMods.list">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.classMods.create" data-label="navigation.classMods.create">
-                            </navigation-item>
-                        </ul>
-                    </li>
-                    <li class="dropdown" data-ng-class="{active: $state.includes('bl2.artifacts')}">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <span data-translate="navigation.artifacts.title"></span><b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.artifacts.list" data-label="navigation.artifacts.list">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.artifacts.create" data-label="navigation.artifacts.create">
-                            </navigation-item>
-                        </ul>
-                    </li>
-                    <li class="dropdown" data-ng-class="{active: $state.includes('bl2.admin')}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span data-translate="navigation.admin.title"></span> <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <navigation-item data-link="bl2.admin.rarities" data-label="navigation.admin.rarities">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.admin.manufacturers"
-                                             data-label="navigation.admin.manufacturers">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.admin.damageTypes"
-                                             data-label="navigation.admin.damageTypes">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.admin.users" data-label="navigation.admin.users">
-                            </navigation-item>
-                            <navigation-item data-link="bl2.admin.files" data-label="navigation.admin.files">
-                            </navigation-item>
-                        </ul>
-                    </li>
-                    <navigation-item data-link="bl2.logout" data-label="navigation.logout">
-                    </navigation-item>
+
+                    <navigation-item data-nav-item="navItem" data-ng-repeat="navItem in navItems"></navigation-item>
+
                 </ul>
 
                 <!-- language switcher -->
