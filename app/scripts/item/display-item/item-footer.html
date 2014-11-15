@@ -1,18 +1,21 @@
-<section>
-    <p class="unique-text">{{item.uniqueText}}</p>
+<section class="panel-footer">
+    <div class="row">
+        <div class="col-xs-12 unique-text">{{item.uniqueText}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 additional-text">{{item.additionalText}}</div>
 
-    <p class="additional-text">{{item.additionalText}}</p>
-</section>
-<section>
-    <p class="row">
-        <span class="col-sm-4" color="{{item.rarity.color}}">
+    </div>
+
+    <div class="row">
+        <span class="col-sm-4" style="color: {{item.rarity.color}};">
             {{item.manufacturer.name}}
         </span>
-        <span class="col-sm-4 text-center" color="{{item.damageType.color}}" data-ng-show="item.itemtype === 'weapon'">
+        <span class="col-sm-4 text-center" style="color: {{item.damageType.color}};" data-ng-show="item.itemtype === 'weapon'">
             {{item.damageType.name}}
         </span>
-        <span class="col-sm-4 text-right pull-right" color="{{item.rarity.color}}">
+        <span class="col-sm-4 text-right pull-right" style="color: {{item.rarity.color}};">
             {{item.rarity.name}}
         </span>
-    </p>
+    </div>
 </section>

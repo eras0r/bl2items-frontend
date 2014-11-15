@@ -1,29 +1,29 @@
-<article class="item-card">
+<article class="panel panel-default">
 
     <div data-ng-include="'scripts/item/display-item/item-header.html'"></div>
 
-    <section class="item-stats">
-        <p>
-            <span class="stat-name" data-translate="item.weapon.damage"></span>
-            <span class="stat-value">{{item.damage}}</span>
-        </p>
-        <p>
-            <span class="stat-name" data-translate="item.weapon.accuracy"></span>
-            <span class="stat-value">{{item.accuracy}}</span>
-        </p>
-        <p>
-            <span class="stat-name" data-translate="item.weapon.fireRate"></span>
-            <span class="stat-value">{{item.fireRate}}</span>
-        </p>
-        <p>
-            <span class="stat-name" data-translate="item.weapon.reloadSpeed"></span>
-            <span class="stat-value">{{item.reloadSpeed}}</span>
-        </p>
-        <p>
-            <span class="stat-name" data-translate="item.weapon.magazineSize"></span>
-            <span class="stat-value">{{item.magazineSize}}</span>
-        </p>
-    </section>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">{{item.damage}}</span>
+            <span data-translate="item.weapon.damage"></span>
+        </li>
+        <li class="list-group-item">
+            <span class="badge">{{item.accuracy}}</span>
+            <span data-translate="item.weapon.accuracy"></span>
+        </li>
+        <li class="list-group-item">
+            <span class="badge">{{item.fireRate}}</span>
+            <span data-translate="item.weapon.fireRate"></span>
+        </li>
+        <li class="list-group-item">
+            <span class="badge">{{item.reloadSpeed}}</span>
+            <span data-translate="item.weapon.reloadSpeed"></span>
+        </li>
+        <li class="list-group-item">
+            <span class="badge">{{item.magazineSize}}</span>
+            <span data-translate="item.weapon.magazineSize"></span>
+        </li>
+    </ul>
 
     <div data-ng-include="'scripts/item/display-item/item-footer.html'"></div>
 

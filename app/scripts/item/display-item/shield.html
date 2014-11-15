@@ -1,22 +1,23 @@
-<article class="item-card">
+<article class="panel panel-default">
 
     <div data-ng-include="'scripts/item/display-item/item-header.html'"></div>
 
-    <section class="item-stats">
-        <p>
-            <span class="stat-name" data-translate="item.shield.capacity"></span>
-            <span class="stat-value">{{item.capacity}}</span>
-        </p>
-        <p>
-            <span class="stat-name" data-translate="item.shield.rechargeRate"></span>
-            <span class="stat-value">{{item.rechargeRate}}</span>
-        </p>
-        <p>
-            <span class="stat-name" data-translate="item.shield.rechargeDelay"></span>
-            <span class="stat-value">{{item.rechargeDelay}}</span>
-        </p>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">{{item.capacity}}</span>
+            <span data-translate="item.shield.capacity"></span>
+        </li>
+        <li class="list-group-item">
+            <span class="badge">{{item.rechargeRate}}</span>
+            <span data-translate="item.shield.rechargeRate"></span>
+        </li>
+        <li class="list-group-item">
+            <span class="badge">{{item.rechargeDelay}}</span>
+            <span data-translate="item.shield.rechargeDelay"></span>
+        </li>
+
         <!-- TODO add additional shield specific properties -->
-    </section>
+    </ul>
 
     <div data-ng-include="'scripts/item/display-item/item-footer.html'"></div>
 

@@ -1,6 +1,8 @@
-<section class="level">
-    <h4 data-translate="item.common.levelRequirement" data-translate-value-level="{{item.level}}"></h4>
-</section>
-<section color="{{item.rarity.color}}">
-    <h3>{{item.name}}</h3>
+<section class="panel-heading">
+    <h2>
+        <span style="color: {{item.rarity.color}};">{{item.name}}&nbsp;</span>
+        <span class="text-right pull-right badge" title="{{'item.common.levelRequirement' | translate}}">
+            {{item.level}}
+        </span>
+    </h2>
 </section>
