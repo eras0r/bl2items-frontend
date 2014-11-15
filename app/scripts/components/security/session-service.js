@@ -5,7 +5,35 @@ define(['angular', 'components/security/security-def', 'cryptojs.core', 'cryptoj
     securityModule.factory('SessionService', ['$state', 'Restangular', function ($state, Restangular) {
         var resourceUrl = 'sessions';
 
-        return {
+        var currentUser;
+
+        var sessionService = {
+
+            getCurrentUser: function () {
+                if (typeof currentUser === 'undefined') {
+                    currentUser = Restangular.one('current-user').get().$object;
+                }
+
+                return currentUser;
+            },
+
+            setCurrentUser: function (user) {
+                currentUser = user;
+            },
+
+            /**
+             * Returns whether the current user has the given role or not.
+             * Note: roles are always in capital letters and start with 'ROLE_'
+             * @param role the role to be tested
+             * @returns {boolean} whether the user has the given role or not.
+             */
+            hasRole: function (role) {
+                if (typeof role === 'undefined') {
+                    return true;
+                }
+                return currentUser && currentUser.roles && currentUser.roles.indexOf(role) !== -1;
+            },
+
             login: function (username, password) {
                 // Generate HMAC secret (sha512('username:password'))
                 localStorage.hmacSecret = CryptoJS.SHA512(username + ':' + password).toString(CryptoJS.enc.Hex);
@@ -22,14 +50,14 @@ define(['angular', 'components/security/security-def', 'cryptojs.core', 'cryptoj
 
             },
 
-            getCurrentUser: function () {
-                return Restangular.one('current-user').get();
-            },
-
             logout: function () {
                 return Restangular.all(resourceUrl).customDELETE(localStorage.sessionToken);
             }
+
         };
+
+
+        return sessionService;
 
     }]);
 

@@ -3,7 +3,7 @@ define(['angular', 'components/security/security-def', 'cryptojs.core', 'cryptoj
     'use strict';
 
     securityModule
-        .controller('LoginCtrl', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
+        .controller('LoginCtrl', ['$scope', '$http', 'authService', 'SessionService', function ($scope, $http, authService, SessionService) {
             $scope.login = function () {
 
                 SessionService.login($scope.user.name, $scope.user.password).then(function (data) {
@@ -17,7 +17,10 @@ define(['angular', 'components/security/security-def', 'cryptojs.core', 'cryptoj
                     // sha512("sha512('username:password'):sessionToken")
                     localStorage.hmacSecret = CryptoJS.SHA512(localStorage.hmacSecret + ':' + data.sessionToken);
 
+                    // TODO
                     $scope.message = 'Login Successful: ' + localStorage.sessionToken;
+
+                    authService.loginConfirmed(data.user);
 
                 }, function (response) {
                     // TODO show error message

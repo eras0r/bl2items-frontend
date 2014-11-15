@@ -1,4 +1,4 @@
-<li data-ng-class="{dropdown: isDropdown(), active: isActive()}">
+<li data-ng-class="{dropdown: isDropdown(), active: isActive()}" data-ng-show="hasRole(navItem.role)">
     <a data-ng-if="!isDropdown()" data-ui-sref="{{navItem.link}}" data-translate="{{navItem.label}}">
 
     </a>
@@ -7,7 +7,7 @@
         <span data-translate="{{navItem.label}}"></span> <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
-        <li data-nav-item="subNavItem" data-ng-repeat="subNavItem in navItem.items">
+        <li data-nav-item="subNavItem" data-ng-repeat="subNavItem in navItem.items" data-ng-show="hasRole(subNavItem.role)">
             <a data-ui-sref="{{subNavItem.link}}" data-translate="{{subNavItem.label}}">
 
             </a>

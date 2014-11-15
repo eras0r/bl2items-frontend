@@ -1,9 +1,9 @@
-define(['angular', 'components/navigation/navigation-def'], function (angular, navigationModule) {
+define(['angular', 'components/navigation/navigation-def', 'components/security/security-def'], function (angular, navigationModule) {
 
     'use strict';
 
-    navigationModule.directive('navigationItem', [
-        function () {
+    navigationModule.directive('navigationItem', ['SessionService',
+        function (SessionService) {
 
             return {
                 restrict: 'E',
@@ -21,6 +21,10 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
                     $scope.isActive = function () {
                         var stateToCheck = $scope.isDropdown() ? $scope.navItem.group : $scope.navItem.link;
                         return $scope.$parent.$state.includes(stateToCheck);
+                    };
+
+                    $scope.hasRole = function (role) {
+                        return SessionService.hasRole(role);
                     };
                 }
             };

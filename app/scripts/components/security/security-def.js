@@ -75,16 +75,17 @@ define([
 
                 });
         }])
-        .run(['$rootScope', '$state', function ($rootScope, $state) {
+        .run(['$rootScope', '$state', 'SessionService', function ($rootScope, $state, SessionService) {
             // angular auth interceptor
             $rootScope.$on('event:auth-loginRequired', function () {
                 // go to login state by keeping the current url
                 $state.go('bl2.login', {}, {location: false});
             });
 
-            $rootScope.$on('event:auth-loginConfirmed', function () {
-                // TODO to previous state
-                console.log('TODO login confirmed');
+            // TODO move this to SessionService?
+            $rootScope.$on('event:auth-loginConfirmed', function (event, loggedinUser) {
+                // TODO go to previous state
+                SessionService.setCurrentUser(loggedinUser);
             });
         }]);
 

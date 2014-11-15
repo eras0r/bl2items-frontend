@@ -21,8 +21,16 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
             };
 
             var linker = function (scope, element, attrs) {
+                var itemType;
+                if (attrs.itemType) {
+                    itemType = attrs.itemType;
+                }
+                else {
+                    itemType = scope.item.itemtype;
+                }
 
-                var loader = getTemplate(scope.item.itemtype);
+
+                var loader = getTemplate(itemType);
 
                 var promise = loader.success(function (html) {
                     element.html(html);
