@@ -29,7 +29,6 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                     itemType = scope.item.itemtype;
                 }
 
-
                 var loader = getTemplate(itemType);
 
                 var promise = loader.success(function (html) {
@@ -44,7 +43,13 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                 scope: {
                     item: '='
                 },
-                link: linker
+                link: linker,
+                controller: function($scope) {
+                    $scope.getAdditionalText = function() {
+                        console.log('getAdditionalText()');
+                        return $scope.item.additionalText.split('\n');
+                    };
+                }
             };
         }]);
 

@@ -6,6 +6,13 @@
       "cancel": "cancel"
     }
   },
+  "login": {
+    "title": "Login",
+    "username.label": "Username",
+    "username.placeholder": "Username",
+    "password.label": "Password",
+    "password.placeholder": "Password"
+  },
   "navigation": {
     "list": "List",
     "create": "Create",

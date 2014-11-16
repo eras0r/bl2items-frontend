@@ -14,8 +14,7 @@ define(['angular', 'components/highlight-text/highlight-text-def'], function (an
                 '{f}': '<span class="elem-fire">',
                 '{/f}': '</span>',
                 '{s}': '<span class="elem-slag">',
-                '{/s}': '</span>',
-                '\n': '<br />'
+                '{/s}': '</span>'
             };
             var re = new RegExp(Object.keys(mapObj).join('|'), 'gi');
             if (input === null) {

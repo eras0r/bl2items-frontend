@@ -46,6 +46,7 @@ define(['angular', 'components/security/security-def', 'cryptojs.core', 'cryptoj
                     password: password
                 };
 
+                console.log('invokign login REST call');
                 return Restangular.all(resourceUrl).post(postData);
 
             },

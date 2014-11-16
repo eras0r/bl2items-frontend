@@ -1,38 +1,35 @@
+<div class="alert alert-danger" role="alert" data-ng-show="message">{{message}}</div>
+
 <div class="panel panel-default">
-
-    <div class="panel-heading">Login</div>
+    <div class="panel-heading" data-translate="login.title"></div>
     <div class="panel-body">
+        <form class="form-horizontal">
+            <fieldset>
+                <div class="form-group" data-ng-class="{'has-error': errors.name}">
+                    <label for="name" class="col-lg-2 control-label" data-translate="login.username.label"></label>
 
-        <form class="form-horizontal" role="form">
-            <div class="form-group" data-ng-class="{'has-error': errors.name}">
-                <label for="name" class="col-sm-3 control-label">Username</label>
+                    <div class="col-lg-10">
+                        <input type="text" id="name" class="form-control" data-ng-model="user.name"
+                               required="required" maxlength="255" placeholder="{{'login.username.placeholder' | translate}}"/>
+                    </div>
+                </div>
+                <div class="form-group" data-ng-class="{'has-error': errors.password}">
+                    <label for="password" class="col-lg-2 control-label" data-translate="login.password.label"></label>
 
-                <div class="col-sm-9">
-                    <input type="text" id="name" class="form-control" data-ng-model="user.name"
-                           required="required"
-                           maxlength="255"/>
-                    <span class="help-inline" data-ng-show="errors['name']">{{errors['name']}}</span>
+                    <div class="col-lg-10">
+                        <input type="password" id="password" class="form-control" data-ng-model="user.password"
+                               required="required" maxlength="255" placeholder="{{'login.password.placeholder' | translate}}"/>
+                    </div>
                 </div>
 
-                <label for="password" class="col-sm-3 control-label">Password</label>
+                <div class="form-group text-right">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-default" data-ng-click="login()">login</button>
 
-                <div class="col-sm-9">
-                    <input type="password" id="password" class="form-control" data-ng-model="user.password"
-                           required="required"
-                           maxlength="255"/>
-                    <span class="help-inline" data-ng-show="errors['password']">{{errors['password']}}</span>
+                        <button type="button" class="btn btn-primary" data-ng-click="cancel()">cancel</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group text-right">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary" data-ng-click="login()">login</button>
-
-                    <button type="button" class="btn btn-default" data-ng-click="cancel()">cancel</button>
-                </div>
-            </div>
+            </fieldset>
         </form>
-
     </div>
-
 </div>

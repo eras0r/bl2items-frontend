@@ -23,8 +23,12 @@ define(['angular', 'components/security/security-def', 'cryptojs.core', 'cryptoj
                     authService.loginConfirmed(data.user);
 
                 }, function (response) {
-                    // TODO show error message
-                    $scope.message = response.message;
+                    // TODO translate message
+                    $scope.message = 'invalid credentials';
+                    $scope.errors = {
+                        name: 'invalid credentials',
+                        password: 'invalid credentials'
+                    };
                 });
 
             };
