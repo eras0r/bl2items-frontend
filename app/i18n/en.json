@@ -50,7 +50,11 @@
       "users": "Users",
       "files": "Files"
     },
-    "logout": "Logout"
+    "user": {
+      "settings": "Settings",
+      "logout": "Logout",
+      "login": "Login"
+    }
   },
   "portal": {
     "pageTitle": "Welcome to the Borderlands 2 items database"
