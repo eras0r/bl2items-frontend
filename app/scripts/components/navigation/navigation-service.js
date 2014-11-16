@@ -67,8 +67,6 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
                     ]
                 });
 
-                items.push({link: 'bl2.logout', label: 'navigation.logout'});
-
                 return items;
             }
         };

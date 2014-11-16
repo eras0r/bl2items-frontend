@@ -13,6 +13,7 @@ define(['angular', 'components/security/security-def'], function (angular, secur
             console.log('calling SessionService.logout()...');
             SessionService.logout().then(function (data) {
                 localStorage.removeItem('sessionToken');
+                SessionService.setCurrentUser(undefined);
             }, function (response) {
                 // TODO show error message
                 console.log('error calling logout: ', response);
