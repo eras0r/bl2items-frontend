@@ -18,12 +18,9 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/angular-cookies/angular-cookies.js', included: false},
             {pattern: 'app/bower_components/angular-sanitize/angular-sanitize.js', included: false},
             {pattern: 'app/bower_components/angular-ui-router/release/angular-ui-router.js', included: false},
+            {pattern: 'app/bower_components/angular-http-auth/src/http-auth-interceptor.js', included: false},
             {pattern: 'app/bower_components/jquery/dist/jquery.js', included: false},
-
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', included: false},
-
-
-
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js', included: false},
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js', included: false},
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js', included: false},
@@ -36,9 +33,6 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js', included: false},
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js', included: false},
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js', included: false},
-
-
-
             {pattern: 'app/bower_components/jquery-minicolors/jquery.minicolors.js', included: false},
             {pattern: 'app/bower_components/angular-minicolors/angular-minicolors.js', included: false},
             {pattern: 'app/bower_components/cryptojslib/components/core.js', included: false},
