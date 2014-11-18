@@ -1,36 +1,60 @@
 <header>
-    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="NavCtrl">-->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
 
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
-                    <img class="logo" src="images/bl2-logo.png">
+                    <!--<img class="logo" src="images/bl2-logo.png">-->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
+
+                <a href="#" class="hidden-xs hidden-sm">
+                    <img class="logo" src="images/bl2-logo.png">
+                </a>
             </div>
 
             <div class="collapse navbar-collapse">
+                <!-- left navigation (dynamically created from configured routes -->
                 <ul class="nav navbar-nav">
-                    <li class="hidden-xs hidden-sm">
-                        <a href="#" class="logo-link">
-                            <img class="logo" src="images/bl2-logo.png">
-                        </a>
-                    </li>
-
                     <navigation-item data-nav-item="navItem" data-ng-repeat="navItem in navItems"></navigation-item>
-
                 </ul>
 
-                <!-- language switcher -->
-                <ul class="nav navbar-nav navbar-right" data-ng-controller="LanguageCtrl">
-                    <li class="dropdown">
+                <!-- right navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" data-ng-show="isUserLoggedIn()">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+                            {{getCurrentUser().username}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a>
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                    <span data-translate="navigation.user.settings"></span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a data-ui-sref="bl2.logout">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                    <span data-translate="navigation.user.logout"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-ng-hide="isUserLoggedIn()">
+                        <a data-ui-sref="bl2.login" data-translate="navigation.user.login"></a>
+                    </li>
+                    <li class="dropdown" data-ng-controller="LanguageCtrl">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             {{getCurrentLanguage()}} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li data-ng-repeat="language in languages">
-                                <a hr data-ng-click="changeLanguage(language)">{{language}}</a>
+                                <a data-ng-click="changeLanguage(language)">{{language}}</a>
                             </li>
                         </ul>
                     </li>
