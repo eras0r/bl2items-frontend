@@ -18,6 +18,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/user/user-list/user-list.html',
                             controller: 'UserListCtrl'
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.admin.users',
+                        label: 'navigation.admin.users',
+                        role: 'admin'
                     }
                 })
                 .state('bl2.admin.users.create', {

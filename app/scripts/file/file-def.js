@@ -19,6 +19,11 @@ define(['angular', 'restangular', 'angular-ui-router', 'ng-file-upload'], functi
                             templateUrl: 'scripts/file/file-list/file-list.html',
                             controller: 'FileListCtrl'
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.admin.files',
+                        label: 'navigation.admin.files',
+                        role: 'admin'
                     }
                 })
                 .state('bl2.admin.files.upload', {

@@ -18,6 +18,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
                             controller: 'ManufacturerListCtrl'
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.admin.manufacturers',
+                        label: 'navigation.admin.manufacturers',
+                        role: 'admin'
                     }
                 })
                 .state('bl2.admin.manufacturers.create', {

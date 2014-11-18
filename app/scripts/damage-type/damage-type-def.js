@@ -18,6 +18,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
                             controller: 'DamageTypeListCtrl'
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.admin.damageTypes',
+                        label: 'navigation.admin.damageTypes',
+                        role: 'admin'
                     }
                 })
                 .state('bl2.admin.damageTypes.create', {

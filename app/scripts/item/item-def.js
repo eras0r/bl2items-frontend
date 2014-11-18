@@ -21,6 +21,10 @@ define(['angular', 'restangular', 'angular-ui-router'], function (angular) {
                     },
                     data: {
                         pageTitle: 'items.list.pageTitle'
+                    },
+                    navigation: {
+                        link: 'bl2.items',
+                        label: 'navigation.items'
                     }
 
                 });

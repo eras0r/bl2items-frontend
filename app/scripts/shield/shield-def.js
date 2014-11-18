@@ -13,7 +13,12 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
             $stateProvider
                 .state('bl2.shields', {
                     'abstract': true,
-                    url: '/shields'
+                    url: '/shields',
+                    navigation: {
+                        label: 'navigation.shields.title',
+                        group: 'bl2.shields',
+                        items: []
+                    }
                 })
                 .state('bl2.shields.list', {
                     url: '/list',
@@ -25,6 +30,10 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     },
                     data: {
                         pageTitle: 'shields.list.pageTitle'
+                    },
+                    mavigation: {
+                        link: 'bl2.shields.list',
+                        label: 'navigation.shields.list'
                     }
                 })
                 .state('bl2.shields.create', {
@@ -34,6 +43,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/shield/shield-details.html',
                             controller: 'ShieldCreateCtrl'
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.shields.create',
+                        label: 'navigation.shields.create',
+                        role: 'admin'
                     }
                 });
         });

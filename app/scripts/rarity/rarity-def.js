@@ -18,6 +18,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
                             controller: 'RarityListCtrl'
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.admin.rarities',
+                        label: 'navigation.admin.rarities',
+                        role: 'admin'
                     }
                 })
                 .state('bl2.admin.rarities.create', {

@@ -14,7 +14,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -31,6 +31,16 @@
 
 <!--<div data-ng-include="'scripts/components/navigation/navigation.html'"></div>-->
 <div data-ui-view="navigation"></div>
+
+<!-- TODO remove screen size indicator -->
+<div class="row">
+    <div class="col-xs-12">
+        <span class="visible-xs-inline-block label label-default">xs</span>
+        <span class="visible-sm-inline-block label label-primary">sm</span>
+        <span class="visible-md-inline-block label label-success">md</span>
+        <span class="visible-lg-inline-block label label-info">lg</span>
+    </div>
+</div>
 
 <!-- Add your site or application content here -->
 <div class="container-fluid" data-ui-view="main"></div>

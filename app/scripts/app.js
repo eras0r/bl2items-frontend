@@ -64,7 +64,13 @@ define([
                     })
                     .state('bl2.admin', {
                         'abstract': true,
-                        url: '/admin'
+                        url: '/admin',
+                        navigation: {
+                            label: 'navigation.admin.title',
+                            group: 'bl2.admin',
+                            role: 'admin',
+                            items: []
+                        }
                     });
 
                 // setup for restangular

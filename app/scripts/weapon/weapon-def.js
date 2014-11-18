@@ -13,7 +13,13 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
             $stateProvider
                 .state('bl2.weapons', {
                     'abstract': true,
-                    url: '/weapons'
+                    url: '/weapons',
+                    data: {},
+                    navigation: {
+                        label: 'navigation.weapons.title',
+                        group: 'bl2.weapons',
+                        items: []
+                    }
                 })
                 .state('bl2.weapons.list', {
                     url: '/list',
@@ -25,6 +31,10 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     },
                     data: {
                         pageTitle: 'weapons.list.pageTitle'
+                    },
+                    navigation: {
+                        link: 'bl2.weapons.list',
+                        label: 'navigation.weapons.list'
                     }
                 })
                 .state('bl2.weapons.create', {
@@ -45,6 +55,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                         damageTypes: function (DamageTypeService) {
                             return DamageTypeService.list();
                         }
+                    },
+                    navigation: {
+                        link: 'bl2.weapons.create',
+                        label: 'navigation.weapons.create',
+                        role: 'admin'
                     }
                 });
         });
