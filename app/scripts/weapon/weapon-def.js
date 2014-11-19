@@ -15,10 +15,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     'abstract': true,
                     url: '/weapons',
                     data: {},
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 11,
                         label: 'navigation.weapons.title',
                         group: 'bl2.weapons',
-                        items: []
+                        items: {}
                     }
                 })
                 .state('bl2.weapons.list', {
@@ -32,7 +33,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     data: {
                         pageTitle: 'weapons.list.pageTitle'
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 1,
                         link: 'bl2.weapons.list',
                         label: 'navigation.weapons.list'
                     }
@@ -56,7 +58,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             return DamageTypeService.list();
                         }
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 11,
                         link: 'bl2.weapons.create',
                         label: 'navigation.weapons.create',
                         role: 'admin'

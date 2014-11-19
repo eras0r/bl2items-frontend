@@ -14,10 +14,11 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                 .state('bl2.shields', {
                     'abstract': true,
                     url: '/shields',
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 21,
                         label: 'navigation.shields.title',
                         group: 'bl2.shields',
-                        items: []
+                        items: {}
                     }
                 })
                 .state('bl2.shields.list', {
@@ -31,7 +32,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                     data: {
                         pageTitle: 'shields.list.pageTitle'
                     },
-                    mavigation: {
+                    navigationItem: {
+                        sortOrder: 1,
                         link: 'bl2.shields.list',
                         label: 'navigation.shields.list'
                     }
@@ -44,7 +46,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             controller: 'ShieldCreateCtrl'
                         }
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 11,
                         link: 'bl2.shields.create',
                         label: 'navigation.shields.create',
                         role: 'admin'

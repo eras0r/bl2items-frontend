@@ -65,11 +65,12 @@ define([
                     .state('bl2.admin', {
                         'abstract': true,
                         url: '/admin',
-                        navigation: {
+                        navigationItem: {
+                            sortOrder: 31,
                             label: 'navigation.admin.title',
                             group: 'bl2.admin',
                             role: 'admin',
-                            items: []
+                            items: {}
                         }
                     });
 

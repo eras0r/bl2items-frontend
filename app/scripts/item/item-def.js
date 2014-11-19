@@ -22,7 +22,8 @@ define(['angular', 'restangular', 'angular-ui-router'], function (angular) {
                     data: {
                         pageTitle: 'items.list.pageTitle'
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 1,
                         link: 'bl2.items',
                         label: 'navigation.items'
                     }

@@ -19,7 +19,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             controller: 'DamageTypeListCtrl'
                         }
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 11,
                         link: 'bl2.admin.damageTypes',
                         label: 'navigation.admin.damageTypes',
                         role: 'admin'

@@ -19,7 +19,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             controller: 'RarityListCtrl'
                         }
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 1,
                         link: 'bl2.admin.rarities',
                         label: 'navigation.admin.rarities',
                         role: 'admin'

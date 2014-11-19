@@ -20,7 +20,8 @@ define(['angular', 'restangular', 'angular-ui-router', 'ng-file-upload'], functi
                             controller: 'FileListCtrl'
                         }
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 31,
                         link: 'bl2.admin.files',
                         label: 'navigation.admin.files',
                         role: 'admin'

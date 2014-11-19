@@ -19,7 +19,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             controller: 'ManufacturerListCtrl'
                         }
                     },
-                    navigation: {
+                    navigationItem: {
+                        sortOrder: 21,
                         link: 'bl2.admin.manufacturers',
                         label: 'navigation.admin.manufacturers',
                         role: 'admin'

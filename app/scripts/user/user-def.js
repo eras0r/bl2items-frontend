@@ -19,7 +19,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             controller: 'UserListCtrl'
                         }
                     },
-                    navigation: {
+                    navigationItem: {
                         link: 'bl2.admin.users',
                         label: 'navigation.admin.users',
                         role: 'admin'
