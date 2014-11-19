@@ -2,6 +2,8 @@
  * variable definitions                                                                                   *
 /**********************************************************************************************************/
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/components-font-awesome/fonts/";
+@import "components-font-awesome/scss/font-awesome";
 
 /* elemental damage color definitions */
 $corrosiveColor: #09F108;
