@@ -44,10 +44,14 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                     item: '='
                 },
                 link: linker,
-                controller: function($scope) {
-                    $scope.getAdditionalText = function() {
-                        console.log('getAdditionalText()');
-                        return $scope.item.additionalText.split('\n');
+                controller: function ($scope) {
+                    $scope.getAdditionalText = function () {
+                        var additionalText;
+                        if ($scope.item.additionalText) {
+                            additionalText = $scope.item.additionalText.split('\n');
+                        }
+
+                        return additionalText;
                     };
                 }
             };
