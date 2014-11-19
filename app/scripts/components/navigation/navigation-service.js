@@ -11,7 +11,6 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
 
             var parentName = stateName.substring(0, stateName.lastIndexOf('.'));
             return $state.get(parentName);
-
         }
 
         return {
