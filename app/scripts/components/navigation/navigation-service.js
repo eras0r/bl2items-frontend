@@ -39,8 +39,6 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
                     }
                 });
 
-                console.log('navItems: ', navItems);
-
                 return navItems;
             }
         };
