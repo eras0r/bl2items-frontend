@@ -26,7 +26,6 @@ define(['angular', 'components/navigation/navigation-def'], function (angular, n
                         // current's state parent state also defines a navigation
                         if (parentState && parentState.navigationItem) {
                             // add the parent' states navigation
-                            console.log('parent sort order: ', parentState.navigationItem.sortOrder);
                             navItems[parentState.navigationItem.sortOrder] = parentState.navigationItem;
                             // add current state as sub item to parent state
                             navItems[parentState.navigationItem.sortOrder].items[state.navigationItem.sortOrder] = state.navigationItem;
