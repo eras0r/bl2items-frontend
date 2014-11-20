@@ -24,8 +24,6 @@ requirejs.config({
         'angular-http-auth': '../bower_components/angular-http-auth/src/http-auth-interceptor',
         'angular-translate': '../bower_components/angular-translate/angular-translate',
         'angular-translate-loader-static-files': '../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files',
-        'angular-minicolors': '../bower_components/angular-minicolors/angular-minicolors',
-        'jquery-minicolors': '../bower_components/jquery-minicolors/jquery.minicolors',
         angular: '../bower_components/angular/angular',
         'cryptojs.core': '../bower_components/cryptojslib/components/core',
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
@@ -85,16 +83,6 @@ requirejs.config({
         'angular-translate-loader-static-files': {
             deps: [
                 'angular-translate'
-            ]
-        },
-        'angular-minicolors': {
-            deps: [
-                'angular'
-            ]
-        },
-        'jquery-minicolors': {
-            deps: [
-                'jquery'
             ]
         },
         'affix': {

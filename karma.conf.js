@@ -33,8 +33,6 @@ module.exports = function (config) {
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js', included: false},
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js', included: false},
             {pattern: 'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js', included: false},
-            {pattern: 'app/bower_components/jquery-minicolors/jquery.minicolors.js', included: false},
-            {pattern: 'app/bower_components/angular-minicolors/angular-minicolors.js', included: false},
             {pattern: 'app/bower_components/cryptojslib/components/core.js', included: false},
             {pattern: 'app/bower_components/cryptojslib/components/x64-core.js', included: false},
             {pattern: 'app/bower_components/cryptojslib/components/sha512.js', included: false},

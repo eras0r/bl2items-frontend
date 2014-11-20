@@ -3,7 +3,6 @@ define([
     'restangular',
     'angular-translate',
     'angular-translate-loader-static-files',
-    'angular-minicolors',
     'components/security/index',
     'components/navigation/index',
     'components/highlight-text/index',
@@ -21,12 +20,11 @@ define([
 
     return angular.module('bl2ItemsDbApp', [
         'ngCookies',
-        'restangular',
         'ngSanitize',
-        'ui.router',
-        'pascalprecht.translate',
         /* external 3rd party modules*/
-        'minicolors',
+        'ui.router',
+        'restangular',
+        'pascalprecht.translate',
         /* generic core modules */
         'securityModule',
         'navigationModule',
