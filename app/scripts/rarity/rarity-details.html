@@ -19,12 +19,7 @@
                 <label for="color" class="col-sm-3 control-label" data-translate="admin.rarities.details.color"></label>
 
                 <div class="col-sm-9">
-                    <div>
-                        <input type="text" id="color" class="form-control" required="required" maxlength="7"
-                               data-ng-model="rarity.color" data-error="errors.color"/>
-                    </div>
-
-                    <span data-ng-show="errors.color">{{errors.color}}</span>
+                    <color-picker name="color" data-color="rarity.color" data-error="errors.color"></color-picker>
                 </div>
 
             </div>

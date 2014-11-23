@@ -20,7 +20,7 @@ define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
             $scope.save = function () {
                 RarityService.update($scope.rarity)
                     .then(function () {
-                        RarityService.showList();
+                        //RarityService.showList();
                     }, function (response) {
                         if (response.status === 422) {
                             $scope.errors = response.data;

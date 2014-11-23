@@ -42,12 +42,18 @@ requirejs.config({
         scrollspy: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy',
         modal: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal',
         tooltip: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
-        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover'
+        popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover',
+        'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker',
+        spectrum: '../bower_components/spectrum/spectrum'
     },
 
     shim: {
         'angular': {
-            'exports': 'angular'
+            'exports': 'angular',
+            deps: [
+                // dependency to jquery (in order to avoid using jQlite)
+                'jquery'
+            ]
         },
         'angular-cookies': [
             'angular'
