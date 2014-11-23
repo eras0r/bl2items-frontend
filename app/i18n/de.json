@@ -67,6 +67,34 @@
   "weapons": {
     "list": {
       "pageTitle": "Waffen"
+    },
+    "details": {
+      "levelRequirement": "Level",
+      "rarity": "Rarität",
+      "name": "Name",
+      "gibbedCode": "Gibbed Code",
+      "damage": "Schaden",
+      "multiplicator": "Multiplikator",
+      "accuracy": "Genauigkeit",
+      "fireRate": "Feuerrate",
+      "reloadSpeed": "Ladegewschw.",
+      "magazineSize": "Magazingrösse",
+      "damageType": "Schadensart",
+      "uniqueText": "Unikatstext",
+      "additionalText": "Zusätzlicher Text",
+      "manufacturer": "Hersteller",
+      "button": {
+        "save": "@:general.button.save",
+        "cancel": "@:general.button.cancel"
+      }
+    },
+    "create": {
+      "pageTitle": "Neue Waffe erstellen",
+      "formTitle": "Waffen Details"
+    },
+    "edit": {
+      "pageTitle": "Waffe editieren",
+      "formTitle": "Waffen Details"
     }
   },
   "shields": {
@@ -247,6 +275,5 @@
         }
       }
     }
-
   }
 }

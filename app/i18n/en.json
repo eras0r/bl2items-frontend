@@ -67,6 +67,34 @@
   "weapons": {
     "list": {
       "pageTitle": "Weapons"
+    },
+    "details": {
+      "levelRequirement": "Level requirement",
+      "rarity": "Rarity",
+      "name": "Name",
+      "gibbedCode": "Gibbed Code",
+      "damage": "Damage",
+      "multiplicator": "Multiplicator",
+      "accuracy": "Accuracy",
+      "fireRate": "Fire Rate",
+      "reloadSpeed": "Reload Speed",
+      "magazineSize": "Magazine Size",
+      "damageType": "Damage Type",
+      "uniqueText": "Unique Text",
+      "additionalText": "Additional Text",
+      "manufacturer": "Manufacturer",
+      "button": {
+        "save": "@:general.button.save",
+        "cancel": "@:general.button.cancel"
+      }
+    },
+    "create": {
+      "pageTitle": "Create new weapon",
+      "formTitle": "Weapon details"
+    },
+    "edit": {
+      "pageTitle": "Edit weapon",
+      "formTitle": "Weapon details"
     }
   },
   "shields": {

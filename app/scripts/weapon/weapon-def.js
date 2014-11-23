@@ -58,6 +58,10 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                             return DamageTypeService.list();
                         }
                     },
+                    data: {
+                        'pageTitle': 'weapons.create.pageTitle',
+                        'formTitle': 'weapons.create.formTitle'
+                    },
                     navigationItem: {
                         sortOrder: 11,
                         link: 'bl2.weapons.create',
@@ -83,6 +87,10 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                         damageTypes: function (DamageTypeService) {
                             return DamageTypeService.list();
                         }
+                    },
+                    data: {
+                        'pageTitle': 'weapons.edit.pageTitle',
+                        'formTitle': 'weapons.edit.formTitle'
                     }
                 });
         });
