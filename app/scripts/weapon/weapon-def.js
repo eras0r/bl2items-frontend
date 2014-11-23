@@ -64,6 +64,26 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                         label: 'navigation.weapons.create',
                         role: 'admin'
                     }
+                })
+                .state('bl2.weapons.edit', {
+                    url: '/:id',
+                    views: {
+                        'main@': {
+                            templateUrl: 'scripts/weapon/weapon-details.html',
+                            controller: 'WeaponEditCtrl'
+                        }
+                    },
+                    resolve: {
+                        rarities: function (RarityService) {
+                            return RarityService.list();
+                        },
+                        manufacturers: function (ManufacturerService) {
+                            return ManufacturerService.list();
+                        },
+                        damageTypes: function (DamageTypeService) {
+                            return DamageTypeService.list();
+                        }
+                    }
                 });
         });
 

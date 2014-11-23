@@ -3,8 +3,8 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
     'use strict';
 
     itemModule.directive('displayItem', [
-        '$compile', '$http', '$templateCache',
-        function ($compile, $http, $templateCache) {
+        '$compile', '$http', '$templateCache', '$state',
+        function ($compile, $http, $templateCache, $state) {
 
             var getTemplate = function (contentType) {
                 var templateLoader;
@@ -47,11 +47,20 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                 controller: function ($scope) {
                     $scope.getAdditionalText = function () {
                         var additionalText;
-                        if ($scope.item.additionalText) {
+                        if ($scope.item && $scope.item.additionalText) {
                             additionalText = $scope.item.additionalText.split('\n');
                         }
 
                         return additionalText;
+                    };
+
+                    $scope.edit = function (item) {
+                        switch (item.itemtype) {
+                            case 'weapon':
+                                $state.go('bl2.weapons.edit', {id: item.id});
+                                break;
+                            // TODO add cases for other item types
+                        }
                     };
                 }
             };
