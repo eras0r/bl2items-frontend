@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-xs-12 text-right pull-right">
             <div class="btn-group">
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="fa fa-edit" title="{{'item.functions.eidt' | translate}}"></span>
+                <button type="button" class="btn btn-default btn-xs" data-ng-click="edit(item)">
+                    <span class="fa fa-edit" title="{{'item.functions.edit' | translate}}"></span>
                 </button>
                 <button type="button" class="btn btn-default btn-xs">
                     <span class="fa fa-code" title="{{'item.functions.copyCode' | translate}}"></span>
@@ -21,4 +21,10 @@
             </h2>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="" style="word-break: break-all;">{{item.gibbedCode}}</span>
+        </div>
+    </div>
+
 </section>
