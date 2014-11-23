@@ -10,7 +10,7 @@
                 <div class="col-sm-9">
                     <input type="text" id="name" class="form-control" data-ng-model="rarity.name" required="required"
                            maxlength="255"/>
-                    <span class="help-inline" data-ng-show="errors['name']">{{errors['name']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="errors['name']">{{errors['name']}}</span>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                 <div class="col-sm-9">
                     <input type="number" id="sortOrder" class="form-control" data-ng-model="rarity.sortOrder"
                            required="required" min="1"/>
-                    <span class="help-inline" data-ng-show="errors['sortOrder']">{{errors['sortOrder']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="errors['sortOrder']">{{errors['sortOrder']}}</span>
                 </div>
             </div>
 

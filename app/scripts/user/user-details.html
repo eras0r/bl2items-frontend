@@ -12,7 +12,7 @@
                     <input type="text" id="username" class="form-control" data-ng-model="user.username"
                            required="required"
                            maxlength="255"/>
-                    <span class="help-inline" data-ng-show="errors['username']">{{errors['username']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="errors['username']">{{errors['username']}}</span>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
                     <input type="password" id="password" class="form-control" data-ng-model="user.password"
                            required="required"
                            maxlength="255"/>
-                    <span class="help-inline" data-ng-show="errors['password']">{{errors['password']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="errors['password']">{{errors['password']}}</span>
                 </div>
             </div>
 
