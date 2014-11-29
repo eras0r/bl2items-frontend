@@ -1,9 +1,9 @@
-<li data-ng-class="{dropdown: isDropdown(), active: isActive()}" data-ng-show="hasRole(navItem.role)">
+<li data-dropdown data-ng-class="{active: isActive()}" data-ng-show="hasRole(navItem.role)">
     <a data-ng-if="!isDropdown()" data-ui-sref="{{navItem.link}}" data-translate="{{navItem.label}}">
 
     </a>
 
-    <a data-ng-if="isDropdown()" class="dropdown-toggle" data-toggle="dropdown">
+    <a data-ng-if="isDropdown()" data-dropdown-toggle>
         <span data-translate="{{navItem.label}}"></span> <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">

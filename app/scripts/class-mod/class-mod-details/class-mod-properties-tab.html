@@ -1,0 +1,123 @@
+<div class="panel panel-default">
+    <div class="panel-heading" data-translate="{{::$state.current.data.formTitle}}"></div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <fieldset>
+                <div class="form-group" data-ng-class="{'has-error': errors.level}">
+                    <label for="level" class="col-lg-3 control-label"
+                           data-translate="classMods.details.levelRequirement"></label>
+
+                    <div class="col-lg-9">
+                        <input type="number" id="level" ng-model="classMod.level" class="form-control" min="1"
+                               max="72">
+                                <span class="help-inline text-danger"
+                                      data-ng-show="errors['level']">{{errors['level']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-class="{'has-error': errors.characterClass}">
+                    <label for="characterClass" class="col-lg-3 control-label"
+                           data-translate="classMods.details.classRequirement"></label>
+
+                    <div class="col-lg-9">
+                        <select id="characterClass" data-ng-model="classMod.characterClass"
+                                ng-options="character.classRequirement for character in characterClasses"
+                                class="form-control">
+                        </select>
+                        <span class="help-inline text-danger" data-ng-show="errors['characterClass']">{{errors['characterClass']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-class="{'has-error': errors.rarity}">
+                    <label for="rarity" class="col-lg-3 control-label"
+                           data-translate="classMods.details.rarity"></label>
+
+                    <div class="col-lg-9">
+                        <select id="rarity" data-ng-model="classMod.rarity"
+                                ng-options="r.name for r in rarities"
+                                class="form-control">
+                        </select>
+                        <span class="help-inline text-danger"
+                              data-ng-show="errors['rarity']">{{errors['rarity']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-class="{'has-error': errors.name}">
+                    <label for="name" class="col-lg-3 control-label"
+                           data-translate="classMods.details.name"></label>
+
+                    <div class="col-lg-9">
+                        <input type="text" id="name" ng-model="classMod.name" placeholder="Practicable Butcher"
+                               class="form-control">
+                                <span class="help-inline text-danger"
+                                      data-ng-show="errors['name']">{{errors['name']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-class="{'has-error': errors.gibbedCode}">
+                    <label for="gibbedCode" class="col-lg-3 control-label"
+                           data-translate="classMods.details.gibbedCode"></label>
+
+                    <div class="col-lg-9">
+                        <input type="text" id="gibbedCode" ng-model="classMod.gibbedCode" placeholder="BL2(...)"
+                               class="form-control">
+                        <span class="help-inline text-danger" data-ng-show="errors['gibbedCode']">{{errors['gibbedCode']}}</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group" data-ng-class="{'has-error': errors.uniqueText}">
+                    <label for="uniqueText" class="col-lg-3 control-label"
+                           data-translate="classMods.details.uniqueText"></label>
+
+                    <div class="col-lg-9">
+                        <input type="text" id="uniqueText" ng-model="classMod.uniqueText" placeholder=""
+                               class="form-control">
+                            <span class="help-inline text-danger"
+                                  data-ng-show="errors['uniqueText']">{{errors['uniqueText']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-class="{'has-error': errors.additionalText}">
+                    <label for="additionalText" class="col-lg-3 control-label"
+                           data-translate="classMods.details.additionalText"></label>
+
+                    <div class="col-lg-9">
+                        <textarea id="additionalText" data-ng-model="classMod.additionalText" placeholder=""
+                                  class="form-control"
+                                  rows="5">
+                        </textarea>
+                        <span class="help-inline text-danger"
+                              data-ng-show="errors['additionalText']">{{errors['additionalText']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-class="{'has-error': errors.manufacturer}">
+                    <label for="manufacturer" class="col-lg-3 control-label"
+                           data-translate="classMods.details.manufacturer"></label>
+
+                    <div class="col-lg-9">
+                        <select id="manufacturer" data-ng-model="classMod.manufacturer"
+                                ng-options="man.name for man in manufacturers"
+                                class="form-control">
+                        </select>
+                        <span class="help-inline text-danger"
+                              data-ng-show="errors['manufacturer']">{{errors['manufacturer']}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="button" class="btn btn-default" data-ng-click="save()"
+                                data-translate="classMods.details.button.save">save
+                        </button>
+
+                        <button type="button" class="btn btn-primary" data-ng-click="cancel()"
+                                data-translate="classMods.details.button.cancel"></button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

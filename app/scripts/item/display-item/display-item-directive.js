@@ -11,7 +11,8 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                 var baseUrl = 'scripts/item/display-item/';
                 var templateMap = {
                     weapon: 'weapon.html',
-                    shield: 'shield.html'
+                    shield: 'shield.html',
+                    classMod: 'class-mod.html'
                 };
 
                 var templateUrl = baseUrl + templateMap[contentType];

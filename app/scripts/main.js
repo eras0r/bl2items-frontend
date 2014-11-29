@@ -31,7 +31,8 @@ require.config({
         tooltip: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
         popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover',
         'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker',
-        spectrum: '../bower_components/spectrum/spectrum'
+        spectrum: '../bower_components/spectrum/spectrum',
+        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls'
     },
     shim: {
         angular: {
@@ -172,6 +173,12 @@ require.config({
         'ng-file-upload': {
             deps: [
                 'angular'
+            ]
+        },
+        'angular-bootstrap': {
+            deps: [
+                'angular',
+                'bootstrap-sass-official'
             ]
         }
     },

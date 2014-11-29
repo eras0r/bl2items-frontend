@@ -1,0 +1,15 @@
+<article class="panel panel-default">
+
+    <div data-ng-include="'scripts/item/display-item/item-header.html'"></div>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">{{item.characterClass.classRequirement}}</span>
+            <span data-translate="item.classMod.classRequirement"></span>
+        </li>
+        <!-- TODO add additional class mod specific properties -->
+    </ul>
+
+    <div data-ng-include="'scripts/item/display-item/item-footer.html'"></div>
+
+</article>

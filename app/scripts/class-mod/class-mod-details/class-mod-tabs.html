@@ -1,0 +1,27 @@
+<h1 data-translate="{{::$state.current.data.pageTitle}}"></h1>
+
+<tabset>
+    <tab>
+        <tab-heading>
+            <a data-ui-sref="^.properties" data-translate="classMods.details.tabs.properties"></a>
+        </tab-heading>
+    </tab>
+    <tab>
+        <tab-heading>
+            <a data-ui-sref="^.skills" data-translate="classMods.details.tabs.skills"></a>
+        </tab-heading>
+    </tab>
+    <tab>
+        <tab-heading>
+            <a data-ui-sref="^.preview" data-translate="classMods.details.tabs.preview"></a>
+        </tab-heading>
+    </tab>
+</tabset>
+
+<!-- include template based on ui-router state -->
+<div class="row">
+    <br/>
+    <div data-ui-view="tabView" class="col-xs-12">
+
+    </div>
+</div>

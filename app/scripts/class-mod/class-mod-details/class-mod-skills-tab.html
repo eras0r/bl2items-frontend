@@ -1,0 +1,88 @@
+<!-- skill tree -->
+<div class="panel panel-default">
+    <div class="panel-heading" data-translate="classMods.details.skill.tree.title"></div>
+    <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="well" style="border: 4px solid #5AC94B;">
+
+                    <div class="row" data-ng-repeat="tier in skills.green.tiers">
+                        <bl2-skill data-skill="tier.left"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="green"></bl2-skill>
+
+
+                        <bl2-skill data-skill="tier.middle"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="green"></bl2-skill>
+
+                        <bl2-skill data-skill="tier.right"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="green"></bl2-skill>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2>{{skills.green.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="well" style="border: 4px solid #53A3AD;">
+                    <div class="row" data-ng-repeat="tier in skills.blue.tiers">
+                        <bl2-skill data-skill="tier.left"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="blue"></bl2-skill>
+
+
+                        <bl2-skill data-skill="tier.middle"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="blue"></bl2-skill>
+
+                        <bl2-skill data-skill="tier.right"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="blue"></bl2-skill>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2>{{skills.blue.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="well" style="border: 4px solid #A93E3D;">
+                    <div class="row" data-ng-repeat="tier in skills.red.tiers">
+                        <bl2-skill data-skill="tier.left"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="red"></bl2-skill>
+
+
+                        <bl2-skill data-skill="tier.middle"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="red"></bl2-skill>
+
+                        <bl2-skill data-skill="tier.right"
+                                   data-characater-class="classMod.characterClass.classRequirement"
+                                   data-sub-tree="red"></bl2-skill>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2>{{skills.red.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

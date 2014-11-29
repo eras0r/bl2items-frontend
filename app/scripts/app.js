@@ -1,5 +1,6 @@
 define([
     'angular',
+    'angular-bootstrap',
     'restangular',
     'angular-translate',
     'angular-translate-loader-static-files',
@@ -8,6 +9,7 @@ define([
     'components/navigation/index',
     'components/highlight-text/index',
     'components/color-picker/index',
+    'components/skill-tree/index',
     'file/index',
     'user/index',
     'item/index',
@@ -15,7 +17,9 @@ define([
     'shield/index',
     'damage-type/index',
     'manufacturer/index',
-    'rarity/index'
+    'rarity/index',
+    'character-class/index',
+    'class-mod/index'
 ], function (angular) {
 
     'use strict';
@@ -28,11 +32,13 @@ define([
         'restangular',
         'pascalprecht.translate',
         'angularSpectrumColorpicker',
+        'ui.bootstrap',
         /* generic core modules */
         'securityModule',
         'navigationModule',
         'highlightTextModule',
         'colorPickerModule',
+        'skillTreeModule',
         /* business specific modules*/
         'fileModule',
         'userModule',
@@ -41,7 +47,9 @@ define([
         'shieldModule',
         'damageTypeModule',
         'manufacturerModule',
-        'rarityModule'
+        'rarityModule',
+        'characterClassModule',
+        'classModModule'
     ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
@@ -68,7 +76,7 @@ define([
                         'abstract': true,
                         url: '/admin',
                         navigationItem: {
-                            sortOrder: 31,
+                            sortOrder: 41,
                             label: 'navigation.admin.title',
                             group: 'bl2.admin',
                             role: 'admin',
