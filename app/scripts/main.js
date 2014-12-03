@@ -30,7 +30,7 @@ require.config({
         modal: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal',
         tooltip: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
         popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover',
-        'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker',
+        'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker.min',
         spectrum: '../bower_components/spectrum/spectrum',
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls'
     },
@@ -177,8 +177,7 @@ require.config({
         },
         'angular-bootstrap': {
             deps: [
-                'angular',
-                'bootstrap-sass-official'
+                'angular'
             ]
         }
     },

@@ -200,7 +200,9 @@ module.exports = function (grunt) {
                 src: [
                     '<%= yeoman.dist %>/scripts/{,*/}*.js',
                     '<%= yeoman.dist %>/styles/{,*/}*.css',
-                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+                    // do not rev dynamically referenced images
+                    '!<%= yeoman.dist %>/images/dynamic/**/*.{png,jpg,jpeg,gif,webp,svg}',
                     '<%= yeoman.dist %>/styles/fonts/*'
                 ]
             }
@@ -234,7 +236,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.{png,jpg,jpeg,gif}',
+                        src: '**/*.{png,jpg,jpeg,gif}',
                         dest: '<%= yeoman.dist %>/images'
                     }
                 ]
@@ -246,7 +248,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.svg',
+                        src: '**/*.svg',
                         dest: '<%= yeoman.dist %>/images'
                     }
                 ]
