@@ -47,9 +47,20 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                 link: linker,
                 controller: function ($scope) {
                     $scope.getAdditionalText = function () {
-                        var additionalText;
+                        var additionalText = [];
                         if ($scope.item && $scope.item.additionalText) {
                             additionalText = $scope.item.additionalText.split('\n');
+                        }
+
+                        // show skills for class mods
+                        if ($scope.item.itemtype === 'classMod') {
+
+                            // iterate sub trees
+                            angular.forEach($scope.item.skills, function (skill) {
+                                // TODO use angular translate with params
+                                additionalText.push('+' + skill.points + ' ' + skill.name + ' Skill');
+                            });
+
                         }
 
                         return additionalText;

@@ -13,6 +13,7 @@ define(['angular', 'weapon/weapon-def'], function (angular, weaponModule) {
 
             // init default weapon
             $scope.weapon = {
+                itemtype: 'weapon',
                 level: 50,
                 rarity: $scope.rarities[0],
                 manufacturer: $scope.manufacturers[0],

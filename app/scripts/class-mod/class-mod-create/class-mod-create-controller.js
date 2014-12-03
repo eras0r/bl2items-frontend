@@ -25,7 +25,8 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
                 magazineSize: null,
                 uniqueText: null,
                 elementalText: null,
-                additionalText: null
+                additionalText: null,
+                skills: {}
             };
 
             $scope.skills = CharacterClassService.getSkills($scope.classMod.characterClass);
@@ -49,6 +50,11 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
             });
 
             $scope.addPoint = function (skill) {
+                // first skill point added?
+                if (!$scope.classMod.skills[skill.name]) {
+                    $scope.classMod.skills[skill.name] = skill;
+                }
+
                 if (skill.points < skill.levels) {
                     skill.points++;
                 }
@@ -57,6 +63,11 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
             $scope.removePoint = function (skill) {
                 if (skill.points > 0) {
                     skill.points--;
+                }
+
+                // last skill point removed?
+                if (skill.points === 0) {
+                    delete $scope.classMod.skills[skill.name];
                 }
             };
 
