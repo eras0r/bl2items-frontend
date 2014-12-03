@@ -13,6 +13,7 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
 
             // init default classMod
             $scope.classMod = {
+                itemtype: 'classMod',
                 level: 50,
                 rarity: $scope.rarities[0],
                 manufacturer: $scope.manufacturers[0],
@@ -28,6 +29,36 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
             };
 
             $scope.skills = CharacterClassService.getSkills($scope.classMod.characterClass);
+
+            // init point property for each skill within the skill tree
+
+            // iterate sub trees
+            angular.forEach($scope.skills.subTrees, function (subTree) {
+                // iterate tiers
+                angular.forEach(subTree.tiers, function (tier) {
+                    if (tier.left) {
+                        tier.left.points = 0;
+                    }
+                    if (tier.middle) {
+                        tier.middle.points = 0;
+                    }
+                    if (tier.right) {
+                        tier.right.points = 0;
+                    }
+                });
+            });
+
+            $scope.addPoint = function (skill) {
+                if (skill.points < skill.levels) {
+                    skill.points++;
+                }
+            };
+
+            $scope.removePoint = function (skill) {
+                if (skill.points > 0) {
+                    skill.points--;
+                }
+            };
 
             $scope.save = function () {
                 ClassModService.create($scope.classMod)
