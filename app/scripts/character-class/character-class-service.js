@@ -279,7 +279,7 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
                                             }
                                         },
                                         {
-                                            right: {
+                                            left: {
                                                 name: 'Bus That Can\'t Slow Down',
                                                 levels: 5,
                                                 image: 'bus-cant-slow-down.png',
