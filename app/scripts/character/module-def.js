@@ -5,7 +5,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
 
     'use strict';
 
-    var characterClassModule = angular.module('characterClassModule', [
+    var characterModule = angular.module('characterModule', [
         'ui.router',
         'restangular'
     ])
@@ -14,6 +14,6 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
 
         });
 
-    return characterClassModule;
+    return characterModule;
 
 });

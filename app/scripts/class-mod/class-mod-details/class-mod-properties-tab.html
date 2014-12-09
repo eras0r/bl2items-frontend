@@ -21,8 +21,8 @@
 
                     <div class="col-lg-9">
                         <select id="characterClass" data-ng-model="classMod.characterClass"
-                                ng-options="character.classRequirement for character in characterClasses"
-                                class="form-control">
+                                data-ng-options="character.classRequirement for character in characters"
+                                data-ng-change="loadSkillTree()" class="form-control">
                         </select>
                         <span class="help-inline text-danger" data-ng-show="errors['characterClass']">{{errors['characterClass']}}</span>
                     </div>

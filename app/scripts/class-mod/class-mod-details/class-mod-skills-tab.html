@@ -5,20 +5,19 @@
 
         <div class="row">
 
-            <div class="col-md-4" data-ng-repeat="subTree in skills.subTrees">
+            <div class="col-md-4" data-ng-repeat="subTree in skills">
                 <div class="well" style="border: 4px solid {{subTree.borderColor}};">
 
-                    <div class="row" data-ng-repeat="tier in subTree.tiers">
-                        <bl2-skill data-skill="tier.left" data-sub-tree="{{subTree.color}}"
+                    <div class="row" data-ng-repeat="tier in subTree.skillTiers">
+                        <bl2-skill data-skill="tier.leftSkill" data-sub-tree="{{subTree.color}}"
                                    data-characater-class="classMod.characterClass.classRequirement"
                                    data-on-add="addPoint(skill)" data-on-remove="removePoint(skill)"></bl2-skill>
 
-
-                        <bl2-skill data-skill="tier.middle" data-sub-tree="{{subTree.color}}"
+                        <bl2-skill data-skill="tier.middleSkill" data-sub-tree="{{subTree.color}}"
                                    data-characater-class="classMod.characterClass.classRequirement"
                                    data-on-add="addPoint(skill)" data-on-remove="removePoint(skill)"></bl2-skill>
 
-                        <bl2-skill data-skill="tier.right" data-sub-tree="{{subTree.color}}"
+                        <bl2-skill data-skill="tier.rightSkill" data-sub-tree="{{subTree.color}}"
                                    data-characater-class="classMod.characterClass.classRequirement"
                                    data-on-add="addPoint(skill)" data-on-remove="removePoint(skill)"></bl2-skill>
                     </div>

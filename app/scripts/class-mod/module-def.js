@@ -56,8 +56,8 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
                         manufacturers: function (ManufacturerService) {
                             return ManufacturerService.list();
                         },
-                        characterClasses: function (CharacterClassService) {
-                            return CharacterClassService.list();
+                        characters: function (CharacterService) {
+                            return CharacterService.list();
                         }
                     },
                     data: {

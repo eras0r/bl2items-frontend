@@ -18,7 +18,7 @@ define([
     'damage-type/index',
     'manufacturer/index',
     'rarity/index',
-    'character-class/index',
+    'character/index',
     'class-mod/index'
 ], function (angular) {
 
@@ -48,7 +48,7 @@ define([
         'damageTypeModule',
         'manufacturerModule',
         'rarityModule',
-        'characterClassModule',
+        'characterModule',
         'classModModule'
     ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
