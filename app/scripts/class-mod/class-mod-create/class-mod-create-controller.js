@@ -79,7 +79,7 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
                 level: 50,
                 rarity: $scope.rarities[0],
                 manufacturer: $scope.manufacturers[0],
-                characterClass: $scope.characters[2], // TODO use index 0
+                characterClass: $scope.characters[0],
                 damage: null,
                 accuracy: null,
                 fireRate: null,
