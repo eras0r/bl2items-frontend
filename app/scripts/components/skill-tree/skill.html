@@ -3,7 +3,7 @@
     <div>
         <div data-ng-click="addPoint(skill)" class="skill-image"
              style="background-image: url('{{getIcon()}}'); background-repeat: no-repeat;">
-            <img data-ng-src="{{getPointsIcon()}}">
+            <img data-ng-src="{{getPointsIcon()}}" title="{{skill.name}}">
         </div>
         <div data-ng-click="removePoint(skill)">
             remove point
