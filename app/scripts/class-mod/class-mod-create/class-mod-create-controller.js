@@ -10,6 +10,9 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
                 CharacterService.getSkills($scope.classMod.characterClass).then(function (skills) {
                     $scope.skills = skills;
 
+                    // reset selected skills
+                    $scope.classMod.skills = {};
+
                     // init point property for each skill within the skill tree
 
                     // iterate sub trees
@@ -33,15 +36,18 @@ define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
             $scope.addPoint = function (skill) {
                 // first skill point added?
                 if (!$scope.classMod.skills[skill.name]) {
+                    // add new selected skill entry
                     $scope.classMod.skills[skill.name] = skill;
                 }
 
+                // spend one point if the skills level has not been reached
                 if (skill.points < skill.levels) {
                     skill.points++;
                 }
             };
 
             $scope.removePoint = function (skill) {
+                // remove one spent point
                 if (skill.points > 0) {
                     skill.points--;
                 }
