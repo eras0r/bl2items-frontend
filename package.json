@@ -41,7 +41,8 @@
     "karma-requirejs": "^0.2.2",
     "load-grunt-tasks": "^3.1.0",
     "requirejs": "^2.1.15",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "ng-midway-tester": "^2.0.5"
   },
   "engines": {
     "node": ">=0.10.0"
