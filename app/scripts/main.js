@@ -16,7 +16,7 @@ require.config({
         'cryptojs.x64-core': '../bower_components/cryptojslib/components/x64-core',
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
         'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
-        lodash: '../bower_components/lodash/dist/lodash.compat',
+        lodash: '../bower_components/lodash/lodash',
         'ng-file-upload': '../bower_components/ng-file-upload/angular-file-upload',
         affix: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix',
         alert: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert',
