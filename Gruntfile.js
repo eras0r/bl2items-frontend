@@ -349,7 +349,13 @@ module.exports = function (grunt) {
         // Test settings
         karma: {
             unit: {
-                configFile: 'karma.conf.js',
+                configFile: 'karma-unit.conf.js',
+                autoWatch: false,
+                singleRun: true
+            },
+            midway: {
+                configFile: 'karma-midway.conf.js',
+                autoWatch: false,
                 singleRun: true
             }
         },
@@ -426,12 +432,16 @@ module.exports = function (grunt) {
 //        grunt.task.run(['serve:' + target]);
 //    });
 
+    // test tasks for local development
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
         'autoprefixer',
         'connect:test',
-        'karma'
+        'karma:unit',
+        'karma:midway'
+        // TODO e2e tests
+        //'karma:e2e'
     ]);
 
     grunt.registerTask('build', [
