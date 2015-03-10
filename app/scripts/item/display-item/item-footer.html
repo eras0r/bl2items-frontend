@@ -4,7 +4,7 @@
         <li class="unique-text" ng-show="item.uniqueText">{{item.uniqueText}}</li>
 
         <li data-ng-repeat="text in getAdditionalText()"><span ng-bind-html="text | highlightText"></span></li>
-        <li ng-bind-html="item.elementalText" ng-show="item.elementalText"
+        <li ng-bind-html="item.damageType.additionalText" ng-show="item.damageType.additionalText"
             style="color: {{item.damageType.color}};">
         </li>
     </ul>

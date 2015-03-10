@@ -23,6 +23,14 @@
             <span class="badge">{{item.magazineSize}}</span>
             <span data-translate="item.weapon.magazineSize"></span>
         </li>
+        <li class="list-group-item" data-ng-show="hasSepcialDamageType()">
+            <span class="badge">{{item.elemDamage}}</span>
+            <span data-translate="{{item.damageType.damageLabel}}"></span>
+        </li>
+        <li class="list-group-item" data-ng-show="hasSepcialDamageType()">
+            <span class="badge">{{item.elemChance}}</span>
+            <span data-translate="{{item.damageType.chanceLabel}}"></span>
+        </li>
     </ul>
 
     <div data-ng-include="'scripts/item/display-item/item-footer.html'"></div>

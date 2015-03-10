@@ -74,6 +74,16 @@ define(['angular', 'item/item-def'], function (angular, itemModule) {
                             // TODO add cases for other item types
                         }
                     };
+
+                    $scope.hasSepcialDamageType = function () {
+                        return $scope.getDamageType().id !== '1';
+                    };
+
+                    $scope.getDamageType = function () {
+                        if ($scope.item && $scope.item.damageType) {
+                            return $scope.item.damageType;
+                        }
+                    };
                 }
             };
         }]);
