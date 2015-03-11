@@ -184,13 +184,8 @@ require.config({
     priority: [
         'angular'
     ],
-    packages: [
-
-    ]
+    packages: []
 });
-
-//http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
-window.name = 'NG_DEFER_BOOTSTRAP!';
 
 require([
     'angular',
@@ -202,8 +197,12 @@ require([
     'jquery'
 ], function (angular, app, ngUiRouter, ngCookies, ngSanitize, restangular, jquery) {
     'use strict';
-    var $html = angular.element(document.getElementsByTagName('html')[0]);
+    //var $html = angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(function () {
-        angular.resumeBootstrap([app.name]);
+        // as we use requirejs to load our js files asynchronously we need to ensure that all javascript files have been
+        // loaded before the angular application is being bootstraped. Thats why we do a manualy boostrap og the angular application here
+        // this means there is no ng-app directive within our html present
+        angular.bootstrap(document, [app.name]);
     });
+
 });
