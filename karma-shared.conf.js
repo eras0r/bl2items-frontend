@@ -23,6 +23,10 @@ module.exports = function () {
             // application templates
             {pattern: 'app/scripts/**/*.html', included: false},
 
+            // test libs
+            {pattern: 'test/lib/*.js', included: false},
+            {pattern: 'test/lib/**/*.js', included: false},
+
             // http://karma-runner.github.io/0.10/plus/requirejs.html
             'test/test-main.js'
         ],

@@ -46,7 +46,8 @@ requirejs.config({
         'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker.min',
         spectrum: '../bower_components/spectrum/spectrum',
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
-        'angular-midway-tester': '../../node_modules/ng-midway-tester/src/ngMidwayTester'
+        'angular-midway-tester': '../../node_modules/ng-midway-tester/src/ngMidwayTester',
+        'test-helper': '../../test/lib/test-helper'
     },
 
     shim: {
