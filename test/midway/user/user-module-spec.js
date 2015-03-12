@@ -1,4 +1,9 @@
-define(['angular', 'angular-mocks', 'user/user-def', 'test-helper'], function (angular, mocks, userModule, testHelper) {
+define([
+    'angular',
+    'angular-mocks',
+    'user/user-def',
+    'test-helper'
+], function (angular, mocks, userModule, testHelper) {
 
     'use strict';
 
