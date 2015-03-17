@@ -7,7 +7,6 @@ define(['angular', 'angular-mocks', 'user/user-module-inc'], function (angular, 
     var userNameMissingError = 'Username is required';  // TODO use error code
 
     describe('Controller: ' + controllerName, function () {
-        //var controller;
         var $scope;
 
         var UserServiceMock;
