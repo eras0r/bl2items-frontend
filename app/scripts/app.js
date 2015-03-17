@@ -11,7 +11,7 @@ define([
     'components/color-picker/index',
     'components/skill-tree/index',
     'file/index',
-    'user/index',
+    'user/user-module-inc',
     'item/index',
     'weapon/index',
     'shield/index',

@@ -1,4 +1,7 @@
-define(['angular', 'user/user-def'], function (angular, userModule) {
+define([
+    'angular',
+    'user/user-module-def'
+ ], function (angular, userModule) {
 
     'use strict';
 

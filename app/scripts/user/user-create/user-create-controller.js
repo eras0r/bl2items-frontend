@@ -1,4 +1,7 @@
-define(['angular', 'user/user-def'], function (angular, userModule) {
+define([
+    'angular',
+    'user/user-module-def'
+], function (angular, userModule) {
 
     'use strict';
 
@@ -7,14 +10,13 @@ define(['angular', 'user/user-def'], function (angular, userModule) {
         function ($scope, $state, $filter, $log, UserService, roles) {
 
             $scope.user = {
-
+                roles: []
             };
 
             $scope.userRoles = [];
             angular.forEach(roles, function (value) {
                 $scope.userRoles.push({id: value.id, rolename: value.rolename, selected: false});
             });
-
 
             $scope.save = function () {
                 $scope.errors = null;

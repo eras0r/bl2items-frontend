@@ -3,7 +3,7 @@
  */
 define([
     'angular',
-    'user/user-def',
+    'user/user-module-def',
     'user/user-service',
     'user/role-service',
     'user/user-create/user-create-controller',

@@ -1,16 +1,16 @@
 define([
     'angular',
-    'angular-mocks',
-    'user/user-def',
+    'user/user-module-def',
     'test-helper'
-], function (angular, mocks, userModule, testHelper) {
+], function (angular, userModule, testHelper) {
 
     'use strict';
 
     var moduleName = 'userModule';
 
-    describe('Midway: Testing modules ' + moduleName, function () {
+    describe('Midway: Testing module ' + moduleName, function () {
         var module;
+
         beforeEach(function () {
             testHelper.setup('userModule');
         });
