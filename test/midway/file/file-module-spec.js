@@ -1,8 +1,8 @@
 define([
     'angular',
-    'file/file-module-def',
+    'file/file-module-inc',
     'test-helper'
-], function (angular, userModule, testHelper) {
+], function (angular, module, testHelper) {
 
     'use strict';
 

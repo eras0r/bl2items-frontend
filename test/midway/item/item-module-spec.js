@@ -1,8 +1,8 @@
 define([
     'angular',
-    'item/item-module-def',
+    'item/item-module-inc',
     'test-helper'
-], function (angular, userModule, testHelper) {
+], function (angular, module, testHelper) {
 
     'use strict';
 
