@@ -1,4 +1,4 @@
-define(['angular', 'components/security/security-def'], function (angular, securityModule) {
+define(['angular', 'components/security/security-module-def'], function (angular, securityModule) {
 
     'use strict';
 

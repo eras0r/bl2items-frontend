@@ -1,4 +1,4 @@
-define(['angular', 'components/navigation/navigation-def', 'components/security/security-def'], function (angular, navigationModule) {
+define(['angular', 'components/navigation/navigation-def', 'components/security/security-module-def'], function (angular, navigationModule) {
 
     'use strict';
 
