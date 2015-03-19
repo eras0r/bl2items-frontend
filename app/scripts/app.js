@@ -14,7 +14,7 @@ define([
     'user/user-module-inc',
     'item/item-module-inc',
     'weapon/weapon-module-inc',
-    'shield/index',
+    'shield/shield-module-inc',
     'damage-type/index',
     'manufacturer/index',
     'rarity/index',

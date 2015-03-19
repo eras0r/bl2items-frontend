@@ -1,4 +1,4 @@
-define(['angular', 'shield/shield-def'], function (angular, shieldModule) {
+define(['angular', 'shield/shield-module-def'], function (angular, shieldModule) {
 
     'use strict';
 
