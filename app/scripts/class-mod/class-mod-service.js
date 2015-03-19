@@ -1,4 +1,4 @@
-define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
+define(['angular', 'class-mod/class-mod-module-def'], function (angular, classModModule) {
 
     'use strict';
 

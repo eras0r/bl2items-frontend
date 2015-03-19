@@ -19,7 +19,7 @@ define([
     'manufacturer/manufacturer-module-inc',
     'rarity/rarity-module-inc',
     'character/character-module-inc',
-    'class-mod/index'
+    'class-mod/class-mod-module-inc'
 ], function (angular) {
 
     'use strict';
