@@ -8,11 +8,16 @@ define([
 
     var moduleName = 'userModule';
 
+    var expectedDeps = [
+        'ui.router',
+        'restangular'
+    ];
+
     describe('Midway: Testing module ' + moduleName, function () {
         var module;
 
         beforeEach(function () {
-            testHelper.setup('userModule');
+            testHelper.setup(moduleName);
         });
 
         it('should be registered', function () {
@@ -20,8 +25,7 @@ define([
         });
 
         describe('should contain the correct dependencies: ', function () {
-            testHelper.checkModuleDependency('ui.router');
-            testHelper.checkModuleDependency('restangular');
+            testHelper.checkModuleDependencies(expectedDeps);
         });
 
     });
