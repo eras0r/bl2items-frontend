@@ -3,7 +3,7 @@
  */
 define([
     'angular',
-    'character/module-def',
+    'character/character-module-def',
     'character/character-service'
 ], function (angular, characterModule) {
 

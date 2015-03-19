@@ -18,7 +18,7 @@ define([
     'damage-type/damage-type-module-inc',
     'manufacturer/manufacturer-module-inc',
     'rarity/rarity-module-inc',
-    'character/index',
+    'character/character-module-inc',
     'class-mod/index'
 ], function (angular) {
 

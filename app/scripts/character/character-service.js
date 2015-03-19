@@ -1,8 +1,8 @@
-define(['angular', 'class-mod/module-def'], function (angular, classModModule) {
+define(['angular', 'character/character-module-def'], function (angular, characterModule) {
 
     'use strict';
 
-    classModModule.factory('CharacterService', ['$state', 'Restangular', function ($state, Restangular) {
+    characterModule.factory('CharacterService', ['$state', 'Restangular', function ($state, Restangular) {
         var resourceUrl = 'characters';
 
         return {
