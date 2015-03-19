@@ -13,7 +13,7 @@ define([
     'file/file-module-inc',
     'user/user-module-inc',
     'item/item-module-inc',
-    'weapon/index',
+    'weapon/weapon-module-inc',
     'shield/index',
     'damage-type/index',
     'manufacturer/index',

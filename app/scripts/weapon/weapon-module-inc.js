@@ -1,15 +1,16 @@
 /**
- * bootstraps the 'weapon' module.
+ * module definition for the 'weapon' module.
  */
 define([
-    'angular',
-    'weapon/weapon-def',
+    'weapon/weapon-module-def',
     'weapon/weapon-service',
     'weapon/weapon-create/weapon-create-controller',
     'weapon/weapon-edit/weapon-edit-controller',
     'weapon/weapon-list/weapon-list-controller'
-], function (angular, weaponModule) {
+], function (weaponModule) {
 
     'use strict';
+
+    return weaponModule;
 
 });
