@@ -1,4 +1,7 @@
-define(['angular', 'character/character-module-def'], function (angular, characterModule) {
+define([
+    'angular',
+    'character/character-module-def'
+], function (angular, characterModule) {
 
     'use strict';
 

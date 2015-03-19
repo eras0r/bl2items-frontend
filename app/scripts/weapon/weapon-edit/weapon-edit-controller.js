@@ -1,4 +1,7 @@
-define(['angular', 'weapon/weapon-module-def'], function (angular, weaponModule) {
+define([
+    'angular',
+    'weapon/weapon-module-def'
+], function (angular, weaponModule) {
 
     'use strict';
 
@@ -12,7 +15,7 @@ define(['angular', 'weapon/weapon-module-def'], function (angular, weaponModule)
             $scope.damageTypes = damageTypes;
 
             // init weapon
-            WeaponService.read($stateParams.id).then(function(weapon) {
+            WeaponService.read($stateParams.id).then(function (weapon) {
                 //console.log('loaded weapon: ', weapon);
                 $scope.weapon = weapon;
                 // force initial selection of select items

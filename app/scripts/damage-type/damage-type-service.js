@@ -1,4 +1,7 @@
-define(['angular', 'damage-type/damage-type-module-def'], function (angular, damageTypeModule) {
+define([
+    'angular',
+    'damage-type/damage-type-module-def'
+], function (angular, damageTypeModule) {
 
     'use strict';
 

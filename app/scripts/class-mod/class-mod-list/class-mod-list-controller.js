@@ -1,4 +1,7 @@
-define(['angular', 'class-mod/class-mod-module-def'], function (angular, weaponModule) {
+define([
+    'angular',
+    'class-mod/class-mod-module-def'
+], function (angular, weaponModule) {
 
     'use strict';
 

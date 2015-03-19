@@ -1,7 +1,12 @@
 /**
  * module definition for the 'file' module.
  */
-define(['angular', 'restangular', 'angular-ui-router', 'ng-file-upload'], function (angular) {
+define([
+    'angular',
+    'restangular',
+    'angular-ui-router',
+    'ng-file-upload'
+], function (angular) {
 
     'use strict';
 

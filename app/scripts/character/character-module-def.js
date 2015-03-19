@@ -1,7 +1,11 @@
 /**
  * module definition for the 'characterClass' module.
  */
-define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
+define([
+    'angular',
+    'angular-ui-router',
+    'restangular'
+], function (angular) {
 
     'use strict';
 
@@ -11,6 +15,7 @@ define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
     ])
         .config(function ($stateProvider) {
 
+            // TODO define states
 
         });
 

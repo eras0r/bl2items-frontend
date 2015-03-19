@@ -1,7 +1,11 @@
 /**
  * module definition for the 'weapon' module.
  */
-define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
+define([
+    'angular',
+    'angular-ui-router',
+    'restangular'
+], function (angular) {
 
     'use strict';
 

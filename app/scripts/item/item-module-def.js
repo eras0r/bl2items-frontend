@@ -1,7 +1,11 @@
 /**
  * module definition for the 'item' module.
  */
-define(['angular', 'restangular', 'angular-ui-router'], function (angular) {
+define([
+    'angular',
+    'restangular',
+    'angular-ui-router'
+], function (angular) {
 
     'use strict';
 

@@ -1,4 +1,7 @@
-define(['angular', 'components/skill-tree/skill-tree-module-def'], function (angular, skillTreeModule) {
+define([
+    'angular',
+    'components/skill-tree/skill-tree-module-def'
+], function (angular, skillTreeModule) {
 
     'use strict';
 
@@ -55,6 +58,5 @@ define(['angular', 'components/skill-tree/skill-tree-module-def'], function (ang
 
             };
         }]);
-
 
 });

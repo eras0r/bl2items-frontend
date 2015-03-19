@@ -1,4 +1,11 @@
-define(['angular', 'components/security/security-module-def', 'cryptojs.core', 'cryptojs.x64-core', 'cryptojs.sha512', 'cryptojs.hmac'], function (angular, securityModule, CryptoJS) {
+define([
+    'angular',
+    'components/security/security-module-def',
+    'cryptojs.core',
+    'cryptojs.x64-core',
+    'cryptojs.sha512',
+    'cryptojs.hmac'
+], function (angular, securityModule, CryptoJS) {
 
     'use strict';
 

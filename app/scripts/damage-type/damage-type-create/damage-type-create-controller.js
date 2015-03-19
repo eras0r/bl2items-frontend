@@ -1,10 +1,13 @@
-define(['angular', 'damage-type/damage-type-module-def'], function (angular, damageTypeModule) {
+define([
+    'angular',
+    'damage-type/damage-type-module-def'
+], function (angular, damageTypeModule) {
 
     'use strict';
 
     angular.module('damageTypeModule').controller('DamageTypeCreateCtrl', [
-        '$scope', '$state', 'DamageTypeService',
-        function ($scope, $state, DamageTypeService) {
+        '$scope', '$state', '$log', 'DamageTypeService',
+        function ($scope, $state, $log, DamageTypeService) {
 
             $scope.damageType = {
                 'color': '#ffffff'

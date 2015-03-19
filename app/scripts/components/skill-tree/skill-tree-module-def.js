@@ -2,7 +2,9 @@
  * module definition for the 'skillTree' module.
  */
 define([
-    'angular', 'angular-ui-router', 'restangular'
+    'angular',
+    'angular-ui-router',
+    'restangular'
 ], function (angular) {
 
     'use strict';

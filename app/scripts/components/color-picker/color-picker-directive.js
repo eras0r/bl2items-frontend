@@ -1,4 +1,7 @@
-define(['angular', 'components/color-picker/color-picker-module-def'], function (angular, colorPickerModule) {
+define([
+    'angular',
+    'components/color-picker/color-picker-module-def'
+], function (angular, colorPickerModule) {
 
     'use strict';
 

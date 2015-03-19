@@ -1,7 +1,11 @@
 /**
  * module definition for the 'classMod' module.
  */
-define(['angular', 'angular-ui-router', 'restangular'], function (angular) {
+define([
+    'angular',
+    'angular-ui-router',
+    'restangular'
+], function (angular) {
 
     'use strict';
 
