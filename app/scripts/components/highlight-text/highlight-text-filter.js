@@ -1,4 +1,4 @@
-define(['angular', 'components/highlight-text/highlight-text-def'], function (angular, highlightTextModule) {
+define(['angular', 'components/highlight-text/highlight-text-module-def'], function (angular, highlightTextModule) {
 
     'use strict';
 

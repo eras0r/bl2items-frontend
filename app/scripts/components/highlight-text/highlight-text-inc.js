@@ -2,11 +2,11 @@
  * bootstraps the 'highlightText' module.
  */
 define([
-    'angular',
-    'components/highlight-text/highlight-text-def',
+    'components/highlight-text/highlight-text-module-def',
     'components/highlight-text/highlight-text-filter'
-], function (angular, highlightTextModule) {
+], function (highlightTextModule) {
 
     'use strict';
 
+    return highlightTextModule;
 });
