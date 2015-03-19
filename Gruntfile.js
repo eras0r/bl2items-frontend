@@ -448,7 +448,9 @@ module.exports = function (grunt) {
         'clean:dist',
         'wiredep',
         'bower:app',
-        'replace:test',
+        // do not copy over main.js to test-main.js
+        // as this will remove dependencies which are used within tests only when executing a grunt build
+        //'replace:test',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
