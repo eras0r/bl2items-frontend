@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'weapon/index'], function (angular, mocks, weaponModule) {
+define(['angular', 'angular-mocks', 'weapon/weapon-module-inc'], function (angular, mocks, weaponModule) {
 
     'use strict';
 
