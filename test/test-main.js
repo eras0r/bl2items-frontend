@@ -58,6 +58,11 @@ requirejs.config({
                 'jquery'
             ]
         },
+        'angular-bootstrap': {
+            deps: [
+                'angular'
+            ]
+        },
         'angular-cookies': [
             'angular'
         ],
@@ -97,6 +102,17 @@ requirejs.config({
         'ng-file-upload': {
             deps: [
                 'angular'
+            ]
+        },
+        'angular-spectrum-colorpicker': {
+            deps: [
+                'angular',
+                'spectrum'
+            ]
+        },
+        spectrum: {
+            deps: [
+                'jquery'
             ]
         },
         'affix': {
