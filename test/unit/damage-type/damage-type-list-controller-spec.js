@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'damage-type/index'], function (angular, mocks, damageTypeModule) {
+define(['angular', 'angular-mocks', 'damage-type/damage-type-module-inc'], function (angular, mocks, damageTypeModule) {
 
     'use strict';
 
