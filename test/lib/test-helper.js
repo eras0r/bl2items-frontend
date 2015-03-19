@@ -35,6 +35,10 @@ define(['angular'], function (angular) {
             expectedDeps.forEach(function (dep) {
                 testHelper.checkModuleDependency(dep);
             });
+
+            it('should have the correct number of dependencies', function () {
+                expect(expectedDeps.length).toEqual(deps.length);
+            });
         }
 
     };
