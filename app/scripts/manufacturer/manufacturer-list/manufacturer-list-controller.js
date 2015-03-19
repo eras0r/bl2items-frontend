@@ -1,4 +1,4 @@
-define(['angular', 'manufacturer/manufacturer-def'], function (angular, manufacturerModule) {
+define(['angular', 'manufacturer/manufacturer-module-def'], function (angular, manufacturerModule) {
 
     'use strict';
 

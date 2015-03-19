@@ -3,7 +3,7 @@
  */
 define([
     'angular',
-    'manufacturer/manufacturer-def',
+    'manufacturer/manufacturer-module-def',
     'manufacturer/manufacturer-service',
     'manufacturer/manufacturer-create/manufacturer-create-controller',
     'manufacturer/manufacturer-edit/manufacturer-edit-controller',

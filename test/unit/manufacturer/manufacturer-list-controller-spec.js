@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'manufacturer/index'], function (angular, mocks, manufacturerModule) {
+define(['angular', 'angular-mocks', 'manufacturer/manufacturer-module-inc'], function (angular, mocks, manufacturerModule) {
 
     'use strict';
 
