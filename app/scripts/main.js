@@ -184,7 +184,9 @@ require.config({
     priority: [
         'angular'
     ],
-    packages: []
+    packages: [
+
+    ]
 });
 
 require([
