@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'itemModule';
+    var moduleName = 'weaponModule';
 
     var expectedDeps = [
         'ui.router',
