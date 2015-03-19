@@ -38,7 +38,7 @@ module.exports = function () {
 
         preprocessors: {
             'app/scripts/**/*.html': ['ng-html2js'],
-            'app/scripts/{,*/}*.js': ['coverage']
+            'app/scripts/**/*.js': ['coverage']
         },
 
         // list of files / patterns to exclude
