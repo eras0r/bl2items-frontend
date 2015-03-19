@@ -8,7 +8,7 @@ define([
     'components/security/security-module-inc',
     'components/navigation/navigation-module-inc',
     'components/highlight-text/highlight-text-inc',
-    'components/color-picker/index',
+    'components/color-picker/color-picker-module-inc',
     'components/skill-tree/index',
     'file/file-module-inc',
     'user/user-module-inc',
