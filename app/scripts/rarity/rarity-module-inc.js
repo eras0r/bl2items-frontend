@@ -3,7 +3,7 @@
  */
 define([
     'angular',
-    'rarity/rarity-def',
+    'rarity/rarity-module-def',
     'rarity/rarity-service',
     'rarity/rarity-create/rarity-create-controller',
     'rarity/rarity-edit/rarity-edit-controller',

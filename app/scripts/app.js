@@ -17,7 +17,7 @@ define([
     'shield/shield-module-inc',
     'damage-type/damage-type-module-inc',
     'manufacturer/manufacturer-module-inc',
-    'rarity/index',
+    'rarity/rarity-module-inc',
     'character/index',
     'class-mod/index'
 ], function (angular) {

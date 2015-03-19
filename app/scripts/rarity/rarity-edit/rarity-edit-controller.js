@@ -1,4 +1,4 @@
-define(['angular', 'rarity/rarity-def'], function (angular, rarityModule) {
+define(['angular', 'rarity/rarity-module-def'], function (angular, rarityModule) {
 
     'use strict';
 

@@ -1,5 +1,5 @@
 
-define(['angular', 'angular-mocks', 'rarity/index'], function (angular, mocks, rarityModule) {
+define(['angular', 'angular-mocks', 'rarity/rarity-module-inc'], function (angular, mocks, rarityModule) {
 
     'use strict';
 
