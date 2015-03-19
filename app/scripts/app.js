@@ -12,7 +12,7 @@ define([
     'components/skill-tree/index',
     'file/file-module-inc',
     'user/user-module-inc',
-    'item/index',
+    'item/item-module-inc',
     'weapon/index',
     'shield/index',
     'damage-type/index',

@@ -1,4 +1,4 @@
-define(['angular', 'item/item-def'], function (angular, itemModule) {
+define(['angular', 'item/item-module-def'], function (angular, itemModule) {
 
     'use strict';
 
