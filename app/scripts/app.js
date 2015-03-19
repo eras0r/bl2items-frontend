@@ -10,7 +10,7 @@ define([
     'components/highlight-text/index',
     'components/color-picker/index',
     'components/skill-tree/index',
-    'file/index',
+    'file/file-module-inc',
     'user/user-module-inc',
     'item/index',
     'weapon/index',

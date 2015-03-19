@@ -25,6 +25,16 @@ define(['angular'], function (angular) {
             it('should have "' + depName + '" as a dependency', function () {
                 expect(deps).toContain(depName);
             });
+        },
+
+        /**
+         * Checks if the module has every of the required dependencies
+         * @param expectedDeps array containing the names of all require dependencies
+         */
+        checkModuleDependencies: function (expectedDeps) {
+            expectedDeps.forEach(function (dep) {
+                testHelper.checkModuleDependency(dep);
+            });
         }
 
     };

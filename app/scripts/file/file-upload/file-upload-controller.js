@@ -1,4 +1,4 @@
-define(['angular', 'file/file-def', 'cryptojs.core', 'cryptojs.x64-core', 'cryptojs.sha512', 'cryptojs.hmac'], function (angular, itemModule, CryptoJS) {
+define(['angular', 'file/file-module-def', 'cryptojs.core', 'cryptojs.x64-core', 'cryptojs.sha512', 'cryptojs.hmac'], function (angular, itemModule, CryptoJS) {
 
     'use strict';
 

@@ -94,6 +94,11 @@ requirejs.config({
                 'angular-translate'
             ]
         },
+        'ng-file-upload': {
+            deps: [
+                'angular'
+            ]
+        },
         'affix': {
             deps: [
                 'jquery'

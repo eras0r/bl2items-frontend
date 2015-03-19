@@ -1,4 +1,4 @@
-define(['angular', 'file/file-def'], function (angular, itemModule) {
+define(['angular', 'file/file-module-def'], function (angular, itemModule) {
 
     'use strict';
 
