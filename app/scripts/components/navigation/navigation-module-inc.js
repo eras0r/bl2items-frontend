@@ -2,16 +2,18 @@
  * bootstraps the 'navigation' module.
  */
 define([
-    'angular',
-    'components/navigation/navigation-def',
+    'components/navigation/navigation-module-def',
+    // required for responsive bootstrap navigation
     'collapse',
     'dropdown',
     'components/navigation/navigation-service',
     'components/navigation/navigation-controller',
     'components/navigation/navigation-item/navigation-item-directive',
     'components/navigation/language-controller'
-], function (angular, navigationModule) {
+], function (navigationModule) {
 
     'use strict';
+
+    return navigationModule;
 
 });

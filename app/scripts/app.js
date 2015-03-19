@@ -6,7 +6,7 @@ define([
     'angular-translate-loader-static-files',
     'angular-spectrum-colorpicker',
     'components/security/security-module-inc',
-    'components/navigation/index',
+    'components/navigation/navigation-module-inc',
     'components/highlight-text/index',
     'components/color-picker/index',
     'components/skill-tree/index',
