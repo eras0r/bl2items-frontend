@@ -9,7 +9,7 @@ define([
     'components/navigation/navigation-module-inc',
     'components/highlight-text/highlight-text-inc',
     'components/color-picker/color-picker-module-inc',
-    'components/skill-tree/index',
+    'components/skill-tree/skill-tree-module-inc',
     'file/file-module-inc',
     'user/user-module-inc',
     'item/item-module-inc',

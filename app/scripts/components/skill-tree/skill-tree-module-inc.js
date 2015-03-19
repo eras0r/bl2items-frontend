@@ -2,11 +2,12 @@
  * bootstraps the 'skillTree' module.
  */
 define([
-    'angular',
-    'components/skill-tree/module-def',
+    'components/skill-tree/skill-tree-module-def',
     'components/skill-tree/skill-directive'
-], function (angular, skillTreeModule) {
+], function (skillTreeModule) {
 
     'use strict';
+
+    return skillTreeModule;
 
 });

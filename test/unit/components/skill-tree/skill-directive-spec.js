@@ -1,4 +1,4 @@
-define(['angular', 'angular-mocks', 'components/skill-tree/index', 'components/skill-tree/skill.html'], function (angular, mocks) {
+define(['angular', 'angular-mocks', 'components/skill-tree/skill-tree-module-inc', 'components/skill-tree/skill.html'], function (angular, mocks) {
 
     'use strict';
 
