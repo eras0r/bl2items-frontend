@@ -1,6 +1,6 @@
 define([
     'angular',
-    '../../../../app/scripts/damage-type/damage-type-module-inc',
+    'components/security/security-module-inc',
     'test-helper'
 ], function (angular, module, testHelper) {
 
