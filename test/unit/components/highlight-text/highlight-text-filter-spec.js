@@ -1,4 +1,8 @@
-define(['angular', 'angular-mocks', 'components/highlight-text/highlight-text-filter'], function (angular, mocks) {
+define([
+    'angular',
+    'angular-mocks',
+    'components/highlight-text/highlight-text-filter'
+], function (angular, mocks) {
 
     'use strict';
 

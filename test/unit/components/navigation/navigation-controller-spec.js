@@ -1,4 +1,8 @@
-define(['angular', 'angular-mocks', 'components/navigation/navigation-module-inc'], function (angular, mocks) {
+define([
+    'angular',
+    'angular-mocks',
+    'components/navigation/navigation-module-inc'
+], function (angular, mocks) {
 
     'use strict';
 

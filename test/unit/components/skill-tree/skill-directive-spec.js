@@ -1,4 +1,9 @@
-define(['angular', 'angular-mocks', 'components/skill-tree/skill-tree-module-inc', 'components/skill-tree/skill.html'], function (angular, mocks) {
+define([
+    'angular',
+    'angular-mocks',
+    'components/skill-tree/skill-tree-module-inc',
+    'components/skill-tree/skill.html'
+], function (angular, mocks) {
 
     'use strict';
 
@@ -29,7 +34,7 @@ define(['angular', 'angular-mocks', 'components/skill-tree/skill-tree-module-inc
             var element = $compile('<bl2-skill data-skill="skill" data-sub-tree="{{subTree}}" data-characater-class="characterClass" data-on-add="addPoint(skill)" data-on-remove="removePoint(skill)"></bl2-skill>')($rootScope);
             $rootScope.$digest();
 
-            var backgroundImage =  element.find('.skill-image').css('background-image');
+            var backgroundImage = element.find('.skill-image').css('background-image');
             expect(backgroundImage).toMatch('images/dynamic/skills/gunzerker/green/locked-and-loaded.png');
         });
 

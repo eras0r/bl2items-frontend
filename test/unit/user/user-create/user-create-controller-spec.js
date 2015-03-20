@@ -1,4 +1,8 @@
-define(['angular', 'angular-mocks', 'user/user-module-inc'], function (angular, mocks, damageTypeModule) {
+define([
+    'angular',
+    'angular-mocks',
+    'user/user-module-inc'
+], function (angular, mocks, damageTypeModule) {
 
     'use strict';
 
@@ -101,7 +105,7 @@ define(['angular', 'angular-mocks', 'user/user-module-inc'], function (angular, 
             expect($scope.errors.username).toEqual(userNameMissingError);
         });
 
-        it ('should show the user list when executing the cancel action', function(){
+        it('should show the user list when executing the cancel action', function () {
             // invoke action on controller
             $scope.cancel();
 
