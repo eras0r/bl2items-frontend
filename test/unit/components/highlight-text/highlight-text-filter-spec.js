@@ -16,6 +16,13 @@ define([
             expect($filter(filterName)).not.toEqual(null);
         }));
 
+        it('should return null if no value is provided',
+            inject(function ($filter) {
+                var filteredText = $filter(filterName)(null);
+                expect(filteredText).toEqual(null);
+            })
+        );
+
         it('should return the original text if it does not contain special tags',
             inject(function ($filter) {
                 var inputText = 'some text without tags';
