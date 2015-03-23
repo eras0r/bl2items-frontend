@@ -15,7 +15,6 @@ define([
         'ui.router',
         'restangular',
         'pascalprecht.translate',
-        'angularSpectrumColorpicker',
         'ui.bootstrap',
         /* generic core modules */
         'securityModule',

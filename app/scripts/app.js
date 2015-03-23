@@ -4,7 +4,6 @@ define([
     'restangular',
     'angular-translate',
     'angular-translate-loader-static-files',
-    'angular-spectrum-colorpicker',
     'components/security/security-module-inc',
     'components/navigation/navigation-module-inc',
     'components/highlight-text/highlight-text-inc',
@@ -31,7 +30,6 @@ define([
         'ui.router',
         'restangular',
         'pascalprecht.translate',
-        'angularSpectrumColorpicker',
         'ui.bootstrap',
         /* generic core modules */
         'securityModule',

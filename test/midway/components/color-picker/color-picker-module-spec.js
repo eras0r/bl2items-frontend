@@ -8,7 +8,7 @@ define([
 
     var moduleName = 'colorPickerModule';
 
-    var expectedDeps = [];
+    var expectedDeps = ['angularSpectrumColorpicker'];
 
     describe('Midway: Testing module ' + moduleName, function () {
         testHelper.checkModule(moduleName, module, expectedDeps);
