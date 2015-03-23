@@ -6,8 +6,7 @@ define([
     'use strict';
 
     colorPickerModule.directive('colorPicker', [
-        '$compile', '$http', '$templateCache',
-        function ($compile, $http, $templateCache) {
+        function () {
             return {
                 restrict: 'E',
                 templateUrl: 'scripts/components/color-picker/color-picker.html',
@@ -17,23 +16,7 @@ define([
                     color: '=',
                     error: '='
                 }
-                //controller: function ($scope) {
-                //
-                //    $scope.isDropdown = function () {
-                //        return $scope.navItem && $scope.navItem.items !== undefined;
-                //    };
-                //
-                //    $scope.isActive = function () {
-                //        var stateToCheck = $scope.isDropdown() ? $scope.navItem.group : $scope.navItem.link;
-                //        return $scope.$parent.$state.includes(stateToCheck);
-                //    };
-                //
-                //    $scope.hasRole = function (role) {
-                //        return SessionService.hasRole(role);
-                //    };
-                //}
             };
         }]);
-
 
 });
