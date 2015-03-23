@@ -67,7 +67,6 @@ define([
 
         };
 
-
         return sessionService;
 
     }]);

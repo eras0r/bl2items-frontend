@@ -9,7 +9,9 @@ define([
     var moduleName = 'securityModule';
 
     var expectedDeps = [
-        'ui.router', 'http-auth-interceptor'
+        'ui.router',
+        'restangular',
+        'http-auth-interceptor'
     ];
 
     describe('Midway: Testing module ' + moduleName, function () {

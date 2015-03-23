@@ -13,7 +13,7 @@ define([
     'use strict';
 
     var securityModule = angular.module('securityModule', [
-        'ui.router', 'http-auth-interceptor'
+        'ui.router', 'restangular', 'http-auth-interceptor'
     ])
         .config(['$stateProvider', 'RestangularProvider', function ($stateProvider, RestangularProvider) {
 

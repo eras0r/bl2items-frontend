@@ -6,20 +6,19 @@ define([
     'use strict';
 
     securityModule
-        .controller('LogoutCtrl', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
+        .controller('LogoutCtrl', ['$scope', '$http', '$log', 'SessionService', function ($scope, $http, $log, SessionService) {
 
             if (!localStorage.sessionToken) {
                 $scope.message = 'You are not logged in.';
                 return;
             }
-
-            console.log('calling SessionService.logout()...');
+            
             SessionService.logout().then(function (data) {
                 localStorage.removeItem('sessionToken');
                 SessionService.setCurrentUser(undefined);
             }, function (response) {
                 // TODO show error message
-                console.log('error calling logout: ', response);
+                $log.error('error calling logout: ', response);
             });
 
         }]);

@@ -14,8 +14,10 @@ define([
             $scope.login = function () {
 
                 SessionService.login($scope.user.name, $scope.user.password).then(function (data) {
-                    $scope.user.name = '';
-                    $scope.user.password = '';
+                    $scope.user = {
+                        name: '',
+                        password: ''
+                    };
 
                     // Store session token
                     localStorage.sessionToken = data.sessionToken;
