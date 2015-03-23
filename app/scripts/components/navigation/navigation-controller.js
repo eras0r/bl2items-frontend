@@ -6,9 +6,9 @@ define([
     'use strict';
 
     navigationModule
-        .controller('NavCtrl', ['$scope', '$state', 'NavigationTestService', 'SessionService', function ($scope, $state, NavigationTestService, SessionService) {
+        .controller('NavCtrl', ['$scope', 'NavigationService', 'SessionService', function ($scope, NavigationService, SessionService) {
 
-            $scope.navItems = NavigationTestService.getNavigationItems();
+            $scope.navItems = NavigationService.getNavigationItems();
 
             $scope.getCurrentUser = function () {
                 return SessionService.getCurrentUser();

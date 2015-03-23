@@ -5,7 +5,7 @@ define([
 
     'use strict';
 
-    navigationModule.factory('NavigationTestService', ['$state', function ($state) {
+    navigationModule.factory('NavigationService', ['$state', function ($state) {
 
         function getParentState(stateName) {
             if (!stateName) {

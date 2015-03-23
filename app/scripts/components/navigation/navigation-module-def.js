@@ -7,6 +7,6 @@ define([
 
     'use strict';
 
-    return angular.module('navigationModule', []);
+    return angular.module('navigationModule', ['ui.router', 'pascalprecht.translate', 'ui.bootstrap', 'securityModule']);
 
 });

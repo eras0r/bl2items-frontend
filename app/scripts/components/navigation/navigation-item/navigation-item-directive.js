@@ -1,7 +1,7 @@
 define([
     'angular',
     'components/navigation/navigation-module-def',
-    'components/security/security-module-def' // TODO check this dependency
+    'components/security/security-module-def'
 ], function (angular, navigationModule) {
 
     'use strict';

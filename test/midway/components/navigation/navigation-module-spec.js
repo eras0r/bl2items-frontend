@@ -9,7 +9,10 @@ define([
     var moduleName = 'navigationModule';
 
     var expectedDeps = [
-
+        'ui.router',
+        'pascalprecht.translate',
+        'ui.bootstrap',
+        'securityModule'
     ];
 
     describe('Midway: Testing module ' + moduleName, function () {
