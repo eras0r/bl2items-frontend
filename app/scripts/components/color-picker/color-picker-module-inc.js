@@ -1,5 +1,5 @@
 /**
- * bootstraps the 'highlightText' module.
+ * bootstraps the 'colorPicker' module.
  */
 define([
     'components/color-picker/color-picker-module-def',
