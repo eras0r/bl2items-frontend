@@ -3,7 +3,7 @@
  */
 define([
     'angular',
-//    'angular-ui-router',
+    'angular-ui-router',
     'restangular'
 ], function (angular) {
 
