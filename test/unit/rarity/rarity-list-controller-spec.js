@@ -2,33 +2,36 @@ define([
     'angular',
     'angular-mocks',
     'rarity/rarity-module-inc'
-], function (angular, mocks, rarityModule) {
+], function (angular, mocks, testModule) {
 
     'use strict';
 
-    describe('Controller: RarityListCtrl', function () {
-        var RarityListCtrl;
-        var $scope;
+    var moduleName = 'rarityModule';
+    var controllerName = 'RarityListCtrl';
+    var controller;
+    var $scope;
 
-        // load the module
-        beforeEach(module('rarityModule'));
+    describe('Unit testing', function () {
+        describe('Module: ' + moduleName, function () {
+            describe('Controller: ' + controllerName, function () {
+                // load the module
+                beforeEach(module(moduleName));
 
-        // Initialize the controller and a mock scope
-        beforeEach(inject(function ($controller, $rootScope) {
-            $scope = $rootScope.$new();
+                // Initialize the controller and a mock scope
+                beforeEach(inject(function ($controller, $rootScope) {
+                    $scope = $rootScope.$new();
+                    controller = $controller(controllerName, {
+                        $scope: $scope
+                    });
+                }));
 
-            RarityListCtrl = $controller('RarityListCtrl', {
-                $scope: $scope
+                it('should be registered', function () {
+                    expect(controller).not.toBeNull();
+                });
+
+                // TODO add unit tests
             });
-
-//            spyOn($scope, 'loadRarities');
-        }));
-
-        it('should attach a list of awesomeThings to the scope', function () {
-            // TODO some useful test
-            console.log('TODO some useful test');
         });
-
     });
 
 });
