@@ -73,7 +73,8 @@ module.exports = function () {
 
         ngHtml2JsPreprocessor: {
             // strip this from the file path
-            stripPrefix: 'app/'
+            stripPrefix: 'app/',
+            moduleName: 'bl2item-templates'
         }
 
     };

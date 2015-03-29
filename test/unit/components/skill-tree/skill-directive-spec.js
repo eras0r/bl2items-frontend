@@ -1,9 +1,9 @@
 define([
     'angular',
     'angular-mocks',
-    'components/skill-tree/skill-tree-module-inc',
-    'components/skill-tree/skill.html'
-], function (angular, mocks, testModule) {
+    'test-helper',
+    'components/skill-tree/skill-tree-module-inc'
+], function (angular, mocks, testHelper, testModule) {
 
     'use strict';
 
@@ -20,8 +20,9 @@ define([
                 beforeEach(module(moduleName));
 
                 // load templates
-                // TODO provide templates as angular module called 'templates'
-                beforeEach(module('scripts/components/skill-tree/skill.html'));
+                beforeEach(function () {
+                    testHelper.includeTemplates();
+                });
 
                 beforeEach(inject(
                     ['$compile', '$rootScope', function ($c, $r) {

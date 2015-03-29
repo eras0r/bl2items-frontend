@@ -1,10 +1,12 @@
 define([
-    'angular'
-], function (angular) {
+    'angular',
+    'angular-mocks',
+    'templates',
+], function (angular, mocks) {
 
     'use strict';
 
-    var module;
+    var testModule;
     var deps;
 
     var testHelper = {
@@ -14,9 +16,16 @@ define([
          * @param moduleName the module name to setup the testhelper for
          */
         setup: function (moduleName) {
-            module = angular.module(moduleName);
-            //console.log('module: ', module);
-            deps = module.value(moduleName).requires;
+            testModule = angular.module(moduleName);
+            deps = testModule.value(moduleName).requires;
+        },
+
+        /**
+         * Includes the templates module. Which serves the HTML templates as js files
+         * within angular's $templateCache.
+         */
+        includeTemplates: function () {
+            module('bl2item-templates');
         },
 
         /**

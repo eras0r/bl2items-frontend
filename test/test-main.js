@@ -47,7 +47,8 @@ requirejs.config({
         spectrum: '../bower_components/spectrum/spectrum',
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
         'angular-midway-tester': '../../node_modules/ng-midway-tester/src/ngMidwayTester',
-        'test-helper': '../../test/lib/test-helper'
+        'test-helper': '../../test/lib/test-helper',
+        'templates': '../../test/lib/templates'
     },
 
     shim: {
@@ -196,14 +197,12 @@ requirejs.config({
                 'cryptojs.core'
             ],
             exports: 'CryptoJS'
-        },
+        }
 //        'jquery': {'exports': '$'},
 //        'jquery': {
 //            exports: 'jQuery'
 //        }
 
-        // each directive template to be included in tests should be included below.
-        'components/skill-tree/skill.html': {deps: ['angular']}
     },
 
     // ask Require.js to load these files (all our tests)
