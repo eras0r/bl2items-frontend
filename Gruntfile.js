@@ -309,7 +309,10 @@ module.exports = function (grunt) {
                             '.htaccess',
                             '*.html',
                             'scripts/**/*.html',
-                            'bower_components/**/*',
+                            // copy over requirejs as this is include in index.html
+                            'bower_components/requirejs/require.js',
+                            // copy over fonts (used by bootstraps glyphicons e.g.)
+                            'bower_components/**/*.{woff,woff2,ttf}',
                             'images/{,*/}*.{webp}',
                             'fonts/*',
                             'i18n/*'
