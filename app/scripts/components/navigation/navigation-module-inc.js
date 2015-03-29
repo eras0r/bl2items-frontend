@@ -3,6 +3,8 @@
  */
 define([
     'components/navigation/navigation-module-def',
+    'angular-ui-router',
+    'restangular',
     // required for responsive bootstrap navigation
     'collapse',
     'dropdown',
