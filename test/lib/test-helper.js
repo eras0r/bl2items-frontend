@@ -59,21 +59,24 @@ define([
          * @param expectedDeps array containing the names of all require dependencies
          */
         checkModule: function (moduleName, moduleFile, expectedDeps) {
-            // setup the module
-            beforeEach(function () {
-                testHelper.setup(moduleName);
-            });
 
-            it('should be registered', function () {
-                expect(module).not.toBe(null);
-            });
+            describe('Module: ' + moduleName, function () {
+                // setup the module
+                beforeEach(function () {
+                    testHelper.setup(moduleName);
+                });
 
-            it('should return the module in the module-inc file', function () {
-                expect(moduleFile).not.toBeUndefined();
-                expect(moduleFile.name).toEqual(moduleName);
-            });
+                it('should be registered', function () {
+                    expect(module).not.toBe(null);
+                });
 
-            testHelper.checkModuleDependencies(expectedDeps);
+                it('should return the module in the module-inc file', function () {
+                    expect(moduleFile).not.toBeUndefined();
+                    expect(moduleFile.name).toEqual(moduleName);
+                });
+
+                testHelper.checkModuleDependencies(expectedDeps);
+            });
         }
 
     };

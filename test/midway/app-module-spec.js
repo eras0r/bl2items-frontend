@@ -35,19 +35,21 @@ define([
         'classModModule'
     ];
 
-    describe('Midway: Testing module ' + moduleName, function () {
-        var module;
+    describe('Midway testing', function () {
+        describe('Module: ' + moduleName, function () {
+            var module;
 
-        beforeEach(function () {
-            testHelper.setup(moduleName);
+            beforeEach(function () {
+                testHelper.setup(moduleName);
+            });
+
+            it('should be registered', function () {
+                expect(module).not.toBe(null);
+            });
+
+            testHelper.checkModuleDependencies(expectedDeps);
+
         });
-
-        it('should be registered', function () {
-            expect(module).not.toBe(null);
-        });
-
-        testHelper.checkModuleDependencies(expectedDeps);
-
     });
 
 });

@@ -12,7 +12,7 @@ define([
 
     ];
 
-    describe('Midway: Testing module ' + moduleName, function () {
+    describe('Midway testing', function () {
         testHelper.checkModule(moduleName, module, expectedDeps);
     });
 
