@@ -13,12 +13,12 @@ define([
     'use strict';
 
     var securityModule = angular.module('securityModule', [
-        'ui.router', 'restangular', 'http-auth-interceptor'
+        'ui.router', 'restangular', 'http-auth-interceptor',
     ])
         .config(['$stateProvider', 'RestangularProvider', function ($stateProvider, RestangularProvider) {
 
             // removes the body for remove / delete requests
-            RestangularProvider.addRequestInterceptor(function (elem, operation) {
+            RestangularProvider.addRequestInterceptor(function (elem, operation, what, url) {
                 if (operation === 'remove') {
                     return undefined;
                 }
@@ -27,6 +27,9 @@ define([
 
             RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
                 var microTime = new Date().getTime();
+
+                // get the absolute url
+                var absoluteUrl = new URL(url, window.location.href).href;
 
                 var data = '';
                 // use data (payload) for post and put requests
@@ -39,7 +42,7 @@ define([
                     localStorage.hmacSecret = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
                 }
 
-                var hmacHash = CryptoJS.HmacSHA512(url + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
+                var hmacHash = CryptoJS.HmacSHA512(absoluteUrl + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
 
                 return {
                     element: element,
