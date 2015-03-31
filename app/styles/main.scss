@@ -1,7 +1,10 @@
 /**********************************************************************************************************
  * variable definitions                                                                                   *
 /**********************************************************************************************************/
+// define path for boostraps built in glyphicons
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+// define path for font awesome icons
 $fa-font-path: "../bower_components/components-font-awesome/fonts/";
 @import "components-font-awesome/scss/font-awesome";
 
@@ -62,4 +65,9 @@ body {
 
 .additional-text {
   color: $additionalTextColor;
+}
+
+.gibbed-code {
+  word-break: break-all;
+  word-wrap: break-word;
 }
