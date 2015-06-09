@@ -24,54 +24,49 @@ define([
     describe('Unit testing', function () {
         describe('Module: ' + moduleName, function () {
             describe('Controller: ' + controllerName, function () {
-                // load the module
-                beforeEach(module(moduleName));
 
-                // Initialize the controller and a mock scope
-                beforeEach(inject(function ($controller, $rootScope) {
-                    $scope = $rootScope.$new();
-                    controller = $controller(controllerName, {
-                        $scope: $scope,
-                        roles: roles
+                beforeEach(function () {
+                    // load the module
+                    module(moduleName);
+
+                    // initialize the controller and a mock scope
+                    inject(function ($controller, $rootScope, $q, _UserService_) {
+                        $scope = $rootScope.$new();
+                        UserServiceMock = _UserService_;
+
+                        spyOn(UserServiceMock, 'create').and.callFake(function (user) {
+                            var deferred = $q.defer();
+
+                            // fail if there is no username provided
+                            if (user.username === undefined) {
+                                var error = {
+                                    status: 422,
+                                    data: {
+                                        username: userNameMissingError
+                                    }
+                                };
+                                deferred.reject(error);
+                            }
+                            else {
+                                deferred.resolve(user);
+                            }
+
+                            return deferred.promise;
+                        });
+
+                        spyOn(UserServiceMock, 'showList').and.returnValue();
+
+                        controller = $controller(controllerName, {
+                            $scope: $scope,
+                            roles: roles
+                        });
                     });
-                }));
-
-                it('should be registered', function () {
-                    expect(controller).not.toBeNull();
                 });
 
-                // Initialize the controller and a mock scope
-                beforeEach(inject(function ($controller, $rootScope, $q, _UserService_) {
-                    $scope = $rootScope.$new();
-                    UserServiceMock = _UserService_;
 
-                    spyOn(UserServiceMock, 'create').and.callFake(function (user) {
-                        var deferred = $q.defer();
-
-                        // fail if there is no username provided
-                        if (user.username === undefined) {
-                            var error = {
-                                status: 422,
-                                data: {
-                                    username: userNameMissingError
-                                }
-                            };
-                            deferred.reject(error);
-                        }
-                        else {
-                            deferred.resolve(user);
-                        }
-
-                        return deferred.promise;
-                    });
-
-                    spyOn(UserServiceMock, 'showList').and.returnValue();
-
-                    $controller(controllerName, {
-                        $scope: $scope,
-                        roles: roles
-                    });
-                }));
+                it('should be registered', function () {
+                    expect(controller).not.toBeUndefined();
+                });
 
                 it('should create an empty user upon creation', function () {
                     expect($scope.user).not.toBe(undefined);

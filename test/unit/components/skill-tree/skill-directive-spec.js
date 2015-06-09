@@ -16,30 +16,31 @@ define([
     describe('Unit testing', function () {
         describe('Module: ' + moduleName, function () {
             describe('Directive: ' + directiveName, function () {
-                // load the module
-                beforeEach(module(moduleName));
 
-                // load templates
                 beforeEach(function () {
+                    // load the module
+                    module(moduleName);
+
+                    // load templates
                     testHelper.includeTemplates();
+
+                    inject(
+                        ['$compile', '$rootScope', function ($c, $r) {
+                            $compile = $c;
+                            $rootScope = $r;
+
+                            $rootScope.skill = {
+                                'name': 'Locked and Loaded',
+                                'levels': 5,
+                                'image': 'locked-and-loaded.png',
+                                'text': 'Reloading your gun gives you +5% Fire Rate per level for a short time.',
+                                'points': 0
+                            };
+                            $rootScope.characterClass = 'Gunzerker';
+                            $rootScope.subTree = 'green';
+                        }]
+                    );
                 });
-
-                beforeEach(inject(
-                    ['$compile', '$rootScope', function ($c, $r) {
-                        $compile = $c;
-                        $rootScope = $r;
-
-                        $rootScope.skill = {
-                            'name': 'Locked and Loaded',
-                            'levels': 5,
-                            'image': 'locked-and-loaded.png',
-                            'text': 'Reloading your gun gives you +5% Fire Rate per level for a short time.',
-                            'points': 0
-                        };
-                        $rootScope.characterClass = 'Gunzerker';
-                        $rootScope.subTree = 'green';
-                    }]
-                ));
 
                 it('should display the correct skill image as background image', function () {
                     var element = $compile('<bl2-skill data-skill="skill" data-sub-tree="{{subTree}}" data-characater-class="characterClass" data-on-add="addPoint(skill)" data-on-remove="removePoint(skill)"></bl2-skill>')($rootScope);

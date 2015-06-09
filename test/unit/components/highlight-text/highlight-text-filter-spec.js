@@ -12,8 +12,11 @@ define([
     describe('Unit testing', function () {
         describe('Module: ' + moduleName, function () {
             describe('Filter: ' + filterName, function () {
-                // load the module
-                beforeEach(module(moduleName));
+
+                beforeEach(function () {
+                    // load the module
+                    module(moduleName);
+                });
 
                 it('should have a highlight-textfilter', inject(function ($filter) {
                     expect($filter(filterName)).not.toBeNull();

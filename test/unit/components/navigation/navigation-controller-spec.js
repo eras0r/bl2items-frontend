@@ -14,19 +14,22 @@ define([
     describe('Unit testing', function () {
         describe('Module: ' + moduleName, function () {
             describe('Controller: ' + controllerName, function () {
-                // load the module
-                beforeEach(module(moduleName));
 
-                // Initialize the controller and a mock scope
-                beforeEach(inject(function ($controller, $rootScope) {
-                    $scope = $rootScope.$new();
-                    controller = $controller(controllerName, {
-                        $scope: $scope
-                    });
-                }));
+                beforeEach(function () {
+                    // load the module
+                    module(moduleName);
+
+                    // initialize the controller and a mock scope
+                    beforeEach(inject(function ($controller, $rootScope) {
+                        $scope = $rootScope.$new();
+                        controller = $controller(controllerName, {
+                            $scope: $scope
+                        });
+                    }));
+                });
 
                 it('should be registered', function () {
-                    expect(controller).not.toBeNull();
+                    expect(controller).not.toBeUndefined();
                 });
 
                 // TODO add unit tests

@@ -44,7 +44,7 @@ define([
             });
 
             it('should be registered', function () {
-                expect(module).not.toBe(null);
+                expect(module).not.toBeNull();
             });
 
             testHelper.checkModuleDependencies(expectedDeps);
