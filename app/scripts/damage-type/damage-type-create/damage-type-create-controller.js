@@ -5,7 +5,7 @@ define([
 
     'use strict';
 
-    angular.module('damageTypeModule').controller('DamageTypeCreateCtrl', [
+    damageTypeModule.controller('DamageTypeCreateCtrl', [
         '$scope', '$state', '$log', 'DamageTypeService',
         function ($scope, $state, $log, DamageTypeService) {
 

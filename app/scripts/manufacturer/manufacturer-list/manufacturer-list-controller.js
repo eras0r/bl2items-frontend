@@ -5,7 +5,7 @@ define([
 
     'use strict';
 
-    angular.module('manufacturerModule').controller('ManufacturerListCtrl', [
+    manufacturerModule.controller('ManufacturerListCtrl', [
         '$scope', '$location', '$log', '$filter', 'ManufacturerService',
         function ($scope, $location, $log, $filter, ManufacturerService) {
 

@@ -5,7 +5,7 @@ define([
 
     'use strict';
 
-    angular.module('manufacturerModule').controller('ManufacturerEditCtrl', [
+    manufacturerModule.controller('ManufacturerEditCtrl', [
         '$scope', '$state', '$log', 'Restangular', 'ManufacturerService',
         function ($scope, $state, $log, Restangular, ManufacturerService) {
 
