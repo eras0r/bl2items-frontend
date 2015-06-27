@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'weaponModule';
+    var moduleName = 'bl2.weapons';
     var controllerName = 'WeaponListCtrl';
     var controller;
     var $scope;

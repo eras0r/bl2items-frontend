@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'manufacturerModule';
+    var moduleName = 'bl2.manufacturers';
 
     var expectedDeps = [
         'ui.router',

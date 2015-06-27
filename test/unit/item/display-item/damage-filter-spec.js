@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'itemModule';
+    var moduleName = 'bl2.items';
     var filterName = 'damage';
 
     describe('Unit testing', function () {
@@ -15,7 +15,7 @@ define([
 
                 beforeEach(function () {
                     // load the module
-                    module('highlightTextModule');
+                    module('rn.highlightText');
                     module(moduleName);
                 });
 

@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'skillTreeModule';
+    var moduleName = 'bls.skillTree';
 
     var expectedDeps = [
         'ui.router', 'restangular'

@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'damageTypeModule';
+    var moduleName = 'bl2.damageTypes';
     var controllerName = 'DamageTypeListCtrl';
     var controller;
     var $scope;

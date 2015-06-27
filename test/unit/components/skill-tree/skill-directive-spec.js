@@ -7,7 +7,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'skillTreeModule';
+    var moduleName = 'bl2.skillTree';
     var directiveName = 'skill';
 
     var $compile;

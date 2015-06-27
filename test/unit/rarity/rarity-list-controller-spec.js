@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'rarityModule';
+    var moduleName = 'bl2.rarities';
     var controllerName = 'RarityListCtrl';
     var controller;
     var $scope;

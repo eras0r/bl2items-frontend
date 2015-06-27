@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'highlightTextModule';
+    var moduleName = 'rn.highlightText';
     var filterName = 'highlightText';
 
     describe('Unit testing', function () {

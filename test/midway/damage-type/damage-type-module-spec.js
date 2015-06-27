@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'damageTypeModule';
+    var moduleName = 'bls.damageTypes';
 
     var expectedDeps = [
         'ui.router',
