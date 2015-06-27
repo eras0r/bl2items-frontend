@@ -9,6 +9,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function RarityModuleConfig($stateProvider) {
         $stateProvider
             .state('bl2.admin.rarities', {

@@ -9,6 +9,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function ManufacturerConfig($stateProvider) {
         $stateProvider
             .state('bl2.admin.manufacturers', {

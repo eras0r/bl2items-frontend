@@ -9,6 +9,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function WeaponModuleConfig($stateProvider) {
         $stateProvider
             .state('bl2.weapons', {

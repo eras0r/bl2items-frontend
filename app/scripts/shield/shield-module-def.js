@@ -9,6 +9,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function ShieldModuleConfig($stateProvider) {
         $stateProvider
             .state('bl2.shields', {

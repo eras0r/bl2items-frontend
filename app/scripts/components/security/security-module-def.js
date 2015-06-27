@@ -12,6 +12,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function SecurityModuleConfig($stateProvider, RestangularProvider) {
         // removes the body for remove / delete requests
         RestangularProvider.addRequestInterceptor(function (elem, operation, what, url) {
@@ -75,6 +76,7 @@ define([
             });
     }
 
+    /** @ngInject */
     function SecurityModuleRun($rootScope, $state, SessionService) {
         // angular auth interceptor
         $rootScope.$on('event:auth-loginRequired', function () {

@@ -9,6 +9,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function ClassModuleConfig($stateProvider) {
         $stateProvider
             .state('bl2.classMods', {

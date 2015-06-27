@@ -9,6 +9,7 @@ define([
 
     'use strict';
 
+    /** @ngInject */
     function UserModuleConfig($stateProvider) {
         $stateProvider
             .state('bl2.admin.users', {
