@@ -32,22 +32,22 @@ define([
         'pascalprecht.translate',
         'ui.bootstrap',
         /* generic core modules */
-        'securityModule',
-        'navigationModule',
-        'highlightTextModule',
-        'colorPickerModule',
-        'skillTreeModule',
+        'rn.security',
+        'rn.navigation',
+        'rn.highlightText',
+        'rn.colorPicker',
         /* business specific modules*/
-        'fileModule',
-        'userModule',
-        'itemModule',
-        'weaponModule',
-        'shieldModule',
-        'damageTypeModule',
-        'manufacturerModule',
-        'rarityModule',
-        'characterModule',
-        'classModModule'
+        'bl2.files',
+        'bl2.users',
+        'bl2.items',
+        'bl2.weapons',
+        'bl2.shields',
+        'bl2.damageTypes',
+        'bl2.manufacturers',
+        'bl2.rarities',
+        'bl2.characters',
+        'bl2.classMods',
+        'bl2.skillTree'
     ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
@@ -84,7 +84,15 @@ define([
 
                 // setup for restangular
                 // TODO make base url somehow configurable
+                // config for local grunt server
                 RestangularProvider.setBaseUrl('http://localhost/bl2items-backend/');
+
+                // TODO config for test environment
+                //RestangularProvider.setBaseUrl('../bl2items-backend/');
+
+                // TODO config for productive environment
+                //RestangularProvider.setBaseUrl('../api/');
+
                 RestangularProvider.setDefaultHeaders({
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
