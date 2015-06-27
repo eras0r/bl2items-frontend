@@ -7,8 +7,7 @@ define([
 
     'use strict';
 
-    var highlightTextModule = angular.module('highlightTextModule', []);
-
-    return highlightTextModule;
+    return angular
+        .module('rn.highlightText', []);
 
 });

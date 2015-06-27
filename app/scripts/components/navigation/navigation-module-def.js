@@ -11,11 +11,11 @@ define([
     'use strict';
 
     return angular
-        .module('navigationModule', [
+        .module('rn.navigation', [
             'ui.router',
             'pascalprecht.translate',
             'ui.bootstrap',
-            'securityModule'
+            'rn.security'
         ]);
 
 });

@@ -48,7 +48,7 @@ define([
     }
 
     return angular
-        .module('manufacturerModule', [
+        .module('bl2.manufacturers', [
             'ui.router',
             'restangular'
         ])

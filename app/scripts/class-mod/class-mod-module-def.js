@@ -122,7 +122,7 @@ define([
     }
 
     return angular
-        .module('classModModule', [
+        .module('bl2.classMods', [
             'ui.router',
             'restangular'
         ])

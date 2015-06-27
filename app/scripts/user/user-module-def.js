@@ -60,7 +60,7 @@ define([
     }
 
     return angular
-        .module('userModule', [
+        .module('bl2.users', [
             'ui.router',
             'restangular'
         ])

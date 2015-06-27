@@ -57,7 +57,7 @@ define([
     }
 
     return angular
-        .module('shieldModule', [
+        .module('bl2.shields', [
             'ui.router',
             'restangular'
         ])

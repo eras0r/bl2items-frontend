@@ -17,22 +17,22 @@ define([
         'pascalprecht.translate',
         'ui.bootstrap',
         /* generic core modules */
-        'securityModule',
-        'navigationModule',
-        'highlightTextModule',
-        'colorPickerModule',
-        'skillTreeModule',
+        'rn.security',
+        'rn.navigation',
+        'rn.highlightText',
+        'rn.colorPicker',
         /* business specific modules*/
-        'fileModule',
-        'userModule',
-        'itemModule',
-        'weaponModule',
-        'shieldModule',
-        'damageTypeModule',
-        'manufacturerModule',
-        'rarityModule',
-        'characterModule',
-        'classModModule'
+        'bl2.files',
+        'bl2.users',
+        'bl2.items',
+        'bl2.weapons',
+        'bl2.shields',
+        'bl2.damageTypes',
+        'bl2.manufacturers',
+        'bl2.rarities',
+        'bl2.characters',
+        'bl2.classMods',
+        'bl2.skillTree'
     ];
 
     describe('Midway testing', function () {

@@ -48,7 +48,7 @@ define([
     }
 
     return angular
-        .module('rarityModule', [
+        .module('bl2.rarities', [
             'ui.router',
             'restangular'
         ])

@@ -10,6 +10,9 @@ define([
     'use strict';
 
     return angular
-        .module('skillTreeModule', ['ui.router', 'restangular']);
+        .module('bl2.skillTree', [
+            'ui.router',
+            'restangular'
+        ]);
 
 });

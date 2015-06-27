@@ -92,7 +92,7 @@ define([
     }
 
     return angular
-        .module('securityModule', [
+        .module('rn.security', [
             'ui.router',
             'restangular',
             'http-auth-interceptor'

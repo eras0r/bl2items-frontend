@@ -33,7 +33,7 @@ define([
     }
 
     return angular
-        .module('itemModule', [
+        .module('bl2.items', [
             'ui.router',
             'restangular'
         ])

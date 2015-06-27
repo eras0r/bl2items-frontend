@@ -97,7 +97,7 @@ define([
     }
 
     return angular
-        .module('weaponModule', [
+        .module('bl2.weapons', [
             'ui.router',
             'restangular'
         ])

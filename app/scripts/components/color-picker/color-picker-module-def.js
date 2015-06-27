@@ -8,8 +8,10 @@ define([
 
     'use strict';
 
-    var colorPickerModule = angular.module('colorPickerModule', ['angularSpectrumColorpicker']);
+    return angular
+        .module('rn.colorPicker', [
+            'angularSpectrumColorpicker'
+        ]);
 
-    return colorPickerModule;
 
 });

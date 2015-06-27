@@ -9,46 +9,49 @@ define([
 
     'use strict';
 
-    return angular.module('damageTypeModule', [
-        'ui.router',
-        'restangular'
-    ])
-        .config(['$stateProvider',
-            function ($stateProvider) {
-                $stateProvider
-                    .state('bl2.admin.damageTypes', {
-                        url: '/damageTypes',
-                        views: {
-                            'main@': {
-                                templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
-                                controller: 'DamageTypeListCtrl'
-                            }
-                        },
-                        navigationItem: {
-                            sortOrder: 11,
-                            link: 'bl2.admin.damageTypes',
-                            label: 'navigation.admin.damageTypes',
-                            role: 'admin'
-                        }
-                    })
-                    .state('bl2.admin.damageTypes.create', {
-                        url: '/create',
-                        views: {
-                            'main@': {
-                                templateUrl: 'scripts/damage-type/damage-type-details.html',
-                                controller: 'DamageTypeCreateCtrl'
-                            }
-                        }
-                    })
-                    .state('bl2.admin.damageTypes.edit', {
-                        url: '/:id',
-                        views: {
-                            'main@': {
-                                templateUrl: 'scripts/damage-type/damage-type-details.html',
-                                controller: 'DamageTypeEditCtrl'
-                            }
-                        }
-                    });
-            }]);
+    /** @ngInject */
+    function DamageTypeModuleConfig($stateProvider) {
+        $stateProvider
+            .state('bl2.admin.damageTypes', {
+                url: '/damageTypes',
+                views: {
+                    'main@': {
+                        templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
+                        controller: 'DamageTypeListCtrl'
+                    }
+                },
+                navigationItem: {
+                    sortOrder: 11,
+                    link: 'bl2.admin.damageTypes',
+                    label: 'navigation.admin.damageTypes',
+                    role: 'admin'
+                }
+            })
+            .state('bl2.admin.damageTypes.create', {
+                url: '/create',
+                views: {
+                    'main@': {
+                        templateUrl: 'scripts/damage-type/damage-type-details.html',
+                        controller: 'DamageTypeCreateCtrl'
+                    }
+                }
+            })
+            .state('bl2.admin.damageTypes.edit', {
+                url: '/:id',
+                views: {
+                    'main@': {
+                        templateUrl: 'scripts/damage-type/damage-type-details.html',
+                        controller: 'DamageTypeEditCtrl'
+                    }
+                }
+            });
+    }
+
+    return angular.
+        module('bl2.damageTypes', [
+            'ui.router',
+            'restangular'
+        ])
+        .config(['$stateProvider', DamageTypeModuleConfig]);
 
 });

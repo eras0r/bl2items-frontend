@@ -9,17 +9,16 @@ define([
 
     'use strict';
 
-    var characterModule = angular.module('characterModule', [
-        'ui.router',
-        'restangular'
-    ])
-        .config(['$stateProvider',
-            function ($stateProvider) {
+    /** @ngInject */
+    function CharactersModuleConfig($stateProvider) {
+        // TODO register states
+    }
 
-                // TODO define states
-
-            }]);
-
-    return characterModule;
+    return angular
+        .module('bl2.characters', [
+            'ui.router',
+            'restangular'
+        ])
+        .config(['$stateProvider', CharactersModuleConfig]);
 
 });
