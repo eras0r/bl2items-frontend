@@ -16,21 +16,24 @@ define([
                 scope: {
                     navItem: '='
                 },
-                controller: function ($scope) {
+                controller: [
+                    '$scope',
+                    function ($scope) {
 
-                    $scope.isDropdown = function () {
-                        return $scope.navItem && $scope.navItem.items !== undefined;
-                    };
+                        $scope.isDropdown = function () {
+                            return $scope.navItem && $scope.navItem.items !== undefined;
+                        };
 
-                    $scope.isActive = function () {
-                        var stateToCheck = $scope.isDropdown() ? $scope.navItem.group : $scope.navItem.link;
-                        return $scope.$parent.$state.includes(stateToCheck);
-                    };
+                        $scope.isActive = function () {
+                            var stateToCheck = $scope.isDropdown() ? $scope.navItem.group : $scope.navItem.link;
+                            return $scope.$parent.$state.includes(stateToCheck);
+                        };
 
-                    $scope.hasRole = function (role) {
-                        return SessionService.hasRole(role);
-                    };
-                }
+                        $scope.hasRole = function (role) {
+                            return SessionService.hasRole(role);
+                        };
+                    }
+                ]
             };
         }]);
 

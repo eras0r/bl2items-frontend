@@ -6,18 +6,20 @@ define([
     'use strict';
 
     navigationModule
-        .controller('NavCtrl', ['$scope', 'NavigationService', 'SessionService', function ($scope, NavigationService, SessionService) {
+        .controller('NavCtrl', [
+            '$scope', 'NavigationService', 'SessionService',
+            function ($scope, NavigationService, SessionService) {
 
-            $scope.navItems = NavigationService.getNavigationItems();
+                $scope.navItems = NavigationService.getNavigationItems();
 
-            $scope.getCurrentUser = function () {
-                return SessionService.getCurrentUser();
-            };
+                $scope.getCurrentUser = function () {
+                    return SessionService.getCurrentUser();
+                };
 
-            $scope.isUserLoggedIn = function () {
-                return SessionService.isUserLoggedIn();
-            };
+                $scope.isUserLoggedIn = function () {
+                    return SessionService.isUserLoggedIn();
+                };
 
-        }]);
+            }]);
 
 });

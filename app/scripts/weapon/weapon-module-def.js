@@ -13,90 +13,92 @@ define([
         'ui.router',
         'restangular'
     ])
-        .config(function ($stateProvider) {
-            $stateProvider
-                .state('bl2.weapons', {
-                    'abstract': true,
-                    url: '/weapons',
-                    data: {},
-                    navigationItem: {
-                        sortOrder: 11,
-                        label: 'navigation.weapons.title',
-                        group: 'bl2.weapons',
-                        items: {}
-                    }
-                })
-                .state('bl2.weapons.list', {
-                    url: '/list',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/item/item-list/item-list.html',
-                            controller: 'WeaponListCtrl'
+        .config([
+            '$stateProvider',
+            function ($stateProvider) {
+                $stateProvider
+                    .state('bl2.weapons', {
+                        'abstract': true,
+                        url: '/weapons',
+                        data: {},
+                        navigationItem: {
+                            sortOrder: 11,
+                            label: 'navigation.weapons.title',
+                            group: 'bl2.weapons',
+                            items: {}
                         }
-                    },
-                    data: {
-                        pageTitle: 'weapons.list.pageTitle'
-                    },
-                    navigationItem: {
-                        sortOrder: 1,
-                        link: 'bl2.weapons.list',
-                        label: 'navigation.weapons.list'
-                    }
-                })
-                .state('bl2.weapons.create', {
-                    url: '/create',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/weapon/weapon-details.html',
-                            controller: 'WeaponCreateCtrl'
-                        }
-                    },
-                    resolve: {
-                        rarities: function (RarityService) {
-                            return RarityService.list();
+                    })
+                    .state('bl2.weapons.list', {
+                        url: '/list',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/item/item-list/item-list.html',
+                                controller: 'WeaponListCtrl'
+                            }
                         },
-                        manufacturers: function (ManufacturerService) {
-                            return ManufacturerService.list();
+                        data: {
+                            pageTitle: 'weapons.list.pageTitle'
                         },
-                        damageTypes: function (DamageTypeService) {
-                            return DamageTypeService.list();
+                        navigationItem: {
+                            sortOrder: 1,
+                            link: 'bl2.weapons.list',
+                            label: 'navigation.weapons.list'
                         }
-                    },
-                    data: {
-                        'pageTitle': 'weapons.create.pageTitle',
-                        'formTitle': 'weapons.create.formTitle'
-                    },
-                    navigationItem: {
-                        sortOrder: 11,
-                        link: 'bl2.weapons.create',
-                        label: 'navigation.weapons.create',
-                        role: 'admin'
-                    }
-                })
-                .state('bl2.weapons.edit', {
-                    url: '/:id',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/weapon/weapon-details.html',
-                            controller: 'WeaponEditCtrl'
-                        }
-                    },
-                    resolve: {
-                        rarities: function (RarityService) {
-                            return RarityService.list();
+                    })
+                    .state('bl2.weapons.create', {
+                        url: '/create',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/weapon/weapon-details.html',
+                                controller: 'WeaponCreateCtrl'
+                            }
                         },
-                        manufacturers: function (ManufacturerService) {
-                            return ManufacturerService.list();
+                        resolve: {
+                            rarities: function (RarityService) {
+                                return RarityService.list();
+                            },
+                            manufacturers: function (ManufacturerService) {
+                                return ManufacturerService.list();
+                            },
+                            damageTypes: function (DamageTypeService) {
+                                return DamageTypeService.list();
+                            }
                         },
-                        damageTypes: function (DamageTypeService) {
-                            return DamageTypeService.list();
+                        data: {
+                            'pageTitle': 'weapons.create.pageTitle',
+                            'formTitle': 'weapons.create.formTitle'
+                        },
+                        navigationItem: {
+                            sortOrder: 11,
+                            link: 'bl2.weapons.create',
+                            label: 'navigation.weapons.create',
+                            role: 'admin'
                         }
-                    },
-                    data: {
-                        'pageTitle': 'weapons.edit.pageTitle',
-                        'formTitle': 'weapons.edit.formTitle'
-                    }
-                });
-        });
+                    })
+                    .state('bl2.weapons.edit', {
+                        url: '/:id',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/weapon/weapon-details.html',
+                                controller: 'WeaponEditCtrl'
+                            }
+                        },
+                        resolve: {
+                            rarities: function (RarityService) {
+                                return RarityService.list();
+                            },
+                            manufacturers: function (ManufacturerService) {
+                                return ManufacturerService.list();
+                            },
+                            damageTypes: function (DamageTypeService) {
+                                return DamageTypeService.list();
+                            }
+                        },
+                        data: {
+                            'pageTitle': 'weapons.edit.pageTitle',
+                            'formTitle': 'weapons.edit.formTitle'
+                        }
+                    });
+            }]);
 
 });

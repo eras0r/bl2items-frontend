@@ -13,26 +13,28 @@ define([
         'ui.router',
         'restangular'
     ])
-        .config(function ($stateProvider) {
-            $stateProvider
-                .state('bl2.items', {
-                    url: '/items',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/item/item-list/item-list.html',
-                            controller: 'ItemListCtrl'
+        .config([
+            '$stateProvider',
+            function ($stateProvider) {
+                $stateProvider
+                    .state('bl2.items', {
+                        url: '/items',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/item/item-list/item-list.html',
+                                controller: 'ItemListCtrl'
+                            }
+                        },
+                        data: {
+                            pageTitle: 'items.list.pageTitle'
+                        },
+                        navigationItem: {
+                            sortOrder: 1,
+                            link: 'bl2.items',
+                            label: 'navigation.items'
                         }
-                    },
-                    data: {
-                        pageTitle: 'items.list.pageTitle'
-                    },
-                    navigationItem: {
-                        sortOrder: 1,
-                        link: 'bl2.items',
-                        label: 'navigation.items'
-                    }
 
-                });
-        });
+                    });
+            }]);
 
 });

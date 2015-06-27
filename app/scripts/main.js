@@ -184,9 +184,7 @@ require.config({
     priority: [
         'angular'
     ],
-    packages: [
-
-    ]
+    packages: []
 });
 
 require([
@@ -204,7 +202,7 @@ require([
         // as we use requirejs to load our js files asynchronously we need to ensure that all javascript files have been
         // loaded before the angular application is being bootstraped. Thats why we do a manualy boostrap og the angular application here
         // this means there is no ng-app directive within our html present
-        angular.bootstrap(document, [app.name]);
+        angular.bootstrap(document, [app.name], {strictDi: true});
     });
 
 });

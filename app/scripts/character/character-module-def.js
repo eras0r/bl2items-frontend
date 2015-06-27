@@ -13,11 +13,12 @@ define([
         'ui.router',
         'restangular'
     ])
-        .config(function ($stateProvider) {
+        .config(['$stateProvider',
+            function ($stateProvider) {
 
-            // TODO define states
+                // TODO define states
 
-        });
+            }]);
 
     return characterModule;
 

@@ -10,39 +10,38 @@ define([
 
     'use strict';
 
-    var fileModule = angular.module('fileModule', [
+    return angular.module('fileModule', [
         'ui.router',
         'restangular',
         'angularFileUpload'
     ])
-        .config(function ($stateProvider) {
-            $stateProvider
-                .state('bl2.admin.files', {
-                    url: '/files',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/file/file-list/file-list.html',
-                            controller: 'FileListCtrl'
+        .config(['$stateProvider',
+            function ($stateProvider) {
+                $stateProvider
+                    .state('bl2.admin.files', {
+                        url: '/files',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/file/file-list/file-list.html',
+                                controller: 'FileListCtrl'
+                            }
+                        },
+                        navigationItem: {
+                            sortOrder: 31,
+                            link: 'bl2.admin.files',
+                            label: 'navigation.admin.files',
+                            role: 'admin'
                         }
-                    },
-                    navigationItem: {
-                        sortOrder: 31,
-                        link: 'bl2.admin.files',
-                        label: 'navigation.admin.files',
-                        role: 'admin'
-                    }
-                })
-                .state('bl2.admin.files.upload', {
-                    url: '/upload',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/file/file-upload/file-upload.html',
-                            controller: 'FileUploadCtrl'
+                    })
+                    .state('bl2.admin.files.upload', {
+                        url: '/upload',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/file/file-upload/file-upload.html',
+                                controller: 'FileUploadCtrl'
+                            }
                         }
-                    }
-                });
-        });
-
-    return fileModule;
+                    });
+            }]);
 
 });

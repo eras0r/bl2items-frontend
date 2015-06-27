@@ -48,57 +48,59 @@ define([
                     item: '='
                 },
                 link: linker,
-                controller: function ($scope) {
-                    $scope.getAdditionalText = function () {
-                        var additionalText = [];
-                        if ($scope.item && $scope.item.additionalText) {
-                            additionalText = $scope.item.additionalText.split('\n');
-                        }
+                controller: ['$scope',
+                    function ($scope) {
+                        $scope.getAdditionalText = function () {
+                            var additionalText = [];
+                            if ($scope.item && $scope.item.additionalText) {
+                                additionalText = $scope.item.additionalText.split('\n');
+                            }
 
-                        // show skills for class mods
-                        //console.log('$scope.item', $scope.item);
-                        if ($scope.item.itemtype === 'classMod') {
+                            // show skills for class mods
+                            //console.log('$scope.item', $scope.item);
+                            if ($scope.item.itemtype === 'classMod') {
 
-                            // iterate sub trees
-                            angular.forEach($scope.item.skills, function (skill) {
-                                // TODO use angular translate with params
-                                additionalText.push('+' + skill.points + ' ' + skill.name + ' Skill');
-                            });
+                                // iterate sub trees
+                                angular.forEach($scope.item.skills, function (skill) {
+                                    // TODO use angular translate with params
+                                    additionalText.push('+' + skill.points + ' ' + skill.name + ' Skill');
+                                });
 
-                        }
+                            }
 
-                        return additionalText;
-                    };
+                            return additionalText;
+                        };
 
-                    $scope.edit = function (item) {
-                        switch (item.itemtype) {
-                            case 'weapon':
-                                $state.go('bl2.weapons.edit', {id: item.id});
-                                break;
-                            // TODO add cases for other item types
-                        }
-                    };
+                        $scope.edit = function (item) {
+                            switch (item.itemtype) {
+                                case 'weapon':
+                                    $state.go('bl2.weapons.edit', {id: item.id});
+                                    break;
+                                // TODO add cases for other item types
+                            }
+                        };
 
-                    $scope.hasSepcialDamageType = function () {
-                        return $scope.getDamageType().id !== '1';
-                    };
+                        $scope.hasSepcialDamageType = function () {
+                            return $scope.getDamageType().id !== '1';
+                        };
 
-                    $scope.getDamageType = function () {
-                        if ($scope.item && $scope.item.damageType) {
-                            return $scope.item.damageType;
-                        }
-                    };
+                        $scope.getDamageType = function () {
+                            if ($scope.item && $scope.item.damageType) {
+                                return $scope.item.damageType;
+                            }
+                        };
 
-                    // TODO create own directive for this function?
-                    $scope.getDamageValue = function () {
-                        if ($scope.item) {
-                            return $filter('damage')($scope.item.damage, $scope.item.damageMultiplier);
-                        }
-                        else {
-                            return '';
-                        }
-                    };
-                }
+                        // TODO create own directive for this function?
+                        $scope.getDamageValue = function () {
+                            if ($scope.item) {
+                                return $filter('damage')($scope.item.damage, $scope.item.damageMultiplier);
+                            }
+                            else {
+                                return '';
+                            }
+                        };
+                    }
+                ]
             };
         }]);
 

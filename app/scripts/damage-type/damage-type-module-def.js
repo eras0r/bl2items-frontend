@@ -9,47 +9,46 @@ define([
 
     'use strict';
 
-    var damageTypeModule = angular.module('damageTypeModule', [
+    return angular.module('damageTypeModule', [
         'ui.router',
         'restangular'
     ])
-        .config(function ($stateProvider) {
-            $stateProvider
-                .state('bl2.admin.damageTypes', {
-                    url: '/damageTypes',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
-                            controller: 'DamageTypeListCtrl'
+        .config(['$stateProvider',
+            function ($stateProvider) {
+                $stateProvider
+                    .state('bl2.admin.damageTypes', {
+                        url: '/damageTypes',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
+                                controller: 'DamageTypeListCtrl'
+                            }
+                        },
+                        navigationItem: {
+                            sortOrder: 11,
+                            link: 'bl2.admin.damageTypes',
+                            label: 'navigation.admin.damageTypes',
+                            role: 'admin'
                         }
-                    },
-                    navigationItem: {
-                        sortOrder: 11,
-                        link: 'bl2.admin.damageTypes',
-                        label: 'navigation.admin.damageTypes',
-                        role: 'admin'
-                    }
-                })
-                .state('bl2.admin.damageTypes.create', {
-                    url: '/create',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/damage-type/damage-type-details.html',
-                            controller: 'DamageTypeCreateCtrl'
+                    })
+                    .state('bl2.admin.damageTypes.create', {
+                        url: '/create',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/damage-type/damage-type-details.html',
+                                controller: 'DamageTypeCreateCtrl'
+                            }
                         }
-                    }
-                })
-                .state('bl2.admin.damageTypes.edit', {
-                    url: '/:id',
-                    views: {
-                        'main@': {
-                            templateUrl: 'scripts/damage-type/damage-type-details.html',
-                            controller: 'DamageTypeEditCtrl'
+                    })
+                    .state('bl2.admin.damageTypes.edit', {
+                        url: '/:id',
+                        views: {
+                            'main@': {
+                                templateUrl: 'scripts/damage-type/damage-type-details.html',
+                                controller: 'DamageTypeEditCtrl'
+                            }
                         }
-                    }
-                });
-        });
-
-    return damageTypeModule;
+                    });
+            }]);
 
 });
