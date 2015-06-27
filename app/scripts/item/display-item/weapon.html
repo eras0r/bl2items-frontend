@@ -4,7 +4,7 @@
 
     <ul class="list-group">
         <li class="list-group-item">
-            <span class="badge">{{item.damage}}</span>
+            <span class="badge" data-ng-bind-html="getDamageValue()"></span>
             <span data-translate="item.weapon.damage"></span>
         </li>
         <li class="list-group-item">

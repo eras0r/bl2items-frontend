@@ -6,8 +6,8 @@ define([
     'use strict';
 
     itemModule.directive('displayItem', [
-        '$compile', '$http', '$templateCache', '$state',
-        function ($compile, $http, $templateCache, $state) {
+        '$compile', '$http', '$templateCache', '$state', '$filter',
+        function ($compile, $http, $templateCache, $state, $filter) {
 
             var getTemplate = function (contentType) {
                 var templateLoader;
@@ -56,6 +56,7 @@ define([
                         }
 
                         // show skills for class mods
+                        //console.log('$scope.item', $scope.item);
                         if ($scope.item.itemtype === 'classMod') {
 
                             // iterate sub trees
@@ -85,6 +86,16 @@ define([
                     $scope.getDamageType = function () {
                         if ($scope.item && $scope.item.damageType) {
                             return $scope.item.damageType;
+                        }
+                    };
+
+                    // TODO create own directive for this function?
+                    $scope.getDamageValue = function () {
+                        if ($scope.item) {
+                            return $filter('damage')($scope.item.damage, $scope.item.damageMultiplier);
+                        }
+                        else {
+                            return '';
                         }
                     };
                 }
