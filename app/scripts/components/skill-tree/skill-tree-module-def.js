@@ -9,11 +9,7 @@ define([
 
     'use strict';
 
-    return angular.module('skillTreeModule', ['ui.router', 'restangular'])
-        .config([
-            '$stateProvider', 'RestangularProvider',
-            function ($stateProvider, RestangularProvider) {
-
-            }]);
+    return angular
+        .module('skillTreeModule', ['ui.router', 'restangular']);
 
 });
