@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'shieldModule';
+    var moduleName = 'bl2.shields';
 
     var expectedDeps = [
         'ui.router',

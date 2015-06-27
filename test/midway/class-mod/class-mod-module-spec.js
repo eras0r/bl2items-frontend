@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'classModModule';
+    var moduleName = 'bl2.classMods';
 
     var expectedDeps = [
         'ui.router',

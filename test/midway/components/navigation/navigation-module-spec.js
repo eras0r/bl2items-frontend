@@ -12,7 +12,7 @@ define([
         'ui.router',
         'pascalprecht.translate',
         'ui.bootstrap',
-        'securityModule'
+        'rn.security'
     ];
 
     describe('Midway testing', function () {

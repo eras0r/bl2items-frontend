@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'colorPickerModule';
+    var moduleName = 'rn.colorPicker';
 
     var expectedDeps = ['angularSpectrumColorpicker'];
 

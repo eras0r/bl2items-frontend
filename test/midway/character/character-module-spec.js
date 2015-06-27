@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'characterModule';
+    var moduleName = 'bl2.characters';
 
     var expectedDeps = [
         'ui.router',

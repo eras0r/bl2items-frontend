@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'securityModule';
+    var moduleName = 'rn.security';
 
     var expectedDeps = [
         'ui.router',

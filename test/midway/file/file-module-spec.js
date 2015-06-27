@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'fileModule';
+    var moduleName = 'bl2.files';
 
     var expectedDeps = [
         'ui.router',
