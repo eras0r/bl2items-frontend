@@ -9,7 +9,7 @@ define([
 
     'use strict';
 
-    var manufacturerModule = angular.module('manufacturerModule', [
+    return angular.module('manufacturerModule', [
         'ui.router',
         'restangular'
     ])
@@ -49,7 +49,5 @@ define([
                     }
                 });
         });
-
-    return manufacturerModule;
 
 });

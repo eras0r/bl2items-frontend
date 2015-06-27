@@ -9,7 +9,7 @@ define([
 
     'use strict';
 
-    var classModModule = angular.module('classModModule', [
+    return angular.module('classModModule', [
         'ui.router',
         'restangular'
     ])
@@ -125,7 +125,5 @@ define([
                 });
 
         });
-
-    return classModModule;
 
 });

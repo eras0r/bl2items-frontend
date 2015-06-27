@@ -9,7 +9,7 @@ define([
 
     'use strict';
 
-    var userModule = angular.module('userModule', [
+    return angular.module('userModule', [
         'ui.router',
         'restangular'
     ])
@@ -61,7 +61,5 @@ define([
                     }
                 });
         });
-
-    return userModule;
 
 });

@@ -9,7 +9,7 @@ define([
 
     'use strict';
 
-    var rarityModule = angular.module('rarityModule', [
+    return angular.module('rarityModule', [
         'ui.router',
         'restangular'
     ])
@@ -50,7 +50,5 @@ define([
                 });
 
         });
-
-    return rarityModule;
 
 });

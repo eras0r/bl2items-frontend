@@ -9,7 +9,7 @@ define([
 
     'use strict';
 
-    var shieldModule = angular.module('shieldModule', [
+    return angular.module('shieldModule', [
         'ui.router',
         'restangular'
     ])
@@ -58,7 +58,5 @@ define([
                     }
                 });
         });
-
-    return shieldModule;
 
 });

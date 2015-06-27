@@ -9,11 +9,9 @@ define([
 
     'use strict';
 
-    var skillTreeModule = angular.module('skillTreeModule', ['ui.router', 'restangular'])
+    return angular.module('skillTreeModule', ['ui.router', 'restangular'])
         .config(['$stateProvider', 'RestangularProvider', function () {
 
         }]);
-
-    return skillTreeModule;
 
 });

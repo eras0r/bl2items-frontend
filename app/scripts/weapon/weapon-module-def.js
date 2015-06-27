@@ -9,7 +9,7 @@ define([
 
     'use strict';
 
-    var weaponModule = angular.module('weaponModule', [
+    return angular.module('weaponModule', [
         'ui.router',
         'restangular'
     ])
@@ -98,7 +98,5 @@ define([
                     }
                 });
         });
-
-    return weaponModule;
 
 });
