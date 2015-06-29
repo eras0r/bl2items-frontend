@@ -5,46 +5,57 @@ define([
 
     'use strict';
 
-    userModule.controller('UserCreateCtrl', [
-        '$scope', '$state', '$filter', '$log', 'UserService', 'roles',
-        function ($scope, $state, $filter, $log, UserService, roles) {
+    /** @ngInject */
+    function UserCreateCtrl($filter, $log, UserService, roles) {
 
-            $scope.user = {
-                roles: []
-            };
+        var vm = this;
 
-            $scope.userRoles = [];
-            angular.forEach(roles, function (value) {
-                $scope.userRoles.push({id: value.id, rolename: value.rolename, selected: false});
+        vm.errors = null;
+
+        vm.user = {
+            roles: []
+        };
+
+        vm.userRoles = [];
+
+        vm.save = save;
+        vm.cancel = cancel;
+
+        function save() {
+            vm.errors = null;
+
+            // iterate over selected userRoles
+            vm.user.roles = [];
+            angular.forEach($filter('filter')(vm.userRoles, {selected: true}), function (value) {
+                vm.user.roles.push({id: value.id, rolename: value.rolename});
             });
 
-            $scope.save = function () {
-                $scope.errors = null;
+            UserService.create(vm.user)
+                .then(function () {
+                    UserService.showList();
+                })
+                .catch(function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error creating user');
+                    }
+                }
+            );
+        }
 
-                // iterate over selected userRoles
-                $scope.user.roles = [];
-                angular.forEach($filter('filter')($scope.userRoles, {selected: true}), function (value) {
-                    $scope.user.roles.push({id: value.id, rolename: value.rolename});
-                });
+        function cancel() {
+            UserService.showList();
+        }
 
-                UserService.create($scope.user)
-                    .then(function () {
-                        UserService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error creating user');
-                        }
-                    });
-            };
+        angular.forEach(roles, function (value) {
+            vm.userRoles.push({id: value.id, rolename: value.rolename, selected: false});
+        });
 
-            $scope.cancel = function () {
-                UserService.showList();
-            };
+    }
 
-        }]);
+    userModule.controller('UserCreateCtrl', ['$filter', '$log', 'UserService', 'roles', UserCreateCtrl]);
 
 });

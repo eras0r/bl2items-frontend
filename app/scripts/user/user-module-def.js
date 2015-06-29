@@ -31,7 +31,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/user/user-details.html',
-                        controller: 'UserCreateCtrl'
+                        controller: 'UserCreateCtrl',
+                        controllerAs: 'userCtrl'
                     }
                 },
                 resolve: {

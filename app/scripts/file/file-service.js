@@ -9,6 +9,10 @@ define([
         var resourceUrl = 'files';
 
         return {
+            /**
+             * reads all files
+             * @returns {*} all files
+             */
             list: function () {
                 return Restangular.all(resourceUrl).getList();
             },
