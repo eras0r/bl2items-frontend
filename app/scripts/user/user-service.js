@@ -5,6 +5,8 @@ define([
 
     'use strict';
 
+    userModule.factory('UserService', ['$state', 'Restangular', UserService]);
+
     /** @ngInject */
     function UserService($state, Restangular) {
         var resourceUrl = 'users';
@@ -44,7 +46,5 @@ define([
             return user.remove();
         }
     }
-
-    userModule.factory('UserService', ['$state', 'Restangular', UserService]);
 
 });
