@@ -24,13 +24,6 @@ define([
                         $state = _$state_;
 
                         spyOn($state, 'go');
-
-                        // TODO remove
-                        // or
-                        //spyOn($state, 'go').and.callFake(function(state, params) {
-                        //    // This replaces the 'go' functionality for the duration of your test
-                        //});
-
                     });
                 });
 
