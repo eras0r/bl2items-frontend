@@ -63,7 +63,8 @@ define([
                         views: {
                             'navigation': {
                                 templateUrl: 'scripts/components/navigation/navigation.html',
-                                controller: 'NavCtrl'
+                                controller: 'NavigationCtrl',
+                                controllerAs: 'vm'
                             },
                             'main': {
                                 templateUrl: 'scripts/portal/portal.html'

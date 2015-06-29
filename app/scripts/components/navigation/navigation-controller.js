@@ -5,21 +5,24 @@ define([
 
     'use strict';
 
-    navigationModule
-        .controller('NavCtrl', [
-            '$scope', 'NavigationService', 'SessionService',
-            function ($scope, NavigationService, SessionService) {
+    navigationModule.controller('NavigationCtrl', ['NavigationService', 'SessionService', NavigationCtrl]);
 
-                $scope.navItems = NavigationService.getNavigationItems();
+    /** @ngInject */
+    function NavigationCtrl(NavigationService, SessionService) {
 
-                $scope.getCurrentUser = function () {
-                    return SessionService.getCurrentUser();
-                };
+        var vm = this;
 
-                $scope.isUserLoggedIn = function () {
-                    return SessionService.isUserLoggedIn();
-                };
+        vm.navItems = NavigationService.getNavigationItems();
+        vm.getCurrentUser = getCurrentUser;
+        vm.isUserLoggedIn = isUserLoggedIn;
 
-            }]);
+        function getCurrentUser() {
+            return SessionService.getCurrentUser();
+        }
+
+        function isUserLoggedIn() {
+            return SessionService.isUserLoggedIn();
+        }
+    }
 
 });

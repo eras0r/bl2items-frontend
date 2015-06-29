@@ -19,15 +19,15 @@
             <div class="collapse navbar-collapse">
                 <!-- left navigation (dynamically created from configured routes -->
                 <ul class="nav navbar-nav">
-                    <navigation-item data-nav-item="navItem" data-ng-repeat="navItem in navItems"></navigation-item>
+                    <navigation-item data-nav-item="navItem" data-ng-repeat="navItem in vm.navItems"></navigation-item>
                 </ul>
 
                 <!-- right navigation -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-dropdown data-ng-show="isUserLoggedIn()">
+                    <li data-dropdown data-ng-show="vm.isUserLoggedIn()">
                         <a data-dropdown-toggle>
                             <span class="glyphicon glyphicon-user"></span>
-                            {{getCurrentUser().username}} <span class="caret"></span>
+                            {{vm.getCurrentUser().username}} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -45,7 +45,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li data-ng-hide="isUserLoggedIn()">
+                    <li data-ng-hide="vm.isUserLoggedIn()">
                         <a data-ui-sref="bl2.login" data-translate="navigation.user.login"></a>
                     </li>
                     <li data-dropdown data-ng-controller="LanguageCtrl">

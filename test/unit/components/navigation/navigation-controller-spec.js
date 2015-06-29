@@ -7,7 +7,7 @@ define([
     'use strict';
 
     var moduleName = 'rn.navigation';
-    var controllerName = 'NavCtrl';
+    var controllerName = 'NavigationCtrl';
     var controller;
     var $scope;
 
