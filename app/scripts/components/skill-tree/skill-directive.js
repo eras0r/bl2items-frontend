@@ -5,57 +5,61 @@ define([
 
     'use strict';
 
-    skillTreeModule.directive('bl2Skill', [
-        function () {
+    skillTreeModule.directive('bl2Skill', SkillDirective);
 
-            return {
-                restrict: 'E',
-                templateUrl: 'scripts/components/skill-tree/skill.html',
-                replace: true,
-                scope: {
-                    skill: '=',
-                    characaterClass: '=',
-                    subTree: '@',
-                    onAdd: '&',
-                    onRemove: '&'
-                },
-                controller: ['$scope',
-                    function ($scope) {
+    /** @ngInject */
+    function SkillDirective() {
 
-                        $scope.getIcon = function () {
-                            if (!$scope.characaterClass || !$scope.subTree || !$scope.skill || !$scope.skill.image) {
-                                return undefined;
-                            }
+        var skillDirective = {
+            restrict: 'E',
+            templateUrl: 'scripts/components/skill-tree/skill.html',
+            replace: true,
+            scope: {
+                skill: '=',
+                characaterClass: '=',
+                subTree: '@',
+                onAdd: '&',
+                onRemove: '&'
+            },
+            controller: ['$scope', SkillDirectiveController]
 
-                            return 'images/dynamic/skills/' + $scope.characaterClass.toLowerCase() + '/' + $scope.subTree + '/' + $scope.skill.image;
-                        };
+        };
 
-                        $scope.getPointsIcon = function () {
-                            if (!$scope.skill) {
-                                return undefined;
-                            }
+        return skillDirective;
+    }
 
-                            return 'images/dynamic/skills/points/' + $scope.skill.points + '-' + $scope.skill.levels + '.png';
-                        };
+    /** @ngInject */
+    function SkillDirectiveController($scope) {
+        $scope.getIcon = function () {
+            if (!$scope.characaterClass || !$scope.subTree || !$scope.skill || !$scope.skill.image) {
+                return undefined;
+            }
 
-                        $scope.isValid = function () {
-                            return $scope.getIcon() !== undefined;
-                        };
+            return 'images/dynamic/skills/' + $scope.characaterClass.toLowerCase() + '/' + $scope.subTree + '/' + $scope.skill.image;
+        };
 
-                        $scope.addPoint = function () {
-                            // call the outer scope's passed onAdd callback with an argument
-                            // see http://www.whatibroke.com/?p=894
-                            $scope.onAdd({skill: $scope.skill});
-                        };
+        $scope.getPointsIcon = function () {
+            if (!$scope.skill) {
+                return undefined;
+            }
 
-                        $scope.removePoint = function () {
-                            // call the outer scope's passed onRemove callback an argument
-                            $scope.onRemove({skill: $scope.skill});
-                        };
-                    }
-                ]
+            return 'images/dynamic/skills/points/' + $scope.skill.points + '-' + $scope.skill.levels + '.png';
+        };
 
-            };
-        }]);
+        $scope.isValid = function () {
+            return $scope.getIcon() !== undefined;
+        };
+
+        $scope.addPoint = function () {
+            // call the outer scope's passed onAdd callback with an argument
+            // see http://www.whatibroke.com/?p=894
+            $scope.onAdd({skill: $scope.skill});
+        };
+
+        $scope.removePoint = function () {
+            // call the outer scope's passed onRemove callback an argument
+            $scope.onRemove({skill: $scope.skill});
+        };
+    }
 
 });
