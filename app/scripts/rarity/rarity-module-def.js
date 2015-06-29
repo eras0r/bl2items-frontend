@@ -4,13 +4,18 @@
 define([
     'angular',
     'angular-ui-router',
-    'restangular'
+    'restangular',
+    'components/navigation/navigation-service'
 ], function (angular) {
 
     'use strict';
 
+    return angular
+        .module('bl2.rarities', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', RarityModuleConfig]);
+
     /** @ngInject */
-    function RarityModuleConfig($stateProvider) {
+    function RarityModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.admin.rarities', {
                 url: '/rarities',
@@ -19,12 +24,6 @@ define([
                         templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
                         controller: 'RarityListCtrl'
                     }
-                },
-                navigationItem: {
-                    sortOrder: 1,
-                    link: 'bl2.admin.rarities',
-                    label: 'navigation.admin.rarities',
-                    role: 'admin'
                 }
             })
             .state('bl2.admin.rarities.create', {
@@ -45,13 +44,18 @@ define([
                     }
                 }
             });
-    }
 
-    return angular
-        .module('bl2.rarities', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', RarityModuleConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            group: 'bl2.admin',
+            items: [
+                {
+                    sortOrder: 10,
+                    link: 'bl2.admin.rarities',
+                    label: 'navigation.admin.rarities',
+                    role: 'admin'
+                }
+            ]
+        });
+    }
 
 });

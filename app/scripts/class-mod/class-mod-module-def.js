@@ -9,19 +9,17 @@ define([
 
     'use strict';
 
+    return angular
+        .module('bl2.classMods', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', ClassModuleConfig]);
+
     /** @ngInject */
-    function ClassModuleConfig($stateProvider) {
+    function ClassModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.classMods', {
                 'abstract': true,
                 url: '/class-mods',
-                data: {},
-                navigationItem: {
-                    sortOrder: 31,
-                    label: 'navigation.classMods.title',
-                    group: 'bl2.classMods',
-                    items: {}
-                }
+                data: {}
             })
             .state('bl2.classMods.list', {
                 url: '/list',
@@ -33,11 +31,6 @@ define([
                 },
                 data: {
                     pageTitle: 'classMods.list.pageTitle'
-                },
-                navigationItem: {
-                    sortOrder: 1,
-                    link: 'bl2.classMods.list',
-                    label: 'navigation.classMods.list'
                 }
             })
             .state('bl2.classMods.create', {
@@ -63,12 +56,6 @@ define([
                 data: {
                     'pageTitle': 'classMods.create.pageTitle',
                     'formTitle': 'classMods.create.formTitle'
-                },
-                navigationItem: {
-                    sortOrder: 11,
-                    link: 'bl2.classMods.create.properties',
-                    label: 'navigation.classMods.create',
-                    role: 'admin'
                 }
             })
             .state('bl2.classMods.create.properties', {
@@ -119,13 +106,25 @@ define([
                     'formTitle': 'weapons.edit.formTitle'
                 }
             });
-    }
 
-    return angular
-        .module('bl2.classMods', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', ClassModuleConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            sortOrder: 40,
+            label: 'navigation.classMods.title',
+            group: 'bl2.classMods',
+            items: [
+                {
+                    sortOrder: 10,
+                    link: 'bl2.classMods.list',
+                    label: 'navigation.classMods.list'
+                },
+                {
+                    sortOrder: 20,
+                    link: 'bl2.classMods.create.properties',
+                    label: 'navigation.classMods.create',
+                    role: 'admin'
+                }
+            ]
+        });
+    }
 
 });

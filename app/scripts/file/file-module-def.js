@@ -10,8 +10,12 @@ define([
 
     'use strict';
 
+    return angular
+        .module('bl2.files', ['ui.router', 'restangular', 'angularFileUpload', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', FileModuleConfig]);
+
     /** @ngInject */
-    function FileModuleConfig($stateProvider) {
+    function FileModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.admin.files', {
                 url: '/files',
@@ -20,12 +24,6 @@ define([
                         templateUrl: 'scripts/file/file-list/file-list.html',
                         controller: 'FileListCtrl'
                     }
-                },
-                navigationItem: {
-                    sortOrder: 31,
-                    link: 'bl2.admin.files',
-                    label: 'navigation.admin.files',
-                    role: 'admin'
                 }
             })
             .state('bl2.admin.files.upload', {
@@ -37,14 +35,18 @@ define([
                     }
                 }
             });
-    }
 
-    return angular
-        .module('bl2.files', [
-            'ui.router',
-            'restangular',
-            'angularFileUpload'
-        ])
-        .config(['$stateProvider', FileModuleConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            group: 'bl2.admin',
+            items: [
+                {
+                    sortOrder: 40,
+                    link: 'bl2.admin.files',
+                    label: 'navigation.admin.files',
+                    role: 'admin'
+                }
+            ]
+        });
+    }
 
 });

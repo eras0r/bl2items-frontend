@@ -10,7 +10,8 @@ define([
 
     var expectedDeps = [
         'ui.router',
-        'restangular'
+        'restangular',
+        'rn.navigation'
     ];
 
     describe('Midway testing', function () {

@@ -5,51 +5,58 @@ define([
 
     'use strict';
 
-    navigationModule.factory('NavigationService', ['$state', NavigationService]);
+    navigationModule.provider('NavigationService', NavigationServiceProvider);
+
+    NavigationServiceProvider.$inject = [];
 
     /** @ngInject */
-    function NavigationService($state) {
+    function NavigationServiceProvider() {
 
-        var navigationService = {
-            getNavigationItems: getNavigationItems
-        };
+        this.$get = NavigationService;
 
-        return navigationService;
+        // functions provided by the NavigationServiceProvider
+        this.addNavigationItem = addNavigationItem;
 
-        function getNavigationItems() {
-            var navItems = {};
+        NavigationService.$inject = ['$filter'];
 
-            // iterate over defined states
-            angular.forEach($state.get(), function (state) {
+        var navItems = [
+            {
+                sortOrder: 50,
+                label: 'navigation.admin.title',
+                group: 'bl2.admin',
+                role: 'admin',
+                items: []
+            }
+        ];
 
-                // add nav item, if state has a defined navigation element
-                if (state.navigationItem) {
-                    var parentState = getParentState(state.name);
-                    // current's state parent state also defines a navigation
-                    if (parentState && parentState.navigationItem) {
-                        // add the parent' states navigation
-                        navItems[parentState.navigationItem.sortOrder] = parentState.navigationItem;
-                        // add current state as sub item to parent state
-                        navItems[parentState.navigationItem.sortOrder].items[state.navigationItem.sortOrder] = state.navigationItem;
-                    }
-                    else {
-                        // parent state does not define a navigation
-                        // just add current state as root navigation element
-                        navItems[state.navigationItem.sortOrder] = state.navigationItem;
-                    }
-                }
-            });
+        function addNavigationItem(navigationItem) {
+            // TODO introduce angular constant for lodash (_)
+            var group = _.find(navItems, {'group': navigationItem.group});
 
-            return navItems;
+            if (group === undefined) {
+                navItems.push(navigationItem);
+            }
+            else {
+                // group was already found -> just add a all new items
+                _.forEach(navigationItem.items, function (item) {
+                    group.items.push(item);
+                });
+            }
         }
 
-        function getParentState(stateName) {
-            if (!stateName) {
-                return undefined;
+        /** @ngInject */
+        function NavigationService($filter) {
+
+            var navigationService = {
+                getNavigationItems: getNavigationItems
+            };
+
+            return navigationService;
+
+            function getNavigationItems() {
+                return $filter('orderBy')(navItems, 'sortOrder');
             }
 
-            var parentName = stateName.substring(0, stateName.lastIndexOf('.'));
-            return $state.get(parentName);
         }
 
     }

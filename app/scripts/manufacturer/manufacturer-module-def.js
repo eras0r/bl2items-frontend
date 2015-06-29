@@ -4,13 +4,18 @@
 define([
     'angular',
     'angular-ui-router',
-    'restangular'
+    'restangular',
+    'components/navigation/navigation-service'
 ], function (angular) {
 
     'use strict';
 
+    return angular
+        .module('bl2.manufacturers', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', ManufacturerConfig]);
+
     /** @ngInject */
-    function ManufacturerConfig($stateProvider) {
+    function ManufacturerConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.admin.manufacturers', {
                 url: '/manufacturers',
@@ -19,12 +24,6 @@ define([
                         templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
                         controller: 'ManufacturerListCtrl'
                     }
-                },
-                navigationItem: {
-                    sortOrder: 21,
-                    link: 'bl2.admin.manufacturers',
-                    label: 'navigation.admin.manufacturers',
-                    role: 'admin'
                 }
             })
             .state('bl2.admin.manufacturers.create', {
@@ -45,13 +44,18 @@ define([
                     }
                 }
             });
-    }
 
-    return angular
-        .module('bl2.manufacturers', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', ManufacturerConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            group: 'bl2.admin',
+            items: [
+                {
+                    sortOrder: 30,
+                    link: 'bl2.admin.manufacturers',
+                    label: 'navigation.admin.manufacturers',
+                    role: 'admin'
+                }
+            ]
+        });
+    }
 
 });

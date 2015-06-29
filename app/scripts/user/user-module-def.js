@@ -4,13 +4,18 @@
 define([
     'angular',
     'angular-ui-router',
-    'restangular'
+    'restangular',
+    'components/navigation/navigation-service'
 ], function (angular) {
 
     'use strict';
 
+    return angular
+        .module('bl2.users', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', UserModuleConfig]);
+
     /** @ngInject */
-    function UserModuleConfig($stateProvider) {
+    function UserModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.admin.users', {
                 url: '/users',
@@ -19,11 +24,6 @@ define([
                         templateUrl: 'scripts/user/user-list/user-list.html',
                         controller: 'UserListCtrl'
                     }
-                },
-                navigationItem: {
-                    link: 'bl2.admin.users',
-                    label: 'navigation.admin.users',
-                    role: 'admin'
                 }
             })
             .state('bl2.admin.users.create', {
@@ -59,13 +59,19 @@ define([
                     }
                 }
             });
-    }
 
-    return angular
-        .module('bl2.users', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', UserModuleConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            group: 'bl2.admin',
+            items: [
+                {
+                    sortOrder: 50,
+                    link: 'bl2.admin.users',
+                    label: 'navigation.admin.users',
+                    role: 'admin'
+                }
+            ]
+        });
+
+    }
 
 });

@@ -11,7 +11,8 @@ define([
     var expectedDeps = [
         'ui.router',
         'restangular',
-        'angularFileUpload'
+        'angularFileUpload',
+        'rn.navigation'
     ];
 
     describe('Midway testing', function () {

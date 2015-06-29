@@ -4,13 +4,18 @@
 define([
     'angular',
     'angular-ui-router',
-    'restangular'
+    'restangular',
+    'components/navigation/navigation-service'
 ], function (angular) {
 
     'use strict';
 
+    return angular.
+        module('bl2.damageTypes', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', DamageTypeModuleConfig]);
+
     /** @ngInject */
-    function DamageTypeModuleConfig($stateProvider) {
+    function DamageTypeModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.admin.damageTypes', {
                 url: '/damageTypes',
@@ -19,12 +24,6 @@ define([
                         templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
                         controller: 'DamageTypeListCtrl'
                     }
-                },
-                navigationItem: {
-                    sortOrder: 11,
-                    link: 'bl2.admin.damageTypes',
-                    label: 'navigation.admin.damageTypes',
-                    role: 'admin'
                 }
             })
             .state('bl2.admin.damageTypes.create', {
@@ -45,13 +44,21 @@ define([
                     }
                 }
             });
-    }
 
-    return angular.
-        module('bl2.damageTypes', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', DamageTypeModuleConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            sortOrder: 50,
+            label: 'navigation.admin.title',
+            group: 'bl2.admin',
+            role: 'admin',
+            items: [
+                {
+                    sortOrder: 20,
+                    link: 'bl2.admin.damageTypes',
+                    label: 'navigation.admin.damageTypes',
+                    role: 'admin'
+                }
+            ]
+        });
+    }
 
 });

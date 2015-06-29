@@ -55,11 +55,6 @@ define([
                 $stateProvider
                     .state('bl2', {
                         url: '',
-                        resolve: {
-                            currentUser: function (SessionService) {
-                                return SessionService.getCurrentUser();
-                            }
-                        },
                         views: {
                             'navigation': {
                                 templateUrl: 'scripts/components/navigation/navigation.html',
@@ -73,14 +68,7 @@ define([
                     })
                     .state('bl2.admin', {
                         'abstract': true,
-                        url: '/admin',
-                        navigationItem: {
-                            sortOrder: 41,
-                            label: 'navigation.admin.title',
-                            group: 'bl2.admin',
-                            role: 'admin',
-                            items: {}
-                        }
+                        url: '/admin'
                     });
 
                 // setup for restangular

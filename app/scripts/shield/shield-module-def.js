@@ -9,18 +9,16 @@ define([
 
     'use strict';
 
+    return angular
+        .module('bl2.shields', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', ShieldModuleConfig]);
+
     /** @ngInject */
-    function ShieldModuleConfig($stateProvider) {
+    function ShieldModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.shields', {
                 'abstract': true,
-                url: '/shields',
-                navigationItem: {
-                    sortOrder: 21,
-                    label: 'navigation.shields.title',
-                    group: 'bl2.shields',
-                    items: {}
-                }
+                url: '/shields'
             })
             .state('bl2.shields.list', {
                 url: '/list',
@@ -32,11 +30,6 @@ define([
                 },
                 data: {
                     pageTitle: 'shields.list.pageTitle'
-                },
-                navigationItem: {
-                    sortOrder: 1,
-                    link: 'bl2.shields.list',
-                    label: 'navigation.shields.list'
                 }
             })
             .state('bl2.shields.create', {
@@ -46,21 +39,27 @@ define([
                         templateUrl: 'scripts/shield/shield-details.html',
                         controller: 'ShieldCreateCtrl'
                     }
+                }
+            });
+
+        NavigationServiceProvider.addNavigationItem({
+            sortOrder: 30,
+            label: 'navigation.shields.title',
+            group: 'bl2.shields',
+            items: [
+                {
+                    sortOrder: 10,
+                    link: 'bl2.shields.list',
+                    label: 'navigation.shields.list'
                 },
-                navigationItem: {
-                    sortOrder: 11,
+                {
+                    sortOrder: 20,
                     link: 'bl2.shields.create',
                     label: 'navigation.shields.create',
                     role: 'admin'
                 }
-            });
+            ]
+        });
     }
-
-    return angular
-        .module('bl2.shields', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', ShieldModuleConfig]);
 
 });

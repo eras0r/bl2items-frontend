@@ -4,24 +4,23 @@
 define([
     'angular',
     'angular-ui-router',
-    'restangular'
+    'restangular',
+    'components/navigation/navigation-service'
 ], function (angular) {
 
     'use strict';
 
+    return angular
+        .module('bl2.weapons', ['ui.router', 'restangular', 'rn.navigation'])
+        .config(['$stateProvider', 'NavigationServiceProvider', WeaponModuleConfig]);
+
     /** @ngInject */
-    function WeaponModuleConfig($stateProvider) {
+    function WeaponModuleConfig($stateProvider, NavigationServiceProvider) {
         $stateProvider
             .state('bl2.weapons', {
                 'abstract': true,
                 url: '/weapons',
-                data: {},
-                navigationItem: {
-                    sortOrder: 11,
-                    label: 'navigation.weapons.title',
-                    group: 'bl2.weapons',
-                    items: {}
-                }
+                data: {}
             })
             .state('bl2.weapons.list', {
                 url: '/list',
@@ -33,11 +32,6 @@ define([
                 },
                 data: {
                     pageTitle: 'weapons.list.pageTitle'
-                },
-                navigationItem: {
-                    sortOrder: 1,
-                    link: 'bl2.weapons.list',
-                    label: 'navigation.weapons.list'
                 }
             })
             .state('bl2.weapons.create', {
@@ -62,12 +56,6 @@ define([
                 data: {
                     'pageTitle': 'weapons.create.pageTitle',
                     'formTitle': 'weapons.create.formTitle'
-                },
-                navigationItem: {
-                    sortOrder: 11,
-                    link: 'bl2.weapons.create',
-                    label: 'navigation.weapons.create',
-                    role: 'admin'
                 }
             })
             .state('bl2.weapons.edit', {
@@ -94,13 +82,26 @@ define([
                     'formTitle': 'weapons.edit.formTitle'
                 }
             });
-    }
 
-    return angular
-        .module('bl2.weapons', [
-            'ui.router',
-            'restangular'
-        ])
-        .config(['$stateProvider', WeaponModuleConfig]);
+        NavigationServiceProvider.addNavigationItem({
+            sortOrder: 20,
+            label: 'navigation.weapons.title',
+            group: 'bl2.weapons',
+            items: [
+                {
+                    sortOrder: 10,
+                    link: 'bl2.weapons.list',
+                    label: 'navigation.weapons.list'
+                },
+                {
+                    sortOrder: 20,
+                    link: 'bl2.weapons.create',
+                    label: 'navigation.weapons.create',
+                    role: 'admin'
+                }
+            ]
+        });
+
+    }
 
 });
