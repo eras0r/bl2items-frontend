@@ -6,50 +6,57 @@ define([
     'use strict';
 
     userModule.controller('UserEditCtrl', [
-        '$scope', '$state', '$filter', '$log', 'Restangular', 'UserService', 'roles', 'user',
-        function ($scope, $state, $filter, $log, Restangular, UserService, roles, user) {
+        '$state', '$filter', '$log', 'Restangular', 'UserService', 'roles', 'user',
+        function ($state, $filter, $log, Restangular, UserService, roles, user) {
 
-            var self = this;
+            var vm = this;
 
-            self.originalUser = user;
-            $scope.user = Restangular.copy(self.originalUser);
+            vm.originalUser = user;
+            vm.user = Restangular.copy(vm.originalUser);
+            vm.userRoles = [];
 
-            $scope.userRoles = [];
-            angular.forEach(roles, function (value) {
-                // determine if the user already has the role
-                var userHasRole = $filter('filter')($scope.user.roles, {id: value.id}).length > 0;
-                $scope.userRoles.push({id: value.id, rolename: value.rolename, selected: userHasRole});
-            });
+            vm.isNotDirty = isNotDirty;
+            vm.save = save;
+            vm.cancel = cancel;
 
-            $scope.isNotDirty = function () {
-                return angular.equals(self.originalUser, $scope.user);
-            };
+            function isNotDirty() {
+                return angular.equals(vm.originalUser, vm.user);
+            }
 
-            $scope.save = function () {
+            function save() {
+                vm.errors = null;
 
                 // iterate over selected userRoles
-                $scope.user.roles = [];
-                angular.forEach($filter('filter')($scope.userRoles, {selected: true}), function (value) {
-                    $scope.user.roles.push({id: value.id, rolename: value.rolename});
+                vm.user.roles = [];
+                angular.forEach($filter('filter')(vm.userRoles, {selected: true}), function (value) {
+                    vm.user.roles.push({id: value.id, rolename: value.rolename});
                 });
 
-                UserService.update($scope.user)
+                UserService.update(vm.user)
                     .then(function () {
                         UserService.showList();
-                    }, function (response) {
+                    })
+                    .catch(function (response) {
                         if (response.status === 422) {
-                            $scope.errors = response.data;
+                            vm.errors = response.data;
                         }
                         else {
                             // TODO show error message
                             $log.error('error updating user');
                         }
-                    });
-            };
+                    }
+                );
+            }
 
-            $scope.cancel = function () {
+            function cancel() {
                 UserService.showList();
-            };
+            }
+
+            angular.forEach(roles, function (value) {
+                // determine if the user already has the role
+                var userHasRole = $filter('filter')(vm.user.roles, {id: value.id}).length > 0;
+                vm.userRoles.push({id: value.id, rolename: value.rolename, selected: userHasRole});
+            });
 
         }]);
 

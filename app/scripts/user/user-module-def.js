@@ -32,7 +32,7 @@ define([
                     'main@': {
                         templateUrl: 'scripts/user/user-details.html',
                         controller: 'UserCreateCtrl',
-                        controllerAs: 'userCtrl'
+                        controllerAs: 'vm'
                     }
                 },
                 resolve: {
@@ -46,7 +46,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/user/user-details.html',
-                        controller: 'UserEditCtrl'
+                        controller: 'UserEditCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 resolve: {

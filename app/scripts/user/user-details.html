@@ -4,27 +4,27 @@
     <div class="panel-body">
 
         <form class="form-horizontal" role="form" novalidate>
-            <div class="form-group" data-ng-class="{'has-error': userCtrl.errors.username}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.username}">
                 <label for="username" class="col-sm-3 control-label"
                        data-translate="admin.users.details.username"></label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="username" class="form-control" data-ng-model="userCtrl.user.username"
+                    <input type="text" id="username" class="form-control" data-ng-model="vm.user.username"
                            required="required"
                            maxlength="255"/>
-                    <span class="help-inline text-danger" data-ng-show="userCtrl.errors['username']">{{userCtrl.errors['username']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="vm.errors['username']">{{vm.errors['username']}}</span>
                 </div>
             </div>
 
-            <div class="form-group" data-ng-class="{'has-error': userCtrl.errors.password}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.password}">
                 <label for="password" class="col-sm-3 control-label"
                        data-translate="admin.users.details.password"></label>
 
                 <div class="col-sm-9">
-                    <input type="password" id="password" class="form-control" data-ng-model="userCtrl.user.password"
+                    <input type="password" id="password" class="form-control" data-ng-model="vm.user.password"
                            required="required"
                            maxlength="255"/>
-                    <span class="help-inline text-danger" data-ng-show="userCtrl.errors['password']">{{userCtrl.errors['password']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="vm.errors['password']">{{vm.errors['password']}}</span>
                 </div>
             </div>
 
@@ -32,8 +32,8 @@
                 <label class="col-sm-3 control-label" data-translate="admin.users.details.roles"></label>
 
                 <div class="col-sm-9">
-                    <p data-ng-repeat="role in userCtrl.userRoles">
-                        <input type="checkbox" data-ng-model="userCtrl.role.selected"> {{role.id}} - {{role.rolename}}
+                    <p data-ng-repeat="role in vm.userRoles">
+                        <input type="checkbox" data-ng-model="role.selected"> {{role.id}} - {{role.rolename}}
                     </p>
                 </div>
 
@@ -41,11 +41,11 @@
 
             <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary" data-ng-click="userCtrl.save()"
+                    <button type="submit" class="btn btn-primary" data-ng-click="vm.save()"
                             data-ng-disabled="user.isNotDirty()" data-translate="admin.users.details.button.save">
                     </button>
 
-                    <button type="button" class="btn btn-default" data-ng-click="userCtrl.cancel()"
+                    <button type="button" class="btn btn-default" data-ng-click="vm.cancel()"
                             data-translate="admin.users.details.button.cancel">
                     </button>
                 </div>
