@@ -1,11 +1,11 @@
 <div class="col-xs-4">
 
     <div>
-        <div data-ng-click="addPoint(skill)" class="skill-image"
-             style="background-image: url('{{getIcon()}}'); background-repeat: no-repeat;">
-            <img data-ng-src="{{getPointsIcon()}}" title="{{skill.name}}">
+        <div data-ng-click="vm.addPoint(skill)" class="skill-image"
+             style="background-image: url('{{vm.getIcon()}}'); background-repeat: no-repeat;">
+            <img data-ng-src="{{vm.getPointsIcon()}}" title="{{skill.name}}">
         </div>
-        <div data-ng-click="removePoint(skill)">
+        <div data-ng-click="vm.removePoint(skill)">
             remove point
         </div>
     </div>
