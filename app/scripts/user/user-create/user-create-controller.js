@@ -5,6 +5,8 @@ define([
 
     'use strict';
 
+    userModule.controller('UserCreateCtrl', ['$filter', '$log', 'UserService', 'roles', UserCreateCtrl]);
+
     /** @ngInject */
     function UserCreateCtrl($filter, $log, UserService, roles) {
 
@@ -42,8 +44,7 @@ define([
                         // TODO show error message
                         $log.error('error creating user');
                     }
-                }
-            );
+                });
         }
 
         function cancel() {
@@ -55,7 +56,5 @@ define([
         });
 
     }
-
-    userModule.controller('UserCreateCtrl', ['$filter', '$log', 'UserService', 'roles', UserCreateCtrl]);
 
 });
