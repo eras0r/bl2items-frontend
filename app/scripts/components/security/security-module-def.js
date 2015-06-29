@@ -26,7 +26,15 @@ define([
             var microTime = new Date().getTime();
 
             // get the absolute url
-            var absoluteUrl = new URL(url, window.location.href).href;
+            var absoluteUrl;
+
+            // convert relative urls
+            if (url.indexOf('.') === 0) {
+                absoluteUrl = new URL(url, window.location.href).href;
+            }
+            else {
+                absoluteUrl = url;
+            }
 
             var data = '';
             // use data (payload) for post and put requests
