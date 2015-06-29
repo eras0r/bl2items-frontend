@@ -3,13 +3,13 @@
     <div class="panel-heading" data-translate="admin.users.details.pageTitle"></div>
     <div class="panel-body">
 
-        <form class="form-horizontal" role="form" novalidate>
+        <form class="form-horizontal" name="userForm" role="form" novalidate>
             <div class="form-group" data-ng-class="{'has-error': vm.errors.username}">
                 <label for="username" class="col-sm-3 control-label"
                        data-translate="admin.users.details.username"></label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="username" class="form-control" data-ng-model="vm.user.username"
+                    <input type="text" id="username" name="username" class="form-control" data-ng-model="vm.user.username"
                            required="required"
                            maxlength="255"/>
                     <span class="help-inline text-danger" data-ng-show="vm.errors['username']">{{vm.errors['username']}}</span>
@@ -42,7 +42,7 @@
             <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-9">
                     <button type="submit" class="btn btn-primary" data-ng-click="vm.save()"
-                            data-ng-disabled="user.isNotDirty()" data-translate="admin.users.details.button.save">
+                            data-ng-disabled="!userForm.$dirty" data-translate="admin.users.details.button.save">
                     </button>
 
                     <button type="button" class="btn btn-default" data-ng-click="vm.cancel()"
@@ -50,6 +50,7 @@
                     </button>
                 </div>
             </div>
+
         </form>
 
     </div>

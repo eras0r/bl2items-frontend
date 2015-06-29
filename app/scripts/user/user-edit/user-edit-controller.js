@@ -5,23 +5,17 @@ define([
 
     'use strict';
 
-    userModule.controller('UserEditCtrl', ['$filter', '$log', 'Restangular', 'UserService', 'roles', 'user', UserEditCtrl]);
+    userModule.controller('UserEditCtrl', ['$filter', '$log', 'UserService', 'roles', 'user', UserEditCtrl]);
 
     /** @ngInject */
-    function UserEditCtrl($filter, $log, Restangular, UserService, roles, user) {
+    function UserEditCtrl($filter, $log, UserService, roles, user) {
         var vm = this;
 
-        vm.originalUser = user;
-        vm.user = Restangular.copy(vm.originalUser);
+        vm.user = user;
         vm.userRoles = [];
 
-        vm.isNotDirty = isNotDirty;
         vm.save = save;
         vm.cancel = cancel;
-
-        function isNotDirty() {
-            return angular.equals(vm.originalUser, vm.user);
-        }
 
         function save() {
             vm.errors = null;

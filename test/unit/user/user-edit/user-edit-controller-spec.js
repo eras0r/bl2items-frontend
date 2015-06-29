@@ -24,12 +24,7 @@ define([
         username: 'admin',
         roles: [
             roles[0]
-        ],
-        /* restangular properties */
-        reqParams: null,
-        fromServer: true,
-        parentResource: null,
-        restangularCollection: false
+        ]
     };
 
     describe('Unit testing', function () {
@@ -48,11 +43,8 @@ define([
                         spyOn(UserServiceMock, 'update').and.callFake(function (user) {
                             var deferred = $q.defer();
 
-                            console.log('mock username = ' + user.username);
-
                             // fail if there is no username provided
                             if (user.username === 'admin') {
-                                console.log('MOCK ERROR');
                                 var error = {
                                     status: 422,
                                     data: {
@@ -93,18 +85,9 @@ define([
                     expect(vm.user.roles).not.toContain(roles[1]);
                 });
 
-                describe('should have a working isNotDirty function', function () {
-
-                    it('should work for unchanged users', function () {
-                        expect(vm.isNotDirty()).toBeTruthy();
-                    });
-
-                    it('should work when changing the user\'s name', function () {
-                        vm.user.username = 'fred';
-                        expect(vm.isNotDirty()).toBeFalsy();
-                    });
-
-                    // change username
+                it('should contain the proper userRoles upon creation', function () {
+                    expect(vm.userRoles).not.toBeUndefined();
+                    expect(vm.userRoles.length).toBe(2);
                 });
 
                 it('should have a working cancel function', function () {
@@ -114,6 +97,23 @@ define([
                 });
 
                 describe('should have a working save function', function () {
+
+                    it('should work properly in case of validation errors', function () {
+                        vm.user.username = 'admin';
+                        vm.save();
+
+                        // ensures that the promise is resolved
+                        $scope.$digest();
+
+                        expect(UserServiceMock.update).toHaveBeenCalled();
+
+                        expect(vm.errors).not.toBeUndefined();
+
+                        expect(Object.keys(vm.errors).length).toBe(1);
+                        expect(vm.errors).toEqual({'username': 'username.not.unique.error'});
+
+                        expect(UserServiceMock.showList).not.toHaveBeenCalled();
+                    });
 
                     it('should work properly if there are no validation errors', function () {
                         vm.user.username = 'axton';
@@ -131,22 +131,7 @@ define([
                         expect(UserServiceMock.showList).toHaveBeenCalled();
                     });
 
-                    it('should work properly in case of validation errors', function () {
-                        vm.save();
-
-                        // ensures that the promise is resolved
-                        $scope.$digest();
-
-                        expect(UserServiceMock.update).toHaveBeenCalled();
-
-                        expect(vm.errors).not.toBeUndefined();
-                        expect(Object.keys(vm.errors).length).toBe(1);
-                        expect(vm.errors).toEqual({'username': 'username.not.unique.error'});
-
-                        expect(UserServiceMock.showList).not.toHaveBeenCalled();
-                    });
                 });
-
 
             });
         });
