@@ -63,7 +63,6 @@ define([
                     });
                 });
 
-
                 it('should be registered', function () {
                     expect(vm).not.toBeUndefined();
                 });
