@@ -48,7 +48,8 @@ requirejs.config({
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
         'angular-midway-tester': '../../node_modules/ng-midway-tester/src/ngMidwayTester',
         'test-helper': '../../test/lib/test-helper',
-        'templates': '../../test/lib/templates'
+        'templates': '../../test/lib/templates',
+        'jasmine-expect': '../bower_components/jasmine-expect/dist/jasmine-matchers'
     },
 
     shim: {
@@ -210,4 +211,11 @@ requirejs.config({
 
     // start test run, once Require.js is done
     callback: window.__karma__.start
+});
+
+require([
+    'jasmine-expect'
+], function () {
+    'use strict';
+
 });
