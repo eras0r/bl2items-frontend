@@ -53,6 +53,12 @@ define([
                             })
                             .state('bl2.portal', {
                                 url: 'portal'
+                            })
+                            .state('bl2.weapons', {
+                                url: 'weapons'
+                            })
+                            .state('bl2.weapons.list', {
+                                url: 'list'
                             });
                     });
 
@@ -187,6 +193,19 @@ define([
                         var link2 = listItems.eq(1).find('a');
                         expect(link2.attr('data-ui-sref')).toBe($scope.navItem.items[0].link);
                         expect(link2.attr('data-translate')).toBe($scope.navItem.items[0].label);
+                    });
+
+                    it('should set the active class in the parent group for dropdowns', function() {
+                        var $scope = $rootScope.$new();
+                        $scope.navItem = dropDownNavItem;
+
+                        $state.go('bl2.weapons.list');
+
+                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
+                        $scope.$digest();
+
+                        var liElem = element[0];
+                        expect(liElem.getAttribute('class')).toContain('active');
                     });
                 });
 
