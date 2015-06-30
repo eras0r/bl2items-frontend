@@ -6,7 +6,8 @@ define([
 
     // each template used within tests needs to be included here
     require([
-        'components/skill-tree/skill.html'
+        'components/skill-tree/skill.html',
+        'components/navigation/navigation-item/navigation-item.html'
     ]);
 
 });

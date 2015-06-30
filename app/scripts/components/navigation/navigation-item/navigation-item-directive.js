@@ -6,35 +6,48 @@ define([
 
     'use strict';
 
-    navigationModule.directive('navigationItem', ['SessionService',
-        function (SessionService) {
+    navigationModule.directive('navigationItem', NavigationItemDirective);
 
-            return {
-                restrict: 'E',
-                templateUrl: 'scripts/components/navigation/navigation-item/navigation-item.html',
-                replace: true,
-                scope: {
-                    navItem: '='
-                },
-                controller: [
-                    '$scope',
-                    function ($scope) {
+    /** @ngInject */
+    function NavigationItemDirective() {
 
-                        $scope.isDropdown = function () {
-                            return $scope.navItem && $scope.navItem.items !== undefined;
-                        };
+        var navigationItemDirective = {
+            restrict: 'E',
+            templateUrl: 'scripts/components/navigation/navigation-item/navigation-item.html',
+            replace: true,
+            scope: {
+                navItem: '='
+            },
+            controller: ['$state', 'SessionService', NavigationItemDirectiveController],
+            controllerAs: 'vm',
+            bindToController: true // because the scope is isolated
+        };
 
-                        $scope.isActive = function () {
-                            var stateToCheck = $scope.isDropdown() ? $scope.navItem.group : $scope.navItem.link;
-                            return $scope.$parent.$state.includes(stateToCheck);
-                        };
+        return navigationItemDirective;
+    }
 
-                        $scope.hasRole = function (role) {
-                            return SessionService.hasRole(role);
-                        };
-                    }
-                ]
-            };
-        }]);
+    /** @ngInject */
+    function NavigationItemDirectiveController($state, SessionService) {
+
+        var vm = this;
+
+        vm.isDropdown = isDropdown;
+        vm.isActive = isActive;
+        vm.hasRole = hasRole;
+
+        function isDropdown() {
+            return vm.navItem && vm.navItem.items !== undefined;
+        }
+
+        function isActive() {
+            var stateToCheck = vm.isDropdown() ? vm.navItem.group : vm.navItem.link;
+            return $state.includes(stateToCheck);
+        }
+
+        function hasRole(role) {
+            return !role || SessionService.hasRole(role);
+        }
+
+    }
 
 });

@@ -1,13 +1,15 @@
-<li data-dropdown data-ng-class="{active: isActive()}" data-ng-show="hasRole(navItem.role)">
-    <a data-ng-if="!isDropdown()" data-ui-sref="{{navItem.link}}" data-translate="{{navItem.label}}">
+<li data-dropdown data-ng-class="{active: vm.isActive()}" data-ng-show="vm.hasRole(vm.navItem.role)">
+
+    <a data-ng-if="!vm.isDropdown()" data-ui-sref="{{vm.navItem.link}}" data-translate="{{vm.navItem.label}}">
 
     </a>
 
-    <a data-ng-if="isDropdown()" data-dropdown-toggle>
-        <span data-translate="{{navItem.label}}"></span> <b class="caret"></b>
+    <a data-ng-if="vm.isDropdown()" data-dropdown-toggle>
+        <span data-translate="{{vm.navItem.label}}"></span> <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
-        <li data-nav-item="subNavItem" data-ng-repeat="subNavItem in navItem.items | orderBy: 'sortOrder'" data-ng-show="hasRole(subNavItem.role)">
+        <li data-nav-item="subNavItem" data-ng-repeat="subNavItem in vm.navItem.items | orderBy: 'sortOrder'"
+            data-ng-show="vm.hasRole(subNavItem.role)">
             <a data-ui-sref="{{subNavItem.link}}" data-translate="{{subNavItem.label}}">
 
             </a>
