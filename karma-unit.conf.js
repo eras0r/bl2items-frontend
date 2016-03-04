@@ -8,7 +8,7 @@ module.exports = function (config) {
     var conf = sharedConfig();
 
     conf.files = conf.files.concat([
-        {pattern: 'test/unit/**/*.js', included: false},
+        {pattern: 'test/unit/**/*.js', included: false}
     ]);
 
     config.set(conf);

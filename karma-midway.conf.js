@@ -9,7 +9,7 @@ module.exports = function (config) {
 
     conf.files = conf.files.concat([
         'node_modules/ng-midway-tester/src/ngMidwayTester.js',
-        {pattern: 'test/midway/**/*.js', included: false},
+        {pattern: 'test/midway/**/*.js', included: false}
     ]);
 
     config.set(conf);

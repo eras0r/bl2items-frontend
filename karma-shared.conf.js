@@ -4,7 +4,7 @@
 
 module.exports = function () {
 
-    var config = {
+    return {
         // base path, that will be used to resolve files and exclude
         basePath: '',
 
@@ -79,5 +79,4 @@ module.exports = function () {
 
     };
 
-    return config;
 };
