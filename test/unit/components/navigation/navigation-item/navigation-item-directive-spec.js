@@ -170,7 +170,7 @@ define([
 
                         var link = element.find('a');
                         expect(link.attr('data-ui-sref')).toEqual($scope.navItem.link);
-                        expect(link.attr('data-dropdown-toggle')).toBe('');
+                        expect(link.attr('data-uib-dropdown-toggle')).toBe('');
 
                         // check the label
                         var span = link.find('span');
