@@ -1,10 +1,10 @@
-<li data-dropdown data-ng-class="{active: vm.isActive()}" data-ng-show="vm.hasRole(vm.navItem.role)">
+<li data-uib-dropdown data-ng-class="{active: vm.isActive()}" data-ng-show="vm.hasRole(vm.navItem.role)">
 
     <a data-ng-if="!vm.isDropdown()" data-ui-sref="{{vm.navItem.link}}" data-translate="{{vm.navItem.label}}">
 
     </a>
 
-    <a data-ng-if="vm.isDropdown()" data-dropdown-toggle>
+    <a data-ng-if="vm.isDropdown()" data-uib-dropdown-toggle>
         <span data-translate="{{vm.navItem.label}}"></span> <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">

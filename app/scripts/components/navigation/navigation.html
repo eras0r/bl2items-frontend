@@ -24,8 +24,8 @@
 
                 <!-- right navigation -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-dropdown data-ng-show="vm.isUserLoggedIn()">
-                        <a data-dropdown-toggle>
+                    <li data-uib-dropdown data-ng-show="vm.isUserLoggedIn()">
+                        <a data-uib-dropdown-toggle>
                             <span class="glyphicon glyphicon-user"></span>
                             {{vm.getCurrentUser().username}} <span class="caret"></span>
                         </a>
@@ -48,8 +48,8 @@
                     <li data-ng-hide="vm.isUserLoggedIn()">
                         <a data-ui-sref="bl2.login" data-translate="navigation.user.login"></a>
                     </li>
-                    <li data-dropdown data-ng-controller="LanguageCtrl">
-                        <a data-dropdown-toggle>
+                    <li data-uib-dropdown data-ng-controller="LanguageCtrl">
+                        <a data-uib-dropdown-toggle>
                             {{getCurrentLanguage()}} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
