@@ -4,7 +4,8 @@
 define([
     'angular',
     'angular-ui-router',
-    'restangular'
+    'restangular',
+    'components/navigation/navigation-module-inc'
 ], function (angular) {
 
     'use strict';

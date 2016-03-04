@@ -5,7 +5,8 @@ define([
     'angular',
     'restangular',
     'angular-ui-router',
-    'ng-file-upload'
+    'ng-file-upload',
+    'components/navigation/navigation-module-inc'
 ], function (angular) {
 
     'use strict';
