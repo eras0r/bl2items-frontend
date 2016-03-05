@@ -51,6 +51,9 @@ define([
                     }],
                     damageTypes: ['DamageTypeService', function (DamageTypeService) {
                         return DamageTypeService.list();
+                    }],
+                    weaponTypes: ['WeaponTypeService', function (WeaponTypeService) {
+                        return WeaponTypeService.list();
                     }]
                 },
                 data: {
@@ -75,6 +78,9 @@ define([
                     }],
                     damageTypes: ['DamageTypeService', function (DamageTypeService) {
                         return DamageTypeService.list();
+                    }],
+                    weaponTypes: ['WeaponTypeService', function (WeaponTypeService) {
+                        return WeaponTypeService.list();
                     }],
                     weapon: ['$stateParams', 'WeaponService', function ($stateParams, WeaponService) {
                         return WeaponService.read($stateParams.id);
