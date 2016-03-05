@@ -1,7 +1,8 @@
 define([
     'angular',
+    'lodash',
     'components/navigation/navigation-module-def'
-], function (angular, navigationModule) {
+], function (angular, _, navigationModule) {
 
     'use strict';
 
@@ -47,11 +48,9 @@ define([
         /** @ngInject */
         function NavigationService($filter) {
 
-            var navigationService = {
+            return {
                 getNavigationItems: getNavigationItems
             };
-
-            return navigationService;
 
             function getNavigationItems() {
                 return $filter('orderBy')(navItems, 'sortOrder');
