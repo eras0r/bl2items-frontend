@@ -43,15 +43,15 @@ define([
                     }
                 },
                 resolve: {
-                    rarities: function (RarityService) {
+                    rarities: ['RarityService', function (RarityService) {
                         return RarityService.list();
-                    },
-                    manufacturers: function (ManufacturerService) {
+                    }],
+                    manufacturers: ['ManufacturerService', function (ManufacturerService) {
                         return ManufacturerService.list();
-                    },
-                    damageTypes: function (DamageTypeService) {
+                    }],
+                    damageTypes: ['DamageTypeService', function (DamageTypeService) {
                         return DamageTypeService.list();
-                    }
+                    }]
                 },
                 data: {
                     'pageTitle': 'weapons.create.pageTitle',
@@ -67,15 +67,18 @@ define([
                     }
                 },
                 resolve: {
-                    rarities: function (RarityService) {
+                    rarities: ['RarityService', function (RarityService) {
                         return RarityService.list();
-                    },
-                    manufacturers: function (ManufacturerService) {
+                    }],
+                    manufacturers: ['ManufacturerService', function (ManufacturerService) {
                         return ManufacturerService.list();
-                    },
-                    damageTypes: function (DamageTypeService) {
+                    }],
+                    damageTypes: ['DamageTypeService', function (DamageTypeService) {
                         return DamageTypeService.list();
-                    }
+                    }],
+                    weapon: ['$stateParams', 'WeaponService', function ($stateParams, WeaponService) {
+                        return WeaponService.read($stateParams.id);
+                    }]
                 },
                 data: {
                     'pageTitle': 'weapons.edit.pageTitle',

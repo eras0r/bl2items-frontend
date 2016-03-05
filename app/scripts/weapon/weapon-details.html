@@ -24,7 +24,7 @@
                             <label for="rarity2" class="col-lg-3 control-label" data-translate="weapons.details.rarity"></label>
 
                             <div class="col-lg-9">
-                                <select id="rarity2" data-ng-model="weapon.rarity" ng-options="r.name for r in rarities"
+                                <select id="rarity2" data-ng-model="weapon.rarity" data-ng-options="r.name for r in rarities track by r.id"
                                         class="form-control">
                                 </select>
                                 <span class="help-inline text-danger" data-ng-show="errors['rarity']">{{errors['rarity']}}</span>
@@ -127,7 +127,7 @@
 
                             <div class="col-lg-9">
                                 <select id="damageType" data-ng-model="weapon.damageType"
-                                        ng-options="dmg.name for dmg in damageTypes"
+                                        data-ng-options="dmg.name for dmg in damageTypes track by dmg.id"
                                         class="form-control" data-ng-change="changeDamageType()">
                                     <option>-none-</option>
                                 </select>
@@ -196,7 +196,7 @@
 
                             <div class="col-lg-9">
                                 <select id="manufacturer" data-ng-model="weapon.manufacturer"
-                                        ng-options="man.name for man in manufacturers"
+                                        data-ng-options="man.name for man in manufacturers track by man.id"
                                         class="form-control">
                                 </select>
                         <span class="help-inline text-danger"

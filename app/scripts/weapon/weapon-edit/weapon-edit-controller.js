@@ -6,8 +6,8 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponEditCtrl', [
-        '$scope', '$filter', '$log', '$stateParams', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService',
-        function ($scope, $filter, $log, $stateParams, rarities, manufacturers, damageTypes, WeaponService) {
+        '$scope', '$filter', '$log', '$stateParams', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', 'weapon',
+        function ($scope, $filter, $log, $stateParams, rarities, manufacturers, damageTypes, WeaponService, weapon) {
 
             // assign ui router resolves
             $scope.rarities = rarities;
@@ -15,15 +15,7 @@ define([
             $scope.damageTypes = damageTypes;
 
             // init weapon
-            WeaponService.read($stateParams.id).then(function (weapon) {
-                //console.log('loaded weapon: ', weapon);
-                $scope.weapon = weapon;
-                // force initial selection of select items
-                // TODO find a better solution to init selection on select items
-                $scope.weapon.rarity = $filter('filter')($scope.rarities, {id: weapon.rarity.id})[0];
-                $scope.weapon.damageType = $filter('filter')($scope.damageTypes, {id: weapon.damageType.id})[0];
-                $scope.weapon.manufacturer = $filter('filter')($scope.manufacturers, {id: weapon.manufacturer.id})[0];
-            });
+            $scope.weapon = weapon;
 
             $scope.changeDamageType = function () {
                 $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
