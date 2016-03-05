@@ -3,12 +3,8 @@
  */
 define([
     'angular',
-    'cryptojs.core',
-    'cryptojs.x64-core',
-    'cryptojs.sha512',
-    'cryptojs.hmac',
     'angular-http-auth'
-], function (angular, CryptoJS) {
+], function (angular) {
 
     'use strict';
 
@@ -23,39 +19,11 @@ define([
         });
 
         RestangularProvider.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
-            var microTime = new Date().getTime();
-
-            // get the absolute url
-            var absoluteUrl;
-
-            // convert relative urls
-            if (url.indexOf('.') === 0) {
-                absoluteUrl = new URL(url, window.location.href).href;
-            }
-            else {
-                absoluteUrl = url;
-            }
-
-            var data = '';
-            // use data (payload) for post and put requests
-            if (operation === 'put' || operation === 'post') {
-                data = JSON.stringify(element);
-            }
-
-            // init hmac secret if not defined
-            if (!localStorage.hmacSecret) {
-                localStorage.hmacSecret = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
-            }
-
-            var hmacHash = CryptoJS.HmacSHA512(absoluteUrl + ':' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
-
             return {
                 element: element,
                 params: params,
                 headers: _.extend(headers, {
-                    'X-SESSION-TOKEN': localStorage.sessionToken,
-                    'X-MICRO-TIME': microTime,
-                    'X-HMAC-HASH': hmacHash
+                    'Authorization': localStorage.sessionToken
                 }),
                 httpConfig: httpConfig
             };

@@ -1,11 +1,7 @@
 define([
     'angular',
-    'components/security/security-module-def',
-    'cryptojs.core',
-    'cryptojs.x64-core',
-    'cryptojs.sha512',
-    'cryptojs.hmac'
-], function (angular, securityModule, CryptoJS) {
+    'components/security/security-module-def'
+], function (angular, securityModule) {
 
     'use strict';
 
@@ -16,17 +12,15 @@ define([
                 $scope.login = function () {
 
                     SessionService.login($scope.user.name, $scope.user.password).then(function (data) {
+                        // reset login form
                         $scope.user = {
                             name: '',
                             password: ''
                         };
 
                         // Store session token
-                        localStorage.sessionToken = data.sessionToken;
-
-                        // Generate new HMAC secret out of our previous (username + password) and the new session token
-                        // sha512("sha512('username:password'):sessionToken")
-                        localStorage.hmacSecret = CryptoJS.SHA512(localStorage.hmacSecret + ':' + data.sessionToken);
+                        localStorage.sessionToken = data.id;
+                        localStorage.userId = data.userId;
 
                         // TODO
                         $scope.message = 'Login Successful: ' + localStorage.sessionToken;

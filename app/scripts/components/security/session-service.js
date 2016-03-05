@@ -1,16 +1,11 @@
 define([
     'angular',
-    'components/security/security-module-def',
-    'cryptojs.core',
-    'cryptojs.x64-core',
-    'cryptojs.sha512',
-    'cryptojs.hmac'
-], function (angular, securityModule, CryptoJS) {
+    'components/security/security-module-def'
+], function (angular, securityModule) {
 
     'use strict';
 
     securityModule.factory('SessionService', ['$state', 'Restangular', function ($state, Restangular) {
-        var resourceUrl = 'sessions';
 
         var currentUser;
 
@@ -18,7 +13,8 @@ define([
 
             getCurrentUser: function () {
                 if (typeof currentUser === 'undefined') {
-                    currentUser = Restangular.one('current-user').get().$object;
+                    var filter = {include: ['roles']};
+                    currentUser = Restangular.one('users/' + localStorage.userId + '/').get({filter: filter}).$object;
                 }
 
                 return currentUser;
@@ -34,27 +30,33 @@ define([
              * @param role the role to be tested
              * @returns {boolean} whether the user has the given role or not.
              */
-            hasRole: function (role) {
-                if (typeof role === 'undefined') {
+            hasRole: function (roleName) {
+                if (typeof roleName === 'undefined') {
                     return true;
                 }
-                return currentUser && currentUser.roles && currentUser.roles.indexOf(role) !== -1;
+
+                if (currentUser && currentUser.roles) {
+                    // search the user's roles for the required role
+                    var matchedRoles = _.filter(currentUser.roles, function (role) {
+                        return role.name === roleName;
+                    });
+
+                    return matchedRoles.length > 0;
+                }
+                // current user is not set or does not have any roles
+                else {
+                    return false;
+                }
             },
 
             login: function (username, password) {
-                // Generate HMAC secret (sha512('username:password'))
-                localStorage.hmacSecret = CryptoJS.SHA512(username + ':' + password).toString(CryptoJS.enc.Hex);
-
                 // POST Data
-                var randomString = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
                 var postData = {
-                    payload: randomString,
                     username: username,
                     password: password
                 };
 
-                return Restangular.all(resourceUrl).post(postData);
-
+                return Restangular.all('users/login').post(postData);
             },
 
             isUserLoggedIn: function () {
@@ -62,7 +64,7 @@ define([
             },
 
             logout: function () {
-                return Restangular.all(resourceUrl).customDELETE(localStorage.sessionToken);
+                return Restangular.all('users/logout').post();
             }
 
         };
