@@ -5,6 +5,10 @@ define([
 
     'use strict';
 
+    var defaultFilter = {
+        include: ['manufacturer', 'rarity', 'damageType', 'weaponType']
+    };
+
     weaponModule.factory('WeaponService', ['$state', 'Restangular', function ($state, Restangular) {
         var resourceUrl = 'weapons';
 
@@ -14,7 +18,8 @@ define([
             },
 
             list: function () {
-                return Restangular.all(resourceUrl).getList();
+                // ensure the REST API includes all needed relations
+                return Restangular.all(resourceUrl).getList({filter: defaultFilter});
             },
 
             create: function (weapon) {
@@ -22,7 +27,7 @@ define([
             },
 
             read: function (id) {
-                return Restangular.one(resourceUrl, id).get();
+                return Restangular.one(resourceUrl, id).get({filter: defaultFilter});
             },
 
             update: function (weapon) {

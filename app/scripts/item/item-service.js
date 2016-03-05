@@ -10,24 +10,16 @@ define([
 
         return {
             list: function () {
-                return Restangular.all(resourceUrl).getList();
-            },
+                // ensure the REST API includes all needed relations
+                var filter = {
+                    include: ['manufacturer', 'rarity', 'damageType', 'weaponType']
+                };
 
-            create: function (item) {
-                return Restangular.all(resourceUrl).post(item);
-            },
-
-            read: function (id) {
-                return Restangular.one(resourceUrl, id).get();
-            },
-
-            update: function (item) {
-                return item.put();
-            },
-
-            remove: function (item) {
-                return item.remove();
+                return Restangular.all(resourceUrl).getList({filter: filter});
             }
+
+            // TODO count method
+
         };
 
     }]);

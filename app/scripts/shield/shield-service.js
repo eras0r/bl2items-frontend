@@ -5,6 +5,10 @@ define([
 
     'use strict';
 
+    var defaultFilter = {
+        include: ['manufacturer', 'rarity']
+    };
+
     shieldModule.factory('ShieldService', ['$state', 'Restangular', function ($state, Restangular) {
         var resourceUrl = 'shields';
 
@@ -14,7 +18,8 @@ define([
             },
 
             list: function () {
-                return Restangular.all(resourceUrl).getList();
+                // ensure the REST API includes all needed relations
+                return Restangular.all(resourceUrl).getList({filter: defaultFilter});
             },
 
             create: function (shield) {
