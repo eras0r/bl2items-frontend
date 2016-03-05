@@ -1,0 +1,39 @@
+<h1 data-translate="admin.weaponTypes.title"></h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading" data-translate="admin.weaponTypes.list.pageTitle"></div>
+    <div class="panel-body" data-translate="admin.weaponTypes.list.pageDescription"></div>
+
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th data-translate="admin.weaponTypes.list.table.header.name"></th>
+            <th data-translate="admin.weaponTypes.list.table.header.sortOrder"></th>
+            <th data-translate="admin.weaponTypes.list.table.header.menu" class="col-xs-1"></th>
+        </tr>
+        <tr data-ng-repeat="weaponType in weaponTypes" style="color: {{weaponType.color}}">
+            <td>{{weaponType.name}}</td>
+            <td>{{weaponType.sortOrder}}</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-default btn-xs"
+                        data-ui-sref=".edit({id: weaponType.id})">
+                    <span class="glyphicon glyphicon-pencil"
+                          title="{{'admin.weaponTypes.list.table.menu.edit' | translate}}"></span>
+                </button>
+
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(damageType)">
+                    <span class="glyphicon glyphicon-trash"
+                          title="{{'admin.weaponTypes.list.table.menu.delete' | translate}}"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="panel-footer text-right">
+        <button type="button" class="btn btn-success" data-ui-sref=".create"
+                title="{{'admin.weaponTypes.list.table.footer.create' | translate}}">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            <span data-translate="admin.weaponTypes.list.table.footer.create"></span>
+        </button>
+    </div>
+
+</div>

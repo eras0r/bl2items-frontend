@@ -16,6 +16,7 @@ define([
     'shield/shield-module-inc',
     'damage-type/damage-type-module-inc',
     'manufacturer/manufacturer-module-inc',
+    'weapon-type/weapon-type-module-inc',
     'rarity/rarity-module-inc',
     'character/character-module-inc',
     'class-mod/class-mod-module-inc'
@@ -24,31 +25,32 @@ define([
     'use strict';
 
     return angular.module('bl2ItemsDbApp', [
-        'ngCookies',
-        'ngSanitize',
-        /* external 3rd party modules*/
-        'ui.router',
-        'restangular',
-        'pascalprecht.translate',
-        'ui.bootstrap',
-        /* generic core modules */
-        'rn.security',
-        'rn.navigation',
-        'rn.highlightText',
-        'rn.colorPicker',
-        /* business specific modules*/
-        'bl2.files',
-        'bl2.users',
-        'bl2.items',
-        'bl2.weapons',
-        'bl2.shields',
-        'bl2.damageTypes',
-        'bl2.manufacturers',
-        'bl2.rarities',
-        'bl2.characters',
-        'bl2.classMods',
-        'bl2.skillTree'
-    ])
+            'ngCookies',
+            'ngSanitize',
+            /* external 3rd party modules*/
+            'ui.router',
+            'restangular',
+            'pascalprecht.translate',
+            'ui.bootstrap',
+            /* generic core modules */
+            'rn.security',
+            'rn.navigation',
+            'rn.highlightText',
+            'rn.colorPicker',
+            /* business specific modules*/
+            'bl2.files',
+            'bl2.users',
+            'bl2.items',
+            'bl2.weapons',
+            'bl2.shields',
+            'bl2.damageTypes',
+            'bl2.manufacturers',
+            'bl2.weaponTypes',
+            'bl2.rarities',
+            'bl2.characters',
+            'bl2.classMods',
+            'bl2.skillTree'
+        ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
 
@@ -102,15 +104,15 @@ define([
 
             }])
         .run(['$rootScope', '$state', '$stateParams',
-            function ($rootScope, $state, $stateParams) {
-                // It's very handy to add references to $state and $stateParams to the $rootScope
-                // so that you can access them from any scope within your applications. For example,
-                // <li ui-sref-active="active }"> will set the <li> // to active whenever
-                // 'contacts.list' or one of its descendants is active.
-                $rootScope.$state = $state;
-                $rootScope.$stateParams = $stateParams;
-            }
-        ]
-    );
+                function ($rootScope, $state, $stateParams) {
+                    // It's very handy to add references to $state and $stateParams to the $rootScope
+                    // so that you can access them from any scope within your applications. For example,
+                    // <li ui-sref-active="active }"> will set the <li> // to active whenever
+                    // 'contacts.list' or one of its descendants is active.
+                    $rootScope.$state = $state;
+                    $rootScope.$stateParams = $stateParams;
+                }
+            ]
+        );
 
 });
