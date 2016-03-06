@@ -39,7 +39,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/weapon/weapon-details.html',
-                        controller: 'WeaponCreateCtrl'
+                        controller: 'WeaponCreateCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 resolve: {
@@ -66,7 +67,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/weapon/weapon-details.html',
-                        controller: 'WeaponEditCtrl'
+                        controller: 'WeaponEditCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 resolve: {

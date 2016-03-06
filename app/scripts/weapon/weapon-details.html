@@ -13,78 +13,78 @@
                                    data-translate="weapons.details.levelRequirement"></label>
 
                             <div class="col-lg-9">
-                                <input type="number" id="level" ng-model="weapon.level" class="form-control" min="1"
+                                <input type="number" id="level" ng-model="vm.weapon.level" class="form-control" min="1"
                                        max="72">
                                 <span class="help-inline text-danger"
-                                      data-ng-show="errors['level']">{{errors['level']}}</span>
+                                      data-ng-show="vm.errors['level']">{{vm.errors['level']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.rarity}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.rarity}">
                             <label for="rarity" class="col-lg-3 control-label"
                                    data-translate="weapons.details.rarity"></label>
 
                             <div class="col-lg-9">
-                                <select id="rarity" data-ng-model="weapon.rarity"
-                                        data-ng-options="r.name for r in rarities track by r.id"
-                                        data-ng-change="changeRarity()"
+                                <select id="rarity" data-ng-model="vm.weapon.rarity"
+                                        data-ng-options="r.name for r in vm.rarities track by r.id"
+                                        data-ng-change="vm.changeRarity()"
                                         class="form-control">
                                 </select>
-                                <span class="help-inline text-danger" data-ng-show="errors['rarity']">{{errors['rarity']}}</span>
+                                <span class="help-inline text-danger" data-ng-show="vm.errors['rarity']">{{vm.errors['rarity']}}</span>
                             </div>
 
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.name}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.name}">
                             <label for="name" class="col-lg-3 control-label"
                                    data-translate="weapons.details.name"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="name" ng-model="weapon.name" placeholder="Practicable Butcher"
+                                <input type="text" id="name" ng-model="vm.weapon.name" placeholder="Practicable Butcher"
                                        class="form-control">
                                 <span class="help-inline text-danger"
-                                      data-ng-show="errors['name']">{{errors['name']}}</span>
+                                      data-ng-show="vm.errors['name']">{{vm.errors['name']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.gibbedCode}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.gibbedCode}">
                             <label for="gibbedCode" class="col-lg-3 control-label"
                                    data-translate="weapons.details.gibbedCode"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="gibbedCode" ng-model="weapon.gibbedCode" placeholder="BL2(...)"
+                                <input type="text" id="gibbedCode" ng-model="vm.weapon.gibbedCode"
+                                       placeholder="BL2(...)"
                                        class="form-control">
-                                <span class="help-inline text-danger" data-ng-show="errors['gibbedCode']">{{errors['gibbedCode']}}</span>
+                                <span class="help-inline text-danger" data-ng-show="vm.errors['gibbedCode']">{{vm.errors['gibbedCode']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.weaponType}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.weaponType}">
                             <label for="damageType" class="col-lg-3 control-label"
                                    data-translate="weapons.details.weaponType"></label>
 
                             <div class="col-lg-9">
-                                <select id="weaponType" data-ng-model="weapon.weaponType"
-                                        data-ng-options="weaponType.name for weaponType in weaponTypes track by weaponType.id"
-                                        data-ng-change="changeWeaponType()"
+                                <select id="weaponType" data-ng-model="vm.weapon.weaponType"
+                                        data-ng-options="weaponType.name for weaponType in vm.weaponTypes track by weaponType.id"
+                                        data-ng-change="vm.changeWeaponType()"
                                         class="form-control">
-                                    <!--<option>-none-</option>-->
                                 </select>
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['weaponType']">{{errors['weaponType']}}</span>
+                                  data-ng-show="vm.errors['weaponType']">{{vm.errors['weaponType']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.damage}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.damage}">
 
                             <div class="col-xs-6">
                                 <label for="damage" class="col-lg-3 control-label"
                                        data-translate="weapons.details.damage"></label>
 
                                 <div class="col-lg-9">
-                                    <input type="text" id="damage" ng-model="weapon.damage" placeholder="5463"
+                                    <input type="text" id="damage" ng-model="vm.weapon.damage" placeholder="5463"
                                            class="form-control">
                                     <span class="help-inline text-danger"
-                                          data-ng-show="errors['damage']">{{errors['damage']}}</span>
+                                          data-ng-show="vm.errors['damage']">{{vm.errors['damage']}}</span>
                                 </div>
                             </div>
                             <div class="col-xs-6">
@@ -92,158 +92,160 @@
                                        data-translate="weapons.details.multiplicator"></label>
 
                                 <div class="col-lg-9">
-                                    <input type="text" id="multiplicator" ng-model="weapon.multiplicator"
+                                    <input type="text" id="multiplicator" ng-model="vm.weapon.multiplicator"
                                            placeholder="3"
                                            class="form-control">
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['multiplicator']">{{errors['multiplicator']}}</span>
+                                  data-ng-show="vm.errors['multiplicator']">{{vm.errors['multiplicator']}}</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.accuracy}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.accuracy}">
                             <label for="accuracy" class="col-lg-3 control-label"
                                    data-translate="weapons.details.accuracy"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="accuracy" ng-model="weapon.accuracy" placeholder="61.9"
+                                <input type="text" id="accuracy" ng-model="vm.weapon.accuracy" placeholder="61.9"
                                        class="form-control">
                                 <span class="help-inline text-danger"
-                                      data-ng-show="errors['accuracy']">{{errors['accuracy']}}</span>
+                                      data-ng-show="vm.errors['accuracy']">{{vm.errors['accuracy']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.fireRate}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.fireRate}">
                             <label for="fireRate" class="col-lg-3 control-label"
                                    data-translate="weapons.details.fireRate"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="fireRate" ng-model="weapon.fireRate" placeholder="7.0"
+                                <input type="text" id="fireRate" ng-model="vm.weapon.fireRate" placeholder="7.0"
                                        class="form-control">
                                 <span class="help-inline text-danger"
-                                      data-ng-show="errors['fireRate']">{{errors['fireRate']}}</span>
+                                      data-ng-show="vm.errors['fireRate']">{{vm.errors['fireRate']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.reloadSpeed}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.reloadSpeed}">
                             <label for="reloadSpeed" class="col-lg-3 control-label"
                                    data-translate="weapons.details.reloadSpeed"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="reloadSpeed" ng-model="weapon.reloadSpeed" placeholder="3.7"
+                                <input type="text" id="reloadSpeed" ng-model="vm.weapon.reloadSpeed" placeholder="3.7"
                                        class="form-control">
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['reloadSpeed']">{{errors['reloadSpeed']}}</span>
+                                  data-ng-show="vm.errors['reloadSpeed']">{{vm.errors['reloadSpeed']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.magazineSize}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.magazineSize}">
                             <label for="magazineSize" class="col-lg-3 control-label"
                                    data-translate="weapons.details.magazineSize"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="magazineSize" ng-model="weapon.magazineSize" placeholder="13"
+                                <input type="text" id="magazineSize" ng-model="vm.weapon.magazineSize" placeholder="13"
                                        class="form-control">
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['magazineSize']">{{errors['magazineSize']}}</span>
+                                  data-ng-show="vm.errors['magazineSize']">{{vm.errors['magazineSize']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.damageType}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.damageType}">
                             <label for="damageType" class="col-lg-3 control-label"
-                                   data-translate="weapons.details.damageType"></label>
+                                   data-translate="vm.weapons.details.damageType"></label>
 
                             <div class="col-lg-9">
-                                <select id="damageType" data-ng-model="weapon.damageType"
-                                        data-ng-options="dmg.name for dmg in damageTypes track by dmg.id"
-                                        class="form-control" data-ng-change="changeDamageType()">
+                                <select id="damageType" data-ng-model="vm.weapon.damageType"
+                                        data-ng-options="dmg.name for dmg in vm.damageTypes track by dmg.id"
+                                        class="form-control" data-ng-change="vm.changeDamageType()">
                                     <option>-none-</option>
                                 </select>
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['damageType']">{{errors['damageType']}}</span>
+                                  data-ng-show="vm.errors['damageType']">{{vm.errors['damageType']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" ng-hide="weapon.damageType.damageLabel == null"
-                             data-ng-class="{'has-error': errors.elemDamage}">
+                        <div class="form-group" ng-hide="vm.weapon.damageType.damageLabel == null"
+                             data-ng-class="{'has-error': vm.errors.elemDamage}">
                             <label for="elemDamage"
-                                   class="col-lg-3 control-label">{{weapon.damageType.damageLabel}}</label>
+                                   class="col-lg-3 control-label">{{vm.weapon.damageType.damageLabel}}</label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="elemDamage" ng-model="weapon.elemDamage" placeholder="3605.9"
+                                <input type="text" id="elemDamage" ng-model="vm.weapon.elemDamage" placeholder="3605.9"
                                        class="form-control">
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['elemDamage']">{{errors['elemDamage']}}</span>
+                                  data-ng-show="vm.errors['elemDamage']">{{vm.errors['elemDamage']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" ng-hide="weapon.damageType.chanceLabel == null"
-                             data-ng-class="{'has-error': errors.elemChance}">
+                        <div class="form-group" ng-hide="vm.weapon.damageType.chanceLabel == null"
+                             data-ng-class="{'has-error': vm.errors.elemChance}">
                             <label for="elemChance"
-                                   class="col-lg-3 control-label">{{weapon.damageType.chanceLabel}}</label>
+                                   class="col-lg-3 control-label">{{vm.weapon.damageType.chanceLabel}}</label>
 
                             <div class="col-lg-9">
                                 <div class="input-group">
                                     <span class="input-group-addon">%</span>
-                                    <input type="text" id="elemChance" ng-model="weapon.elemChance" placeholder="12.0"
+                                    <input type="text" id="elemChance" ng-model="vm.weapon.elemChance"
+                                           placeholder="12.0"
                                            class="form-control">
                                     </span>
                                 </div>
 
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['elemChance']">{{errors['elemChance']}}</span>
+                                  data-ng-show="vm.errors['elemChance']">{{vm.errors['elemChance']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.uniqueText}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.uniqueText}">
                             <label for="uniqueText" class="col-lg-3 control-label"
                                    data-translate="weapons.details.uniqueText"></label>
 
                             <div class="col-lg-9">
-                                <input type="text" id="uniqueText" ng-model="weapon.uniqueText" placeholder=""
+                                <input type="text" id="uniqueText" ng-model="vm.weapon.uniqueText"
                                        class="form-control">
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['uniqueText']">{{errors['uniqueText']}}</span>
+                                  data-ng-show="vm.errors['uniqueText']">{{vm.errors['uniqueText']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.additionalText}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.additionalText}">
                             <label for="additionalText" class="col-lg-3 control-label"
                                    data-translate="weapons.details.additionalText"></label>
 
                             <div class="col-lg-9">
-                                <textarea id="additionalText" data-ng-model="weapon.additionalText" placeholder=""
+                                <textarea id="additionalText" data-ng-model="vm.weapon.additionalText" placeholder=""
                                           class="form-control"
                                           rows="5">
                                 </textarea>
                         <span class="help-inline text-danger"
-                              data-ng-show="errors['additionalText']">{{errors['additionalText']}}</span>
+                              data-ng-show="vm.errors['additionalText']">{{vm.errors['additionalText']}}</span>
                             </div>
                         </div>
 
-                        <div class="form-group" data-ng-class="{'has-error': errors.manufacturer}">
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.manufacturer}">
                             <label for="manufacturer" class="col-lg-3 control-label"
                                    data-translate="weapons.details.manufacturer"></label>
 
                             <div class="col-lg-9">
-                                <select id="manufacturer" data-ng-model="weapon.manufacturer"
-                                        data-ng-options="man.name for man in manufacturers track by man.id"
-                                        data-ng-change="changeManufacturer()"
+                                <select id="manufacturer" data-ng-model="vm.weapon.manufacturer"
+                                        data-ng-options="man.name for man in vm.manufacturers track by man.id"
+                                        data-ng-change="vm.changeManufacturer()"
                                         class="form-control">
                                 </select>
                         <span class="help-inline text-danger"
-                              data-ng-show="errors['manufacturer']">{{errors['manufacturer']}}</span>
+                              data-ng-show="vm.errors['manufacturer']">{{vm.errors['manufacturer']}}</span>
                             </div>
                         </div>
 
                         <div class="form-group text-right">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-default" data-ng-click="save()"
-                                        data-translate="weapons.details.button.save">save
+                                <button type="submit" class="btn btn-default" data-ng-click="vm.save()"
+                                        data-translate="weapons.details.button.save">
                                 </button>
 
-                                <button type="button" class="btn btn-primary" data-ng-click="cancel()"
-                                        data-translate="weapons.details.button.cancel"></button>
+                                <button type="button" class="btn btn-primary" data-ng-click="vm.cancel()"
+                                        data-translate="weapons.details.button.cancel">
+                                </button>
                             </div>
                         </div>
 
@@ -255,6 +257,6 @@
     </div>
 
     <div class="col-md-6 visible-md-inline-block visible-lg-inline-block">
-        <display-item data-item="weapon" data-item-type="weapon"></display-item>
+        <display-item data-item="vm.weapon" data-item-type="weapon"></display-item>
     </div>
 </div>
