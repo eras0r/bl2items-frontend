@@ -29,6 +29,7 @@ define([
         'bl2.shields',
         'bl2.damageTypes',
         'bl2.manufacturers',
+        'bl2.weaponTypes',
         'bl2.rarities',
         'bl2.characters',
         'bl2.classMods',
