@@ -81,10 +81,11 @@ define([
                         };
 
                         $scope.hasSpecialDamageType = function () {
-                            return $scope.getDamageType().id !== '1';
+                            return $scope.getDamageType().chanceLabel;
                         };
 
                         $scope.getDamageType = function () {
+
                             if ($scope.item && $scope.item.damageType) {
                                 return $scope.item.damageType;
                             }
