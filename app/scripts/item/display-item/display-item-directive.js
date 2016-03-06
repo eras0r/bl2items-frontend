@@ -80,7 +80,7 @@ define([
                             }
                         };
 
-                        $scope.hasSepcialDamageType = function () {
+                        $scope.hasSpecialDamageType = function () {
                             return $scope.getDamageType().id !== '1';
                         };
 
