@@ -6,13 +6,14 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponCreateCtrl', [
-        '$scope', '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService',
-        function ($scope, $log, rarities, manufacturers, damageTypes, WeaponService) {
+        '$scope', '$log', 'rarities', 'manufacturers', 'damageTypes', 'weaponTypes', 'WeaponService',
+        function ($scope, $log, rarities, manufacturers, damageTypes, weaponTypes, WeaponService) {
 
             // assign ui router resolves
             $scope.rarities = rarities;
             $scope.manufacturers = manufacturers;
             $scope.damageTypes = damageTypes;
+            $scope.weaponTypes = weaponTypes;
 
             // init default weapon
             $scope.weapon = {
@@ -28,7 +29,8 @@ define([
                 damageType: $scope.damageTypes[0],
                 uniqueText: null,
                 elementalText: null,
-                additionalText: null
+                additionalText: null,
+                weaponType: $scope.weaponTypes[0]
             };
 
             $scope.changeDamageType = function () {
