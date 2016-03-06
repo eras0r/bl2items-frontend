@@ -30,7 +30,7 @@ define([
                     itemType = attrs.itemType;
                 }
                 else {
-                    itemType = scope.item.itemtype;
+                    itemType = scope.item.itemType;
                 }
 
                 var loader = getTemplate(itemType);
@@ -58,7 +58,7 @@ define([
 
                             // show skills for class mods
                             //console.log('$scope.item', $scope.item);
-                            if ($scope.item.itemtype === 'classMod') {
+                            if ($scope.item.itemType === 'classMod') {
 
                                 // iterate sub trees
                                 angular.forEach($scope.item.skills, function (skill) {
@@ -72,7 +72,7 @@ define([
                         };
 
                         $scope.edit = function (item) {
-                            switch (item.itemtype) {
+                            switch (item.itemType) {
                                 case 'weapon':
                                     $state.go('bl2.weapons.edit', {id: item.id});
                                     break;
@@ -103,6 +103,7 @@ define([
                     }
                 ]
             };
-        }]);
+        }
+    ]);
 
 });

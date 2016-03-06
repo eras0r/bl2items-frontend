@@ -17,7 +17,7 @@ define([
 
             // init default weapon
             $scope.weapon = {
-                itemtype: 'weapon',
+                itemType: 'weapon',
                 level: 50,
                 rarity: $scope.rarities[0],
                 manufacturer: $scope.manufacturers[0],

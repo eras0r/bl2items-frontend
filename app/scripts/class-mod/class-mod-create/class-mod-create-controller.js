@@ -84,7 +84,7 @@ define([
 
             // init default classMod
             $scope.classMod = {
-                itemtype: 'classMod',
+                itemType: 'classMod',
                 level: 50,
                 rarity: $scope.rarities[0],
                 manufacturer: $scope.manufacturers[0],
