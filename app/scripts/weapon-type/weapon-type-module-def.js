@@ -22,7 +22,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/weapon-type/weapon-type-list/weapon-type-list.html',
-                        controller: 'WeaponTypeListCtrl'
+                        controller: 'WeaponTypeListCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -31,7 +32,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/weapon-type/weapon-type-details.html',
-                        controller: 'weaponTypeCreateCtrl'
+                        controller: 'WeaponTypeCreateCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -40,7 +42,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/weapon-type/weapon-type-details.html',
-                        controller: 'WeaponTypeEditCtrl'
+                        controller: 'WeaponTypeEditCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             });

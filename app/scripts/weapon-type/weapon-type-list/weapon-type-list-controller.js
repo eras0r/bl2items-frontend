@@ -6,24 +6,33 @@ define([
     'use strict';
 
     weaponTypeModule.controller('WeaponTypeListCtrl', [
-        '$scope', '$log', '$filter', 'WeaponTypeService',
-        function ($scope, $log, $filter, WeaponTypeService) {
+        '$log', '$filter', 'WeaponTypeService', WeaponTypeListCtrl]);
 
+    /** @ngInject */
+    function WeaponTypeListCtrl($log, $filter, WeaponTypeService) {
+        var vm = this;
+
+        vm.remove = remove;
+
+        init();
+
+        function init() {
             WeaponTypeService.list().then(function (weaponTypes) {
-                $scope.weaponTypes = weaponTypes;
+                vm.weaponTypes = weaponTypes;
             });
+        }
 
-            $scope.remove = function (weaponType) {
-                WeaponTypeService.remove(weaponType)
-                    .then(function () {
-                        // filter out the deleted object
-                        $scope.weaponTypes = $filter('filter')($scope.weaponTypes, {id: '!' + weaponType.id});
-                    }, function (response) {
-                        // TODO show error message
-                        $log.error('error deleting weapon type');
-                    });
-            };
+        function remove(weaponType) {
+            WeaponTypeService.remove(weaponType)
+                .then(function () {
+                    // filter out the deleted object
+                    vm.weaponTypes = $filter('filter')(vm.weaponTypes, {id: '!' + weaponType.id});
+                }, function (response) {
+                    // TODO show error message
+                    $log.error('error deleting weapon type');
+                });
+        }
 
-        }]);
+    }
 
 });

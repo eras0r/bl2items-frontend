@@ -50,7 +50,7 @@ define([
                     manufacturers: ['ManufacturerService', function (ManufacturerService) {
                         return ManufacturerService.list();
                     }],
-                    damageTypes: ['DamageTypeService', function (DamageTypeService) {
+                    damageTypes: ['WeaponTypeService', function (DamageTypeService) {
                         return DamageTypeService.list();
                     }],
                     weaponTypes: ['WeaponTypeService', function (WeaponTypeService) {
@@ -78,7 +78,7 @@ define([
                     manufacturers: ['ManufacturerService', function (ManufacturerService) {
                         return ManufacturerService.list();
                     }],
-                    damageTypes: ['DamageTypeService', function (DamageTypeService) {
+                    damageTypes: ['WeaponTypeService', function (DamageTypeService) {
                         return DamageTypeService.list();
                     }],
                     weaponTypes: ['WeaponTypeService', function (WeaponTypeService) {

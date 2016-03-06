@@ -10,17 +10,16 @@
             <th data-translate="admin.weaponTypes.list.table.header.sortOrder"></th>
             <th data-translate="admin.weaponTypes.list.table.header.menu" class="col-xs-1"></th>
         </tr>
-        <tr data-ng-repeat="weaponType in weaponTypes" style="color: {{weaponType.color}}">
+        <tr data-ng-repeat="weaponType in vm.weaponTypes" style="color: {{weaponType.color}}">
             <td>{{weaponType.name}}</td>
             <td>{{weaponType.sortOrder}}</td>
             <td class="text-center">
-                <button type="button" class="btn btn-default btn-xs"
-                        data-ui-sref=".edit({id: weaponType.id})">
+                <button type="button" class="btn btn-default btn-xs" data-ui-sref=".edit({id: weaponType.id})">
                     <span class="glyphicon glyphicon-pencil"
                           title="{{'admin.weaponTypes.list.table.menu.edit' | translate}}"></span>
                 </button>
 
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(damageType)">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.remove(damageType)">
                     <span class="glyphicon glyphicon-trash"
                           title="{{'admin.weaponTypes.list.table.menu.delete' | translate}}"></span>
                 </button>
