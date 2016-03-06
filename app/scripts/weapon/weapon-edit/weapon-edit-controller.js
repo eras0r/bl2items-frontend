@@ -24,10 +24,10 @@ define([
                 $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
 
                 // reset no more relevant inputs
-                if ($scope.weapon.damageType.damageLabel === null) {
+                if (!$scope.weapon.damageType.damageLabel) {
                     $scope.weapon.elemDamage = null;
                 }
-                if ($scope.weapon.damageType.chanceLabel === null) {
+                if (!$scope.weapon.damageType.chanceLabel) {
                     $scope.weapon.elemChance = null;
                 }
             };
