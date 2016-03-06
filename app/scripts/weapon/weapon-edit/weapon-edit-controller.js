@@ -6,18 +6,21 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponEditCtrl', [
-        '$scope', '$filter', '$log', '$stateParams', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', 'weapon',
-        function ($scope, $filter, $log, $stateParams, rarities, manufacturers, damageTypes, WeaponService, weapon) {
+        '$scope', '$filter', '$log', '$stateParams', 'rarities', 'manufacturers', 'damageTypes', 'weaponTypes', 'WeaponService', 'weapon',
+        function ($scope, $filter, $log, $stateParams, rarities, manufacturers, damageTypes, weaponTypes, WeaponService, weapon) {
 
             // assign ui router resolves
             $scope.rarities = rarities;
             $scope.manufacturers = manufacturers;
             $scope.damageTypes = damageTypes;
+            $scope.weaponTypes = weaponTypes;
 
             // init weapon
             $scope.weapon = weapon;
 
             $scope.changeDamageType = function () {
+                $scope.weapon.damageTypeId = $scope.weapon.damageType.id;
+
                 $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
 
                 // reset no more relevant inputs
@@ -27,7 +30,18 @@ define([
                 if ($scope.weapon.damageType.chanceLabel === null) {
                     $scope.weapon.elemChance = null;
                 }
+            };
 
+            $scope.changeRarity = function () {
+                $scope.weapon.rarityId = $scope.weapon.rarity.id;
+            };
+
+            $scope.changeWeaponType = function () {
+                $scope.weapon.weaponTypeId = $scope.weapon.weaponType.id;
+            };
+
+            $scope.changeManufacturer = function () {
+                $scope.weapon.manufacturerId = $scope.weapon.manufacturer.id;
             };
 
             $scope.save = function () {

@@ -21,12 +21,13 @@
                         </div>
 
                         <div class="form-group" data-ng-class="{'has-error': errors.rarity}">
-                            <label for="rarity2" class="col-lg-3 control-label"
+                            <label for="rarity" class="col-lg-3 control-label"
                                    data-translate="weapons.details.rarity"></label>
 
                             <div class="col-lg-9">
-                                <select id="rarity2" data-ng-model="weapon.rarity"
+                                <select id="rarity" data-ng-model="weapon.rarity"
                                         data-ng-options="r.name for r in rarities track by r.id"
+                                        data-ng-change="changeRarity()"
                                         class="form-control">
                                 </select>
                                 <span class="help-inline text-danger" data-ng-show="errors['rarity']">{{errors['rarity']}}</span>
@@ -64,6 +65,7 @@
                             <div class="col-lg-9">
                                 <select id="weaponType" data-ng-model="weapon.weaponType"
                                         data-ng-options="weaponType.name for weaponType in weaponTypes track by weaponType.id"
+                                        data-ng-change="changeWeaponType()"
                                         class="form-control">
                                     <!--<option>-none-</option>-->
                                 </select>
@@ -226,6 +228,7 @@
                             <div class="col-lg-9">
                                 <select id="manufacturer" data-ng-model="weapon.manufacturer"
                                         data-ng-options="man.name for man in manufacturers track by man.id"
+                                        data-ng-change="changeManufacturer()"
                                         class="form-control">
                                 </select>
                         <span class="help-inline text-danger"

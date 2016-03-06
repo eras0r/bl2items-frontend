@@ -8,15 +8,15 @@
             <span data-translate="item.weapon.damage"></span>
         </li>
         <li class="list-group-item">
-            <span class="badge">{{item.accuracy}}</span>
+            <span class="badge">{{item.accuracy | number: 1}}</span>
             <span data-translate="item.weapon.accuracy"></span>
         </li>
         <li class="list-group-item">
-            <span class="badge">{{item.fireRate}}</span>
+            <span class="badge">{{item.fireRate | number: 1}}</span>
             <span data-translate="item.weapon.fireRate"></span>
         </li>
         <li class="list-group-item">
-            <span class="badge">{{item.reloadSpeed}}</span>
+            <span class="badge">{{item.reloadSpeed | number: 1}}</span>
             <span data-translate="item.weapon.reloadSpeed"></span>
         </li>
         <li class="list-group-item">
@@ -28,7 +28,7 @@
             <span data-translate="{{item.damageType.damageLabel}}"></span>
         </li>
         <li class="list-group-item" data-ng-show="hasSpecialDamageType()">
-            <span class="badge">{{item.elemChance}}</span>
+            <span class="badge">{{item.elemChance | number: 1}}</span>
             <span data-translate="{{item.damageType.chanceLabel}}"></span>
         </li>
     </ul>
