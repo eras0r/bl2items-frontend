@@ -8,6 +8,7 @@ define([
     manufacturerModule.controller('ManufacturerListCtrl', [
         '$log', '$filter', 'ManufacturerService', ManufacturerListCtrl]);
 
+    /** @ngInject */
     function ManufacturerListCtrl($log, $filter, ManufacturerService) {
 
         var vm = this;
