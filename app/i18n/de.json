@@ -4,7 +4,14 @@
       "save": "speichern",
       "add": "hinzufügen",
       "cancel": "abbrechen"
-    }
+    },
+    "levelRequirement": "Level",
+    "rarity": "Rarität",
+    "name": "Name",
+    "gibbedCode": "Gibbed Code",
+    "uniqueText": "Unikatstext",
+    "additionalText": "Zusätzlicher Text",
+    "manufacturer": "Hersteller"
   },
   "login": {
     "title": "Login",
@@ -69,10 +76,10 @@
       "pageTitle": "Waffen"
     },
     "details": {
-      "levelRequirement": "Level",
-      "rarity": "Rarität",
-      "name": "Name",
-      "gibbedCode": "Gibbed Code",
+      "levelRequirement": "@:general.levelRequirement",
+      "rarity": "@:general.rarity",
+      "name": "@:general.name",
+      "gibbedCode": "@:general.gibbedCode",
       "damage": "Schaden",
       "multiplicator": "Multiplikator",
       "accuracy": "Genauigkeit",
@@ -80,9 +87,9 @@
       "reloadSpeed": "Ladegewschw.",
       "magazineSize": "Magazingrösse",
       "damageType": "Schadensart",
-      "uniqueText": "Unikatstext",
-      "additionalText": "Zusätzlicher Text",
-      "manufacturer": "Hersteller",
+      "uniqueText": "@:general.uniqueText",
+      "additionalText": "@:general.additionalText",
+      "manufacturer": "@:general.manufacturer",
       "button": {
         "save": "@:general.button.save",
         "cancel": "@:general.button.cancel"
@@ -117,6 +124,31 @@
       "capacity": "Kapazität",
       "rechargeRate": "Ladegewsch.",
       "rechargeDelay": "Ladeverzögerung"
+    }
+  },
+  "classMods": {
+    "details": {
+      "tabs": {
+        "properties": "Eigenschaften",
+        "skills": "Skills",
+        "preview": "Vorschau"
+      },
+      "levelRequirement": "@:general.levelRequirement",
+      "rarity": "@:general.rarity",
+      "name": "@:general.name",
+      "gibbedCode": "@:general.gibbedCode",
+      "classRequirement": "Benötigte Klasse",
+      "uniqueText": "@:general.uniqueText",
+      "additionalText": "@:general.additionalText",
+      "manufacturer": "@:general.manufacturer",
+      "button": {
+        "save": "@:general.button.save",
+        "cancel": "@:general.button.cancel"
+      }
+    },
+    "create": {
+      "pageTitle": "Neuen Klassen Mod erstellen",
+      "formTitle": "Klassen Mod Details"
     }
   },
   "admin": {

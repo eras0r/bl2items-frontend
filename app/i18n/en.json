@@ -4,7 +4,14 @@
       "save": "save",
       "add": "add",
       "cancel": "cancel"
-    }
+    },
+    "levelRequirement": "Level requirement",
+    "rarity": "Rarity",
+    "name": "Name",
+    "gibbedCode": "Gibbed Code",
+    "uniqueText": "Unique Text",
+    "additionalText": "Additional Text",
+    "manufacturer": "Manufacturer"
   },
   "login": {
     "title": "Login",
@@ -69,10 +76,10 @@
       "pageTitle": "Weapons"
     },
     "details": {
-      "levelRequirement": "Level requirement",
-      "rarity": "Rarity",
-      "name": "Name",
-      "gibbedCode": "Gibbed Code",
+      "levelRequirement": "@:general.levelRequirement",
+      "rarity": "@:general.rarity",
+      "name": "@:general.name",
+      "gibbedCode": "@:general.gibbedCode",
       "damage": "Damage",
       "multiplicator": "Multiplicator",
       "accuracy": "Accuracy",
@@ -80,9 +87,9 @@
       "reloadSpeed": "Reload Speed",
       "magazineSize": "Magazine Size",
       "damageType": "Damage Type",
-      "uniqueText": "Unique Text",
-      "additionalText": "Additional Text",
-      "manufacturer": "Manufacturer",
+      "uniqueText": "@:general.uniqueText",
+      "additionalText": "@:general.additionalText",
+      "manufacturer": "@:general.manufacturer",
       "button": {
         "save": "@:general.button.save",
         "cancel": "@:general.button.cancel"
@@ -117,6 +124,31 @@
       "capacity": "Capacity",
       "rechargeRate": "Recharge Rate",
       "rechargeDelay": "Recharge Delay"
+    }
+  },
+  "classMods": {
+    "details": {
+      "tabs": {
+        "properties": "Properties",
+        "skills": "Skills",
+        "preview": "Preview"
+      },
+      "levelRequirement": "@:general.levelRequirement",
+      "rarity": "@:general.rarity",
+      "name": "@:general.name",
+      "gibbedCode": "@:general.gibbedCode",
+      "classRequirement": "Class requirement",
+      "uniqueText": "@:general.uniqueText",
+      "additionalText": "@:general.additionalText",
+      "manufacturer": "@:general.manufacturer",
+      "button": {
+        "save": "@:general.button.save",
+        "cancel": "@:general.button.cancel"
+      }
+    },
+    "create": {
+      "pageTitle": "Create new class mod",
+      "formTitle": "Class mod details"
     }
   },
   "admin": {
