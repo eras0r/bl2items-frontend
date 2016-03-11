@@ -36,7 +36,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/components/security/login-form.html',
-                        controller: 'LoginCtrl'
+                        controller: 'LoginCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -45,7 +46,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/components/security/logout.html',
-                        controller: 'LogoutCtrl'
+                        controller: 'LogoutCtrl',
+                        controllerAs: 'vm'
                     }
                 }
 

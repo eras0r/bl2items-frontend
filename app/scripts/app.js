@@ -9,6 +9,7 @@ define([
     'components/highlight-text/highlight-text-inc',
     'components/color-picker/color-picker-module-inc',
     'components/skill-tree/skill-tree-module-inc',
+    'components/error-handling/error-handling-module-inc',
     'file/file-module-inc',
     'user/user-module-inc',
     'item/item-module-inc',
@@ -25,32 +26,33 @@ define([
     'use strict';
 
     return angular.module('bl2ItemsDbApp', [
-            'ngCookies',
-            'ngSanitize',
-            /* external 3rd party modules*/
-            'ui.router',
-            'restangular',
-            'pascalprecht.translate',
-            'ui.bootstrap',
-            /* generic core modules */
-            'rn.security',
-            'rn.navigation',
-            'rn.highlightText',
-            'rn.colorPicker',
-            /* business specific modules*/
-            'bl2.files',
-            'bl2.users',
-            'bl2.items',
-            'bl2.weapons',
-            'bl2.shields',
-            'bl2.damageTypes',
-            'bl2.manufacturers',
-            'bl2.weaponTypes',
-            'bl2.rarities',
-            'bl2.characters',
-            'bl2.classMods',
-            'bl2.skillTree'
-        ])
+        'ngCookies',
+        'ngSanitize',
+        /* external 3rd party modules*/
+        'ui.router',
+        'restangular',
+        'pascalprecht.translate',
+        'ui.bootstrap',
+        /* generic core modules */
+        'rn.security',
+        'rn.navigation',
+        'rn.highlightText',
+        'rn.colorPicker',
+        'rn.errorHandling',
+        /* business specific modules*/
+        'bl2.files',
+        'bl2.users',
+        'bl2.items',
+        'bl2.weapons',
+        'bl2.shields',
+        'bl2.damageTypes',
+        'bl2.manufacturers',
+        'bl2.weaponTypes',
+        'bl2.rarities',
+        'bl2.characters',
+        'bl2.classMods',
+        'bl2.skillTree'
+    ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
 
@@ -61,6 +63,11 @@ define([
                             'navigation': {
                                 templateUrl: 'scripts/components/navigation/navigation.html',
                                 controller: 'NavigationCtrl',
+                                controllerAs: 'vm'
+                            },
+                            'messages': {
+                                templateUrl: 'scripts/components/error-handling/messages.html',
+                                controller: 'MessageCtrl',
                                 controllerAs: 'vm'
                             },
                             'main': {

@@ -6,32 +6,43 @@ define([
     'use strict';
 
     manufacturerModule.controller('ManufacturerCreateCtrl', [
-        '$scope', '$state', '$log', 'ManufacturerService',
-        function ($scope, $state, $log, ManufacturerService) {
+        '$log', 'ManufacturerService', ManufacturerCreateCtrl]);
 
-            $scope.manufacturer = {};
+    /** @ngInject */
+    function ManufacturerCreateCtrl($log, ManufacturerService) {
 
-            $scope.save = function () {
-                $scope.errors = null;
+        var vm = this;
 
-                ManufacturerService.create($scope.manufacturer)
-                    .then(function () {
-                        ManufacturerService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error creating manufacturer');
-                        }
-                    });
-            };
+        vm.save = save;
+        vm.cancel = cancel;
 
-            $scope.cancel = function () {
-                ManufacturerService.showList();
-            };
+        init();
 
-        }]);
+        function init() {
+            vm.manufacturer = {};
+        }
+
+        function save() {
+            vm.errors = null;
+
+            ManufacturerService.create(vm.manufacturer)
+                .then(function () {
+                    ManufacturerService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error creating manufacturer');
+                    }
+                });
+        }
+
+        function cancel() {
+            ManufacturerService.showList();
+        }
+
+    }
 
 });

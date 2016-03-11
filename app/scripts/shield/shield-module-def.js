@@ -25,22 +25,24 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/item/item-list/item-list.html',
-                        controller: 'ShieldListCtrl'
+                        controller: 'ShieldListCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 data: {
                     pageTitle: 'shields.list.pageTitle'
                 }
-            })
-            .state('bl2.shields.create', {
-                url: '/create',
-                views: {
-                    'main@': {
-                        templateUrl: 'scripts/shield/shield-details.html',
-                        controller: 'ShieldCreateCtrl'
-                    }
-                }
             });
+            // TODO implement create shield
+            //.state('bl2.shields.create', {
+            //    url: '/create',
+            //    views: {
+            //        'main@': {
+            //            templateUrl: 'scripts/shield/shield-details.html',
+            //            controller: 'ShieldCreateCtrl'
+            //        }
+            //    }
+            //});
 
         NavigationServiceProvider.addNavigationItem({
             sortOrder: 30,
@@ -52,12 +54,13 @@ define([
                     link: 'bl2.shields.list',
                     label: 'navigation.shields.list'
                 },
-                {
-                    sortOrder: 20,
-                    link: 'bl2.shields.create',
-                    label: 'navigation.shields.create',
-                    role: 'admin'
-                }
+                // TODO implement create shield
+                //{
+                //    sortOrder: 20,
+                //    link: 'bl2.shields.create',
+                //    label: 'navigation.shields.create',
+                //    role: 'admin'
+                //}
             ]
         });
     }

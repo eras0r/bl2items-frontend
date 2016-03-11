@@ -27,7 +27,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/item/item-list/item-list.html',
-                        controller: 'WeaponListCtrl'
+                        controller: 'WeaponListCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 data: {

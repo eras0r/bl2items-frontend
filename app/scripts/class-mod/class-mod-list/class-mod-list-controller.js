@@ -6,13 +6,17 @@ define([
     'use strict';
 
     weaponModule.controller('ClassModListCtrl', [
-        '$scope', 'ClassModService',
-        function ($scope, ClassModService) {
+        'ClassModService', ClassModListCtrl]);
 
-            ClassModService.list().then(function (classMods) {
-                $scope.items = classMods;
-            });
+    /** @ngInject */
+    function ClassModListCtrl(ClassModService) {
 
-        }]);
+        var vm = this;
+
+        ClassModService.list().then(function (classMods) {
+            vm.items = classMods;
+        });
+
+    }
 
 });

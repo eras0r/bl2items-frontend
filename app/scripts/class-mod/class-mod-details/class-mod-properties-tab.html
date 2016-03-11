@@ -3,116 +3,117 @@
     <div class="panel-body">
         <form class="form-horizontal">
             <fieldset>
-                <div class="form-group" data-ng-class="{'has-error': errors.level}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.level}">
                     <label for="level" class="col-lg-3 control-label"
                            data-translate="classMods.details.levelRequirement"></label>
 
                     <div class="col-lg-9">
-                        <input type="number" id="level" ng-model="classMod.level" class="form-control" min="1"
+                        <input type="number" id="level" data-ng-model="vm.classMod.level" class="form-control" min="1"
                                max="72">
                                 <span class="help-inline text-danger"
-                                      data-ng-show="errors['level']">{{errors['level']}}</span>
+                                      data-ng-show="vm.errors.level">{{vm.errors.level}}</span>
                     </div>
                 </div>
 
-                <div class="form-group" data-ng-class="{'has-error': errors.characterClass}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.characterClass}">
                     <label for="characterClass" class="col-lg-3 control-label"
                            data-translate="classMods.details.classRequirement"></label>
 
                     <div class="col-lg-9">
-                        <select id="characterClass" data-ng-model="classMod.characterClass"
-                                data-ng-options="character.classRequirement for character in characters"
-                                data-ng-change="loadSkillTree()" class="form-control">
+                        <select id="characterClass" data-ng-model="vm.classMod.characterClass"
+                                data-ng-options="character.classRequirement for character in vm.characters"
+                                data-ng-change="vm.loadSkillTree()" class="form-control">
                         </select>
-                        <span class="help-inline text-danger" data-ng-show="errors['characterClass']">{{errors['characterClass']}}</span>
+                        <span class="help-inline text-danger" data-ng-show="vm.errors.characterClass">{{vm.errors.characterClass}}</span>
                     </div>
                 </div>
 
-                <div class="form-group" data-ng-class="{'has-error': errors.rarity}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.rarity}">
                     <label for="rarity" class="col-lg-3 control-label"
                            data-translate="classMods.details.rarity"></label>
 
                     <div class="col-lg-9">
-                        <select id="rarity" data-ng-model="classMod.rarity"
-                                ng-options="r.name for r in rarities"
+                        <select id="rarity" data-ng-model="vm.classMod.rarity"
+                                data-ng-options="r.name for r in vm.rarities"
                                 class="form-control">
                         </select>
                         <span class="help-inline text-danger"
-                              data-ng-show="errors['rarity']">{{errors['rarity']}}</span>
+                              data-ng-show="vm.errors.rarity">{{vm.errorsrarity}}</span>
                     </div>
                 </div>
 
-                <div class="form-group" data-ng-class="{'has-error': errors.name}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.name}">
                     <label for="name" class="col-lg-3 control-label"
                            data-translate="classMods.details.name"></label>
 
                     <div class="col-lg-9">
-                        <input type="text" id="name" ng-model="classMod.name" placeholder="Practicable Butcher"
+                        <input type="text" id="name" data.ng-model="vm.classMod.name" placeholder="Practicable Butcher"
                                class="form-control">
                                 <span class="help-inline text-danger"
-                                      data-ng-show="errors['name']">{{errors['name']}}</span>
+                                      data-ng-show="vm.errors.name">{{vm.errors.name}}</span>
                     </div>
                 </div>
 
-                <div class="form-group" data-ng-class="{'has-error': errors.gibbedCode}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.gibbedCode}">
                     <label for="gibbedCode" class="col-lg-3 control-label"
                            data-translate="classMods.details.gibbedCode"></label>
 
                     <div class="col-lg-9">
-                        <input type="text" id="gibbedCode" ng-model="classMod.gibbedCode" placeholder="BL2(...)"
+                        <input type="text" id="gibbedCode" data-ng-model="vm.classMod.gibbedCode" placeholder="BL2(...)"
                                class="form-control">
-                        <span class="help-inline text-danger" data-ng-show="errors['gibbedCode']">{{errors['gibbedCode']}}</span>
+                        <span class="help-inline text-danger"
+                              data-ng-show="vm.errors.gibbedCode">{{vm.errorsibbedCode}}</span>
                     </div>
                 </div>
 
 
-                <div class="form-group" data-ng-class="{'has-error': errors.uniqueText}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.uniqueText}">
                     <label for="uniqueText" class="col-lg-3 control-label"
                            data-translate="classMods.details.uniqueText"></label>
 
                     <div class="col-lg-9">
-                        <input type="text" id="uniqueText" ng-model="classMod.uniqueText" placeholder=""
+                        <input type="text" id="uniqueText" data-ng-model="vm.classMod.uniqueText" placeholder=""
                                class="form-control">
                             <span class="help-inline text-danger"
-                                  data-ng-show="errors['uniqueText']">{{errors['uniqueText']}}</span>
+                                  data-ng-show="vm.errors.uniqueText">{{vm.errorsuniqueText}}</span>
                     </div>
                 </div>
 
-                <div class="form-group" data-ng-class="{'has-error': errors.additionalText}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.additionalText}">
                     <label for="additionalText" class="col-lg-3 control-label"
                            data-translate="classMods.details.additionalText"></label>
 
                     <div class="col-lg-9">
-                        <textarea id="additionalText" data-ng-model="classMod.additionalText" placeholder=""
+                        <textarea id="additionalText" data-ng-model="vm.classMod.additionalText" placeholder=""
                                   class="form-control"
                                   rows="5">
                         </textarea>
                         <span class="help-inline text-danger"
-                              data-ng-show="errors['additionalText']">{{errors['additionalText']}}</span>
+                              data-ng-show="vm.errors.additionalText">{{vm.errors.additionalText}}</span>
                     </div>
                 </div>
 
-                <div class="form-group" data-ng-class="{'has-error': errors.manufacturer}">
+                <div class="form-group" data-ng-class="{'has-error': vm.errors.manufacturer}">
                     <label for="manufacturer" class="col-lg-3 control-label"
                            data-translate="classMods.details.manufacturer"></label>
 
                     <div class="col-lg-9">
-                        <select id="manufacturer" data-ng-model="classMod.manufacturer"
-                                ng-options="man.name for man in manufacturers"
+                        <select id="manufacturer" data-ng-model="vm.classMod.manufacturer"
+                                data-ng-options="man.name for man in vm.manufacturers"
                                 class="form-control">
                         </select>
                         <span class="help-inline text-danger"
-                              data-ng-show="errors['manufacturer']">{{errors['manufacturer']}}</span>
+                              data-ng-show="vm.errors.manufacturer">{{vm.errors.manufacturer}}</span>
                     </div>
                 </div>
 
                 <div class="form-group text-right">
                     <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-default" data-ng-click="save()"
+                        <button type="submit" class="btn btn-default" data-ng-click="vm.save()"
                                 data-translate="classMods.details.button.save">save
                         </button>
 
-                        <button type="button" class="btn btn-primary" data-ng-click="cancel()"
+                        <button type="button" class="btn btn-primary" data-ng-click="vm.cancel()"
                                 data-translate="classMods.details.button.cancel"></button>
                     </div>
                 </div>

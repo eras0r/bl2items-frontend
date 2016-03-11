@@ -6,13 +6,20 @@ define([
     'use strict';
 
     shieldModule.controller('ShieldListCtrl', [
-        '$scope', 'ShieldService',
-        function ($scope, ShieldService) {
+        'ShieldService', ShieldListCtrl]);
 
+    /** @ngInject */
+    function ShieldListCtrl(ShieldService) {
+
+        var vm = this;
+
+        init();
+
+        function init() {
             ShieldService.list().then(function (shields) {
-                $scope.items = shields;
+                vm.items = shields;
             });
-
-        }]);
+        }
+    }
 
 });

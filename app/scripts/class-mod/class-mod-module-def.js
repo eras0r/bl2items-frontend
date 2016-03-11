@@ -40,7 +40,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/class-mod/class-mod-details/class-mod-tabs.html',
-                        controller: 'ClassModCreateCtrl'
+                        controller: 'ClassModCreateCtrl',
+                        controllerAs: 'vm'
                     }
                 },
                 resolve: {
@@ -76,7 +77,7 @@ define([
                 }
             })
             .state('bl2.classMods.create.preview', {
-                url: '/skills',
+                url: '/preview',
                 views: {
                     'tabView': {
                         templateUrl: 'scripts/class-mod/class-mod-details/class-mod-preview-tab.html'
@@ -87,8 +88,8 @@ define([
                 url: '/:id',
                 views: {
                     'main@': {
-                        templateUrl: 'scripts/weapon/weapon-details.html',
-                        controller: 'WeaponEditCtrl'
+                        templateUrl: 'scripts/class-mod/class-mod-details/class-mod-tabs.html',
+                        controller: 'ClassModEditCtrl'
                     }
                 },
                 resolve: {
@@ -103,8 +104,8 @@ define([
                     }
                 },
                 data: {
-                    'pageTitle': 'weapons.edit.pageTitle',
-                    'formTitle': 'weapons.edit.formTitle'
+                    'pageTitle': 'classMods.edit.pageTitle',
+                    'formTitle': 'classMods.edit.formTitle'
                 }
             });
 

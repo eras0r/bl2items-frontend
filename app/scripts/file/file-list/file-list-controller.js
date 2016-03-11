@@ -6,27 +6,34 @@ define([
     'use strict';
 
     itemModule.controller('FileListCtrl', [
-        '$scope', '$filter', '$log', 'FileService',
-        function ($scope, $filter, $log, FileService) {
+        '$filter', '$log', 'FileService', FileListCtrl]);
 
-            //$scope.files = [];
+    /** @ngInject */
+    function FileListCtrl($filter, $log, FileService) {
 
+        var vm = this;
+
+        vm.remove = remove;
+
+        init();
+
+        function init() {
             FileService.list().then(function (files) {
-                $scope.files = files;
+                vm.files = files;
             });
-
-            $scope.remove = function (file) {
-                FileService.remove(file)
-                    .then(function () {
-                        // filter out the deleted object
-                        $scope.files = $filter('filter')($scope.files, {id: '!' + file.id});
-                    }, function (response) {
-                        // TODO show error message
-                        $log.error('error deleting file');
-                    });
-            };
-
         }
-    ]);
+
+        function remove(file) {
+            FileService.remove(file)
+                .then(function () {
+                    // filter out the deleted object
+                    vm.files = $filter('filter')(vm.files, {id: '!' + file.id});
+                }, function (response) {
+                    // TODO show error message
+                    $log.error('error deleting file');
+                });
+        }
+
+    }
 
 });

@@ -7,7 +7,7 @@
             <th data-translate="admin.manufacturers.list.table.header.name">name</th>
             <th data-translate="admin.manufacturers.list.table.header.menu" class="col-xs-1">&nbsp;</th>
         </tr>
-        <tr data-ng-repeat="manufacturer in manufacturers">
+        <tr data-ng-repeat="manufacturer in vm.manufacturers">
             <td>{{manufacturer.name}}</td>
             <td class="text-center">
                 <button type="button" class="btn btn-default btn-xs"
@@ -16,7 +16,7 @@
                     <span class="gl"></span>
                 </button>
 
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(manufacturer)">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.remove(manufacturer)">
                     <span class="glyphicon glyphicon-trash" title="{{'admin.manufacturers.list.table.menu.edit' | translate}}"></span>
                 </button>
             </td>

@@ -22,7 +22,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
-                        controller: 'ManufacturerListCtrl'
+                        controller: 'ManufacturerListCtrl',
+                        controllerAs:'vm'
                     }
                 }
             })
@@ -31,7 +32,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/manufacturer/manufacturer-details.html',
-                        controller: 'ManufacturerCreateCtrl'
+                        controller: 'ManufacturerCreateCtrl',
+                        controllerAs:'vm'
                     }
                 }
             })
@@ -40,7 +42,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/manufacturer/manufacturer-details.html',
-                        controller: 'ManufacturerEditCtrl'
+                        controller: 'ManufacturerEditCtrl',
+                        controllerAs:'vm'
                     }
                 }
             });

@@ -6,52 +6,39 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponEditCtrl', [
-        '$log', 'rarities', 'manufacturers', 'damageTypes', 'weaponTypes', 'WeaponService', 'weapon', WeaponEditCtrl]);
+        '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', 'weapon', WeaponEditCtrl]);
 
     /** @ngInject */
-    function WeaponEditCtrl($log, rarities, manufacturers, damageTypes, weaponTypes, WeaponService, weapon) {
+    function WeaponEditCtrl($log, rarities, manufacturers, damageTypes, WeaponService, weapon) {
 
         var vm = this;
 
-        // assign ui router resolves
-        vm.rarities = rarities;
-        vm.manufacturers = manufacturers;
-        vm.damageTypes = damageTypes;
-        vm.weaponTypes = weaponTypes;
-
-        // init weapon
-        vm.weapon = weapon;
-
         vm.changeDamageType = changeDamageType;
-        vm.changeRarity = changeRarity;
-        vm.changeWeaponType = changeWeaponType;
-        vm.changeManufacturer = changeManufacturer;
         vm.save = save;
 
-        function changeDamageType() {
-            vm.weapon.damageTypeId = vm.weapon.damageType.id;
+        init();
 
+        function init() {
+            // assign ui router resolves
+            vm.rarities = rarities;
+            vm.manufacturers = manufacturers;
+            vm.damageTypes = damageTypes;
+
+            // init weapon
+            vm.weapon = weapon;
+        }
+
+        function changeDamageType() {
             vm.weapon.elementalText = vm.weapon.damageType.additionalText;
 
             // reset no more relevant inputs
-            if (!vm.weapon.damageType.damageLabel) {
+            if (vm.weapon.damageType.damageLabel === null) {
                 vm.weapon.elemDamage = null;
             }
-            if (!vm.weapon.damageType.chanceLabel) {
+            if (vm.weapon.damageType.chanceLabel === null) {
                 vm.weapon.elemChance = null;
             }
-        }
 
-        function changeRarity() {
-            vm.weapon.rarityId = vm.weapon.rarity.id;
-        }
-
-        function changeWeaponType() {
-            vm.weapon.weaponTypeId = vm.weapon.weaponType.id;
-        }
-
-        function changeManufacturer() {
-            vm.weapon.manufacturerId = vm.weapon.manufacturer.id;
         }
 
         function save() {

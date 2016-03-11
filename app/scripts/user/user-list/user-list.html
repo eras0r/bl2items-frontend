@@ -7,7 +7,7 @@
             <th data-translate="admin.users.list.table.header.username"></th>
             <th data-translate="admin.users.list.table.header.menu" class="col-xs-1">&nbsp;</th>
         </tr>
-        <tr data-ng-repeat="user in users">
+        <tr data-ng-repeat="user in vm.users">
             <td>{{user.username}}</td>
             <td class="text-center">
                 <button type="button" class="btn btn-default btn-xs"
@@ -15,7 +15,7 @@
                     <span class="glyphicon glyphicon-pencil" title="{{'admin.users.list.table.menu.edit' | translate}}"></span>
                 </button>
 
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(user)">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.remove(user)">
                     <span class="glyphicon glyphicon-trash" title="{{'admin.users.list.table.menu.edit' | translate}}"></span>
                 </button>
             </td>

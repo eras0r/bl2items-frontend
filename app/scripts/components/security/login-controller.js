@@ -7,37 +7,53 @@ define([
 
     securityModule
         .controller('LoginCtrl', [
-            '$scope', '$http', 'authService', 'SessionService',
-            function ($scope, $http, authService, SessionService) {
-                $scope.login = function () {
+            'authService', 'SessionService', 'MessageService', LoginCtrl]);
 
-                    SessionService.login($scope.user.name, $scope.user.password).then(function (data) {
-                        // reset login form
-                        $scope.user = {
-                            name: '',
-                            password: ''
-                        };
+    /** @ngInject */
+    function LoginCtrl(authService, SessionService, MessageService) {
 
-                        // Store session token
-                        localStorage.sessionToken = data.id;
-                        localStorage.userId = data.userId;
+        var vm = this;
 
-                        // TODO
-                        $scope.message = 'Login Successful: ' + localStorage.sessionToken;
+        vm.login = login;
 
-                        authService.loginConfirmed(data.user);
+        init();
 
-                    }, function (response) {
-                        // TODO translate message
-                        $scope.message = 'invalid credentials';
-                        $scope.errors = {
-                            name: 'invalid credentials',
-                            password: 'invalid credentials'
-                        };
-                    });
+        function init() {
+            resetInput();
+        }
 
+        function resetInput() {
+            vm.user = {
+                name: '',
+                password: ''
+            };
+        }
+
+        function login() {
+            MessageService.closeAllMessages();
+            vm.errors = null;
+
+            SessionService.login(vm.user.name, vm.user.password).then(function (data) {
+                resetInput();
+
+                // store session token
+                localStorage.sessionToken = data.id;
+                localStorage.userId = data.userId;
+
+                MessageService.addMessage({type: 'success', text: 'login.successful'});
+
+                authService.loginConfirmed(data.user);
+
+            }, function (response) {
+                MessageService.addMessage({type: 'danger', text: 'login.invalid.credentials'});
+                vm.errors = {
+                    name: 'invalid credentials',
+                    password: 'invalid credentials'
                 };
+            });
 
-            }]);
+        }
+
+    }
 
 });

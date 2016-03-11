@@ -6,13 +6,21 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponListCtrl', [
-        '$scope', 'WeaponService',
-        function ($scope, WeaponService) {
+        'WeaponService', WeaponListCtrl]);
 
+    /** @ngInject */
+    function WeaponListCtrl(WeaponService) {
+
+        var vm = this;
+
+        init();
+
+        function init() {
             WeaponService.list().then(function (weapons) {
-                $scope.items = weapons;
+                vm.items = weapons;
             });
+        }
 
-        }]);
+    }
 
 });

@@ -6,24 +6,34 @@ define([
     'use strict';
 
     rarityModule.controller('RarityListCtrl', [
-        '$scope', '$log', '$filter', 'RarityService',
-        function ($scope, $log, $filter, RarityService) {
+        '$log', '$filter', 'RarityService', RarityListCtrl]);
 
+    /** @ngInject */
+    function RarityListCtrl($log, $filter, RarityService) {
+
+        var vm = this;
+
+        vm.remove = remove;
+
+        init();
+
+        function init() {
             RarityService.list().then(function (rarities) {
-                $scope.rarities = rarities;
+                vm.rarities = rarities;
             });
+        }
 
-            $scope.remove = function (rarity) {
-                RarityService.remove(rarity)
-                    .then(function () {
-                        // filter out the deleted object
-                        $scope.rarities = $filter('filter')($scope.rarities, {id: '!' + rarity.id});
-                    }, function (response) {
-                        // TODO show error message
-                        $log.error('error deleting rarity');
-                    });
-            };
+        function remove(rarity) {
+            RarityService.remove(rarity)
+                .then(function () {
+                    // filter out the deleted object
+                    vm.rarities = $filter('filter')(vm.rarities, {id: '!' + rarity.id});
+                }, function (response) {
+                    // TODO show error message
+                    $log.error('error deleting rarity');
+                });
+        }
 
-        }]);
+    }
 
 });

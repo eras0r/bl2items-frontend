@@ -22,7 +22,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/user/user-list/user-list.html',
-                        controller: 'UserListCtrl'
+                        controller: 'UserListCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })

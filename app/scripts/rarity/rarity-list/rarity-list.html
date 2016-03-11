@@ -9,7 +9,7 @@
             <th data-translate="admin.rarities.list.table.header.sortOrder">sortOrder</th>
             <th data-translate="admin.rarities.list.table.header.menu" class="col-xs-1"></th>
         </tr>
-        <tr data-ng-repeat="rarity in rarities" style="color: {{rarity.color}}">
+        <tr data-ng-repeat="rarity in vm.rarities" style="color: {{rarity.color}}">
             <td>{{rarity.name}}</td>
             <td>{{rarity.color}}</td>
             <td>{{rarity.sortOrder}}</td>
@@ -19,7 +19,7 @@
                     <span class="glyphicon glyphicon-pencil" title="{{'admin.rarities.list.table.menu.edit' | translate}}"></span>
                 </button>
 
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(rarity)">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.remove(rarity)">
                     <span class="glyphicon glyphicon-trash" title="{{'admin.rarities.list.table.menu.delete' | translate}}"></span>
                 </button>
             </td>
