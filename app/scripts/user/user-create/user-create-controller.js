@@ -12,16 +12,20 @@ define([
 
         var vm = this;
 
-        vm.errors = null;
-
-        vm.user = {
-            roles: []
-        };
-
-        vm.userRoles = [];
-
         vm.save = save;
         vm.cancel = cancel;
+
+        init();
+
+        function init() {
+            vm.errors = null;
+
+            vm.user = {
+                roles: []
+            };
+
+            vm.userRoles = [];
+        }
 
         function save() {
             vm.errors = null;

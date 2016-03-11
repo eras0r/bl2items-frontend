@@ -11,11 +11,15 @@ define([
     function UserEditCtrl($filter, $log, UserService, roles, user) {
         var vm = this;
 
-        vm.user = user;
-        vm.userRoles = [];
-
         vm.save = save;
         vm.cancel = cancel;
+
+        init();
+
+        function init() {
+            vm.user = user;
+            vm.userRoles = [];
+        }
 
         function save() {
             vm.errors = null;
