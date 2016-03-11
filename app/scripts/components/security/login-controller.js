@@ -11,39 +11,56 @@ define([
 
     securityModule
         .controller('LoginCtrl', [
-            '$scope', '$http', 'authService', 'SessionService',
-            function ($scope, $http, authService, SessionService) {
-                $scope.login = function () {
+            'authService', 'SessionService', 'MessageService', LoginCtrl]);
 
-                    SessionService.login($scope.user.name, $scope.user.password).then(function (data) {
-                        $scope.user = {
-                            name: '',
-                            password: ''
-                        };
+    /** @ngInject */
+    function LoginCtrl(authService, SessionService, MessageService) {
 
-                        // Store session token
-                        localStorage.sessionToken = data.sessionToken;
+        var vm = this;
 
-                        // Generate new HMAC secret out of our previous (username + password) and the new session token
-                        // sha512("sha512('username:password'):sessionToken")
-                        localStorage.hmacSecret = CryptoJS.SHA512(localStorage.hmacSecret + ':' + data.sessionToken);
+        vm.login = login;
 
-                        // TODO
-                        $scope.message = 'Login Successful: ' + localStorage.sessionToken;
+        init();
 
-                        authService.loginConfirmed(data.user);
+        function init() {
+            resetInput();
+        }
 
-                    }, function (response) {
-                        // TODO translate message
-                        $scope.message = 'invalid credentials';
-                        $scope.errors = {
-                            name: 'invalid credentials',
-                            password: 'invalid credentials'
-                        };
-                    });
+        function resetInput() {
+            vm.user = {
+                name: '',
+                password: ''
+            };
+        }
 
+        function login() {
+            MessageService.closeAllMessages();
+            vm.errors = null;
+
+            SessionService.login(vm.user.name, vm.user.password).then(function (data) {
+                resetInput();
+
+                // Store session token
+                localStorage.sessionToken = data.sessionToken;
+
+                // Generate new HMAC secret out of our previous (username + password) and the new session token
+                // sha512("sha512('username:password'):sessionToken")
+                localStorage.hmacSecret = CryptoJS.SHA512(localStorage.hmacSecret + ':' + data.sessionToken);
+
+                MessageService.addMessage({type: 'success', text: 'login.successful'});
+
+                authService.loginConfirmed(data.user);
+
+            }, function (response) {
+                MessageService.addMessage({type: 'danger', text: 'login.invalid.credentials'});
+                vm.errors = {
+                    name: 'invalid credentials',
+                    password: 'invalid credentials'
                 };
+            });
 
-            }]);
+        }
+
+    }
 
 });

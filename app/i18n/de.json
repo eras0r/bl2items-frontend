@@ -18,7 +18,14 @@
     "username.label": "Benutzername",
     "username.placeholder": "Benutzername",
     "password.label": "Passwort",
-    "password.placeholder": "Passwort"
+    "password.placeholder": "Passwort",
+    "successful": "Login erfolgreich",
+    "invalid.credentials": "Ungültiger Benutzername oder Passwort"
+  },
+  "logout": {
+    "not.logged.in": "Sie sind nich angemeldet!",
+    "successful.title": "Logout erfolgreich",
+    "successful.text": "Sie haben sich erfolgreich abgemeldet. Wir hoffen, Sie bald wieder zu sehen."
   },
   "navigation": {
     "list": "Anzeigen",

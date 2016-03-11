@@ -37,6 +37,14 @@ define([
              */
             closeAllMessages: function () {
                 this.messages.length = 0;
+            },
+
+            /**
+             * Determines whether there are messages present or not.
+             * @returns {boolean} true if there are messages present, false otherwise.
+             */
+            hasMessages: function () {
+                return this.messages.length > 0;
             }
 
         };

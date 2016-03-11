@@ -59,6 +59,27 @@ define([
                         expect(MessageService.messages).toBeEmptyArray();
                     }));
 
+                describe('should have a working hasMessages method', function () {
+
+                    it('should return false if not messages are present',
+                        inject(function (MessageService) {
+                            MessageService.hasMessages();
+
+                            expect(MessageService.hasMessages()).toEqual(false);
+                        }));
+
+                    it('should return true if at least one message is present',
+                        inject(function (MessageService) {
+                            var errorMessage = {type: 'danger', text: 'An error occurred'};
+                            MessageService.addMessage(errorMessage);
+                            MessageService.addMessage(errorMessage);
+                            MessageService.hasMessages();
+
+                            expect(MessageService.hasMessages()).toEqual(true);
+                        }));
+
+                });
+
             });
         });
     });

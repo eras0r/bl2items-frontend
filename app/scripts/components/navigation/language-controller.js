@@ -7,23 +7,35 @@ define([
 
     navigationModule
         .controller('LanguageCtrl', [
-            '$scope', '$state', '$translate',
-            function ($scope, $state, $translate) {
+            '$translate', LanguageCtrl]);
 
-                // supported languages
-                $scope.languages = [
-                    'en',
-                    'de'
-                ];
+    /** @ngInject */
+    function LanguageCtrl($translate) {
 
-                $scope.changeLanguage = function (language) {
-                    $translate.use(language);
-                };
+        var vm = this;
 
-                $scope.getCurrentLanguage = function () {
-                    return $translate.use();
-                };
+        vm.changeLanguage = changeLanguage;
+        vm.getCurrentLanguage = getCurrentLanguage;
 
-            }]);
+        init();
+
+        function init() {
+            // supported languages
+            // TODO move to service
+            vm.languages = [
+                'en',
+                'de'
+            ];
+        }
+
+        function changeLanguage(language) {
+            $translate.use(language);
+        }
+
+        function getCurrentLanguage() {
+            return $translate.use();
+        }
+
+    }
 
 });

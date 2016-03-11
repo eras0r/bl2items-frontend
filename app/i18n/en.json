@@ -18,7 +18,14 @@
     "username.label": "Username",
     "username.placeholder": "Username",
     "password.label": "Password",
-    "password.placeholder": "Password"
+    "password.placeholder": "Password",
+    "successful": "Login successful",
+    "invalid.credentials": "Invalid credentials"
+  },
+  "logout": {
+    "not.logged.in": "You are not logged in",
+    "successful.title": "Logout successful",
+    "successful.text": "You have successfully logged out. We hope to see you soon again."
   },
   "navigation": {
     "list": "List",

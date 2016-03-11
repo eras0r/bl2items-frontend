@@ -7,22 +7,36 @@ define([
 
     securityModule
         .controller('LogoutCtrl', [
-            '$scope', '$http', '$log', 'SessionService',
-            function ($scope, $http, $log, SessionService) {
+            '$log', 'SessionService', 'MessageService', LogoutCtrl]);
 
-                if (!localStorage.sessionToken) {
-                    $scope.message = 'You are not logged in.';
-                    return;
-                }
+    /** @ngInject */
+    function LogoutCtrl($log, SessionService, MessageService) {
 
-                SessionService.logout().then(function (data) {
-                    localStorage.removeItem('sessionToken');
-                    SessionService.setCurrentUser(undefined);
-                }, function (response) {
-                    // TODO show error message
-                    $log.error('error calling logout: ', response);
-                });
+        var vm = this;
 
-            }]);
+        vm.hasMessages = hasMessages;
+
+        init();
+
+        function init() {
+            if (!localStorage.sessionToken) {
+                MessageService.addMessage({type: 'danger', text: 'logout.not.logged.in'});
+                return;
+            }
+
+            SessionService.logout().then(function (data) {
+                localStorage.removeItem('sessionToken');
+                SessionService.setCurrentUser(undefined);
+            }, function (response) {
+                // TODO show error message
+                $log.error('error calling logout: ', response);
+            });
+        }
+
+        function hasMessages() {
+            return MessageService.hasMessages();
+        }
+
+    }
 
 });

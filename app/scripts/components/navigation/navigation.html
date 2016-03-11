@@ -48,13 +48,13 @@
                     <li data-ng-hide="vm.isUserLoggedIn()">
                         <a data-ui-sref="bl2.login" data-translate="navigation.user.login"></a>
                     </li>
-                    <li data-uib-dropdown data-ng-controller="LanguageCtrl">
+                    <li data-uib-dropdown data-ng-controller="LanguageCtrl as vm">
                         <a data-uib-dropdown-toggle>
-                            {{getCurrentLanguage()}} <span class="caret"></span>
+                            {{vm.getCurrentLanguage()}} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li data-ng-repeat="language in languages">
-                                <a data-ng-click="changeLanguage(language)">{{language}}</a>
+                            <li data-ng-repeat="language in vm.languages">
+                                <a data-ng-click="vm.changeLanguage(language)">{{language}}</a>
                             </li>
                         </ul>
                     </li>
