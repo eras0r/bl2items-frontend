@@ -9,6 +9,7 @@ define([
     'components/highlight-text/highlight-text-inc',
     'components/color-picker/color-picker-module-inc',
     'components/skill-tree/skill-tree-module-inc',
+    'components/error-handling/error-handling-module-inc',
     'file/file-module-inc',
     'user/user-module-inc',
     'item/item-module-inc',
@@ -36,6 +37,7 @@ define([
         'rn.navigation',
         'rn.highlightText',
         'rn.colorPicker',
+        'rn.errorHandling',
         /* business specific modules*/
         'bl2.files',
         'bl2.users',
@@ -59,6 +61,11 @@ define([
                             'navigation': {
                                 templateUrl: 'scripts/components/navigation/navigation.html',
                                 controller: 'NavigationCtrl',
+                                controllerAs: 'vm'
+                            },
+                            'messages': {
+                                templateUrl: 'scripts/components/error-handling/messages.html',
+                                controller: 'MessageCtrl',
                                 controllerAs: 'vm'
                             },
                             'main': {
