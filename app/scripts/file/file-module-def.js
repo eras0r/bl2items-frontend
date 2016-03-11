@@ -23,7 +23,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/file/file-list/file-list.html',
-                        controller: 'FileListCtrl'
+                        controller: 'FileListCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -32,7 +33,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/file/file-upload/file-upload.html',
-                        controller: 'FileUploadCtrl'
+                        controller: 'FileUploadCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             });

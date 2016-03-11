@@ -13,224 +13,244 @@ define([
     window.uploadUrl = window.uploadUrl || 'upload';
 
     itemModule.controller('FileUploadCtrl', [
-        '$scope', '$http', '$timeout', '$upload', '$state', 'FileService',
-        function ($scope, $http, $timeout, $upload, $state, FileService) {
+        '$http', '$timeout', '$upload', '$state', 'FileService', FileUploadCtrl]);
 
-            //$scope.usingFlash = FileAPI && FileAPI.upload != null;
-            $scope.usingFlash = false;
-            $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
-            $scope.uploadRightAway = true;
-            $scope.changeAngularVersion = function () {
-                window.location.hash = $scope.angularVersion;
-                window.location.reload(true);
-            };
-            $scope.hasUploader = function (index) {
-                return $scope.upload[index] != null;
-            };
-            $scope.abort = function (index) {
-                $scope.upload[index].abort();
-                $scope.upload[index] = null;
-            };
-            $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
+    /** @ngInject */
+    function FileUploadCtrl($http, $timeout, $upload, $state, FileService) {
+
+        var vm = this;
+
+        vm.changeAngularVersion = changeAngularVersion;
+        vm.hasUploader = hasUploader;
+        vm.abort = abort;
+        vm.onFileSelect = onFileSelect;
+        vm.start = start;
+        vm.dragOverClass = dragOverClass;
+        vm.generateSignature = generateSignature;
+        vm.cancel = cancel;
+
+        init();
+
+        function init() {
+            //vm.usingFlash = FileAPI && FileAPI.upload != null;
+            vm.usingFlash = false;
+            vm.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
+            vm.uploadRightAway = true;
+            vm.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
                 window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
-            $scope.onFileSelect = function ($files) {
-                $scope.selectedFiles = [];
-                $scope.progress = [];
-                if ($scope.upload && $scope.upload.length > 0) {
-                    for (var i = 0; i < $scope.upload.length; i++) {
-                        if ($scope.upload[i] != null) {
-                            $scope.upload[i].abort();
-                        }
-                    }
-                }
-                $scope.upload = [];
-                $scope.uploadResult = [];
-                $scope.selectedFiles = $files;
-                $scope.dataUrls = [];
-                for (var i = 0; i < $files.length; i++) {
-                    var $file = $files[i];
-                    if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
-                        var fileReader = new FileReader();
-                        fileReader.readAsDataURL($files[i]);
-                        var loadFile = function (fileReader, index) {
-                            fileReader.onload = function (e) {
-                                $timeout(function () {
-                                    $scope.dataUrls[index] = e.target.result;
-                                });
-                            }
-                        }(fileReader, i);
-                    }
-                    $scope.progress[i] = -1;
-                    if ($scope.uploadRightAway) {
-                        $scope.start(i);
-                    }
-                }
-            };
-
-            $scope.start = function (index) {
-                $scope.progress[index] = 0;
-                $scope.errorMsg = null;
-                if ($scope.howToSend === 1) {
-                    var microTime = new Date().getTime();
-                    // TODO get te request's data
-                    var file = $scope.selectedFiles[index];
-                    // TODO make "file" dynamic
-                    var data = '{"file":{"name":"' + file.name + '","type":"' + file.type + '","size":' + file.size + '}}';
-
-                    var hmacHash = CryptoJS.HmacSHA512(uploadUrl + '/:' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
-
-                    //$upload.upload()
-                    $scope.upload[index] = $upload.upload({
-                        url: uploadUrl,
-                        method: $scope.httpMethod,
-                        headers: {
-                            'X-SESSION-TOKEN': localStorage.sessionToken,
-                            'X-MICRO-TIME': microTime,
-                            'X-HMAC-HASH': hmacHash
-                        },
-                        data: {
-                            myModel: $scope.myModel,
-                            errorCode: $scope.generateErrorOnServer && $scope.serverErrorCode,
-                            errorMessage: $scope.generateErrorOnServer && $scope.serverErrorMsg
-                        },
-                        /* formDataAppender: function(fd, key, val) {
-                         if (angular.isArray(val)) {
-                         angular.forEach(val, function(v) {
-                         fd.append(key, v);
-                         });
-                         } else {
-                         fd.append(key, val);
-                         }
-                         }, */
-                        /* transformRequest: [function(val, h) {
-                         console.log(val, h('my-header')); return val + '-modified';
-                         }], */
-                        file: $scope.selectedFiles[index]
-                        /*,
-                         fileFormDataName: 'myFile'
-                         */
-                    });
-                    $scope.upload[index].then(function (response) {
-                        $timeout(function () {
-                            $scope.uploadResult.push(response.data);
-                        });
-                    }, function (response) {
-                        if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                    }, function (evt) {
-                        // Math.min is to fix IE which reports 200% sometimes
-                        $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                    });
-                    $scope.upload[index].xhr(function (xhr) {
-//				xhr.upload.addEventListener('abort', function() {console.log('abort complete')}, false);
-                    });
-                } else if ($scope.howToSend === 2) {
-                    //$upload.http()
-                    var fileReader = new FileReader();
-                    fileReader.onload = function (e) {
-                        console.log('file is loaded in filereader');
-                        $scope.upload[index] = $upload.http({
-                            url: uploadUrl,
-                            headers: {'Content-Type': $scope.selectedFiles[index].type},
-                            data: e.target.result
-                        });
-                        $scope.upload[index].then(function (response) {
-                            $scope.uploadResult.push(response.data);
-                        }, function (response) {
-                            if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                        }, function (evt) {
-                            // Math.min is to fix IE which reports 200% sometimes
-                            $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                            console.log('progres', Math.min(100, parseInt(100.0 * evt.loaded / evt.total)))
-                        });
-                        $scope.upload[index].xhr(function (xhr) {
-                            xhr.upload.addEventListener('progress', function (evt) {
-                                console.log('progres2', Math.min(100, parseInt(100.0 * evt.loaded / evt.total)))
-                            }, false);
-                            xhr.addEventListener('progress', function (evt) {
-                                console.log('progres3', Math.min(100, parseInt(100.0 * evt.loaded / evt.total)))
-                            }, false);
-                        });
-                    }
-                    fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
-                } else {
-                    //s3 upload
-                    $scope.upload[index] = $upload.upload({
-                        url: $scope.s3url,
-                        method: 'POST',
-                        data: {
-                            key: $scope.selectedFiles[index].name,
-                            AWSAccessKeyId: $scope.AWSAccessKeyId,
-                            acl: $scope.acl,
-                            policy: $scope.policy,
-                            signature: $scope.signature,
-                            "Content-Type": $scope.selectedFiles[index].type === null || $scope.selectedFiles[index].type === '' ?
-                                'application/octet-stream' : $scope.selectedFiles[index].type,
-                            filename: $scope.selectedFiles[index].name
-                        },
-                        file: $scope.selectedFiles[index],
-                    });
-                    $scope.upload[index].then(function (response) {
-                        $timeout(function () {
-                            $scope.uploadResult.push(response.data);
-                        });
-                    }, function (response) {
-                        if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                    }, function (evt) {
-                        // Math.min is to fix IE which reports 200% sometimes
-                        $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                    });
-                    if (localStorage) {
-                        localStorage.setItem("s3url", $scope.s3url);
-                        localStorage.setItem("AWSAccessKeyId", $scope.AWSAccessKeyId);
-                        localStorage.setItem("acl", $scope.acl);
-                        localStorage.setItem("success_action_redirect", $scope.success_action_redirect);
-                        localStorage.setItem("policy", $scope.policy);
-                        localStorage.setItem("signature", $scope.signature);
-                    }
-                }
-            };
-
-            $scope.dragOverClass = function ($event) {
-                var items = $event.dataTransfer.items;
-                var hasFile = false;
-                if (items != null) {
-                    for (var i = 0; i < items.length; i++) {
-                        if (items[i].kind == 'file') {
-                            hasFile = true;
-                            break;
-                        }
-                    }
-                } else {
-                    hasFile = true;
-                }
-                return hasFile ? "dragover" : "dragover-err";
-            };
-
-            $scope.generateSignature = function () {
-                $http.post('/s3sign?aws-secret-key=' + encodeURIComponent($scope.AWSSecretKey), $scope.jsonPolicy).
-                    success(function (data) {
-                        $scope.policy = data.policy;
-                        $scope.signature = data.signature;
-                    });
-            };
 
             if (localStorage) {
-                $scope.s3url = localStorage.getItem("s3url");
-                $scope.AWSAccessKeyId = localStorage.getItem("AWSAccessKeyId");
-                $scope.acl = localStorage.getItem("acl");
-                $scope.success_action_redirect = localStorage.getItem("success_action_redirect");
-                $scope.policy = localStorage.getItem("policy");
-                $scope.signature = localStorage.getItem("signature");
+                vm.s3url = localStorage.getItem("s3url");
+                vm.AWSAccessKeyId = localStorage.getItem("AWSAccessKeyId");
+                vm.acl = localStorage.getItem("acl");
+                vm.success_action_redirect = localStorage.getItem("success_action_redirect");
+                vm.policy = localStorage.getItem("policy");
+                vm.signature = localStorage.getItem("signature");
             }
 
-            $scope.success_action_redirect = $scope.success_action_redirect || window.location.protocol + "//" + window.location.host;
-            $scope.jsonPolicy = $scope.jsonPolicy || '{\n  "expiration": "2020-01-01T00:00:00Z",\n  "conditions": [\n    {"bucket": "angular-file-upload"},\n    ["starts-with", "$key", ""],\n    {"acl": "private"},\n    ["starts-with", "$Content-Type", ""],\n    ["starts-with", "$filename", ""],\n    ["content-length-range", 0, 524288000]\n  ]\n}';
-            $scope.acl = $scope.acl || 'private';
+            vm.success_action_redirect = vm.success_action_redirect || window.location.protocol + "//" + window.location.host;
+            vm.jsonPolicy = vm.jsonPolicy || '{\n  "expiration": "2020-01-01T00:00:00Z",\n  "conditions": [\n    {"bucket": "angular-file-upload"},\n    ["starts-with", "$key", ""],\n    {"acl": "private"},\n    ["starts-with", "$Content-Type", ""],\n    ["starts-with", "$filename", ""],\n    ["content-length-range", 0, 524288000]\n  ]\n}';
+            vm.acl = vm.acl || 'private';
+        }
 
-            $scope.cancel = function () {
-                $state.go('^');
-            };
+        function changeAngularVersion() {
+            window.location.hash = vm.angularVersion;
+            window.location.reload(true);
+        }
 
-        }]);
+        function hasUploader(index) {
+            return vm.upload[index] != null;
+        }
+
+        function abort(index) {
+            vm.upload[index].abort();
+            vm.upload[index] = null;
+        }
+
+        function onFileSelect($files) {
+            vm.selectedFiles = [];
+            vm.progress = [];
+            if (vm.upload && vm.upload.length > 0) {
+                for (var i = 0; i < vm.upload.length; i++) {
+                    if (vm.upload[i] != null) {
+                        vm.upload[i].abort();
+                    }
+                }
+            }
+            vm.upload = [];
+            vm.uploadResult = [];
+            vm.selectedFiles = $files;
+            vm.dataUrls = [];
+            for (var i = 0; i < $files.length; i++) {
+                var $file = $files[i];
+                if (vm.fileReaderSupported && $file.type.indexOf('image') > -1) {
+                    var fileReader = new FileReader();
+                    fileReader.readAsDataURL($files[i]);
+                    var loadFile = function (fileReader, index) {
+                        fileReader.onload = function (e) {
+                            $timeout(function () {
+                                vm.dataUrls[index] = e.target.result;
+                            });
+                        }
+                    }(fileReader, i);
+                }
+                vm.progress[i] = -1;
+                if (vm.uploadRightAway) {
+                    vm.start(i);
+                }
+            }
+        }
+
+        function start(index) {
+            vm.progress[index] = 0;
+            vm.errorMsg = null;
+            if (vm.howToSend === 1) {
+                var microTime = new Date().getTime();
+                // TODO get te request's data
+                var file = vm.selectedFiles[index];
+                // TODO make "file" dynamic
+                var data = '{"file":{"name":"' + file.name + '","type":"' + file.type + '","size":' + file.size + '}}';
+
+                var hmacHash = CryptoJS.HmacSHA512(uploadUrl + '/:' + data + ':' + microTime, localStorage.hmacSecret).toString(CryptoJS.enc.Hex);
+
+                //$upload.upload()
+                vm.upload[index] = $upload.upload({
+                    url: uploadUrl,
+                    method: vm.httpMethod,
+                    headers: {
+                        'X-SESSION-TOKEN': localStorage.sessionToken,
+                        'X-MICRO-TIME': microTime,
+                        'X-HMAC-HASH': hmacHash
+                    },
+                    data: {
+                        myModel: vm.myModel,
+                        errorCode: vm.generateErrorOnServer && vm.serverErrorCode,
+                        errorMessage: vm.generateErrorOnServer && vm.serverErrorMsg
+                    },
+                    /* formDataAppender: function(fd, key, val) {
+                     if (angular.isArray(val)) {
+                     angular.forEach(val, function(v) {
+                     fd.append(key, v);
+                     });
+                     } else {
+                     fd.append(key, val);
+                     }
+                     }, */
+                    /* transformRequest: [function(val, h) {
+                     console.log(val, h('my-header')); return val + '-modified';
+                     }], */
+                    file: vm.selectedFiles[index]
+                    /*,
+                     fileFormDataName: 'myFile'
+                     */
+                });
+                vm.upload[index].then(function (response) {
+                    $timeout(function () {
+                        vm.uploadResult.push(response.data);
+                    });
+                }, function (response) {
+                    if (response.status > 0) vm.errorMsg = response.status + ': ' + response.data;
+                }, function (evt) {
+                    // Math.min is to fix IE which reports 200% sometimes
+                    vm.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                });
+                vm.upload[index].xhr(function (xhr) {
+//				xhr.upload.addEventListener('abort', function() {console.log('abort complete')}, false);
+                });
+            } else if (vm.howToSend === 2) {
+                //$upload.http()
+                var fileReader = new FileReader();
+                fileReader.onload = function (e) {
+                    console.log('file is loaded in filereader');
+                    vm.upload[index] = $upload.http({
+                        url: uploadUrl,
+                        headers: {'Content-Type': vm.selectedFiles[index].type},
+                        data: e.target.result
+                    });
+                    vm.upload[index].then(function (response) {
+                        vm.uploadResult.push(response.data);
+                    }, function (response) {
+                        if (response.status > 0) vm.errorMsg = response.status + ': ' + response.data;
+                    }, function (evt) {
+                        // Math.min is to fix IE which reports 200% sometimes
+                        vm.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                        console.log('progres', Math.min(100, parseInt(100.0 * evt.loaded / evt.total)))
+                    });
+                    vm.upload[index].xhr(function (xhr) {
+                        xhr.upload.addEventListener('progress', function (evt) {
+                            console.log('progres2', Math.min(100, parseInt(100.0 * evt.loaded / evt.total)))
+                        }, false);
+                        xhr.addEventListener('progress', function (evt) {
+                            console.log('progres3', Math.min(100, parseInt(100.0 * evt.loaded / evt.total)))
+                        }, false);
+                    });
+                };
+                fileReader.readAsArrayBuffer(vm.selectedFiles[index]);
+            } else {
+                //s3 upload
+                vm.upload[index] = $upload.upload({
+                    url: vm.s3url,
+                    method: 'POST',
+                    data: {
+                        key: vm.selectedFiles[index].name,
+                        AWSAccessKeyId: vm.AWSAccessKeyId,
+                        acl: vm.acl,
+                        policy: vm.policy,
+                        signature: vm.signature,
+                        "Content-Type": vm.selectedFiles[index].type === null || vm.selectedFiles[index].type === '' ?
+                            'application/octet-stream' : vm.selectedFiles[index].type,
+                        filename: vm.selectedFiles[index].name
+                    },
+                    file: vm.selectedFiles[index],
+                });
+                vm.upload[index].then(function (response) {
+                    $timeout(function () {
+                        vm.uploadResult.push(response.data);
+                    });
+                }, function (response) {
+                    if (response.status > 0) vm.errorMsg = response.status + ': ' + response.data;
+                }, function (evt) {
+                    // Math.min is to fix IE which reports 200% sometimes
+                    vm.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                });
+                if (localStorage) {
+                    localStorage.setItem("s3url", vm.s3url);
+                    localStorage.setItem("AWSAccessKeyId", vm.AWSAccessKeyId);
+                    localStorage.setItem("acl", vm.acl);
+                    localStorage.setItem("success_action_redirect", vm.success_action_redirect);
+                    localStorage.setItem("policy", vm.policy);
+                    localStorage.setItem("signature", vm.signature);
+                }
+            }
+        }
+
+        function dragOverClass($event) {
+            var items = $event.dataTransfer.items;
+            var hasFile = false;
+            if (items != null) {
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].kind == 'file') {
+                        hasFile = true;
+                        break;
+                    }
+                }
+            } else {
+                hasFile = true;
+            }
+            return hasFile ? "dragover" : "dragover-err";
+        }
+
+        function generateSignature() {
+            $http.post('/s3sign?aws-secret-key=' + encodeURIComponent(vm.AWSSecretKey), vm.jsonPolicy).success(function (data) {
+                vm.policy = data.policy;
+                vm.signature = data.signature;
+            });
+        }
+
+        function cancel() {
+            $state.go('^');
+        }
+
+    }
 
 });
