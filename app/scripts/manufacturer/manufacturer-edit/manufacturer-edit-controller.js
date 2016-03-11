@@ -6,39 +6,49 @@ define([
     'use strict';
 
     manufacturerModule.controller('ManufacturerEditCtrl', [
-        '$scope', '$state', '$log', 'Restangular', 'ManufacturerService',
-        function ($scope, $state, $log, Restangular, ManufacturerService) {
+        '$state', '$log', 'Restangular', 'ManufacturerService', ManufacturerEditCtrl]);
 
-            var self = this;
+    /** @ngInject */
+    function ManufacturerEditCtrl($state, $log, Restangular, ManufacturerService) {
 
+        var vm = this;
+
+        vm.isNotDirty = isNotDirty;
+        vm.save = save;
+        vm.cancel = cancel;
+
+        init();
+
+        function init() {
             ManufacturerService.read($state.params.id).then(function (manufacturer) {
-                self.originalManufacturer = manufacturer;
-                $scope.manufacturer = Restangular.copy(self.originalManufacturer);
+                vm.originalManufacturer = manufacturer;
+                vm.manufacturer = Restangular.copy(vm.originalManufacturer);
             });
+        }
 
-            $scope.isNotDirty = function () {
-                return angular.equals(self.originalManufacturer, $scope.manufacturer);
-            };
+        function isNotDirty() {
+            return angular.equals(vm.originalManufacturer, vm.manufacturer);
+        }
 
-            $scope.save = function () {
-                ManufacturerService.update($scope.manufacturer)
-                    .then(function () {
-                        ManufacturerService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error updating manufacturer');
-                        }
-                    });
-            };
+        function save() {
+            ManufacturerService.update(vm.manufacturer)
+                .then(function () {
+                    ManufacturerService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error updating manufacturer');
+                    }
+                });
+        }
 
-            $scope.cancel = function () {
-                ManufacturerService.showList();
-            };
+        function cancel() {
+            ManufacturerService.showList();
+        }
 
-        }]);
+    }
 
 });

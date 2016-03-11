@@ -4,25 +4,26 @@
     <div class="panel-body">
 
         <form class="form-horizontal" role="form">
-            <div class="form-group" data-ng-class="{'has-error': errors.name}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.name}">
                 <label for="name" class="col-sm-3 control-label"
                        data-translate="admin.manufacturers.details.name"></label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="name" class="form-control" data-ng-model="manufacturer.name"
+                    <input type="text" id="name" class="form-control" data-ng-model="vm.manufacturer.name"
                            required="required"
                            maxlength="255"/>
-                    <span class="help-inline text-danger" data-ng-show="errors['name']">{{errors['name']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="vm.errors.name">{{vm.errors.name}}</span>
                 </div>
             </div>
 
             <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary" data-ng-click="save()" data-ng-disabled="isNotDirty()"
+                    <button type="submit" class="btn btn-primary" data-ng-click="vm.save()"
+                            data-ng-disabled="vm.isNotDirty()"
                             data-translate="admin.manufacturers.details.button.save">
                     </button>
 
-                    <button type="button" class="btn btn-default" data-ng-click="cancel()"
+                    <button type="button" class="btn btn-default" data-ng-click="vm.cancel()"
                             data-translate="admin.manufacturers.details.button.cancel">
                     </button>
                 </div>

@@ -6,24 +6,33 @@ define([
     'use strict';
 
     manufacturerModule.controller('ManufacturerListCtrl', [
-        '$scope', '$location', '$log', '$filter', 'ManufacturerService',
-        function ($scope, $location, $log, $filter, ManufacturerService) {
+        '$log', '$filter', 'ManufacturerService', ManufacturerListCtrl]);
 
+    function ManufacturerListCtrl($log, $filter, ManufacturerService) {
+
+        var vm = this;
+
+        vm.remove = remove;
+
+        init();
+
+        function init() {
             ManufacturerService.list().then(function (manufacturers) {
-                $scope.manufacturers = manufacturers;
+                vm.manufacturers = manufacturers;
             });
+        }
 
-            $scope.remove = function (manufacturer) {
-                ManufacturerService.remove(manufacturer)
-                    .then(function () {
-                        // filter out the deleted object
-                        $scope.manufacturers = $filter('filter')($scope.manufacturers, {id: '!' + manufacturer.id});
-                    }, function (response) {
-                        // TODO show error message
-                        $log.error('error deleting manufacturer');
-                    });
-            };
+        function remove(manufacturer) {
+            ManufacturerService.remove(manufacturer)
+                .then(function () {
+                    // filter out the deleted object
+                    vm.manufacturers = $filter('filter')(vm.manufacturers, {id: '!' + manufacturer.id});
+                }, function (response) {
+                    // TODO show error message
+                    $log.error('error deleting manufacturer');
+                });
+        }
 
-        }]);
+    }
 
 });
