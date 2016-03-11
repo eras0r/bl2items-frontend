@@ -6,34 +6,45 @@ define([
     'use strict';
 
     rarityModule.controller('RarityCreateCtrl', [
-        '$scope', '$state', '$log', 'RarityService',
-        function ($scope, $state, $log, RarityService) {
+        '$log', 'RarityService', RarityCreateCtrl]);
 
-            $scope.rarity = {
+    /** @ngInject */
+    function RarityCreateCtrl($log, RarityService) {
+
+        var vm = this;
+
+        vm.save = save;
+        vm.cancel = cancel;
+
+        init();
+
+        function init() {
+            vm.rarity = {
                 'color': '#ffffff'
             };
+        }
 
-            $scope.save = function () {
-                $scope.errors = null;
+        function save() {
+            vm.errors = null;
 
-                RarityService.create($scope.rarity)
-                    .then(function () {
-                        RarityService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error creating rarity');
-                        }
-                    });
-            };
+            RarityService.create(vm.rarity)
+                .then(function () {
+                    RarityService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error creating rarity');
+                    }
+                });
+        }
 
-            $scope.cancel = function () {
-                RarityService.showList();
-            };
+        function cancel() {
+            RarityService.showList();
+        }
 
-        }]);
+    }
 
 });

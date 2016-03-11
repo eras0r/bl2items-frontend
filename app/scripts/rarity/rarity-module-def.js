@@ -22,7 +22,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/rarity/rarity-list/rarity-list.html',
-                        controller: 'RarityListCtrl'
+                        controller: 'RarityListCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -31,7 +32,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/rarity/rarity-details.html',
-                        controller: 'RarityCreateCtrl'
+                        controller: 'RarityCreateCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -40,7 +42,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/rarity/rarity-details.html',
-                        controller: 'RarityEditCtrl'
+                        controller: 'RarityEditCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             });
