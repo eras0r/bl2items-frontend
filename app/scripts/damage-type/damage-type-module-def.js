@@ -10,8 +10,7 @@ define([
 
     'use strict';
 
-    return angular.
-        module('bl2.damageTypes', ['ui.router', 'restangular', 'rn.navigation'])
+    return angular.module('bl2.damageTypes', ['ui.router', 'restangular', 'rn.navigation'])
         .config(['$stateProvider', 'NavigationServiceProvider', DamageTypeModuleConfig]);
 
     /** @ngInject */
@@ -22,7 +21,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/damage-type/damage-type-list/damage-type-list.html',
-                        controller: 'DamageTypeListCtrl'
+                        controller: 'DamageTypeListCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -31,7 +31,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/damage-type/damage-type-details.html',
-                        controller: 'DamageTypeCreateCtrl'
+                        controller: 'DamageTypeCreateCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -40,7 +41,8 @@ define([
                 views: {
                     'main@': {
                         templateUrl: 'scripts/damage-type/damage-type-details.html',
-                        controller: 'DamageTypeEditCtrl'
+                        controller: 'DamageTypeEditCtrl',
+                        controllerAs: 'vm'
                     }
                 }
             });

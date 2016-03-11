@@ -6,34 +6,45 @@ define([
     'use strict';
 
     damageTypeModule.controller('DamageTypeCreateCtrl', [
-        '$scope', '$state', '$log', 'DamageTypeService',
-        function ($scope, $state, $log, DamageTypeService) {
+        '$log', 'DamageTypeService', DamageTypeCreateCtrl]);
 
-            $scope.damageType = {
+    /** @ngInject */
+    function DamageTypeCreateCtrl($log, DamageTypeService) {
+
+        var vm = this;
+
+        vm.save = save;
+        vm.cancel = cancel;
+
+        init();
+
+        function init() {
+            vm.damageType = {
                 'color': '#ffffff'
             };
+        }
 
-            $scope.save = function () {
-                $scope.errors = null;
+        function save() {
+            vm.errors = null;
 
-                DamageTypeService.create($scope.damageType)
-                    .then(function () {
-                        DamageTypeService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error creating damage type');
-                        }
-                    });
-            };
+            DamageTypeService.create(vm.damageType)
+                .then(function () {
+                    DamageTypeService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error creating damage type');
+                    }
+                });
+        }
 
-            $scope.cancel = function () {
-                DamageTypeService.showList();
-            };
+        function cancel() {
+            DamageTypeService.showList();
+        }
 
-        }]);
+    }
 
 });

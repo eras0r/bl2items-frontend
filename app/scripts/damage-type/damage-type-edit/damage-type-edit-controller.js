@@ -6,39 +6,50 @@ define([
     'use strict';
 
     damageTypeModule.controller('DamageTypeEditCtrl', [
-        '$scope', '$state', '$log', 'Restangular', 'DamageTypeService',
-        function ($scope, $state, $log, Restangular, DamageTypeService) {
+        '$state', '$log', 'Restangular', 'DamageTypeService', DamageTypeEditCtrl]);
 
-            var self = this;
+    function DamageTypeEditCtrl($state, $log, Restangular, DamageTypeService) {
+
+        var vm = this;
+
+        vm.isNotDirty = isNotDirty;
+        vm.save = save;
+        vm.cancel = cancel;
+
+        init();
+
+        function init() {
 
             DamageTypeService.read($state.params.id).then(function (damageType) {
-                self.originalDamageType = damageType;
-                $scope.damageType = Restangular.copy(self.originalDamageType);
+                vm.originalDamageType = damageType;
+                vm.damageType = Restangular.copy(vm.originalDamageType);
             });
 
-            $scope.isNotDirty = function () {
-                return angular.equals(self.originalDamageType, $scope.damageType);
-            };
+        }
 
-            $scope.save = function () {
-                DamageTypeService.update($scope.damageType)
-                    .then(function () {
-                        DamageTypeService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error updating damage type');
-                        }
-                    });
-            };
+        function isNotDirty() {
+            return angular.equals(vm.originalDamageType, vm.damageType);
+        }
 
-            $scope.cancel = function () {
-                DamageTypeService.showList();
-            };
+        function save() {
+            DamageTypeService.update(vm.damageType)
+                .then(function () {
+                    DamageTypeService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error updating damage type');
+                    }
+                });
+        }
 
-        }]);
+        function cancel() {
+            DamageTypeService.showList();
+        }
+
+    }
 
 });

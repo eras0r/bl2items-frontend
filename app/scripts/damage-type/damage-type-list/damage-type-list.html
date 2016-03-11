@@ -14,7 +14,7 @@
             <th data-translate="admin.damageTypes.list.table.header.additionalText"></th>
             <th data-translate="admin.damageTypes.list.table.header.menu" class="col-xs-1"></th>
         </tr>
-        <tr data-ng-repeat="damageType in damageTypes" style="color: {{damageType.color}}">
+        <tr data-ng-repeat="damageType in vm.damageTypes" style="color: {{damageType.color}}">
             <td>{{damageType.name}}</td>
             <td>{{damageType.color}}</td>
             <td>{{damageType.sortOrder}}</td>
@@ -27,7 +27,7 @@
                     <span class="glyphicon glyphicon-pencil" title="{{'admin.damageTypes.list.table.menu.edit' | translate}}"></span>
                 </button>
 
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="remove(damageType)">
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.remove(damageType)">
                     <span class="glyphicon glyphicon-trash" title="{{'admin.damageTypes.list.table.menu.delete' | translate}}"></span>
                 </button>
             </td>

@@ -4,82 +4,87 @@
     <div class="panel-body">
 
         <form class="form-horizontal" role="form">
-            <div class="form-group" data-ng-class="{'has-error': errors.name}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.name}">
                 <label for="name" class="col-sm-3 control-label"
                        data-translate="admin.damageTypes.details.name"></label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="name" class="form-control" data-ng-model="damageType.name"
+                    <input type="text" id="name" class="form-control" data-ng-model="vm.damageType.name"
                            required="required"
                            maxlength="255"/>
-                    <span class="help-inline text-danger" data-ng-show="errors['name']">{{errors['name']}}</span>
+                    <span class="help-inline text-danger" data-ng-show="vm.errors.name">{{vm.errors.name}}</span>
                 </div>
             </div>
 
-            <div class="form-group" data-ng-class="{'has-error': errors.color}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.color}">
 
                 <label for="color" class="col-sm-3 control-label"
                        data-translate="admin.damageTypes.details.color"></label>
 
                 <div class="col-sm-9">
-                    <color-picker name="color" data-color="damageType.color" data-error="errors.color"></color-picker>
+                    <color-picker name="color" data-color="vm.damageType.color"
+                                  data-error="vm.errors.color"></color-picker>
                 </div>
 
             </div>
 
-            <div class="form-group" data-ng-class="{'has-error': errors.sortOrder}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.sortOrder}">
                 <label for="sortOrder" class="col-sm-3 control-label"
                        data-translate="admin.damageTypes.details.sortOrder"></label>
 
                 <div class="col-sm-9">
-                    <input type="number" id="sortOrder" class="form-control" data-ng-model="damageType.sortOrder"
+                    <input type="number" id="sortOrder" class="form-control" data-ng-model="vm.damageType.sortOrder"
                            required="required" min="1"/>
-                    <span class="help-inline text-danger" data-ng-show="errors['sortOrder']">{{errors['sortOrder']}}</span>
+                    <span class="help-inline text-danger"
+                          data-ng-show="vm.errors.sortOrder">{{vm.errors.sortOrder}}</span>
                 </div>
             </div>
 
-            <div class="form-group" data-ng-class="{'has-error': errors.damageLabel}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.damageLabel}">
                 <label for="damageLabel" class="col-sm-3 control-label"
                        data-translate="admin.damageTypes.details.damageLabel"></label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="damageLabel" class="form-control" data-ng-model="damageType.damageLabel"
+                    <input type="text" id="damageLabel" class="form-control" data-ng-model="vm.damageType.damageLabel"
                            maxlength="255"/>
-                    <span class="help-inline text-danger" data-ng-show="errors['damageLabel']">{{errors['damageLabel']}}</span>
+                    <span class="help-inline text-danger"
+                          data-ng-show="vm.errors.damageLabel">{{vm.errors.damageLabel}}</span>
                 </div>
             </div>
 
-            <div class="form-group" data-ng-class="{'has-error': errors.chanceLabel}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.chanceLabel}">
                 <label for="chanceLabel" class="col-sm-3 control-label"
                        data-translate="admin.damageTypes.details.chanceLabel"></label>
 
                 <div class="col-sm-9">
-                    <input type="text" id="chanceLabel" class="form-control" data-ng-model="damageType.chanceLabel"
+                    <input type="text" id="chanceLabel" class="form-control" data-ng-model="vm.damageType.chanceLabel"
                            maxlength="255"/>
-                    <span class="help-inline text-danger" data-ng-show="errors['chanceLabel']">{{errors['chanceLabel']}}</span>
+                    <span class="help-inline text-danger"
+                          data-ng-show="vm.errors.chanceLabel">{{vm.errors.chanceLabel}}</span>
                 </div>
             </div>
 
-            <div class="form-group" data-ng-class="{'has-error': errors.additionalText}">
+            <div class="form-group" data-ng-class="{'has-error': vm.errors.additionalText}">
                 <label for="additionalText" class="col-sm-3 control-label"
                        data-translate="admin.damageTypes.details.additionalText"></label>
 
                 <div class="col-sm-9">
                     <input type="text" id="additionalText" class="form-control"
-                           data-ng-model="damageType.additionalText"
+                           data-ng-model="vm.damageType.additionalText"
                            maxlength="255"/>
                     <span class="help-inline text-danger"
-                          data-ng-show="errors['additionalText']">{{errors['additionalText']}}</span>
+                          data-ng-show="vm.errors.additionalText">{{vm.errors.additionalText}}</span>
                 </div>
             </div>
 
             <div class="form-group text-right">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary" data-ng-click="save()" data-ng-disabled="isNotDirty()"
+                    <button type="submit" class="btn btn-primary" data-ng-click="vm.save()"
+                            data-ng-disabled="vm.isNotDirty()"
                             data-translate="admin.damageTypes.details.button.save">
                     </button>
 
-                    <button type="button" class="btn btn-default" data-ng-click="cancel()"
+                    <button type="button" class="btn btn-default" data-ng-click="vm.cancel()"
                             data-translate="admin.damageTypes.details.button.cancel">
                     </button>
                 </div>

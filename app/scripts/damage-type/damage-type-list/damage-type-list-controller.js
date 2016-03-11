@@ -6,24 +6,34 @@ define([
     'use strict';
 
     damageTypeModule.controller('DamageTypeListCtrl', [
-        '$scope', '$log', '$filter', 'DamageTypeService',
-        function ($scope, $log, $filter, DamageTypeService) {
+        '$log', '$filter', 'DamageTypeService', DamageTypeListCtrl]);
 
+    /** @ngInject */
+    function DamageTypeListCtrl($log, $filter, DamageTypeService) {
+
+        var vm = this;
+
+        vm.remove = remove;
+
+        init();
+
+        function init() {
             DamageTypeService.list().then(function (damageTypes) {
-                $scope.damageTypes = damageTypes;
+                vm.damageTypes = damageTypes;
             });
+        }
 
-            $scope.remove = function (damageType) {
-                DamageTypeService.remove(damageType)
-                    .then(function () {
-                        // filter out the deleted object
-                        $scope.damageTypes = $filter('filter')($scope.damageTypes, {id: '!' + damageType.id});
-                    }, function (response) {
-                        // TODO show error message
-                        $log.error('error deleting damage type');
-                    });
-            };
+        function remove(damageType) {
+            DamageTypeService.remove(damageType)
+                .then(function () {
+                    // filter out the deleted object
+                    vm.damageTypes = $filter('filter')(vm.damageTypes, {id: '!' + damageType.id});
+                }, function (response) {
+                    // TODO show error message
+                    $log.error('error deleting damage type');
+                });
+        }
 
-        }]);
+    }
 
 });
