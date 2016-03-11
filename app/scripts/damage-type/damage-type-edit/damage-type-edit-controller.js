@@ -8,6 +8,7 @@ define([
     damageTypeModule.controller('DamageTypeEditCtrl', [
         '$state', '$log', 'Restangular', 'DamageTypeService', DamageTypeEditCtrl]);
 
+    /** @ngInject */
     function DamageTypeEditCtrl($state, $log, Restangular, DamageTypeService) {
 
         var vm = this;
