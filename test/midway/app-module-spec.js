@@ -21,6 +21,7 @@ define([
         'rn.navigation',
         'rn.highlightText',
         'rn.colorPicker',
+        'rn.errorHandling',
         /* business specific modules*/
         'bl2.files',
         'bl2.users',
