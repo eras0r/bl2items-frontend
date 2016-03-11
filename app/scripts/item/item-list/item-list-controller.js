@@ -6,13 +6,21 @@ define([
     'use strict';
 
     itemModule.controller('ItemListCtrl', [
-        '$scope', 'ItemService',
-        function ($scope, ItemService) {
+        'ItemService', ItemListCtrl]);
 
+    /** @ngInject */
+    function ItemListCtrl(ItemService) {
+
+        var vm = this;
+
+        init();
+
+        function init() {
             ItemService.list().then(function (items) {
-                $scope.items = items;
+                vm.items = items;
             });
+        }
 
-        }]);
+    }
 
 });

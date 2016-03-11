@@ -6,59 +6,69 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponCreateCtrl', [
-        '$scope', '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService',
-        function ($scope, $log, rarities, manufacturers, damageTypes, WeaponService) {
+        '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', WeaponCreateCtrl]);
 
+    /** @ngInject */
+    function WeaponCreateCtrl($log, rarities, manufacturers, damageTypes, WeaponService) {
+
+        var vm = this;
+
+        vm.changeDamageType = changeDamageType;
+        vm.save = save;
+
+        init();
+
+        function init() {
             // assign ui router resolves
-            $scope.rarities = rarities;
-            $scope.manufacturers = manufacturers;
-            $scope.damageTypes = damageTypes;
+            vm.rarities = rarities;
+            vm.manufacturers = manufacturers;
+            vm.damageTypes = damageTypes;
 
             // init default weapon
-            $scope.weapon = {
+            vm.weapon = {
                 itemtype: 'weapon',
                 level: 50,
-                rarity: $scope.rarities[0],
-                manufacturer: $scope.manufacturers[0],
+                rarity: vm.rarities[0],
+                manufacturer: vm.manufacturers[0],
                 damage: null,
                 accuracy: null,
                 fireRate: null,
                 reloadSpeed: null,
                 magazineSize: null,
-                damageType: $scope.damageTypes[0],
+                damageType: vm.damageTypes[0],
                 uniqueText: null,
                 elementalText: null,
                 additionalText: null
             };
+        }
 
-            $scope.changeDamageType = function () {
-                $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
+        function changeDamageType() {
+            vm.weapon.elementalText = vm.weapon.damageType.additionalText;
 
-                // reset no more relevant inputs
-                if ($scope.weapon.damageType.damageLabel === null) {
-                    $scope.weapon.elemDamage = null;
-                }
-                if ($scope.weapon.damageType.chanceLabel === null) {
-                    $scope.weapon.elemChance = null;
-                }
+            // reset no more relevant inputs
+            if (vm.weapon.damageType.damageLabel === null) {
+                vm.weapon.elemDamage = null;
+            }
+            if (vm.weapon.damageType.chanceLabel === null) {
+                vm.weapon.elemChance = null;
+            }
+        }
 
-            };
+        function save() {
+            WeaponService.create(vm.weapon)
+                .then(function () {
+                    WeaponService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error creating weapon');
+                    }
+                });
+        }
 
-            $scope.save = function () {
-                WeaponService.create($scope.weapon)
-                    .then(function () {
-                        WeaponService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error creating weapon');
-                        }
-                    });
-            };
-
-        }]);
+    }
 
 });

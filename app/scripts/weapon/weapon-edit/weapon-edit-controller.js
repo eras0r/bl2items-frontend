@@ -6,45 +6,56 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponEditCtrl', [
-        '$scope', '$filter', '$log', '$stateParams', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', 'weapon',
-        function ($scope, $filter, $log, $stateParams, rarities, manufacturers, damageTypes, WeaponService, weapon) {
+        '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', 'weapon', WeaponEditCtrl]);
 
+    /** @ngInject */
+    function WeaponEditCtrl($log, rarities, manufacturers, damageTypes, WeaponService, weapon) {
+
+        var vm = this;
+
+        vm.changeDamageType = changeDamageType;
+        vm.save = save;
+
+        init();
+
+        function init() {
             // assign ui router resolves
-            $scope.rarities = rarities;
-            $scope.manufacturers = manufacturers;
-            $scope.damageTypes = damageTypes;
+            vm.rarities = rarities;
+            vm.manufacturers = manufacturers;
+            vm.damageTypes = damageTypes;
 
             // init weapon
-            $scope.weapon = weapon;
+            vm.weapon = weapon;
+        }
 
-            $scope.changeDamageType = function () {
-                $scope.weapon.elementalText = $scope.weapon.damageType.additionalText;
+        function changeDamageType() {
+            vm.weapon.elementalText = vm.weapon.damageType.additionalText;
 
-                // reset no more relevant inputs
-                if ($scope.weapon.damageType.damageLabel === null) {
-                    $scope.weapon.elemDamage = null;
-                }
-                if ($scope.weapon.damageType.chanceLabel === null) {
-                    $scope.weapon.elemChance = null;
-                }
+            // reset no more relevant inputs
+            if (vm.weapon.damageType.damageLabel === null) {
+                vm.weapon.elemDamage = null;
+            }
+            if (vm.weapon.damageType.chanceLabel === null) {
+                vm.weapon.elemChance = null;
+            }
 
-            };
+        }
 
-            $scope.save = function () {
-                WeaponService.update($scope.weapon)
-                    .then(function () {
-                        WeaponService.showList();
-                    }, function (response) {
-                        if (response.status === 422) {
-                            $scope.errors = response.data;
-                        }
-                        else {
-                            // TODO show error message
-                            $log.error('error saving weapon');
-                        }
-                    });
-            };
+        function save() {
+            WeaponService.update(vm.weapon)
+                .then(function () {
+                    WeaponService.showList();
+                }, function (response) {
+                    if (response.status === 422) {
+                        vm.errors = response.data;
+                    }
+                    else {
+                        // TODO show error message
+                        $log.error('error saving weapon');
+                    }
+                });
+        }
 
-        }]);
+    }
 
 });
