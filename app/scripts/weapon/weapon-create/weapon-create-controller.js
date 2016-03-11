@@ -26,7 +26,7 @@ define([
 
             // init default weapon
             vm.weapon = {
-                itemtype: 'weapon',
+                itemType: 'weapon',
                 level: 50,
                 rarity: vm.rarities[0],
                 manufacturer: vm.manufacturers[0],

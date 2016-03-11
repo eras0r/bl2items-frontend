@@ -18,6 +18,36 @@ define([
         vm.removePoint = removePoint;
         vm.save = save;
 
+        init();
+
+        function init() {
+// constructor
+            // assign ui router resolves
+            vm.rarities = rarities;
+            vm.manufacturers = manufacturers;
+            vm.characters = characters;
+
+            // init default classMod
+            vm.classMod = {
+                itemtype: 'classMod',
+                level: 50,
+                rarity: vm.rarities[0],
+                manufacturer: vm.manufacturers[0],
+                characterClass: vm.characters[0],
+                damage: null,
+                accuracy: null,
+                fireRate: null,
+                reloadSpeed: null,
+                magazineSize: null,
+                uniqueText: null,
+                elementalText: null,
+                additionalText: null,
+                skills: {}
+            };
+
+            vm.loadSkillTree();
+        }
+
         function loadSkillTree() {
             CharacterService.getSkills(vm.classMod.characterClass).then(function (skills) {
                 vm.skills = skills;
@@ -84,32 +114,6 @@ define([
                     }
                 });
         }
-
-        // constructor
-        // assign ui router resolves
-        vm.rarities = rarities;
-        vm.manufacturers = manufacturers;
-        vm.characters = characters;
-
-        // init default classMod
-        vm.classMod = {
-            itemtype: 'classMod',
-            level: 50,
-            rarity: vm.rarities[0],
-            manufacturer: vm.manufacturers[0],
-            characterClass: vm.characters[0],
-            damage: null,
-            accuracy: null,
-            fireRate: null,
-            reloadSpeed: null,
-            magazineSize: null,
-            uniqueText: null,
-            elementalText: null,
-            additionalText: null,
-            skills: {}
-        };
-
-        vm.loadSkillTree();
 
     }
 
