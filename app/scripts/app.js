@@ -74,7 +74,7 @@ define([
                 // setup for restangular
                 // TODO make base url somehow configurable
                 // config for local grunt server
-                RestangularProvider.setBaseUrl('http://localhost/bl2items-backend/');
+                RestangularProvider.setBaseUrl('http://localhost/bl2items-backend-php/');
 
                 // TODO config for test environment
                 //RestangularProvider.setBaseUrl('../bl2items-backend/');
