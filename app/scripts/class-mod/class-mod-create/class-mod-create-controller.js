@@ -20,8 +20,9 @@ define([
 
         init();
 
+        // constructor
         function init() {
-// constructor
+
             // assign ui router resolves
             vm.rarities = rarities;
             vm.manufacturers = manufacturers;

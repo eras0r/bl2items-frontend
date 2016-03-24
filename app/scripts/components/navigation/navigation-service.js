@@ -30,8 +30,22 @@ define([
             }
         ];
 
+        // function addNavigationItem(navigationItem) {
+        //     // TODO introduce angular constant for lodash (_)
+        //     var group = _.find(navItems, {'group': navigationItem.group});
+        //
+        //     if (group === undefined) {
+        //         navItems.push(navigationItem);
+        //     }
+        //     else {
+        //         // group was already found -> just add a all new items
+        //         _.forEach(navigationItem.items, function (item) {
+        //             group.items.push(item);
+        //         });
+        //     }
+        // }
+
         function addNavigationItem(navigationItem) {
-            // TODO introduce angular constant for lodash (_)
             var group = _.find(navItems, {'group': navigationItem.group});
 
             if (group === undefined) {
@@ -39,21 +53,32 @@ define([
             }
             else {
                 // group was already found -> just add a all new items
-                _.forEach(navigationItem.items, function (item) {
-                    group.items.push(item);
-                });
+                group.items.push(navigationItem);
             }
         }
 
         /** @ngInject */
-        function NavigationService($filter) {
+        function NavigationService() {
 
             return {
                 getNavigationItems: getNavigationItems
             };
 
             function getNavigationItems() {
-                return $filter('orderBy')(navItems, 'sortOrder');
+                return sortRecursive(navItems, 'sortOrder');
+            }
+
+            function sortRecursive(array, propertyName) {
+                array.forEach(function (item) {
+                    var keys = _.keys(item);
+                    keys.forEach(function (key) {
+                        if (_.isArray(item[key])) {
+                            item[key] = sortRecursive(item[key], propertyName);
+                        }
+                    });
+                });
+
+                return _.sortBy(array, propertyName);
             }
 
         }

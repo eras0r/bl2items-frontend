@@ -50,14 +50,10 @@ define([
 
         NavigationServiceProvider.addNavigationItem({
             group: 'bl2.admin',
-            items: [
-                {
-                    sortOrder: 31,
-                    link: 'bl2.admin.weaponTypes',
-                    label: 'navigation.admin.weaponTypes',
-                    role: 'admin'
-                }
-            ]
+            sortOrder: 31,
+            link: 'bl2.admin.weaponTypes',
+            label: 'navigation.admin.weaponTypes',
+            role: 'admin'
         });
     }
 

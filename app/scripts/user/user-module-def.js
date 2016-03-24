@@ -63,14 +63,10 @@ define([
 
         NavigationServiceProvider.addNavigationItem({
             group: 'bl2.admin',
-            items: [
-                {
-                    sortOrder: 50,
-                    link: 'bl2.admin.users',
-                    label: 'navigation.admin.users',
-                    role: 'admin'
-                }
-            ]
+            sortOrder: 50,
+            link: 'bl2.admin.users',
+            label: 'navigation.admin.users',
+            role: 'admin'
         });
 
     }

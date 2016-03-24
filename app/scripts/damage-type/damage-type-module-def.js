@@ -48,18 +48,11 @@ define([
             });
 
         NavigationServiceProvider.addNavigationItem({
-            sortOrder: 50,
-            label: 'navigation.admin.title',
             group: 'bl2.admin',
-            role: 'admin',
-            items: [
-                {
-                    sortOrder: 20,
-                    link: 'bl2.admin.damageTypes',
-                    label: 'navigation.admin.damageTypes',
-                    role: 'admin'
-                }
-            ]
+            sortOrder: 20,
+            link: 'bl2.admin.damageTypes',
+            label: 'navigation.admin.damageTypes',
+            role: 'admin'
         });
     }
 

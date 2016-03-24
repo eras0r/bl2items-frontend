@@ -129,7 +129,6 @@ define([
                         $rootScope.$digest();
 
                         var liElem = element[0];
-                        console.log(liElem.getAttribute('class'));
                         expect(liElem.getAttribute('class')).not.toContain('ng-hide');
                     });
 

@@ -23,7 +23,7 @@ define([
                     'main@': {
                         templateUrl: 'scripts/manufacturer/manufacturer-list/manufacturer-list.html',
                         controller: 'ManufacturerListCtrl',
-                        controllerAs:'vm'
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -33,7 +33,7 @@ define([
                     'main@': {
                         templateUrl: 'scripts/manufacturer/manufacturer-details.html',
                         controller: 'ManufacturerCreateCtrl',
-                        controllerAs:'vm'
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -43,21 +43,17 @@ define([
                     'main@': {
                         templateUrl: 'scripts/manufacturer/manufacturer-details.html',
                         controller: 'ManufacturerEditCtrl',
-                        controllerAs:'vm'
+                        controllerAs: 'vm'
                     }
                 }
             });
 
         NavigationServiceProvider.addNavigationItem({
             group: 'bl2.admin',
-            items: [
-                {
-                    sortOrder: 30,
-                    link: 'bl2.admin.manufacturers',
-                    label: 'navigation.admin.manufacturers',
-                    role: 'admin'
-                }
-            ]
+            sortOrder: 30,
+            link: 'bl2.admin.manufacturers',
+            label: 'navigation.admin.manufacturers',
+            role: 'admin'
         });
     }
 

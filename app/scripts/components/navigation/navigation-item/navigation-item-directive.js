@@ -35,12 +35,14 @@ define([
         vm.isActive = isActive;
         vm.hasRole = hasRole;
 
-        function isDropdown() {
-            return vm.navItem && vm.navItem.items !== undefined;
+        function isDropdown(navItem) {
+            navItem = navItem || vm.navItem;
+            return navItem && navItem.items !== undefined;
         }
 
-        function isActive() {
-            var stateToCheck = vm.isDropdown() ? vm.navItem.group : vm.navItem.link;
+        function isActive(navItem) {
+            navItem = navItem || vm.navItem;
+            var stateToCheck = isDropdown(navItem) ? navItem.group : navItem.link;
             return $state.includes(stateToCheck);
         }
 
