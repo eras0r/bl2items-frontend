@@ -7,58 +7,63 @@ define([
 
     'use strict';
 
-    var moduleName = 'rn.navigation';
-    var directiveName = 'navigationItem';
-
-    var $compile;
-    var $rootScope;
-    var $state;
-
-    var SessionServiceMock;
-
-    var simpleNavItem = {
-        sortOrder: 10,
-        link: 'bl2.portal',
-        label: 'navigation.portal'
-    };
-
-    var dropDownNavItem = {
-        label: 'navigation.weapons.title',
-        group: 'bl2.weapons',
-        items: [
-            {
-                link: 'bl2.weapons.create',
-                label: 'navigation.weapons.create',
-                role: 'admin',
-                sortOrder: 20
-            },
-            {
-                link: 'bl2.weapons.list',
-                label: 'navigation.weapons.list',
-                sortOrder: 10
-            },
-        ]
-    };
-
     describe('Unit testing', function () {
+
+        var moduleName = 'rn.navigation';
+        var directiveName = 'navigationItem';
+
+        var $compile;
+        var $rootScope;
+        var $scope;
+        var $state;
+
+        var homeNavItem = {
+            sortOrder: 1,
+            link: 'ipplus.home',
+            label: 'global.navigation.home.title'
+        };
+
+        var managementItem = {
+            label: 'global.navigation.management.title',
+            group: 'ipplus.management',
+            items: [
+                {
+                    link: 'ipplus.management.settings',
+                    label: 'global.navigation.management.settings.title',
+                    sortOrder: 1
+                },
+                {
+                    link: 'ipplus.management.dns',
+                    label: 'global.navigation.management.dns.title',
+                    sortOrder: 2
+                }
+            ]
+        };
+
         describe('Module: ' + moduleName, function () {
+
             describe('Directive: ' + directiveName, function () {
 
                 beforeEach(function () {
                     // load the module
                     module(moduleName, function ($stateProvider) {
+
+                        // setup some ui router fake states
                         $stateProvider
-                            .state('bl2', {
-                                url: ''
+                            .state('ipplus', {
+                                'abstract': true
                             })
-                            .state('bl2.portal', {
-                                url: 'portal'
+                            .state('ipplus.home', {
+                                url: '/'
                             })
-                            .state('bl2.weapons', {
-                                url: 'weapons'
+                            .state('ipplus.management', {
+                                url: 'management'
                             })
-                            .state('bl2.weapons.list', {
-                                url: 'list'
+                            .state('ipplus.management.settings', {
+                                url: 'settings'
+                            })
+                            .state('ipplus.management.dns', {
+                                url: 'dns'
                             });
                     });
 
@@ -66,40 +71,43 @@ define([
                     testHelper.includeTemplates();
 
                     inject(
-                        ['$compile', '$rootScope', '$state', 'SessionService', function (_$compile_, _$rootScope_, _$state_, _SessionService_) {
+                        function (_$compile_, _$rootScope_, _$state_) {
                             $compile = _$compile_;
                             $rootScope = _$rootScope_;
                             $state = _$state_;
-                            SessionServiceMock = _SessionService_;
 
-                            spyOn(SessionServiceMock, 'hasRole').and.callFake(function (role) {
-                                //return false;
-                                return role === 'user';
-                            });
-
-                            $rootScope.navItem = {
-                                sortOrder: 10,
-                                link: 'bl2.portal',
-                                label: 'navigation.portal'
-                            };
-
-                        }]
+                            $scope = $rootScope.$new();
+                        }
                     );
+
                 });
 
-                describe('should set the active css class based on the current state', function () {
+                it('should render navigation items by using the uib-dropdown directive', function () {
+                    $rootScope.navItem = homeNavItem;
 
-                    it('should not set the active class for active navigation items', function () {
+                    var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
+                    $rootScope.$digest();
+
+                    var liElem = element[0];
+                    expect(liElem.getAttribute('data-uib-dropdown')).toBeDefined();
+                });
+
+                describe('highlight active navigation items', function () {
+
+                    it('should not set the active css class on inactive navigation items', function () {
+                        $rootScope.navItem = homeNavItem;
+
                         var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
                         $rootScope.$digest();
 
-                        // get the root element (we cannot target it by element.find('li') because replace is set to true
                         var liElem = element[0];
                         expect(liElem.getAttribute('class')).not.toContain('active');
                     });
 
-                    it('should set the active class for active navigation items', function () {
-                        $state.go('bl2.portal');
+                    it('should set the active css class on active navigation items', function () {
+                        $rootScope.navItem = homeNavItem;
+
+                        $state.go('ipplus.home');
 
                         var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
                         $rootScope.$digest();
@@ -108,108 +116,117 @@ define([
                         expect(liElem.getAttribute('class')).toContain('active');
                     });
 
-                    // TODO tests for navigation groups
-
                 });
 
-                describe('should show/hide items based on the required role', function () {
+                describe('non dropdown navigation items', function () {
 
-                    it('should show navigation items which do not have a required role', function () {
-                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
-                        $rootScope.$digest();
+                    var element;
+                    var link;
 
-                        var liElem = element[0];
-                        expect(liElem.getAttribute('class')).not.toContain('ng-hide');
-                    });
+                    beforeEach(function () {
+                        $scope.navItem = homeNavItem;
 
-                    it('should show navigation items for which the user does have the required role', function () {
-                        $rootScope.navItem.role = 'user';
-
-                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
-                        $rootScope.$digest();
-
-                        var liElem = element[0];
-                        expect(liElem.getAttribute('class')).not.toContain('ng-hide');
-                    });
-
-                    it('should hide navigation items for which the user does not have the required role', function () {
-                        $rootScope.navItem.role = 'admin';
-
-                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
-                        $rootScope.$digest();
-
-                        var liElem = element[0];
-                        expect(liElem.getAttribute('class')).toContain('ng-hide');
-                    });
-                });
-
-                describe('should display dropdowns correctly', function () {
-
-                    it('should render non dropdown items correctly', function () {
-                        var $scope = $rootScope.$new();
-                        $scope.navItem = simpleNavItem;
-
-                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
+                        element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
                         $scope.$digest();
 
-                        var link = element.find('a');
-                        expect(link.attr('data-ui-sref')).toEqual($scope.navItem.link);
-                        expect(link.attr('data-dropdown-toggle')).toBeUndefined();
+                        link = element.find('a');
+                    });
 
-                        // check the label
+                    it('should use the ui-sref directive with the proper link', function () {
+                        expect(link.attr('data-ui-sref')).toEqual($scope.navItem.link);
+                    });
+
+                    it('should not use the dropdown-toggle directive', function () {
+                        expect(link.attr('data-dropdown-toggle')).toBeUndefined();
+                    });
+
+                    it('should use the correct label', function () {
                         expect(link.attr('data-translate')).toEqual($scope.navItem.label);
                     });
 
-                    it('should render dropdown items correctly', function () {
-                        var $scope = $rootScope.$new();
-                        $scope.navItem = dropDownNavItem;
+                });
 
-                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
+                describe('dropdown navigation items', function () {
+
+                    var element;
+                    var link;
+
+                    beforeEach(function () {
+                        $scope.navItem = managementItem;
+
+                        element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
                         $scope.$digest();
 
-                        var link = element.find('a');
-                        expect(link.attr('data-ui-sref')).toEqual($scope.navItem.link);
-                        expect(link.attr('data-uib-dropdown-toggle')).toBe('');
+                        link = element.find('a');
+                    });
 
-                        // check the label
-                        var span = link.find('span');
-                        expect(span.attr('data-translate')).toBe($scope.navItem.label);
+                    it('should use the ui-sref directive with the proper link', function () {
+                        expect(link.attr('data-ui-sref')).toBeUndefined();
+                    });
 
-                        var listItems = element.find('li');
-                        //console.log(listItems);
+                    it('should not use the dropdown-toggle directive', function () {
+                        expect(link.attr('data-uib-dropdown-toggle')).toBeDefined();
+                    });
 
-                        // check sub navigation
+                    it('should use the correct label', function () {
+                        var span = element.find('a span');
+                        expect(span.attr('data-translate')).toEqual($scope.navItem.label);
+                    });
+
+                    it('should display the items as sub navigation items', function () {
+                        var list = element.find('ul');
+
+                        expect(list.eq(0).hasClass('dropdown-menu')).toBeTruthy();
+
+                        var listItems = element.find('ul li');
                         expect(listItems.length).toBe(2);
 
                         // first sub item
-                        expect(listItems.eq(0).hasClass('ng-hide')).toBeFalse();
                         var link1 = listItems.eq(0).find('a');
-                        expect(link1.attr('data-ui-sref')).toBe($scope.navItem.items[1].link);
-                        expect(link1.attr('data-translate')).toBe($scope.navItem.items[1].label);
+                        expect(link1.attr('data-ui-sref')).toBe($scope.navItem.items[0].link);
+                        expect(link1.attr('data-translate')).toBe($scope.navItem.items[0].label);
 
                         // second sub item
-                        expect(listItems.eq(1).hasClass('ng-hide')).toBeTrue();
                         var link2 = listItems.eq(1).find('a');
-                        expect(link2.attr('data-ui-sref')).toBe($scope.navItem.items[0].link);
-                        expect(link2.attr('data-translate')).toBe($scope.navItem.items[0].label);
+                        expect(link2.attr('data-ui-sref')).toBe($scope.navItem.items[1].link);
+                        expect(link2.attr('data-translate')).toBe($scope.navItem.items[1].label);
                     });
 
-                    it('should set the active class in the parent group for dropdowns', function() {
-                        var $scope = $rootScope.$new();
-                        $scope.navItem = dropDownNavItem;
+                    describe('highlight active items', function () {
 
-                        $state.go('bl2.weapons.list');
+                        beforeEach(function () {
+                            $scope.navItem = managementItem;
 
-                        var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
-                        $scope.$digest();
+                            $state.go('ipplus.management.settings');
 
-                        var liElem = element[0];
-                        expect(liElem.getAttribute('class')).toContain('active');
+                            element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
+                            $scope.$digest();
+
+                            link = element.find('a');
+                        });
+
+                        it('should highlight active parent navigation items', function () {
+                            expect(element.eq(0).hasClass('active')).toBeTruthy();
+                        });
+
+                        it('should highlight active sub navigation items', function () {
+                            var listItems = element.find('ul li');
+                            expect(listItems.eq(0).hasClass('active')).toBeTruthy();
+                        });
+
+                        it('should not highlight inactive sub navigation items', function () {
+                            var listItems = element.find('ul li');
+                            expect(listItems.eq(1).hasClass('active')).toBeFalsy();
+                        });
+
                     });
+
                 });
 
             });
+
         });
+
     });
 
 });
