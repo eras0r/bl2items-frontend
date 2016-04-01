@@ -6,7 +6,7 @@ define([
 
     'use strict';
 
-    var moduleName = 'bl2ItemsDbApp';
+    var moduleName = 'bl2.itemsDb.app';
 
     var expectedDeps = [
         'ngCookies',
@@ -23,6 +23,7 @@ define([
         'rn.colorPicker',
         'rn.errorHandling',
         /* business specific modules*/
+        'bl2.itemsDb.config',
         'bl2.files',
         'bl2.users',
         'bl2.items',

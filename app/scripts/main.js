@@ -32,7 +32,8 @@ require.config({
         popover: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover',
         'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker.min',
         spectrum: '../bower_components/spectrum/spectrum',
-        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls'
+        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
+        'jasmine-expect': '../bower_components/jasmine-expect/index'
     },
     shim: {
         angular: {

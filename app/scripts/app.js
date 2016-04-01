@@ -4,6 +4,7 @@ define([
     'restangular',
     'angular-translate',
     'angular-translate-loader-static-files',
+    'app-constants',
     'components/security/security-module-inc',
     'components/navigation/navigation-module-inc',
     'components/highlight-text/highlight-text-inc',
@@ -25,7 +26,7 @@ define([
 
     'use strict';
 
-    return angular.module('bl2ItemsDbApp', [
+    return angular.module('bl2.itemsDb.app', [
         'ngCookies',
         'ngSanitize',
         /* external 3rd party modules*/
@@ -40,6 +41,7 @@ define([
         'rn.colorPicker',
         'rn.errorHandling',
         /* business specific modules*/
+        'bl2.itemsDb.config',
         'bl2.files',
         'bl2.users',
         'bl2.items',
@@ -53,8 +55,8 @@ define([
         'bl2.classMods',
         'bl2.skillTree'
     ])
-        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
-            function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider', 'REST_API',
+            function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider, REST_API) {
 
                 $stateProvider
                     .state('bl2', {
@@ -87,7 +89,7 @@ define([
                 //RestangularProvider.setBaseUrl('http://localhost/bl2items-backend-php');
 
                 // local node backend
-                RestangularProvider.setBaseUrl('http://localhost:3000/api/');
+                RestangularProvider.setBaseUrl(REST_API.baseUrl);
 
                 // TODO config for test environment
                 //RestangularProvider.setBaseUrl('../bl2items-backend/');

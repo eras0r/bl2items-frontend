@@ -43,8 +43,10 @@ module.exports = function (grunt) {
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
-                files: ['Gruntfile.js']
+                files: ['Gruntfile.js'],
+                tasks: ['ngconstant:dev']
             },
+            // TODO watch either bower.json or package.json for version changes and  run tasks: ['ngconstant:dev']
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
@@ -158,7 +160,6 @@ module.exports = function (grunt) {
                 ignorePath: '<%= yeoman.app %>/'
             }
         },
-
 
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
@@ -411,13 +412,39 @@ module.exports = function (grunt) {
                     }
                 }
             }
-        }
-    });
+        },
 
+        ngconstant: {
+            options: {
+                name: 'bl2.itemsDb.config',
+                dest: 'app/scripts/app-constants.js',
+                wrap: grunt.file.read('app/scripts/app-constants.tpl.ejs')
+            },
+            dev: {
+                constants: {
+                    ENV: 'dev',
+                    // VERSION: parseVersionFromPomXml(), // TODO take version either from bower.json or package.json
+                    REST_API: {
+                        baseUrl: 'http://localhost:3000/api/'
+                    }
+                }
+            },
+            prod: {
+                constants: {
+                    ENV: 'prod',
+                    // VERSION: parseVersionFromPomXml(), // TODO take version either from bower.json or package.json
+                    REST_API: {
+                        baseUrl: '../api/'
+                    }
+                }
+            }
+        }
+
+    });
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
+            return grunt.task.run(['ngconstant:prod', 'build', 'connect:dist:keepalive']);
         }
 
         grunt.task.run([
@@ -425,6 +452,7 @@ module.exports = function (grunt) {
             'wiredep',
             'concurrent:server',
             'autoprefixer',
+            'ngconstant:dev',
             'connect:livereload',
             'watch'
         ]);
