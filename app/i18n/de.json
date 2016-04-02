@@ -70,6 +70,10 @@
       "login": "Anmelden"
     }
   },
+  "footer": {
+    "version": "Version {{version}}",
+    "environment": "Umgebung {{environment}}"
+  },
   "portal": {
     "pageTitle": "Willlkommen bei der Borderlands 2 Items Datenbank"
   },

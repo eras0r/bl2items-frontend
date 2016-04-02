@@ -14,8 +14,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/spectrum/spectrum.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/spectrum/spectrum.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -36,17 +36,26 @@
 <div class="container-fluid" data-ui-view="messages"></div>
 
 <!-- TODO remove screen size indicator -->
-<div class="row">
-    <div class="col-xs-12">
-        <span class="visible-xs-inline-block label label-default">xs</span>
-        <span class="visible-sm-inline-block label label-primary">sm</span>
-        <span class="visible-md-inline-block label label-success">md</span>
-        <span class="visible-lg-inline-block label label-info">lg</span>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="visible-xs-inline-block label label-default">xs</span>
+            <span class="visible-sm-inline-block label label-primary">sm</span>
+            <span class="visible-md-inline-block label label-success">md</span>
+            <span class="visible-lg-inline-block label label-info">lg</span>
+        </div>
     </div>
 </div>
 
 <!-- Add your site or application content here -->
-<div class="container-fluid" data-ui-view="main"></div>
+<!--<div class="container-fluid" data-ui-view="main"></div>-->
+<div class="container-fluid"><h1>foo</h1></div>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <p class="text-muted">{{PACKAGE.name}} - <span data-translate="footer.version" data-translate-values="{version: PACKAGE.version}"></span> - <span data-translate="footer.environment" data-translate-values="{environment: ENV}"></span></p>
+    </div>
+</footer>
 
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>

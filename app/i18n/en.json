@@ -70,6 +70,10 @@
       "login": "Login"
     }
   },
+  "footer": {
+    "version": "version {{version}}",
+    "environment": "environment {{environment}}"
+  },
   "portal": {
     "pageTitle": "Welcome to the Borderlands 2 items database"
   },

@@ -418,12 +418,14 @@ module.exports = function (grunt) {
             options: {
                 name: 'bl2.itemsDb.config',
                 dest: 'app/scripts/app-constants.js',
-                wrap: grunt.file.read('app/scripts/app-constants.tpl.ejs')
+                wrap: grunt.file.read('app/scripts/app-constants.tpl.ejs'),
+                constants: {
+                    PACKAGE: grunt.file.readJSON('package.json')
+                }
             },
             dev: {
                 constants: {
                     ENV: 'dev',
-                    // VERSION: parseVersionFromPomXml(), // TODO take version either from bower.json or package.json
                     REST_API: {
                         baseUrl: 'http://localhost:3000/api/'
                     }
@@ -432,7 +434,6 @@ module.exports = function (grunt) {
             prod: {
                 constants: {
                     ENV: 'prod',
-                    // VERSION: parseVersionFromPomXml(), // TODO take version either from bower.json or package.json
                     REST_API: {
                         baseUrl: '../api/'
                     }

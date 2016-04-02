@@ -27,34 +27,34 @@ define([
     'use strict';
 
     return angular.module('bl2.itemsDb.app', [
-        'ngCookies',
-        'ngSanitize',
-        /* external 3rd party modules*/
-        'ui.router',
-        'restangular',
-        'pascalprecht.translate',
-        'ui.bootstrap',
-        /* generic core modules */
-        'rn.security',
-        'rn.navigation',
-        'rn.highlightText',
-        'rn.colorPicker',
-        'rn.errorHandling',
-        /* business specific modules*/
-        'bl2.itemsDb.config',
-        'bl2.files',
-        'bl2.users',
-        'bl2.items',
-        'bl2.weapons',
-        'bl2.shields',
-        'bl2.damageTypes',
-        'bl2.manufacturers',
-        'bl2.weaponTypes',
-        'bl2.rarities',
-        'bl2.characters',
-        'bl2.classMods',
-        'bl2.skillTree'
-    ])
+            'ngCookies',
+            'ngSanitize',
+            /* external 3rd party modules*/
+            'ui.router',
+            'restangular',
+            'pascalprecht.translate',
+            'ui.bootstrap',
+            /* generic core modules */
+            'rn.security',
+            'rn.navigation',
+            'rn.highlightText',
+            'rn.colorPicker',
+            'rn.errorHandling',
+            /* business specific modules*/
+            'bl2.itemsDb.config',
+            'bl2.files',
+            'bl2.users',
+            'bl2.items',
+            'bl2.weapons',
+            'bl2.shields',
+            'bl2.damageTypes',
+            'bl2.manufacturers',
+            'bl2.weaponTypes',
+            'bl2.rarities',
+            'bl2.characters',
+            'bl2.classMods',
+            'bl2.skillTree'
+        ])
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider', 'REST_API',
             function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider, REST_API) {
 
@@ -112,14 +112,17 @@ define([
                 $translateProvider.fallbackLanguage('en');
 
             }])
-        .run(['$rootScope', '$state', '$stateParams',
-                function ($rootScope, $state, $stateParams) {
+        .run(['$rootScope', '$state', '$stateParams', 'ENV', 'PACKAGE',
+                function ($rootScope, $state, $stateParams, ENV, PACKAGE) {
                     // It's very handy to add references to $state and $stateParams to the $rootScope
                     // so that you can access them from any scope within your applications. For example,
                     // <li ui-sref-active="active }"> will set the <li> // to active whenever
                     // 'contacts.list' or one of its descendants is active.
                     $rootScope.$state = $state;
                     $rootScope.$stateParams = $stateParams;
+
+                    $rootScope.ENV = ENV;
+                    $rootScope.PACKAGE = PACKAGE;
                 }
             ]
         );
