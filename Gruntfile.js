@@ -341,7 +341,8 @@ module.exports = function (grunt) {
                 'compass:server'
             ],
             test: [
-                'compass'
+                'compass',
+                'ngconstant:dev'
             ],
             dist: [
                 'compass:dist',
