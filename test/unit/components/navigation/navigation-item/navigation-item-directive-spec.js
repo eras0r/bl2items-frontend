@@ -19,22 +19,22 @@ define([
 
         var homeNavItem = {
             sortOrder: 1,
-            link: 'ipplus.home',
+            link: 'bl2.home',
             label: 'global.navigation.home.title'
         };
 
         var managementItem = {
             label: 'global.navigation.management.title',
-            group: 'ipplus.management',
+            group: 'bl2.admin',
             items: [
                 {
-                    link: 'ipplus.management.settings',
-                    label: 'global.navigation.management.settings.title',
+                    link: 'bl2.admin.manufacturers',
+                    label: 'navigation.admin.manufacturers',
                     sortOrder: 1
                 },
                 {
-                    link: 'ipplus.management.dns',
-                    label: 'global.navigation.management.dns.title',
+                    link: 'bl2.admin.rarities',
+                    label: 'navigation.admin.rarities',
                     sortOrder: 2
                 }
             ]
@@ -50,20 +50,20 @@ define([
 
                         // setup some ui router fake states
                         $stateProvider
-                            .state('ipplus', {
+                            .state('bl2', {
                                 'abstract': true
                             })
-                            .state('ipplus.home', {
+                            .state('bl2.home', {
                                 url: '/'
                             })
-                            .state('ipplus.management', {
-                                url: 'management'
+                            .state('bl2.admin', {
+                                url: '/admin'
                             })
-                            .state('ipplus.management.settings', {
-                                url: 'settings'
+                            .state('bl2.admin.manufacturers', {
+                                url: '/manufacturers'
                             })
-                            .state('ipplus.management.dns', {
-                                url: 'dns'
+                            .state('bl2.admin.rarities', {
+                                url: '/rarities'
                             });
                     });
 
@@ -107,7 +107,7 @@ define([
                     it('should set the active css class on active navigation items', function () {
                         $rootScope.navItem = homeNavItem;
 
-                        $state.go('ipplus.home');
+                        $state.go('bl2.home');
 
                         var element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($rootScope);
                         $rootScope.$digest();
@@ -197,7 +197,7 @@ define([
                         beforeEach(function () {
                             $scope.navItem = managementItem;
 
-                            $state.go('ipplus.management.settings');
+                            $state.go('bl2.admin.manufacturers');
 
                             element = $compile('<navigation-item data-nav-item="navItem"></navigation-item>')($scope);
                             $scope.$digest();
