@@ -6,10 +6,10 @@ define([
     'use strict';
 
     weaponModule.controller('WeaponCreateCtrl', [
-        '$log', 'rarities', 'manufacturers', 'damageTypes', 'WeaponService', WeaponCreateCtrl]);
+        '$log', 'rarities', 'manufacturers', 'damageTypes', 'weaponTypes', 'WeaponService', WeaponCreateCtrl]);
 
     /** @ngInject */
-    function WeaponCreateCtrl($log, rarities, manufacturers, damageTypes, WeaponService) {
+    function WeaponCreateCtrl($log, rarities, manufacturers, damageTypes, weaponTypes, WeaponService) {
 
         var vm = this;
 
@@ -23,6 +23,7 @@ define([
             vm.rarities = rarities;
             vm.manufacturers = manufacturers;
             vm.damageTypes = damageTypes;
+            vm.weaponTypes = weaponTypes;
 
             // init default weapon
             vm.weapon = {
@@ -30,6 +31,7 @@ define([
                 level: 50,
                 rarity: vm.rarities[0],
                 manufacturer: vm.manufacturers[0],
+                weaponType: vm.weaponTypes[0],
                 damage: null,
                 accuracy: null,
                 fireRate: null,
