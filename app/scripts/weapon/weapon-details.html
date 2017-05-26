@@ -57,6 +57,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group" data-ng-class="{'has-error': vm.errors.weaponType}">
+                            <label for="weaponType" class="col-lg-3 control-label"
+                                   data-translate="weapons.details.weaponType"></label>
+
+                            <div class="col-lg-9">
+                                <select id="weaponType" data-ng-model="vm.weapon.weaponType"
+                                        data-ng-options="weaponType.name for weaponType in vm.weaponTypes track by weaponType.id"
+                                        class="form-control">
+                                    <!--<option>-none-</option>-->
+                                </select>
+
+                                <span class="help-inline text-danger" data-ng-show="vm.errors.weaponType">{{vm.errors.weaponType}}</span>
+                            </div>
+                        </div>
+
                         <div class="form-group" data-ng-class="{'has-error': vm.errors.damage}">
                             <label for="damage" class="col-lg-3 control-label"
                                    data-translate="weapons.details.damage"></label>
