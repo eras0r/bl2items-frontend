@@ -9,6 +9,7 @@ define([
     var moduleName = 'rn.security';
 
     var expectedDeps = [
+        'ngStorage',
         'ui.router',
         'restangular',
         'http-auth-interceptor'

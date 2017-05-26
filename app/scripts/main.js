@@ -33,7 +33,8 @@ require.config({
         'angular-spectrum-colorpicker': '../bower_components/angular-spectrum-colorpicker/dist/angular-spectrum-colorpicker.min',
         spectrum: '../bower_components/spectrum/spectrum',
         'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
-        'jasmine-expect': '../bower_components/jasmine-expect/dist/jasmine-matchers'
+        'jasmine-expect': '../bower_components/jasmine-expect/dist/jasmine-matchers',
+        ngstorage: '../bower_components/ngstorage/ngStorage'
     },
     shim: {
         angular: {

@@ -7,10 +7,10 @@ define([
 
     securityModule
         .controller('LoginCtrl', [
-            'authService', 'SessionService', 'MessageService', LoginCtrl]);
+            '$localStorage', 'authService', 'SessionService', 'MessageService', LoginCtrl]);
 
     /** @ngInject */
-    function LoginCtrl(authService, SessionService, MessageService) {
+    function LoginCtrl($localStorage, authService, SessionService, MessageService) {
 
         var vm = this;
 
@@ -37,13 +37,12 @@ define([
                 resetInput();
 
                 // store session token
-                localStorage.sessionToken = data.id;
-                localStorage.userId = data.userId;
+                $localStorage.sessionToken = data.id;
+                $localStorage.userId = data.userId;
 
                 MessageService.addMessage({type: 'success', text: 'login.successful'});
 
                 authService.loginConfirmed(data.user);
-
             }, function (response) {
                 MessageService.addMessage({type: 'danger', text: 'login.invalid.credentials'});
                 vm.errors = {

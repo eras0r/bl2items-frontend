@@ -49,7 +49,8 @@ requirejs.config({
         'angular-midway-tester': '../../node_modules/ng-midway-tester/src/ngMidwayTester',
         'test-helper': '../../test/lib/test-helper',
         'templates': '../../test/lib/templates',
-        'jasmine-expect': '../bower_components/jasmine-expect/dist/jasmine-matchers'
+        'jasmine-expect': '../bower_components/jasmine-expect/dist/jasmine-matchers',
+        ngstorage: '../bower_components/ngstorage/ngStorage'
     },
 
     shim: {

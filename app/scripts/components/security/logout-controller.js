@@ -7,10 +7,10 @@ define([
 
     securityModule
         .controller('LogoutCtrl', [
-            '$log', 'SessionService', 'MessageService', LogoutCtrl]);
+            '$localStorage', '$log', 'SessionService', 'MessageService', LogoutCtrl]);
 
     /** @ngInject */
-    function LogoutCtrl($log, SessionService, MessageService) {
+    function LogoutCtrl($localStorage, $log, SessionService, MessageService) {
 
         var vm = this;
 
@@ -19,13 +19,14 @@ define([
         init();
 
         function init() {
-            if (!localStorage.sessionToken) {
+            if (!$localStorage.sessionToken) {
                 MessageService.addMessage({type: 'danger', text: 'logout.not.logged.in'});
                 return;
             }
 
             SessionService.logout().then(function (data) {
-                localStorage.removeItem('sessionToken');
+                delete $localStorage.sessionToken;
+                delete $localStorage.userId;
                 SessionService.setCurrentUser(undefined);
             }, function (response) {
                 // TODO show error message

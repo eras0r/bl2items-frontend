@@ -5,7 +5,7 @@ define([
 
     'use strict';
 
-    securityModule.factory('SessionService', ['$state', 'Restangular', function ($state, Restangular) {
+    securityModule.factory('SessionService', ['$localStorage', '$state', 'Restangular', function ($localStorage, $state, Restangular) {
 
         var currentUser;
 
@@ -14,7 +14,7 @@ define([
             getCurrentUser: function () {
                 if (typeof currentUser === 'undefined') {
                     var filter = {include: ['roles']};
-                    currentUser = Restangular.one('users/' + localStorage.userId + '/').get({filter: filter}).$object;
+                    currentUser = Restangular.one('users/' + $localStorage.userId + '/').get({filter: filter}).$object;
                 }
 
                 return currentUser;

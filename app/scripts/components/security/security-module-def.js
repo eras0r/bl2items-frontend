@@ -3,13 +3,14 @@
  */
 define([
     'angular',
+    'ngstorage',
     'angular-http-auth'
 ], function (angular) {
 
     'use strict';
 
     /** @ngInject */
-    function SecurityModuleConfig($stateProvider, RestangularProvider) {
+    function SecurityModuleConfig($stateProvider, RestangularProvider, $localStorageProvider) {
         // removes the body for remove / delete requests
         RestangularProvider.addRequestInterceptor(function (elem, operation, what, url) {
             if (operation === 'remove') {
@@ -23,7 +24,7 @@ define([
                 element: element,
                 params: params,
                 headers: _.extend(headers, {
-                    'Authorization': localStorage.sessionToken
+                    'Authorization': $localStorageProvider.get('sessionToken')
                 }),
                 httpConfig: httpConfig
             };
@@ -71,11 +72,12 @@ define([
 
     return angular
         .module('rn.security', [
+            'ngStorage',
             'ui.router',
             'restangular',
             'http-auth-interceptor'
         ])
-        .config(['$stateProvider', 'RestangularProvider', SecurityModuleConfig])
+        .config(['$stateProvider', 'RestangularProvider', '$localStorageProvider', SecurityModuleConfig])
         .run(['$rootScope', '$state', 'SessionService', SecurityModuleRun]);
 
 });

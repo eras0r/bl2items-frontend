@@ -4,6 +4,7 @@ define([
     'restangular',
     'angular-translate',
     'angular-translate-loader-static-files',
+    'ngstorage',
     'app-constants',
     'components/security/security-module-inc',
     'components/navigation/navigation-module-inc',
@@ -30,6 +31,7 @@ define([
             'ngCookies',
             'ngSanitize',
             /* external 3rd party modules*/
+            'ngStorage',
             'ui.router',
             'restangular',
             'pascalprecht.translate',

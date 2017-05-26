@@ -12,6 +12,7 @@ define([
         'ngCookies',
         'ngSanitize',
         /* external 3rd party modules*/
+        'ngStorage',
         'ui.router',
         'restangular',
         'pascalprecht.translate',

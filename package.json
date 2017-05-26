@@ -40,6 +40,7 @@
     "karma-ng-html2js-preprocessor-requirejs": "^0.1.0",
     "karma-ng-scenario": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
+    "karma-chrome-launcher": "^2.1.1",
     "karma-requirejs": "^1.1.0",
     "load-grunt-tasks": "^3.4.1",
     "ng-midway-tester": "^2.0.5",
