@@ -12,7 +12,7 @@ define([
     'use strict';
 
     return angular
-        .module('bl2.files', ['ui.router', 'restangular', 'angularFileUpload', 'rn.navigation'])
+        .module('bl2.files', ['ui.router', 'restangular', 'ngFileUpload', 'rn.navigation'])
         .config(['$stateProvider', 'NavigationServiceProvider', FileModuleConfig]);
 
     /** @ngInject */

@@ -11,7 +11,7 @@ define([
     var expectedDeps = [
         'ui.router',
         'restangular',
-        'angularFileUpload',
+        'ngFileUpload',
         'rn.navigation'
     ];
 

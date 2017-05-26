@@ -30,7 +30,7 @@ requirejs.config({
         'cryptojs.sha512': '../bower_components/cryptojslib/components/sha512',
         'cryptojs.hmac': '../bower_components/cryptojslib/components/hmac',
         lodash: '../bower_components/lodash/lodash',
-        'ng-file-upload': '../bower_components/ng-file-upload/angular-file-upload',
+        'ng-file-upload': '../bower_components/ng-file-upload/ng-file-upload',
         affix: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix',
         alert: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert',
         button: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button',

@@ -10,7 +10,6 @@ define([
         function ($compile, $http, $templateCache, $state, $filter) {
 
             var getTemplate = function (contentType) {
-                var templateLoader;
                 var baseUrl = 'scripts/item/display-item/';
                 var templateMap = {
                     weapon: 'weapon.html',
@@ -19,9 +18,7 @@ define([
                 };
 
                 var templateUrl = baseUrl + templateMap[contentType];
-                templateLoader = $http.get(templateUrl, {cache: $templateCache});
-
-                return templateLoader;
+                return $http.get(templateUrl, {cache: $templateCache});
             };
 
             var linker = function (scope, element, attrs) {
@@ -33,11 +30,8 @@ define([
                     itemType = scope.item.itemType;
                 }
 
-                var loader = getTemplate(itemType);
-
-                var promise = loader.success(function (html) {
-                    element.html(html);
-                }).then(function (response) {
+                getTemplate(itemType).then(function (response) {
+                    element.html(response.data);
                     element.replaceWith($compile(element.html())(scope));
                 });
             };
@@ -81,11 +75,12 @@ define([
                         };
 
                         $scope.hasSpecialDamageType = function () {
-                            return $scope.getDamageType().chanceLabel;
+                            if ($scope.getDamageType()) {
+                                return $scope.getDamageType().chanceLabel;
+                            }
                         };
 
                         $scope.getDamageType = function () {
-
                             if ($scope.item && $scope.item.damageType) {
                                 return $scope.item.damageType;
                             }
